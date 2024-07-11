@@ -25,7 +25,6 @@ export default defineType({
       // set corresponds with HTML tags, but you can set any title or value
       // you want, and decide how you want to deal with it where you want to
       // use your content.
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       styles: [
         { title: '正文', value: 'normal' },
@@ -74,7 +73,6 @@ export default defineType({
       type: 'image',
       title: '图片',
       options: { hotspot: true },
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       fields: [
         {
@@ -93,7 +91,6 @@ export default defineType({
       type: 'object',
       name: 'tweet',
       title: '推文',
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       fields: [
         {
@@ -103,7 +100,6 @@ export default defineType({
         },
       ],
       components: {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         preview: Tweet as any,
       },
       preview: {

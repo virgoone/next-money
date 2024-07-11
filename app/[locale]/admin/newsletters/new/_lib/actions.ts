@@ -11,7 +11,7 @@ import { newsletters, subscribers } from '~/db/schema'
 import NewslettersTemplate from '~/emails/NewslettersTemplate'
 import { env } from '~/env.mjs'
 import { getErrorMessage } from '~/lib/handle-error'
-import { resend } from '~/lib/mail'
+import { resend } from '~/lib/email'
 
 import { CreateNewsletterSchema, CreateSchema } from './validations'
 

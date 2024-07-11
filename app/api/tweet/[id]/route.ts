@@ -11,7 +11,6 @@ export async function GET(req: Request, { params }: RouteSegment) {
       req,
       NextResponse.json({ data: tweet ?? null }, { status: tweet ? 200 : 404 })
     )
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     return cors(
       req,

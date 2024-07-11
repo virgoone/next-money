@@ -31,7 +31,6 @@ export const Post = z.object({
 })
 export type Post = z.infer<typeof Post>
 export type PostDetail = Post & {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   headings: any[]
   related?: Post[]
 }

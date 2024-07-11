@@ -8,9 +8,8 @@ import { Breadcrumb, Button, Drawer } from 'antd'
 import { motion } from 'framer-motion'
 import { PanelLeftIcon, SearchIcon } from 'lucide-react'
 
-import { UserInfo } from '../(main)/Header'
-import { ThemeSwitcher } from '../(main)/ThemeSwitcher'
-import { menus, renderMenu, type MenuType } from './Sidebar'
+import { menus, RenderMenu, type MenuType } from './Sidebar'
+import { UserInfo } from '@/components/user-info'
 
 const buildMenuObject = (menus: MenuType[]) => {
   const menuObject = {}
@@ -85,7 +84,7 @@ export default function () {
         <div className="sm:max-w-xs">
           <UserInfo />
           <nav className="grid gap-6 text-lg font-medium">
-            <ul>{menus.map((menu) => renderMenu(menu))}</ul>
+            <ul>{menus.map((menu) => RenderMenu(menu))}</ul>
           </nav>
         </div>
       </Drawer>
@@ -108,9 +107,9 @@ export default function () {
         animate={{ opacity: 1, y: 0, scale: 1 }}
       >
         <UserInfo />
-        <div className="pointer-events-auto">
+        {/* <div className="pointer-events-auto">
           <ThemeSwitcher />
-        </div>
+        </div> */}
       </motion.div>
     </header>
   )

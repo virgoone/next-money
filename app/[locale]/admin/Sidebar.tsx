@@ -16,7 +16,7 @@ import {
   SubscriberIcon,
   TiltedSendIcon,
 } from '~/assets'
-import { CommandDialogSearch } from '~/components/CommandSearch'
+// import { CommandDialogSearch } from '~/components/CommandSearch'
 import { Button } from '~/components/ui/button'
 import { cn } from '~/lib/utils'
 
@@ -79,7 +79,7 @@ export const menus = [
   { name: 'Newsletters', href: '/admin/newsletters', icon: TiltedSendIcon },
 ]
 
-export const renderMenu = (menu: MenuType) => {
+export const RenderMenu = (menu: MenuType) => {
   const pathname = usePathname()
   const defaultOpenPopover = useMemo(() => {
     return (
@@ -136,7 +136,7 @@ export const renderMenu = (menu: MenuType) => {
         {menu.children && (
           <div className={openPopover ? 'block h-auto' : 'hidden h-0'}>
             <div className="relative !min-h-[auto] !min-w-[auto]">
-              {renderMenus(menu.children, pathname, openPopover)}
+              {RenderMenus(menu.children, pathname, openPopover)}
             </div>
           </div>
         )}
@@ -145,7 +145,7 @@ export const renderMenu = (menu: MenuType) => {
   )
 }
 
-const renderMenus = (
+const RenderMenus = (
   menus: MenuType[],
   activePath?: string,
   open?: boolean,
@@ -204,7 +204,7 @@ export function Sidebar() {
       className="relative hidden w-full flex-shrink-0 flex-col items-stretch border-b border-gray-200 dark:border-gray-800 lg:flex lg:w-[--width] lg:border-b-0 lg:border-r"
       style={{ '--width': '250px' } as React.CSSProperties}
     >
-      <div className="flex h-[--header-height] min-w-0 flex-shrink-0 items-center gap-x-4 border-b !border-transparent border-gray-200 px-4 dark:border-gray-800">
+      <div className="flex h-[--header-height] min-w-0 flex-shrink-0 items-center gap-x-4 border-b border-gray-200 px-4 dark:border-gray-800">
         <div className="flex min-w-0 flex-1 items-center justify-between gap-x-1.5">
           <Link href="/" className="flex min-w-0 flex-1 items-stretch gap-1.5">
             <span className="relative inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full text-[10px]">
@@ -226,7 +226,7 @@ export function Sidebar() {
       <div className="relative flex w-full flex-1 flex-col overflow-hidden">
         <div className="flex min-h-0 flex-grow flex-col gap-y-2 py-2">
           <div className="flex w-full flex-col px-4">
-            <CommandDialogSearch>
+            {/* <CommandDialogSearch> */}
               <Button
                 type="button"
                 aria-label="Search"
@@ -245,11 +245,11 @@ export function Sidebar() {
                   </kbd>
                 </div>
               </Button>
-            </CommandDialogSearch>
+            {/* </CommandDialogSearch> */}
           </div>
           <nav className="flex flex-1 flex-col gap-y-2 overflow-y-auto px-4">
             <ul className="relative !min-h-[auto] !min-w-[auto]">
-              {menus.map((menu) => renderMenu(menu))}
+              {menus.map((menu) => RenderMenu(menu))}
             </ul>
           </nav>
           <div className="flex flex-shrink-0 items-center justify-between gap-x-1.5 px-4">

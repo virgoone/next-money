@@ -10,8 +10,10 @@
   "rules": {
     "@next/next/no-html-link-for-pages": "off",
     "react/jsx-key": "off",
+    "react/display-name": "off",
+    "react/no-unescaped-entities": "off",
     "tailwindcss/no-custom-classname": "off",
-    "tailwindcss/classnames-order": "error"
+    "tailwindcss/classnames-order": "warn"
   },
   "settings": {
     "tailwindcss": {

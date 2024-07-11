@@ -1,7 +1,7 @@
 import { Container } from "~/components/layout/container";
 import { SocialLink } from "~/components/links/SocialLink";
 import { useTranslations } from "next-intl";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import Balancer from "react-wrap-balancer";
 
 import { BlogPosts } from "../BlogPosts";
@@ -32,6 +32,7 @@ export async function generateMetadata({
 
 // TODO: add pagination or infinite scroll
 export default function BlogPage({ locale }: { locale: string }) {
+  unstable_setRequestLocale(locale);
   const t = useTranslations("BlogPage");
   return (
     <Container className="mb-16 mt-16 sm:mt-24">

@@ -2,7 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { Ratelimit } from "@upstash/ratelimit";
 import { db } from "~/db";
 import { MediaDto, MediaHashids } from "~/db/dto/media.dto";
-import { media, post } from "~/db/schema";
+import { media } from "~/db/schema";
 import { env } from "~/env.mjs";
 import { getErrorMessage } from "~/lib/handle-error";
 import { redis } from "~/lib/redis";
@@ -36,7 +36,7 @@ export async function GET(req: NextRequest) {
   try {
     const start = Date.now();
     const { success } = await ratelimit.limit(
-      getKey(req.ip) + `_${req.ip ?? ""}`,
+      getKey(req.ip!) + `_${req.ip ?? ""}`,
     );
     if (!success) {
       return new Response("Too Many Requests", {
@@ -88,7 +88,7 @@ export async function GET(req: NextRequest) {
 export async function DELETE(req: NextRequest) {
   try {
     const { success } = await ratelimit.limit(
-      getKey(req.ip) + `_${req.ip ?? ""}`,
+      getKey(req.ip!) + `_${req.ip ?? ""}`,
     );
     if (!success) {
       return new Response("Too Many Requests", {
@@ -106,19 +106,6 @@ export async function DELETE(req: NextRequest) {
     if (!data) {
       return NextResponse.json({
         error: "Media not found",
-      });
-    }
-    const total = await db
-      .select({
-        count: count(),
-      })
-      .from(post)
-      .where(eq(post.mainImage, mediaId as number))
-      .execute()
-      .then((res) => res[0]?.count ?? 0);
-    if (total > 0) {
-      return NextResponse.json({
-        error: "Media used, can`t delete",
       });
     }
     const s3 = new S3Service({

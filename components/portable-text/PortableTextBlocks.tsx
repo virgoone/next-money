@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { type PortableTextComponentProps } from '@portabletext/react'
 import React from 'react'
 
@@ -11,7 +10,6 @@ export function PortableTextBlocksNormal({
 }: PortableTextComponentProps<any>) {
   const isEmpty = !Boolean(
     value.children
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
       .map((child: any) => ('text' in child ? child.text : ''))
       .join('')
   )
