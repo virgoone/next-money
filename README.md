@@ -1,6 +1,6 @@
-<a href="https://next-saas-stripe-starter.vercel.app">
+<a href="https://next-money.vercel.app">
   <img alt="SaaS Starter" src="public/og.jpg">
-  <h1 align="center">Next SaaS Stripe Starter</h1>
+  <h1 align="center">Next Money Stripe Starter</h1>
 </a>
 
 <p align="center">
@@ -8,8 +8,8 @@
 </p>
 
 <p align="center">
-  <a href="https://twitter.com/miickasmt">
-    <img src="https://img.shields.io/twitter/follow/miickasmt?style=flat&label=miickasmt&logo=twitter&color=0bf&logoColor=fff" alt="Mickasmt Twitter follower count" />
+  <a href="https://twitter.com/koyaguo">
+    <img src="https://img.shields.io/twitter/follow/koyaguo?style=flat&label=miickasmt&logo=twitter&color=0bf&logoColor=fff" alt="Koyaguo Twitter follower count" />
   </a>
 </p>
 
@@ -24,7 +24,7 @@
 
 ## Introduction
 
-Empower your next project with the stack of Next.js 14, Prisma, Neon, Auth.js v5, Resend, React Email, Shadcn/ui, and Stripe.
+Empower your next project with the stack of Next.js 14, Drizzle, Neon, Clerk Auth, Resend, React Email, Shadcn/ui, and Stripe.
 <br/>
 All seamlessly integrated with the SaaS Starter to accelerate your development and saas journey.
 
@@ -33,7 +33,7 @@ All seamlessly integrated with the SaaS Starter to accelerate your development a
 Clone & create this repo locally with the following command:
 
 ```bash
-npx create-next-app my-saas-project --example "https://github.com/mickasmt/next-saas-stripe-starter"
+npx create-next-app my-saas-project --example "https://github.com/virgone/next-money"
 ```
 
 1. Install dependencies using pnpm:
@@ -62,33 +62,12 @@ pnpm run dev
 > [!WARNING]  
 > You need update `.react-email` folder before use `pnpm run email`. Check the link [here](https://github.com/resend/react-email/issues/868#issuecomment-1828411325) if you have the error : `renderToReadableStream not found`
 >
-> After upgrade Auth.js to v5: `NEXTAUTH_URL` has removed from `.env.example`.
-
-
-## Roadmap
-
-- [x] ~Fix Vaul drawer for mobile sign in~
-- [x] ~Update OG image~
-- [x] ~Add Server Actions on billing form (stripe)~
-- [x] ~Add Server Actions on user name form~
-- [x] ~Upgrade Auth.js to v5~
-- [x] ~Change database platform for Neon (planetscale removes its free plan on April 2024)~
-- [x] ~Switch subscription plan (enable on stripe dashboard)~
-- [x] ~Update documentation for installation & configuration~
-- [ ] Improve blog design
-- [ ] Improve dashboard design
-- [ ] Upgrade eslint to v9
-- [ ] Add resend for success subscriptions
-
-## Tech Stack + Features
-
-https://github.com/mickasmt/next-saas-stripe-starter/assets/62285783/828a4e0f-30e3-4cfe-96ff-4dfd9cd55124
 
 ### Frameworks
 
 - [Next.js](https://nextjs.org/) – React framework for building performant apps with the best developer experience
-- [Auth.js](https://authjs.dev/) – Handle user authentication with ease with providers like Google, Twitter, GitHub, etc.
-- [Prisma](https://www.prisma.io/) – Typescript-first ORM for Node.js
+- [Clerk Auth](https://clerk.com/) – The most comprehensive User Management Platform.
+- [Drizzle](https://orm.drizzle.team/) – Typescript-first ORM for Node.js
 - [React Email](https://react.email/) – Versatile email framework for efficient and flexible email development
 
 ### Platforms
@@ -128,7 +107,7 @@ https://github.com/mickasmt/next-saas-stripe-starter/assets/62285783/828a4e0f-30
 
 ## Author
 
-Created by [@miickasmt](https://twitter.com/miickasmt) in 2023, released under the [MIT license](https://github.com/shadcn/taxonomy/blob/main/LICENSE.md).
+Created by [@koyaguo](https://twitter.com/koyaguo) in 2023, released under the [MIT license](https://github.com/shadcn/taxonomy/blob/main/LICENSE.md).
 
 ## Credits
 
@@ -137,3 +116,4 @@ This project was inspired by shadcn's [Taxonomy](https://github.com/shadcn-ui/ta
 - Shadcn ([@shadcn](https://twitter.com/shadcn))
 - Steven Tey ([@steventey](https://twitter.com/steventey))
 - Antonio Erdeljac ([@YTCodeAntonio](https://twitter.com/AntonioErdeljac))
+- Next SaaS Stripe Starter([https://x.com/miickasmt](https://github.com/mickasmt/next-saas-stripe-starter))
