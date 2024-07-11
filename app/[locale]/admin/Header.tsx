@@ -1,76 +1,76 @@
-'use client'
+"use client";
 
-import { Fragment, useMemo, useState } from 'react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { Fragment, useMemo, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Breadcrumb, Button, Drawer } from "antd";
+import { motion } from "framer-motion";
+import { PanelLeftIcon, SearchIcon } from "lucide-react";
 
-import { Breadcrumb, Button, Drawer } from 'antd'
-import { motion } from 'framer-motion'
-import { PanelLeftIcon, SearchIcon } from 'lucide-react'
+import { UserInfo } from "@/components/user-info";
 
-import { menus, RenderMenu, type MenuType } from './Sidebar'
-import { UserInfo } from '@/components/user-info'
+import { menus, RenderMenu, type MenuType } from "./Sidebar";
 
 const buildMenuObject = (menus: MenuType[]) => {
-  const menuObject = {}
+  const menuObject: Record<string, any> = {};
   menus.forEach((item) => {
-    menuObject[item.href] = { ...item }
+    menuObject[item.href!] = { ...item };
     if (item.children) {
       item.children.forEach((child) => {
         // 动态路由不作为顶级菜单项添加
-        if (!child.href.includes(':')) {
-          menuObject[child.href] = { ...child, parent: item }
+        if (!child.href!.includes(":")) {
+          menuObject[child.href!] = { ...child, parent: item };
         }
-      })
+      });
     }
-  })
-  return menuObject
-}
+  });
+  return menuObject;
+};
 
 // 修改 findMenu 以处理动态路由
 const findMenu = (menus: MenuType[], path: string) => {
-  const menuObject = buildMenuObject(menus)
+  const menuObject = buildMenuObject(menus);
   const findBreadcrumb = (menu, currentPath) => {
-    const item = menu[currentPath]
+    const item = menu[currentPath];
 
     if (!item) {
-      return [] // 如果找不到菜单项，返回空数组
+      return []; // 如果找不到菜单项，返回空数组
     }
 
-    const breadcrumbs = [{ ...item, parent: null }]
+    const breadcrumbs = [{ ...item, parent: null }];
 
     // 如果当前项有 parent，并且不是动态路由，则递归查找父菜单项
     if (item.parent && !item.isDynamic) {
       return [
         ...findBreadcrumb(menu, item.parent.href),
         { ...item, parent: null },
-      ]
+      ];
     }
 
     // 如果当前路由是动态路由，尝试找到匹配的静态路由作为父路由
     if (item.isDynamic) {
-      const staticPath = currentPath.split('/').slice(0, -1).join('/')
-      const parentItem = menu[staticPath] || item.parent
+      const staticPath = currentPath.split("/").slice(0, -1).join("/");
+      const parentItem = menu[staticPath] || item.parent;
       if (parentItem) {
-        return [...findBreadcrumb(menu, staticPath), { ...item, parent: null }]
+        return [...findBreadcrumb(menu, staticPath), { ...item, parent: null }];
       }
     }
 
-    return breadcrumbs
-  }
+    return breadcrumbs;
+  };
 
-  const breadcrumbs = findBreadcrumb(menuObject, path)
+  const breadcrumbs = findBreadcrumb(menuObject, path);
 
-  return breadcrumbs // 返回清理后的面包屑数组
-}
+  return breadcrumbs; // 返回清理后的面包屑数组
+};
 export default function () {
-  const pathname = usePathname()
-  const [open, setOpen] = useState(false)
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
 
   return (
     <header className="flex h-[--header-height] min-w-0 flex-shrink-0 items-center gap-x-4 border-b border-gray-200 px-4 dark:border-gray-800">
       <Button
-        className="!hidden !sm:block"
+        className="!sm:block !hidden"
         shape="circle"
         type="default"
         onClick={() => setOpen(true)}
@@ -97,7 +97,7 @@ export default function () {
             ) : (
               item.name
             ),
-          }
+          };
         })}
       />
 
@@ -112,5 +112,5 @@ export default function () {
         </div> */}
       </motion.div>
     </header>
-  )
+  );
 }

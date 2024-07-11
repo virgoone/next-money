@@ -1,5 +1,5 @@
 {
-  "id": "115844ef-3045-43a2-a7c2-479d337605ff",
+  "id": "1c65e856-deb8-41a6-8db0-98c89835a76f",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -250,37 +250,37 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "integer",
+          "type": "serial",
           "primaryKey": true,
           "notNull": true
         },
         "name": {
           "name": "name",
-          "type": "text",
+          "type": "varchar",
           "primaryKey": false,
           "notNull": true
         },
         "key": {
           "name": "key",
-          "type": "text",
+          "type": "varchar",
           "primaryKey": false,
           "notNull": true
         },
         "url": {
           "name": "url",
-          "type": "text",
+          "type": "varchar",
           "primaryKey": false,
           "notNull": true
         },
         "color": {
           "name": "color",
-          "type": "text",
+          "type": "varchar",
           "primaryKey": false,
           "notNull": false
         },
         "blurhash": {
           "name": "blurhash",
-          "type": "text",
+          "type": "varchar",
           "primaryKey": false,
           "notNull": false
         },
@@ -292,13 +292,13 @@
         },
         "file_type": {
           "name": "file_type",
-          "type": "text",
+          "type": "varchar",
           "primaryKey": false,
           "notNull": true
         },
         "md5": {
           "name": "md5",
-          "type": "text",
+          "type": "varchar",
           "primaryKey": false,
           "notNull": true
         },
@@ -350,6 +350,12 @@
           "primaryKey": false,
           "notNull": false
         },
+        "locale": {
+          "name": "locale",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": false
+        },
         "sent_at": {
           "name": "sent_at",
           "type": "timestamp",
@@ -395,6 +401,12 @@
         "token": {
           "name": "token",
           "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "locale": {
+          "name": "locale",
+          "type": "varchar(10)",
           "primaryKey": false,
           "notNull": false
         },

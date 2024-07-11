@@ -40,15 +40,15 @@ CREATE TABLE IF NOT EXISTS "face_views" (
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "media" (
-	"id" integer PRIMARY KEY NOT NULL,
-	"name" text NOT NULL,
-	"key" text NOT NULL,
-	"url" text NOT NULL,
-	"color" text,
-	"blurhash" text,
+	"id" serial PRIMARY KEY NOT NULL,
+	"name" varchar NOT NULL,
+	"key" varchar NOT NULL,
+	"url" varchar NOT NULL,
+	"color" varchar,
+	"blurhash" varchar,
 	"file_size" integer NOT NULL,
-	"file_type" text NOT NULL,
-	"md5" text NOT NULL,
+	"file_type" varchar NOT NULL,
+	"md5" varchar NOT NULL,
 	"ext" json,
 	"created_at" timestamp DEFAULT now(),
 	"updated_at" timestamp DEFAULT now()
@@ -58,6 +58,7 @@ CREATE TABLE IF NOT EXISTS "newsletters" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"subject" varchar(200),
 	"body" text,
+	"locale" varchar(10),
 	"sent_at" timestamp,
 	"created_at" timestamp DEFAULT now(),
 	"updated_at" timestamp DEFAULT now()
@@ -67,6 +68,7 @@ CREATE TABLE IF NOT EXISTS "subscribers" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"email" varchar(120),
 	"token" varchar(50),
+	"locale" varchar(10),
 	"subscribed_at" timestamp,
 	"unsubscribed_at" timestamp,
 	"updated_at" timestamp DEFAULT now()

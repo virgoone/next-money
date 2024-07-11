@@ -1,1 +1,0 @@
-ALTER TABLE "newsletters" ADD COLUMN "locale" varchar(10);

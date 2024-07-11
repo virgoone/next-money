@@ -47,15 +47,15 @@ export const comments = pgTable(
 );
 
 export const media = pgTable("media", {
-  id: integer("id").primaryKey(),
-  name: text("name").notNull(),
-  key: text("key").notNull(),
-  url: text("url").notNull(),
-  color: text("color"),
-  blurhash: text("blurhash"),
+  id: serial("id").primaryKey(),
+  name: varchar("name").notNull(),
+  key: varchar("key").notNull(),
+  url: varchar("url").notNull(),
+  color: varchar("color"),
+  blurhash: varchar("blurhash"),
   fileSize: integer("file_size").notNull(),
-  fileType: text("file_type").notNull(),
-  md5: text("md5").notNull(),
+  fileType: varchar("file_type").notNull(),
+  md5: varchar("md5").notNull(),
   ext: json("ext"),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),

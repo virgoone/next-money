@@ -1,6 +1,6 @@
 function createPixelArray(imgData, pixelCount, quality) {
   const pixels = imgData
-  const pixelArray = []
+  const pixelArray: any[] = []
 
   for (let i = 0, offset, r, g, b, a; i < pixelCount; i = i + quality) {
     offset = i * 4

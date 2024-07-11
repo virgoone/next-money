@@ -56,7 +56,7 @@ export async function POST(req: NextRequest) {
         fileSize,
         fileType,
         md5,
-        ext,
+        ext: ext as any,
       })
       .returning({
         newId: media.id,
@@ -66,7 +66,7 @@ export async function POST(req: NextRequest) {
       {
         id: MediaHashids.encode(newMedia.newId),
         createdAt: new Date(),
-      } satisfies MediaDto,
+      },
       {
         status: 201,
       },

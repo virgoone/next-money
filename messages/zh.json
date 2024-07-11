@@ -1,46 +1,79 @@
 {
   "Error": {
-    "description": "<p>We've unfortunately encountered an error.</p><p>You can try to <retry>reload the page</retry> you were visiting.</p>",
-    "title": "Something went wrong!"
+    "description": "<p>很遗憾，我们遇到了一个错误。</p><p>您可以尝试<retry>重新加载</retry>您正在访问的页面。</p>",
+    "title": "出错了！"
   },
   "IndexPage": {
-    "description": "This is a basic example that demonstrates the usage of <code>next-intl</code> with the Next.js App Router. Try changing the locale in the top right corner and see how the content changes.",
-    "title": "next-intl example"
+    "intro": "介绍随机人脸生成器",
+    "description": "使用我们的AI驱动的“这个人不存在”人脸生成器创建独特的面孔。",
+    "title": "随机人脸生成器",
+    "subtitle": "这个人不存在",
+    "powered": {
+      "title": "技术支持"
+    },
+    "bent": {
+      "first": {
+        "title": "可定制"
+      }
+    },
+    "action": {
+      "pricing": "查看定价",
+      "github": {
+        "sm": "在",
+        "normal": "GitHub"
+      }
+    }
+  },
+  "NewsLetter": {
+    "title": "加入我们的新闻通讯",
+    "subtitle": "订阅以获取更新！",
+    "form": {
+      "placeholder": "输入您的电子邮件地址",
+      "aria_label": "电子邮件",
+      "confirm": "请检查订阅确认电子邮件。",
+      "button": "订阅"
+    }
   },
   "LocaleLayout": {
-    "title": "Next Money Starter"
+    "title": "这个人不存在 | 随机人脸生成器",
+    "description": "使用我们的AI驱动的“这个人不存在”人脸生成器创建独特的面孔。免费享受1024x1024高清面孔。一次最多生成8张面孔，可以选择性别或随机。探索终极人脸生成器工具！"
   },
   "LocaleSwitcher": {
-    "label": "Change language",
-    "locale": "{locale, select, de {🇩🇪 Deutsch} en {🇺🇸 English} other {Unknown}}"
+    "label": "更改语言",
+    "locale": "{locale, select, zh {🇨🇳 中文} en {🇺🇸 英文} other {未知}}"
   },
   "Manifest": {
-    "name": "next-intl example"
+    "name": "随机人脸生成器"
   },
   "Navigation": {
-    "home": "Home",
-    "pathnames": "Pathnames"
+    "pricing": "定价",
+    "title": "随机人脸生成器",
+    "blog": "博客",
+    "dashboard": "控制台",
+    "tooltip": {
+      "login": "登录"
+    }
   },
   "NotFoundPage": {
-    "description": "Please double-check the browser address bar or use the navigation to go to a known page.",
-    "title": "Page not found"
+    "description": "请仔细检查浏览器地址栏或使用导航前往已知页面。",
+    "title": "页面未找到"
   },
   "PageLayout": {
     "links": {
       "docs": {
-        "description": "Learn more about next-intl in the official docs.",
+        "description": "在官方文档中了解更多关于next-intl的信息。",
         "href": "https://next-intl-docs.vercel.app/",
-        "title": "Docs"
+        "title": "文档"
       },
       "source": {
-        "description": "Browse the source code of this example on GitHub.",
+        "description": "在GitHub上浏览此示例的源代码。",
         "href": "https://github.com/amannn/next-intl/tree/main/examples/example-app-router",
-        "title": "Source code"
+        "title": "源代码"
       }
     }
   },
-  "PathnamesPage": {
-    "description": "<p>The pathnames are internationalized too.</p><p>If you're using the default language English, you'll see <code>/en/pathnames</code> in the browser address bar on this page.</p><p>If you change the locale to German, the URL is localized accordingly (<code>/de/pfadnamen</code>).</p>",
-    "title": "Pathnames"
+  "BlogPage": {
+    "title": "博客",
+    "description": "来自我们的最新消息和更新"
   }
 }

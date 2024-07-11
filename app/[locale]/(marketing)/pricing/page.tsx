@@ -1,15 +1,21 @@
-import { PricingCards } from "@/components/pricing-cards";
-import { PricingFaq } from "@/components/pricing-faq";
+import { currentUser } from "@clerk/nextjs/server";
+import { unstable_setRequestLocale } from "next-intl/server";
+
 import { getUserSubscriptionPlan } from "@/lib/subscription";
 import { constructMetadata } from "@/lib/utils";
-import { currentUser } from "@clerk/nextjs/server";
+import { PricingCards } from "@/components/pricing-cards";
+import { PricingFaq } from "@/components/pricing-faq";
 
 export const metadata = constructMetadata({
   title: "Pricing – SaaS Starter",
   description: "Explore our subscription plans.",
 });
+type Props = {
+  params: { locale: string };
+};
+export default async function PricingPage({ params: { locale } }: Props) {
+  unstable_setRequestLocale(locale);
 
-export default async function PricingPage() {
   const user = await currentUser();
   let subscriptionPlan;
 

@@ -1,5 +1,7 @@
 import { redirect } from "next/navigation";
+import type { UserSubscriptionPlan } from "@/types";
 import { currentUser } from "@clerk/nextjs/server";
+import { unstable_setRequestLocale } from "next-intl/server";
 
 import { getUserSubscriptionPlan } from "@/lib/subscription";
 import { constructMetadata } from "@/lib/utils";
@@ -9,12 +11,17 @@ import { DashboardHeader } from "@/components/dashboard/header";
 import { DashboardShell } from "@/components/dashboard/shell";
 import { Icons } from "@/components/shared/icons";
 
+type Props = {
+  params: { locale: string };
+};
 export const metadata = constructMetadata({
   title: "Billing – SaaS Starter",
   description: "Manage billing and your subscription plan.",
 });
 
-export default async function BillingPage() {
+export default async function BillingPage({ params: { locale } }: Props) {
+  unstable_setRequestLocale(locale);
+
   const user = await currentUser();
 
   if (!user) {
@@ -47,7 +54,9 @@ export default async function BillingPage() {
             .
           </AlertDescription>
         </Alert>
-        <BillingInfo userSubscriptionPlan={userSubscriptionPlan} />
+        <BillingInfo
+          userSubscriptionPlan={userSubscriptionPlan as UserSubscriptionPlan}
+        />
       </div>
     </DashboardShell>
   );

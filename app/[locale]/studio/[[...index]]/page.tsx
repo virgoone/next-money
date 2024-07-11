@@ -1,3 +1,4 @@
+import { unstable_setRequestLocale } from "next-intl/server";
 
 import Studio from "./Studio";
 
@@ -7,6 +8,10 @@ import Studio from "./Studio";
 // Set the right `viewport`, `robots` and `referer` meta tags
 export { metadata, viewport } from "next-sanity/studio";
 
-export default function StudioPage() {
+type Props = {
+  params: { locale: string };
+};
+export default function StudioPage({ params: { locale } }: Props) {
+  unstable_setRequestLocale(locale);
   return <Studio />;
 }

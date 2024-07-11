@@ -1,34 +1,39 @@
-import { eq } from 'drizzle-orm'
-import { type Metadata } from 'next'
-import { notFound } from 'next/navigation'
-import ReactMarkdown from 'react-markdown'
-
-import { Container } from '~/components/layout/container'
-import { db } from '~/db'
-import { newsletters } from '~/db/schema'
+import { type Metadata } from "next";
+import { notFound } from "next/navigation";
+import { Container } from "~/components/layout/container";
+import { db } from "~/db";
+import { newsletters } from "~/db/schema";
+import { eq } from "drizzle-orm";
+import { unstable_setRequestLocale } from "next-intl/server";
+import ReactMarkdown from "react-markdown";
 
 async function getNewsletter(id: string) {
   const [newsletter] = await db
     .select()
     .from(newsletters)
-    .where(eq(newsletters.id, parseInt(id)))
+    .where(eq(newsletters.id, parseInt(id)));
 
   if (!newsletter || !newsletter.body) {
-    notFound()
+    notFound();
   }
 
-  return newsletter
+  return newsletter;
 }
 
-export async function generateMetadata({ params }: { params: { id: string } }) {
-  const newsletter = await getNewsletter(params.id)
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string; locale: string };
+}) {
+  const newsletter = await getNewsletter(params.id);
+  unstable_setRequestLocale(params.locale);
 
-  const imageUrlRegex = /!\[[^\]]*\]\((.*?)\)/
-  const match = newsletter.body?.match(imageUrlRegex)
-  let imageUrl: string | undefined = undefined
+  const imageUrlRegex = /!\[[^\]]*\]\((.*?)\)/;
+  const match = newsletter.body?.match(imageUrlRegex);
+  let imageUrl: string | undefined = undefined;
 
   if (match) {
-    imageUrl = match[1]
+    imageUrl = match[1];
   }
 
   return {
@@ -36,30 +41,30 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
     description: newsletter.subject,
     openGraph: {
       images: imageUrl ? [{ url: imageUrl }] : undefined,
-      title: newsletter.subject ?? '',
-      description: newsletter.subject ?? '',
-      type: 'article',
+      title: newsletter.subject ?? "",
+      description: newsletter.subject ?? "",
+      type: "article",
     },
     twitter: {
-      card: 'summary_large_image',
-      title: newsletter.subject ?? '',
-      description: newsletter.subject ?? '',
+      card: "summary_large_image",
+      title: newsletter.subject ?? "",
+      description: newsletter.subject ?? "",
       images: imageUrl ? [{ url: imageUrl }] : undefined,
-      site: '@thecalicastle',
-      creator: '@thecalicastle',
+      site: "@koyaguo",
+      creator: "@koyaguo",
     },
-  } satisfies Metadata
+  } satisfies Metadata;
 }
 
 export default async function NewsletterRenderPage({
   params,
 }: {
-  params: { id: string }
+  params: { id: string };
 }) {
-  const newsletter = await getNewsletter(params.id)
+  const newsletter = await getNewsletter(params.id);
 
   if (!newsletter.body) {
-    return null
+    return null;
   }
 
   return (
@@ -68,7 +73,7 @@ export default async function NewsletterRenderPage({
         <ReactMarkdown>{newsletter.body}</ReactMarkdown>
       </article>
     </Container>
-  )
+  );
 }
 
-export const revalidate = 3600
+export const revalidate = 3600;

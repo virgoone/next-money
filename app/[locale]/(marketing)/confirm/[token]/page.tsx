@@ -1,34 +1,36 @@
-import { eq } from 'drizzle-orm'
-import { redirect } from 'next/navigation'
+import { redirect } from "next/navigation";
+import { Container } from "~/components/layout/container";
+import { db } from "~/db";
+import { subscribers } from "~/db/schema";
+import { eq } from "drizzle-orm";
+import { unstable_setRequestLocale } from "next-intl/server";
 
-import { Container } from '~/components/layout/container'
-import { db } from '~/db'
-import { subscribers } from '~/db/schema'
-
-import { SubbedCelebration } from './SubbedCelebration'
+import { SubbedCelebration } from "./SubbedCelebration";
 
 export const metadata = {
-  title: '感谢你的订阅',
-}
+  title: "感谢你的订阅",
+};
 
 export default async function ConfirmPage({
   params,
 }: {
-  params: { token: string }
+  params: { token: string; locale: string };
 }) {
+  unstable_setRequestLocale(params.locale);
+
   const [subscriber] = await db
     .select()
     .from(subscribers)
-    .where(eq(subscribers.token, params.token))
+    .where(eq(subscribers.token, params.token));
 
   if (!subscriber || subscriber.subscribedAt) {
-    redirect('/')
+    redirect("/");
   }
 
   await db
     .update(subscribers)
     .set({ subscribedAt: new Date(), token: null })
-    .where(eq(subscribers.id, subscriber.id))
+    .where(eq(subscribers.id, subscriber.id));
 
   return (
     <Container className="mt-16 sm:mt-32">
@@ -43,5 +45,5 @@ export default async function ConfirmPage({
       </header>
       <SubbedCelebration />
     </Container>
-  )
+  );
 }

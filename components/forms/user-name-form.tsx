@@ -22,7 +22,8 @@ import { Icons } from "@/components/shared/icons";
 
 interface UserNameFormProps {
   user: {
-    name?: string
+    id?: string;
+    name?: string;
   };
 }
 
@@ -43,7 +44,6 @@ export function UserNameForm({ user }: UserNameFormProps) {
   const onSubmit = handleSubmit((data) => {
     startTransition(async () => {
       // const { status } = await updateUserNameWithId(data);
-
       // if (status !== "success") {
       //   toast({
       //     title: "Something went wrong.",

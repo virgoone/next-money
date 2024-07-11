@@ -7,12 +7,11 @@ import Balancer from "react-wrap-balancer";
 import { BlogPosts } from "../BlogPosts";
 
 interface PageProps {
-  children: React.ReactNode;
   params: { locale: string };
 }
 export async function generateMetadata({
   params: { locale },
-}: Omit<PageProps, "children">) {
+}: PageProps) {
   const t = await getTranslations({ locale, namespace: "LocaleLayout" });
 
   return {
@@ -31,8 +30,8 @@ export async function generateMetadata({
 }
 
 // TODO: add pagination or infinite scroll
-export default function BlogPage({ locale }: { locale: string }) {
-  unstable_setRequestLocale(locale);
+export default function BlogPage({ params }: PageProps) {
+  unstable_setRequestLocale(params.locale);
   const t = useTranslations("BlogPage");
   return (
     <Container className="mb-16 mt-16 sm:mt-24">
@@ -47,7 +46,7 @@ export default function BlogPage({ locale }: { locale: string }) {
         </h2>
       </header>
       <div className="mt-12 grid grid-cols-1 gap-6 sm:mt-20 lg:grid-cols-2 lg:gap-8">
-        <BlogPosts locale={locale} limit={20} />
+        <BlogPosts locale={params.locale} limit={20} />
       </div>
     </Container>
   );

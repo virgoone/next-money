@@ -23,7 +23,7 @@ export async function generateUserStripe(
   try {
     const user = await currentUser();
 
-    if (!user) {
+    if (!user || !user.primaryEmailAddress) {
       throw new Error("Unauthorized");
     }
 
@@ -45,7 +45,7 @@ export async function generateUserStripe(
         payment_method_types: ["card"],
         mode: "subscription",
         billing_address_collection: "auto",
-        customer_email: user.primaryEmailAddress,
+        customer_email: user.primaryEmailAddress.emailAddress,
         line_items: [
           {
             price: priceId,

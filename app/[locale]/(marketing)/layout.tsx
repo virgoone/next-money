@@ -6,14 +6,14 @@ import { SiteFooter } from "@/components/layout/site-footer";
 
 interface MarketingLayoutProps {
   children: React.ReactNode;
-  locale: string;
+  params: { locale: string };
 }
 
 export default function MarketingLayout({
   children,
-  locale,
+  params,
 }: MarketingLayoutProps) {
-  unstable_setRequestLocale(locale);
+  unstable_setRequestLocale(params.locale);
 
   return (
     <div className="flex min-h-screen flex-col">

@@ -59,7 +59,7 @@ export async function POST(req: NextRequest, { params }: Params) {
     })
 
     const res = await s3.getSts(key, {
-      path: prefix,
+      path: prefix!,
       acl: 'public-read',
       ContentType: fileType,
     })

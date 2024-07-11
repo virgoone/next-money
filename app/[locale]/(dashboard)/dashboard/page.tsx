@@ -6,13 +6,19 @@ import { EmptyPlaceholder } from "@/components/shared/empty-placeholder";
 import { Button } from "@/components/ui/button";
 import { constructMetadata } from "@/lib/utils";
 import { currentUser } from "@clerk/nextjs/server";
+import { unstable_setRequestLocale } from "next-intl/server";
 
 export const metadata = constructMetadata({
   title: "Settings – SaaS Starter",
   description: "Overview of your account and activities.",
 });
 
-export default async function DashboardPage() {
+type Props = {
+  params: { locale: string };
+};
+
+export default async function DashboardPage({ params: { locale } }: Props) {
+  unstable_setRequestLocale(locale);
   const user = await currentUser();
 
   if (!user) {

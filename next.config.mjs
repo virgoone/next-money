@@ -4,7 +4,7 @@
  */
 import withNextIntl from "next-intl/plugin";
 
-!process.env.SKIP_ENV_VALIDATION && (await import("./env.mjs"));
+import("./env.mjs");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -22,8 +22,8 @@ const nextConfig = {
         port: "",
       },
       {
-        protocol: 'https',
-        hostname: 'img.douni.one',
+        protocol: "https",
+        hostname: "img.douni.one",
         port: "",
       },
       {
