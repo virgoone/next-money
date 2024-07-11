@@ -1,0 +1,1 @@
+ALTER TABLE "subscribers" ADD COLUMN "locale" varchar(10);

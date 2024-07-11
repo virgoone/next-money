@@ -1,0 +1,79 @@
+{
+  "Error": {
+    "description": "<p>We've unfortunately encountered an error.</p><p>You can try to <retry>reload the page</retry> you were visiting.</p>",
+    "title": "Something went wrong!"
+  },
+  "IndexPage": {
+    "intro": "Introducing Random Face Generator",
+    "description": "Create unique faces with our AI-driven 'This Person Does Not Exist' face generator. ",
+    "title": "Random Face Generator",
+    "subtitle": "This Person Does Not Exist ",
+    "powered": {
+      "title": "Powered by"
+    },
+    "bent": {
+      "first": {
+        "title": "Customizable"
+      }
+    },
+    "action": {
+      "pricing":"Go Pricing",
+      "github": {
+        "sm": "Star on",
+        "normal": "Github"
+      }
+    }
+  },
+  "NewsLetter": {
+    "title": "Join our Newsletter",
+    "subtitle": "Subscribe to get updates! ",
+    "form": {
+      "placeholder": "Enter your email address",
+      "aria_label": "Email",
+      "confirm": "Please check the subscription confirmation email.",
+      "button": "Subscribe"
+    }
+  },
+  "LocaleLayout": {
+    "title": "This Person Does Not Exist | Random Face Generator",
+    "description": "Create unique faces with our AI-driven 'This Person Does Not Exist' face generator. Enjoy HD 1024x1024 faces for free. Generate up to 8 faces at once, choosing between genders or randomness. Explore the ultimate face generator tool!"
+  },
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, zh {🇨🇳 中国} en {🇺🇸 English} other {Unknown}}"
+  },
+  "Manifest": {
+    "name": "Random Face Generator"
+  },
+  "Navigation": {
+    "pricing": "Pricing",
+    "title": "Random Face Generator",
+    "blog": "Blog",
+    "dashboard": "Dashboard",
+    "tooltip": {
+      "login": "Login"
+    }
+  },
+  "NotFoundPage": {
+    "description": "Please double-check the browser address bar or use the navigation to go to a known page.",
+    "title": "Page not found"
+  },
+  "PageLayout": {
+    "links": {
+      "docs": {
+        "description": "Learn more about next-intl in the official docs.",
+        "href": "https://next-intl-docs.vercel.app/",
+        "title": "Docs"
+      },
+      "source": {
+        "description": "Browse the source code of this example on GitHub.",
+        "href": "https://github.com/amannn/next-intl/tree/main/examples/example-app-router",
+        "title": "Source code"
+      }
+    }
+  },
+  "BlogPage": {
+    "title": "Blog",
+    "description": "The latest news and updates from Our"
+  }
+}
