@@ -18,6 +18,7 @@ import {
 } from "~/assets";
 import ShimmerButton from "~/components/forms/shimmer-button";
 import { clamp } from "~/lib/math";
+import { Link } from "~/lib/navigation";
 import { cn } from "~/lib/utils";
 import {
   AnimatePresence,
@@ -81,11 +82,15 @@ export function UserInfo() {
               </span>
             )}
           </motion.div>
-          <ShimmerButton>
-            <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10">
-              {t("dashboard")}
-            </span>
-          </ShimmerButton>
+          {!pathname?.includes("dashboard") && (
+            <Link href="/dashboard" className="size-full">
+              <ShimmerButton>
+                <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10">
+                  {t("dashboard")}
+                </span>
+              </ShimmerButton>
+            </Link>
+          )}
         </div>
       </SignedIn>
       <SignedOut key="sign-in">

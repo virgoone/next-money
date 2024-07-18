@@ -25,6 +25,7 @@ import {
   Trash,
   User,
   X,
+  LineChart,
 } from "lucide-react";
 
 export type Icon = LucideIcon;
@@ -40,6 +41,7 @@ export const Icons = {
   close: X,
   copy: Copy,
   ellipsis: MoreVertical,
+  lineChart: LineChart,
   gitHub: ({ ...props }: LucideProps) => (
     <svg
       aria-hidden="true"

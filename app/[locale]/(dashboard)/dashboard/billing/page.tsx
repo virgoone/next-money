@@ -25,7 +25,7 @@ export default async function BillingPage({ params: { locale } }: Props) {
   const user = await currentUser();
 
   if (!user) {
-    redirect("/login");
+    redirect("/");
   }
 
   const userSubscriptionPlan = await getUserSubscriptionPlan(user.id, user);

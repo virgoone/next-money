@@ -23,6 +23,27 @@ interface NavBarProps {
   large?: boolean;
 }
 
+export function NavbarLogo(props: { size?: "sm" | "md" | "lg" | "xl" }) {
+  const t = useTranslations("Navigation");
+  const { size = "xl" } = props;
+  return (
+    <Link href="/" className="flex items-center space-x-2">
+      <Icons.logo className="h-6 w-6" />
+      <span className={cn("font-urban font-bold", `text-${size}`)}>
+        {t("title")}
+      </span>
+    </Link>
+  );
+}
+
+export function NavbarUserInfo() {
+  return (
+    <div className="flex items-center space-x-3">
+      <UserInfo />
+    </div>
+  );
+}
+
 export function NavBar({ scroll = false }: NavBarProps) {
   const scrolled = useScroll(50);
   const t = useTranslations("Navigation");
@@ -47,10 +68,7 @@ export function NavBar({ scroll = false }: NavBarProps) {
         large={documentation}
       >
         <div className="flex gap-6 md:gap-10">
-          <Link href="/" className="flex items-center space-x-2">
-            <Icons.logo className="h-6 w-6" />
-            <span className="font-urban text-xl font-bold">{t("title")}</span>
-          </Link>
+          <NavbarLogo />
 
           {links && links.length > 0 ? (
             <nav className="hidden gap-6 md:flex">
@@ -75,9 +93,7 @@ export function NavBar({ scroll = false }: NavBarProps) {
           ) : null}
         </div>
 
-        <div className="flex items-center space-x-3">
-          <UserInfo />
-        </div>
+        <NavbarUserInfo />
       </MaxWidthWrapper>
     </header>
   );

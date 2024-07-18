@@ -9,7 +9,7 @@
 
 <p align="center">
   <a href="https://twitter.com/koyaguo">
-    <img src="https://img.shields.io/twitter/follow/koyaguo?style=flat&label=miickasmt&logo=twitter&color=0bf&logoColor=fff" alt="Koyaguo Twitter follower count" />
+    <img src="https://img.shields.io/twitter/follow/koyaguo?style=flat&label=koyaguo&logo=twitter&color=0bf&logoColor=fff" alt="Koyaguo Twitter follower count" />
   </a>
 </p>
 

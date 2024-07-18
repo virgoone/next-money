@@ -22,7 +22,7 @@ export default async function DashboardPage({ params: { locale } }: Props) {
   const user = await currentUser();
 
   if (!user) {
-    redirect("/login");
+    redirect("/");
   }
 
   return (

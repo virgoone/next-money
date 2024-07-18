@@ -22,7 +22,7 @@ export default async function SettingsPage({ params: { locale } }: Props) {
   const user = await currentUser();
 
   if (!user) {
-    redirect("/login");
+    redirect("/");
   }
 
   return (

@@ -73,6 +73,49 @@ export const userPaymentInfo = pgTable("user_payment_info", {
   updatedAt: timestamp("updated_at").defaultNow(),
 });
 
+export const chargeProduct = pgTable("charge_product", {
+  id: serial("id").primaryKey(),
+  amount: integer("amount").notNull(),
+  reward: integer("reward").notNull(),
+  currency: varchar("currency").notNull(),
+  tag: json("tag"),
+  message: varchar("message"),
+  state: varchar("state").notNull(),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+export const chargeOrder = pgTable("charge_order", {
+  id: serial("id").primaryKey(),
+  userId: varchar("user_id", { length: 200 }).notNull(),
+  userInfo: json("user_info"),
+  amount: integer("amount").notNull(),
+  phase: varchar("phase").notNull(),
+  channel: varchar("channel").notNull(),
+  currency: varchar("currency").notNull(),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+export const userCoin = pgTable("user_coin", {
+  id: serial("id").primaryKey(),
+  userId: varchar("user_id", { length: 200 }).notNull(),
+  coin: integer("coin").notNull(),
+  reward: integer("reward").notNull(),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+export const userCoinTransaction = pgTable("user_coin_transaction", {
+  id: serial("id").primaryKey(),
+  userId: varchar("user_id", { length: 200 }).notNull(),
+  type: varchar("type").notNull(),
+  coin: integer("coin").notNull(),
+  reward: integer("reward").default(0).notNull(),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
 export const face = pgTable("face_data", {
   id: serial("id").primaryKey(),
   age: integer("age").notNull(),
@@ -93,7 +136,7 @@ export const faceDownloads = pgTable("face_downloads", {
   userId: varchar("user_id", { length: 200 }).notNull(),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
-})
+});
 
 export const faceViews = pgTable("face_views", {
   id: serial("id").primaryKey(),
@@ -101,4 +144,4 @@ export const faceViews = pgTable("face_views", {
   userId: varchar("user_id", { length: 200 }).notNull(),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
-})
+});

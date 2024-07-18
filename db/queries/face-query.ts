@@ -47,7 +47,7 @@ export async function getFaceDataBySeed({
       ({ id, url, ...rest }) =>
         ({
           ...rest,
-          url: `https://img.douni.one/?url=${encodeURIComponent(url)}&action=resize!520,520,2|draw_text!t-p-d-n-e.app,10,400`,
+          url: `https://img.douni.one/?url=${encodeURIComponent(url)}&action=resize!520,520,2|draw_text!s.douni.one/a,10,400`,
           id: FaceHashids.encode(id),
         }) as FaceDto,
     ),
