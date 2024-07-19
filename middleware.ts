@@ -14,8 +14,7 @@ export const config = {
   matcher: [
     "/",
     "/(zh|en)/:path*",
-    "/((?!_next|.*\\..*).*)",
-    "/api(.*)",
+    '/((?!api|_next|.*\\..*).*)',
   ], // Run middleware on API routes],
 };
 const isProtectedRoute = createRouteMatcher(["dashboard/(.*)", "/admin(.*)"]);

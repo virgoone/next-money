@@ -265,7 +265,7 @@ dependencies:
     version: 5.0.7
   next:
     specifier: 14.2.3
-    version: 14.2.3(@babel/core@7.24.7)(react-dom@18.3.1)(react@18.3.1)
+    version: 14.2.3(@babel/core@7.24.5)(react-dom@18.3.1)(react@18.3.1)
   next-intl:
     specifier: ^3.15.0
     version: 3.15.0(next@14.2.3)(react@18.3.1)
@@ -353,6 +353,9 @@ dependencies:
   stripe:
     specifier: ^15.8.0
     version: 15.10.0
+  svix:
+    specifier: ^1.25.0
+    version: 1.25.0
   tailwind-merge:
     specifier: ^2.3.0
     version: 2.3.0
@@ -528,7 +531,7 @@ packages:
     dependencies:
       '@ant-design/cssinjs': 1.20.0(react-dom@18.3.1)(react@18.3.1)
       antd: 5.18.0(date-fns@3.6.0)(react-dom@18.3.1)(react@18.3.1)
-      next: 14.2.3(@babel/core@7.24.7)(react-dom@18.3.1)(react@18.3.1)
+      next: 14.2.3(@babel/core@7.24.5)(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
     dev: false
@@ -2679,7 +2682,7 @@ packages:
       '@clerk/shared': 2.2.2(react-dom@18.3.1)(react@18.3.1)
       '@clerk/types': 4.6.0
       crypto-js: 4.2.0
-      next: 14.2.3(@babel/core@7.24.7)(react-dom@18.3.1)(react@18.3.1)
+      next: 14.2.3(@babel/core@7.24.5)(react-dom@18.3.1)(react@18.3.1)
       path-to-regexp: 6.2.2
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -4501,7 +4504,7 @@ packages:
       next: ^13.0.0 || ^14.0.0
       react: ^18.2.0
     dependencies:
-      next: 14.2.3(@babel/core@7.24.7)(react-dom@18.3.1)(react@18.3.1)
+      next: 14.2.3(@babel/core@7.24.5)(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
       third-party-capital: 1.0.20
     dev: false
@@ -6760,7 +6763,7 @@ packages:
       '@sanity/client': 6.19.1
       '@sanity/preview-url-secret': 1.6.17(@sanity/client@6.19.1)
       '@vercel/stega': 0.1.2
-      next: 14.2.3(@babel/core@7.24.7)(react-dom@18.3.1)(react@18.3.1)
+      next: 14.2.3(@babel/core@7.24.5)(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       scroll-into-view-if-needed: 3.1.0
@@ -7266,6 +7269,10 @@ packages:
       semver-compare: 1.0.0
     dev: false
 
+  /@stablelib/base64@1.0.1:
+    resolution: {integrity: sha512-1bnPQqSxSuc3Ii6MhBysoWCg58j97aUjuCSZrGSmDxNqtytIi0k8utUenAwTZN4V5mXXYGsVUI9zeBqy+jBOSQ==}
+    dev: false
+
   /@swc/core-darwin-arm64@1.3.101:
     resolution: {integrity: sha512-mNFK+uHNPRXSnfTOG34zJOeMl2waM4hF4a2NY7dkMXrPqw9CoJn4MwTXJcyMiSz1/BnNjjTCHF3Yhj0jPxmkzQ==}
     engines: {node: '>=10'}
@@ -7494,7 +7501,7 @@ packages:
       react: ^18 || ^19
     dependencies:
       '@tanstack/react-query': 5.40.1(react@18.3.1)
-      next: 14.2.3(@babel/core@7.24.7)(react-dom@18.3.1)(react@18.3.1)
+      next: 14.2.3(@babel/core@7.24.5)(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
     dev: false
 
@@ -8055,7 +8062,7 @@ packages:
       react:
         optional: true
     dependencies:
-      next: 14.2.3(@babel/core@7.24.7)(react-dom@18.3.1)(react@18.3.1)
+      next: 14.2.3(@babel/core@7.24.5)(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
       server-only: 0.0.1
     dev: false
@@ -10239,6 +10246,10 @@ packages:
       is-date-object: 1.0.5
       is-symbol: 1.0.4
 
+  /es6-promise@4.2.8:
+    resolution: {integrity: sha512-HJDGx5daxeIvxdBxvG2cb9g4tEvwIk3i8+nhX0yGrYmZUzbkdg8QbDevheDB8gd0//uPj4c1EQua8Q+MViT0/w==}
+    dev: false
+
   /esbuild-register@3.5.0(esbuild@0.19.11):
     resolution: {integrity: sha512-+4G/XmakeBAsvJuDugJvtyF1x+XJT4FMocynNpxrvEBViirpfUn2PgNpCHedfWhF4WokNsO/OvMKrmJOIJsI5A==}
     peerDependencies:
@@ -10836,6 +10847,10 @@ packages:
 
   /fast-levenshtein@2.0.6:
     resolution: {integrity: sha512-DCXu6Ifhqcks7TZKY3Hxp3y6qphY5SJZmrWMDrKcERSOXWQdMhU9Ig/PYrzyw/ul9jOIyh0N4M0tbC5hodg8dw==}
+
+  /fast-sha256@1.3.0:
+    resolution: {integrity: sha512-n11RGP/lrWEFI/bWdygLxhI+pVeo1ZYIVwvvPkW7azl/rOy+F3HYRZ2K5zeE9mmkhQppyv9sQFx0JM9UabnpPQ==}
+    dev: false
 
   /fast-xml-parser@4.2.5:
     resolution: {integrity: sha512-B9/wizE4WngqQftFPmdaMYlXoJlJOYxGQOanC77fq9k8+Z0v5dDSVh+3glErdIROP//s/jgb7ZuxKfB8nVyo0g==}
@@ -13295,7 +13310,7 @@ packages:
     dependencies:
       '@formatjs/intl-localematcher': 0.2.32
       negotiator: 0.6.3
-      next: 14.2.3(@babel/core@7.24.7)(react-dom@18.3.1)(react@18.3.1)
+      next: 14.2.3(@babel/core@7.24.5)(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
       use-intl: 3.15.0(react@18.3.1)
     dev: false
@@ -13322,7 +13337,7 @@ packages:
       '@sanity/visual-editing': 2.1.3(@sanity/client@6.19.1)(next@14.2.3)(react-dom@18.3.1)(react@18.3.1)
       groq: 3.45.0
       history: 5.3.0
-      next: 14.2.3(@babel/core@7.24.7)(react-dom@18.3.1)(react@18.3.1)
+      next: 14.2.3(@babel/core@7.24.5)(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
       sanity: 3.45.0(@types/node@20.14.2)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)(styled-components@6.1.11)
       styled-components: 6.1.11(react-dom@18.3.1)(react@18.3.1)
@@ -13382,7 +13397,7 @@ packages:
       - babel-plugin-macros
     dev: false
 
-  /next@14.2.3(@babel/core@7.24.7)(react-dom@18.3.1)(react@18.3.1):
+  /next@14.2.3(@babel/core@7.24.5)(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-dowFkFTR8v79NPJO4QsBUtxv0g9BrS/phluVpMAt2ku7H+cbcBJlopXjkWlwxrk/xGqMemr7JkGPGemPrLLX7A==}
     engines: {node: '>=18.17.0'}
     hasBin: true
@@ -13408,7 +13423,7 @@ packages:
       postcss: 8.4.31
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      styled-jsx: 5.1.1(@babel/core@7.24.7)(react@18.3.1)
+      styled-jsx: 5.1.1(@babel/core@7.24.5)(react@18.3.1)
     optionalDependencies:
       '@next/swc-darwin-arm64': 14.2.3
       '@next/swc-darwin-x64': 14.2.3
@@ -13433,6 +13448,18 @@ packages:
     dependencies:
       lower-case: 2.0.2
       tslib: 2.6.3
+    dev: false
+
+  /node-fetch@2.7.0:
+    resolution: {integrity: sha512-c4FRfUm/dbcWZ7U+1Wq0AwCyFL+3nt2bEw05wfxSz+DWpWsitgmSgYmy2dQdWyKC1694ELPqMs/YzUSNozLt8A==}
+    engines: {node: 4.x || >=6.0.0}
+    peerDependencies:
+      encoding: ^0.1.0
+    peerDependenciesMeta:
+      encoding:
+        optional: true
+    dependencies:
+      whatwg-url: 5.0.0
     dev: false
 
   /node-machine-id@1.1.12:
@@ -16693,24 +16720,6 @@ packages:
       react: 18.3.1
     dev: false
 
-  /styled-jsx@5.1.1(@babel/core@7.24.7)(react@18.3.1):
-    resolution: {integrity: sha512-pW7uC1l4mBZ8ugbiZrcIsiIvVx1UmTfw7UkC3Um2tmfUq9Bhk8IiyEIPl6F8agHgjzku6j0xQEZbfA5uSgSaCw==}
-    engines: {node: '>= 12.0.0'}
-    peerDependencies:
-      '@babel/core': '*'
-      babel-plugin-macros: '*'
-      react: '>= 16.8.0 || 17.x.x || ^18.0.0-0'
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-      babel-plugin-macros:
-        optional: true
-    dependencies:
-      '@babel/core': 7.24.7
-      client-only: 0.0.1
-      react: 18.3.1
-    dev: false
-
   /stylis@4.2.0:
     resolution: {integrity: sha512-Orov6g6BB1sDfYgzWfTHDOxamtX1bE/zo104Dh9e6fqJ3PooipYyfJ0pUmrZO2wAvO8YbEyeFrkV91XTsGMSrw==}
     dev: false
@@ -16761,6 +16770,27 @@ packages:
       react: '>=17.0'
     dependencies:
       react: 18.3.1
+    dev: false
+
+  /svix-fetch@3.0.0:
+    resolution: {integrity: sha512-rcADxEFhSqHbraZIsjyZNh4TF6V+koloX1OzZ+AQuObX9mZ2LIMhm1buZeuc5BIZPftZpJCMBsSiBaeszo9tRw==}
+    dependencies:
+      node-fetch: 2.7.0
+      whatwg-fetch: 3.6.20
+    transitivePeerDependencies:
+      - encoding
+    dev: false
+
+  /svix@1.25.0:
+    resolution: {integrity: sha512-uW9xnwLqxfiUGwoWphKfthnymp7m14D4tdl1S+7MrH6A++ov/E3ONqLKS/6okOarMre64twxMbsg/QlT0PpnLA==}
+    dependencies:
+      '@stablelib/base64': 1.0.1
+      es6-promise: 4.2.8
+      fast-sha256: 1.3.0
+      svix-fetch: 3.0.0
+      url-parse: 1.5.10
+    transitivePeerDependencies:
+      - encoding
     dev: false
 
   /swr@2.2.5(react@18.3.1):
@@ -17040,6 +17070,10 @@ packages:
       punycode: 2.3.1
       universalify: 0.2.0
       url-parse: 1.5.10
+    dev: false
+
+  /tr46@0.0.3:
+    resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
     dev: false
 
   /tr46@5.0.0:
@@ -17672,6 +17706,10 @@ packages:
     resolution: {integrity: sha512-bKr1DkiNa2krS7qxNtdrtHAmzuYGFQLiQ13TsorsdT6ULTkPLKuu5+GsFpDlg6JFjUTwX2DyhMPG2be8uPrqsQ==}
     dev: true
 
+  /webidl-conversions@3.0.1:
+    resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
+    dev: false
+
   /webidl-conversions@7.0.0:
     resolution: {integrity: sha512-VwddBukDzu71offAQR975unBIGqfKZpM+8ZX6ySk8nYhVoo5CYaZyzt3YBvYtRtO+aoGlqxPg/B87NGVZ/fu6g==}
     engines: {node: '>=12'}
@@ -17729,6 +17767,10 @@ packages:
       iconv-lite: 0.6.3
     dev: false
 
+  /whatwg-fetch@3.6.20:
+    resolution: {integrity: sha512-EqhiFU6daOA8kpjOWTL0olhVOF3i7OrFzSYiGsEMB8GcXS+RrzauAERX65xMeNWVqxA6HXH2m69Z9LaKKdisfg==}
+    dev: false
+
   /whatwg-mimetype@4.0.0:
     resolution: {integrity: sha512-QaKxh0eNIi2mE9p2vEdzfagOKHCcj1pJ56EEHGQOVxp8r9/iszLUUV7v89x9O1p/T+NlTM5W7jW6+cz4Fq1YVg==}
     engines: {node: '>=18'}
@@ -17740,6 +17782,13 @@ packages:
     dependencies:
       tr46: 5.0.0
       webidl-conversions: 7.0.0
+    dev: false
+
+  /whatwg-url@5.0.0:
+    resolution: {integrity: sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw==}
+    dependencies:
+      tr46: 0.0.3
+      webidl-conversions: 3.0.1
     dev: false
 
   /which-boxed-primitive@1.0.2:

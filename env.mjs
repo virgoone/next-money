@@ -25,6 +25,8 @@ export const env = createEnv({
 
     STRIPE_API_KEY: z.string().min(1),
     STRIPE_WEBHOOK_SECRET: z.string().min(1),
+    WEBHOOK_SECRET: z.string().min(1),
+    CLERK_SECRET_KEY: z.string().min(1),
   },
   client: {
     NEXT_PUBLIC_SANITY_PROJECT_ID: z.string().min(1),
@@ -41,6 +43,7 @@ export const env = createEnv({
     NEXT_PUBLIC_STRIPE_PRO_YEARLY_PLAN_ID: z.string().min(1),
     NEXT_PUBLIC_STRIPE_BUSINESS_MONTHLY_PLAN_ID: z.string().min(1),
     NEXT_PUBLIC_STRIPE_BUSINESS_YEARLY_PLAN_ID: z.string().min(1),
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: z.string().min(1),
   },
   runtimeEnv: {
     DATABASE_URL: process.env.DATABASE_URL,
@@ -59,7 +62,9 @@ export const env = createEnv({
       process.env.NEXT_PUBLIC_SITE_LINK_PREVIEW_ENABLED == "true",
     LINK_PREVIEW_API_BASE_URL: process.env.LINK_PREVIEW_API_BASE_URL,
     SITE_NOTIFICATION_EMAIL_TO: process.env.SITE_NOTIFICATION_EMAIL_TO,
-
+    WEBHOOK_SECRET: process.env.WEBHOOK_SECRET,
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
+    CLERK_SECRET_KEY: process.env.CLERK_SECRET_KEY,
     S3_ENDPOINT: process.env.S3_ENDPOINT,
     S3_REGION: process.env.S3_REGION,
     S3_ACCESS_KEY: process.env.S3_ACCESS_KEY,
