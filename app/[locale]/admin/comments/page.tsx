@@ -1,8 +1,8 @@
 import React from "react";
-import { db } from "~/db";
-import { CommentDto } from "~/db/dto/comment.dto";
-import { comments } from "~/db/schema";
-import { client } from "~/sanity/lib/client";
+import { db } from "@/db";
+import { CommentDto } from "@/db/dto/comment.dto";
+import { comments } from "@/db/schema";
+import { client } from "@/sanity/lib/client";
 import { desc, inArray, sql } from "drizzle-orm";
 
 import CommentCard from "./_mods/card";

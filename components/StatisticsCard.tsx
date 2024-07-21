@@ -1,13 +1,13 @@
-'use client'
+"use client";
 
-import type { StatisticProps } from 'antd'
-import { Card, Statistic } from 'antd'
-import { Loader2 } from 'lucide-react'
-import CountUp from 'react-countup'
+import type { StatisticProps } from "antd";
+import { Card, Statistic } from "antd";
+import { Loader2 } from "lucide-react";
+import CountUp from "react-countup";
 
-const formatter: StatisticProps['formatter'] = (value) => (
+const formatter: StatisticProps["formatter"] = (value) => (
   <CountUp end={value as number} separator="," />
-)
+);
 
 const Icon = () => {
   return (
@@ -23,16 +23,16 @@ const Icon = () => {
     >
       <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
     </svg>
-  )
-}
+  );
+};
 export default function StatisticsCard(props: {
-  title: string
-  subtitle?: string
-  count: number
-  icon?: React.ReactNode
-  loading?: boolean
+  title: string;
+  subtitle?: string;
+  count: number;
+  icon?: React.ReactNode;
+  loading?: boolean;
 }) {
-  const { loading, title, count, subtitle, icon } = props
+  const { loading, title, count, subtitle, icon } = props;
   return (
     <Card bordered={false} loading={loading}>
       <Statistic
@@ -44,5 +44,5 @@ export default function StatisticsCard(props: {
         prefix={icon ? icon : <Icon />}
       />
     </Card>
-  )
+  );
 }

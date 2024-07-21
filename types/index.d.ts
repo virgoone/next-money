@@ -1,7 +1,7 @@
-import type { UserPaymentInfoDto } from "~/db/dto/user-payment.dto";
 import type { Icon } from "lucide-react";
 
 import { Icons } from "@/components/shared/icons";
+import type { UserPaymentInfoDto } from "@/db/dto/user-payment.dto";
 
 export type NavItem = {
   title: string;

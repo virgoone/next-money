@@ -1,6 +1,6 @@
 import { proxy } from 'valtio'
 
-import { type PostIDLessCommentDto } from '~/db/dto/comment.dto'
+import { type PostIDLessCommentDto } from '@/db/dto/comment.dto'
 
 type PostID = string
 export const blogPostState = proxy<{

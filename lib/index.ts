@@ -1,10 +1,10 @@
-import { env } from '~/env.mjs'
+import { env } from "@/env.mjs";
 
-export function url(path = '') {
+export function url(path = "") {
   const baseUrl =
-    process.env.NODE_ENV === 'production'
+    process.env.NODE_ENV === "production"
       ? env.NEXT_PUBLIC_SITE_URL
-      : 'http://localhost:3000'
+      : "http://localhost:3000";
 
-  return new URL(path, baseUrl)
+  return new URL(path, baseUrl);
 }

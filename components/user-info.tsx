@@ -2,24 +2,7 @@
 
 import React from "react";
 import { usePathname } from "next/navigation";
-import { url } from "@/lib";
-import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  UserButton,
-  useUser,
-} from "@clerk/nextjs";
-import {
-  GitHubBrandIcon,
-  GoogleBrandIcon,
-  MailIcon,
-  UserArrowLeftIcon,
-} from "~/assets";
-import ShimmerButton from "~/components/forms/shimmer-button";
-import { clamp } from "~/lib/math";
-import { Link } from "~/lib/navigation";
-import { cn } from "~/lib/utils";
+
 import {
   AnimatePresence,
   motion,
@@ -27,13 +10,31 @@ import {
   useMotionValue,
 } from "framer-motion";
 import { useTranslations } from "next-intl";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+  useUser,
+} from "@clerk/nextjs";
 
+import {
+  GitHubBrandIcon,
+  GoogleBrandIcon,
+  MailIcon,
+  UserArrowLeftIcon,
+} from "@/assets";
+import ShimmerButton from "@/components/forms/shimmer-button";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { url } from "@/lib";
+import { clamp } from "@/lib/math";
+import { Link } from "@/lib/navigation";
+import { cn } from "@/lib/utils";
 
 export function UserInfo() {
   const t = useTranslations("Navigation");

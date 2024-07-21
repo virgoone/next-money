@@ -4,7 +4,7 @@ import { type PortableTextComponentProps } from '@portabletext/react'
 import React from 'react'
 import { Tweet } from 'react-tweet'
 
-import { ClientOnly } from '~/components/ClientOnly'
+import { ClientOnly } from '@/components/ClientOnly'
 
 export function PortableTextTweet({
   value,

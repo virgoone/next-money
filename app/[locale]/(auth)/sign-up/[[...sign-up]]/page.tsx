@@ -1,5 +1,5 @@
 import { SignUp } from "@clerk/nextjs";
-import { Container } from "~/components/layout/container";
+import { Container } from "@/components/layout/container";
 import { unstable_setRequestLocale } from "next-intl/server";
 
 type Props = {

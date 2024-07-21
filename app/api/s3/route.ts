@@ -3,10 +3,10 @@ import { NextRequest, NextResponse } from 'next/server'
 import { currentUser } from '@clerk/nextjs/server';
 
 
-import { db } from '~/db'
-import { MediaDto, MediaDtoSchema, MediaHashids } from '~/db/dto/media.dto'
-import { media } from '~/db/schema'
-import { ratelimit } from '~/lib/redis'
+import { db } from '@/db'
+import { MediaDto, MediaDtoSchema, MediaHashids } from '@/db/dto/media.dto'
+import { media } from '@/db/schema'
+import { ratelimit } from '@/lib/redis'
 
 function getKey(id?: string) {
   return `s3${id ? `:${id}` : ''}`

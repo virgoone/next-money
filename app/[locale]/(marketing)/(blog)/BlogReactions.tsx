@@ -10,8 +10,8 @@ import {
 import Image from 'next/image'
 import React from 'react'
 
-import { prettifyNumber } from '~/lib/math'
-import { type Post } from '~/sanity/schemas/post'
+import { prettifyNumber } from '@/lib/math'
+import { type Post } from '@/sanity/schemas/post'
 
 function moodToReactions(mood: Post['mood']) {
   switch (mood) {

@@ -2,7 +2,7 @@ import { Ratelimit } from '@upstash/ratelimit'
 import { revalidateTag } from 'next/cache'
 import { type NextRequest, NextResponse } from 'next/server'
 
-import { redis } from '~/lib/redis'
+import { redis } from '@/lib/redis'
 
 export const runtime = 'edge'
 

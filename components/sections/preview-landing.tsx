@@ -2,7 +2,7 @@ import { use } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { getFaceDataBySeed } from "@/db/queries/face-query";
-import { Link as I18nLink } from "~/lib/navigation";
+import { Link as I18nLink } from "@/lib/navigation";
 
 export default async function PreviewLanding() {
   const { data } = await getFaceDataBySeed({ limit: 24 });

@@ -1,6 +1,6 @@
-import { db } from "~/db";
-import { FaceHashids, type FaceDto } from "~/db/dto/face.dto";
-import { face } from "~/db/schema";
+import { db } from "@/db";
+import { FaceHashids, type FaceDto } from "@/db/dto/face.dto";
+import { face } from "@/db/schema";
 import { and, eq, sql } from "drizzle-orm";
 
 export async function getFaceDataBySeed({

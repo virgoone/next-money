@@ -1,10 +1,11 @@
 import { Metadata } from "next";
+
 import { clsx, type ClassValue } from "clsx";
 import ms from "ms";
 import { twMerge } from "tailwind-merge";
 
-import { env } from "@/env.mjs";
 import { siteConfig } from "@/config/site";
+import { env } from "@/env.mjs";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));

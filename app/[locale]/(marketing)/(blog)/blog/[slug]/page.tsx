@@ -1,10 +1,10 @@
 import { type Metadata } from "next";
 import { notFound } from "next/navigation";
-import { kvKeys } from "~/config/kv";
-import { env } from "~/env.mjs";
-import { url } from "~/lib";
-import { redis } from "~/lib/redis";
-import { getBlogPost } from "~/sanity/queries";
+import { kvKeys } from "@/config/kv";
+import { env } from "@/env.mjs";
+import { url } from "@/lib";
+import { redis } from "@/lib/redis";
+import { getBlogPost } from "@/sanity/queries";
 
 import { BlogPostPage } from "@/app/[locale]/(marketing)/(blog)/BlogPostPage";
 

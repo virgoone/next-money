@@ -3,14 +3,14 @@ import { eq } from 'drizzle-orm'
 import { type NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 
-import { emailConfig } from '~/config/email'
-import { db } from '~/db'
-import { subscribers } from '~/db/schema'
-import ConfirmSubscriptionEmail from '~/emails/ConfirmSubscription'
-import { env } from '~/env.mjs'
-import { url } from '~/lib'
-import { resend } from '~/lib/email'
-import { redis } from '~/lib/redis'
+import { emailConfig } from '@/config/email'
+import { db } from '@/db'
+import { subscribers } from '@/db/schema'
+import ConfirmSubscriptionEmail from '@/emails/ConfirmSubscription'
+import { env } from '@/env.mjs'
+import { url } from '@/lib'
+import { resend } from '@/lib/email'
+import { redis } from '@/lib/redis'
 
 const newsletterFormSchema = z.object({
   email: z.string().email().min(1),

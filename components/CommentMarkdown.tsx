@@ -1,11 +1,11 @@
-'use client'
+"use client";
 
-import * as React from 'react'
+import * as React from "react";
 
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
-import { RichLink } from '~/components/links/RichLink'
+import { RichLink } from "@/components/links/RichLink";
 
 export function CommentMarkdown({ children }: { children: string }) {
   return (
@@ -13,20 +13,22 @@ export function CommentMarkdown({ children }: { children: string }) {
       remarkPlugins={[remarkGfm]}
       components={{
         a: ({ children, href }) => {
-          const rel = !href?.startsWith('/') ? 'noreferrer noopener' : undefined
+          const rel = !href?.startsWith("/")
+            ? "noreferrer noopener"
+            : undefined;
           return (
             <RichLink
-              href={href ?? ''}
+              href={href ?? ""}
               rel={rel}
               className="font-bold text-zinc-800 hover:underline dark:text-zinc-100"
             >
               {children}
             </RichLink>
-          )
+          );
         },
       }}
     >
       {children}
     </ReactMarkdown>
-  )
+  );
 }

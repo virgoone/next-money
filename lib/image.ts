@@ -10,12 +10,12 @@ const shimmer = (w: number, h: number) => `
   <rect width="${w}" height="${h}" fill="#333" />
   <rect id="r" width="${w}" height="${h}" fill="url(#g-image-shimmer)" />
   <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
-</svg>`
+</svg>`;
 const toBase64 = (str: string) =>
-  typeof window === 'undefined'
-    ? Buffer.from(str).toString('base64')
-    : window.btoa(str)
+  typeof window === "undefined"
+    ? Buffer.from(str).toString("base64")
+    : window.btoa(str);
 
 export function makeBlurDataURL(width: number, height: number) {
-  return `data:image/svg+xml;base64,${toBase64(shimmer(width, height))}`
+  return `data:image/svg+xml;base64,${toBase64(shimmer(width, height))}`;
 }

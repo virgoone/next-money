@@ -1,8 +1,8 @@
 import { ImageResponse } from 'next/og'
 import { type NextRequest, NextResponse } from 'next/server'
 
-import { env } from '~/env.mjs'
-import { ratelimit } from '~/lib/redis'
+import { env } from '@/env.mjs'
+import { ratelimit } from '@/lib/redis'
 
 const width = 1200
 const height = 750

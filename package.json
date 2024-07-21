@@ -15,7 +15,8 @@
     "db:generate": "drizzle-kit generate",
     "db:push": "drizzle-kit push",
     "preview": "next build && next start",
-    "email": "email dev --dir emails --port 3333"
+    "email": "email dev --dir emails --port 3333",
+    "prettier": "prettier --write **/*.{js,ts,tsx}"
   },
   "dependencies": {
     "@ant-design/nextjs-registry": "^1.0.0",

@@ -5,11 +5,11 @@ import Image from 'next/image'
 import Link, { type LinkProps } from 'next/link'
 import React from 'react'
 
-import { RichLink } from '~/components/links/RichLink'
-import { CommentHoverCard as HoverCard } from '~/components/ui/hover-card'
-import { env } from '~/env.mjs'
-import { makeBlurDataURL } from '~/lib/image'
-import { cn } from '~/lib/utils'
+import { RichLink } from '@/components/links/RichLink'
+import { CommentHoverCard as HoverCard } from '@/components/ui/hover-card'
+import { env } from '@/env.mjs'
+import { makeBlurDataURL } from '@/lib/image'
+import { cn } from '@/lib/utils'
 
 type PeekabooLinkProps = LinkProps &
   React.ComponentPropsWithoutRef<'a'> & {

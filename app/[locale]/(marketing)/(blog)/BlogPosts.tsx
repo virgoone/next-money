@@ -1,7 +1,7 @@
-import { kvKeys } from "~/config/kv";
-import { env } from "~/env.mjs";
-import { redis } from "~/lib/redis";
-import { getLatestBlogPosts } from "~/sanity/queries";
+import { kvKeys } from "@/config/kv";
+import { env } from "@/env.mjs";
+import { redis } from "@/lib/redis";
+import { getLatestBlogPosts } from "@/sanity/queries";
 
 import { BlogPostCard } from "./BlogPostCard";
 

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { IconPrefix, Prefix } from "~/config/constants";
+import { IconPrefix, Prefix } from "@/config/constants";
 import { ConfigProvider } from "antd";
 
 import { DefaultTheme } from "./config";

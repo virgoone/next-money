@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-import { Hashids } from '~/lib/hashid'
+import { Hashids } from '@/lib/hashid'
 
 export const UserPaymentInfoDtoSchema = z.object({
   id: z.string(),

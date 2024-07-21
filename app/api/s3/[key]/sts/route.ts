@@ -4,9 +4,9 @@ import { currentUser } from '@clerk/nextjs/server'
 import { Ratelimit } from '@upstash/ratelimit'
 import { z } from 'zod'
 
-import { env } from '~/env.mjs'
-import { redis } from '~/lib/redis'
-import { S3Service } from '~/lib/s3'
+import { env } from '@/env.mjs'
+import { redis } from '@/lib/redis'
+import { S3Service } from '@/lib/s3'
 
 const ratelimit = new Ratelimit({
   redis,

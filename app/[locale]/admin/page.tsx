@@ -1,6 +1,6 @@
 import React from "react";
-import StatisticsCard from "~/components/StatisticsCard";
-import { db } from "~/db";
+import StatisticsCard from "@/components/StatisticsCard";
+import { db } from "@/db";
 import { sql } from "drizzle-orm";
 import { motion } from "framer-motion";
 
@@ -10,12 +10,10 @@ export default async function AdminPage() {
   } = await db.execute<{
     comments: number;
     subscribers: number;
-    guestbook: number;
   }>(
     sql`SELECT 
   (SELECT COUNT(*) FROM comments) as comments,
-  (SELECT COUNT(*) FROM subscribers WHERE subscribed_at IS NOT NULL) as subscribers,
-  (SELECT COUNT(*) FROM guestbook) as guestbook`,
+  (SELECT COUNT(*) FROM subscribers WHERE subscribed_at IS NOT NULL) as subscribers`,
   );
   return (
     <>
@@ -33,9 +31,6 @@ export default async function AdminPage() {
             )}
             {count && "subscribers" in count && (
               <StatisticsCard title="总订阅" count={count.subscribers} />
-            )}
-            {count && "guestbook" in count && (
-              <StatisticsCard title="总留言" count={count.guestbook} />
             )}
           </div>
         </div>

@@ -4,10 +4,10 @@ import { type PortableTextComponentProps } from '@portabletext/react'
 import React from 'react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 
-import { ClipboardCheckIcon, ClipboardDataIcon } from '~/assets'
-import { ClientOnly } from '~/components/ClientOnly'
-import { Commentable } from '~/components/Commentable'
-import { ElegantTooltip } from '~/components/ui/tooltip'
+import { ClipboardCheckIcon, ClipboardDataIcon } from '@/assets'
+import { ClientOnly } from '@/components/ClientOnly'
+import { Commentable } from '@/components/Commentable'
+import { ElegantTooltip } from '@/components/ui/tooltip'
 
 export function PortableTextCodeBlock({
   value,

@@ -4,20 +4,20 @@ import { asc, eq } from 'drizzle-orm'
 import { type NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 
-import { emailConfig } from '~/config/email'
-import { db } from '~/db'
+import { emailConfig } from '@/config/email'
+import { db } from '@/db'
 import {
   type CommentDto,
   CommentHashids,
   type PostIDLessCommentDto,
-} from '~/db/dto/comment.dto'
-import { comments } from '~/db/schema'
-import NewReplyCommentEmail from '~/emails/NewReplyComment'
-import { env } from '~/env.mjs'
-import { url } from '~/lib'
-import { resend } from '~/lib/email'
-import { redis } from '~/lib/redis'
-import { client } from '~/sanity/lib/client'
+} from '@/db/dto/comment.dto'
+import { comments } from '@/db/schema'
+import NewReplyCommentEmail from '@/emails/NewReplyComment'
+import { env } from '@/env.mjs'
+import { url } from '@/lib'
+import { resend } from '@/lib/email'
+import { redis } from '@/lib/redis'
+import { client } from '@/sanity/lib/client'
 
 const ratelimit = new Ratelimit({
   redis,

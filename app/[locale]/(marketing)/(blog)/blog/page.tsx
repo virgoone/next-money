@@ -1,5 +1,5 @@
-import { Container } from "~/components/layout/container";
-import { SocialLink } from "~/components/links/SocialLink";
+import { Container } from "@/components/layout/container";
+import { SocialLink } from "@/components/links/SocialLink";
 import { useTranslations } from "next-intl";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import Balancer from "react-wrap-balancer";

@@ -6,10 +6,10 @@ import {
   CursorClickIcon,
   HourglassIcon,
   ScriptIcon,
-} from '~/assets'
-import { formatUTCDate } from '~/lib/date'
-import { prettifyNumber } from '~/lib/math'
-import { type Post } from '~/sanity/schemas/post'
+} from '@/assets'
+import { formatUTCDate } from '@/lib/date'
+import { prettifyNumber } from '@/lib/math'
+import { type Post } from '@/sanity/schemas/post'
 
 export function BlogPostCard({ post, views }: { post: Post; views: number }) {
   const { title, slug, mainImage, publishedAt, categories, readingTime } = post

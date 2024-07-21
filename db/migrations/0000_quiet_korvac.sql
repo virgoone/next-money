@@ -1,3 +1,29 @@
+CREATE TABLE IF NOT EXISTS "charge_order" (
+	"id" serial PRIMARY KEY NOT NULL,
+	"user_id" varchar(200) NOT NULL,
+	"user_info" json,
+	"amount" integer NOT NULL,
+	"phase" varchar NOT NULL,
+	"channel" varchar NOT NULL,
+	"currency" varchar NOT NULL,
+	"payment_at" timestamp,
+	"result" json,
+	"created_at" timestamp DEFAULT now(),
+	"updated_at" timestamp DEFAULT now()
+);
+--> statement-breakpoint
+CREATE TABLE IF NOT EXISTS "charge_product" (
+	"id" serial PRIMARY KEY NOT NULL,
+	"amount" integer NOT NULL,
+	"reward" integer NOT NULL,
+	"currency" varchar NOT NULL,
+	"tag" json,
+	"message" varchar,
+	"state" varchar NOT NULL,
+	"created_at" timestamp DEFAULT now(),
+	"updated_at" timestamp DEFAULT now()
+);
+--> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "comments" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"user_id" varchar(200) NOT NULL,
@@ -71,6 +97,35 @@ CREATE TABLE IF NOT EXISTS "subscribers" (
 	"locale" varchar(10),
 	"subscribed_at" timestamp,
 	"unsubscribed_at" timestamp,
+	"updated_at" timestamp DEFAULT now()
+);
+--> statement-breakpoint
+CREATE TABLE IF NOT EXISTS "user_billing" (
+	"id" serial PRIMARY KEY NOT NULL,
+	"user_id" varchar(200) NOT NULL,
+	"state" varchar NOT NULL,
+	"detail" json NOT NULL,
+	"account" integer NOT NULL,
+	"created_at" timestamp DEFAULT now(),
+	"updated_at" timestamp DEFAULT now()
+);
+--> statement-breakpoint
+CREATE TABLE IF NOT EXISTS "user_coin" (
+	"id" serial PRIMARY KEY NOT NULL,
+	"user_id" varchar(200) NOT NULL,
+	"coin" integer NOT NULL,
+	"reward" integer NOT NULL,
+	"created_at" timestamp DEFAULT now(),
+	"updated_at" timestamp DEFAULT now()
+);
+--> statement-breakpoint
+CREATE TABLE IF NOT EXISTS "user_coin_transaction" (
+	"id" serial PRIMARY KEY NOT NULL,
+	"user_id" varchar(200) NOT NULL,
+	"coin" integer NOT NULL,
+	"reward" integer DEFAULT 0 NOT NULL,
+	"billing_id" varchar,
+	"created_at" timestamp DEFAULT now(),
 	"updated_at" timestamp DEFAULT now()
 );
 --> statement-breakpoint

@@ -3,9 +3,9 @@
 import React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import va from "@vercel/analytics";
-import { TiltedSendIcon } from "~/assets";
-import { Button } from "~/components/ui/button";
-import { cn } from "~/lib/utils";
+import { TiltedSendIcon } from "@/assets";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useForm } from "react-hook-form";

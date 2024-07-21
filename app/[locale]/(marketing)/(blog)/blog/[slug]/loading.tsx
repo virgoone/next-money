@@ -1,5 +1,5 @@
-import { UFOIcon } from '~/assets'
-import { Container } from '~/components/layout/container'
+import { UFOIcon } from '@/assets'
+import { Container } from '@/components/layout/container'
 
 export default function BlogPostPageSkeleton() {
   return (

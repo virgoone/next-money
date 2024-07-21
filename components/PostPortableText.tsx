@@ -1,10 +1,10 @@
-'use client'
+"use client";
 
-import React from 'react'
+import React from "react";
 
-import { PortableText, type PortableTextComponents } from '@portabletext/react'
+import { PortableText, type PortableTextComponents } from "@portabletext/react";
 
-import { PeekabooLink } from '~/components/links/PeekabooLink'
+import { PeekabooLink } from "@/components/links/PeekabooLink";
 import {
   PortableTextBlocksBlockquote,
   PortableTextBlocksH1,
@@ -13,11 +13,11 @@ import {
   PortableTextBlocksH4,
   PortableTextBlocksListItem,
   PortableTextBlocksNormal,
-} from '~/components/portable-text/PortableTextBlocks'
-import { PortableTextCodeBlock } from '~/components/portable-text/PortableTextCodeBlock'
-import { PortableTextImage } from '~/components/portable-text/PortableTextImage'
-import { PortableTextTweet } from '~/components/portable-text/PortableTextTweet'
-import { PortableTextTable } from '~/components/portable-text/PortableTextTable'
+} from "@/components/portable-text/PortableTextBlocks";
+import { PortableTextCodeBlock } from "@/components/portable-text/PortableTextCodeBlock";
+import { PortableTextImage } from "@/components/portable-text/PortableTextImage";
+import { PortableTextTable } from "@/components/portable-text/PortableTextTable";
+import { PortableTextTweet } from "@/components/portable-text/PortableTextTweet";
 
 const components: PortableTextComponents = {
   block: {
@@ -38,26 +38,26 @@ const components: PortableTextComponents = {
 
   marks: {
     link: ({ children, value }) => {
-      const rel = !value.href.startsWith('/')
-        ? 'noreferrer noopener'
-        : undefined
+      const rel = !value.href.startsWith("/")
+        ? "noreferrer noopener"
+        : undefined;
       return (
         <PeekabooLink href={value.href} rel={rel}>
           {children}
         </PeekabooLink>
-      )
+      );
     },
   },
-}
+};
 
 export function PostPortableText(props: {
-  value: any
-  components?: PortableTextComponents
+  value: any;
+  components?: PortableTextComponents;
 }) {
   return (
     <PortableText
       value={props.value}
       components={props.components ?? components}
     />
-  )
+  );
 }

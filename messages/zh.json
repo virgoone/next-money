@@ -18,6 +18,8 @@
     },
     "action": {
       "pricing": "查看定价",
+      "login": "登录",
+      "dashboard": "控制台",
       "github": {
         "sm": "在",
         "normal": "GitHub"

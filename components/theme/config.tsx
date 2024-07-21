@@ -3,7 +3,7 @@
  */
 import type { ThemeConfig } from 'antd'
 
-import { Prefix } from '~/config/constants'
+import { Prefix } from '@/config/constants'
 
 /**
  * Theme

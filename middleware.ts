@@ -1,24 +1,22 @@
 import { NextResponse } from "next/server";
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 import { get } from "@vercel/edge-config";
-import { kvKeys } from "~/config/kv";
-import { env } from "~/env.mjs";
-import countries from "~/lib/countries.json";
-import { getIP } from "~/lib/ip";
-import { redis } from "~/lib/redis";
+import { kvKeys } from "@/config/kv";
+import { env } from "@/env.mjs";
+import countries from "@/lib/countries.json";
+import { getIP } from "@/lib/ip";
+import { redis } from "@/lib/redis";
 import createMiddleware from "next-intl/middleware";
 
 import { defaultLocale, localePrefix, locales } from "./config";
 
 export const config = {
-  matcher: [
-    "/",
-    "/(zh|en)/:path*",
-    '/((?!api|_next|.*\\..*).*)',
-  ], // Run middleware on API routes],
+  matcher: ["/", "/(zh|en)/:path*", "/((?!static|.*\\..*|_next).*)"], // Run middleware on API routes],
 };
-const isProtectedRoute = createRouteMatcher(["dashboard/(.*)", "/admin(.*)"]);
-
+const isProtectedRoute = createRouteMatcher([
+  "/:locale/dashboard(.*)",
+  "/:locale/admin(.*)",
+]);
 const nextIntlMiddleware = createMiddleware({
   defaultLocale,
   locales,
@@ -69,6 +67,9 @@ export default clerkMiddleware(async (auth, req) => {
       const flag = countryInfo.flag;
       await redis.set(kvKeys.currentVisitor, { country, city, flag });
     }
+  }
+  if (isApi) {
+    return;
   }
 
   return nextIntlMiddleware(req);

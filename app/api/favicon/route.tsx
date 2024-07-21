@@ -2,7 +2,7 @@ import * as cheerio from 'cheerio'
 import { ImageResponse } from 'next/og'
 import { type NextRequest, NextResponse } from 'next/server'
 
-import { ratelimit, redis } from '~/lib/redis'
+import { ratelimit, redis } from '@/lib/redis'
 
 export const runtime = 'edge'
 export const revalidate = 259200 // 3 days

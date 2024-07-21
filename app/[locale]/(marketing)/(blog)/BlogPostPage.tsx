@@ -12,15 +12,15 @@ import {
   PencilSwooshIcon,
   ScriptIcon,
   UTurnLeftIcon,
-} from "~/assets";
-import { ClientOnly } from "~/components/ClientOnly";
-import { Container } from "~/components/layout/container";
-import { PostPortableText } from "~/components/PostPortableText";
-import { Prose } from "~/components/Prose";
-import { Button } from "~/components/ui/button";
-import { formatUTCDate } from "~/lib/date";
-import { prettifyNumber } from "~/lib/math";
-import { type PostDetail } from "~/sanity/schemas/post";
+} from "@/assets";
+import { ClientOnly } from "@/components/ClientOnly";
+import { Container } from "@/components/layout/container";
+import { PostPortableText } from "@/components/PostPortableText";
+import { Prose } from "@/components/Prose";
+import { Button } from "@/components/ui/button";
+import { formatUTCDate } from "@/lib/date";
+import { prettifyNumber } from "@/lib/math";
+import { type PostDetail } from "@/sanity/schemas/post";
 import { motion } from "framer-motion";
 import Balancer from "react-wrap-balancer";
 

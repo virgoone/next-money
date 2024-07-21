@@ -1,4 +1,4 @@
-import { type IconProps } from '~/assets'
+import { type IconProps } from '@/assets'
 
 export function LightningIcon(props: IconProps = {}) {
   return (

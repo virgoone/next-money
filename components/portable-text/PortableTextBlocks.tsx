@@ -1,8 +1,8 @@
 import { type PortableTextComponentProps } from '@portabletext/react'
 import React from 'react'
 
-import { ClientOnly } from '~/components/ClientOnly'
-import { Commentable } from '~/components/Commentable'
+import { ClientOnly } from '@/components/ClientOnly'
+import { Commentable } from '@/components/Commentable'
 
 export function PortableTextBlocksNormal({
   value,

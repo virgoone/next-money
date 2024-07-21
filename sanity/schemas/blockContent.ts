@@ -1,6 +1,6 @@
 import { defineArrayMember, defineType } from 'sanity'
 
-import { Tweet } from '~/sanity/components/Tweet'
+import { Tweet } from '@/sanity/components/Tweet'
 
 /**
  * This is the schema type for block content used in the post document type

@@ -2,7 +2,7 @@
 
 import { Card, Col, Row, Statistic, Table } from 'antd'
 
-import { formatUTCDate } from '~/lib/date'
+import { formatUTCDate } from '@/lib/date'
 
 
 export default function SubscribersCard(props: {

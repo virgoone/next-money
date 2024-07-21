@@ -11,13 +11,13 @@ import {
   TwitterIcon,
   YouTubeIcon,
   type IconProps,
-} from "~/assets";
+} from "@/assets";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "~/components/ui/tooltip";
+} from "@/components/ui/tooltip";
 import { AnimatePresence, motion } from "framer-motion";
 
 type IconType = (props: IconProps) => JSX.Element;

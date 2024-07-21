@@ -1,8 +1,8 @@
 import { type Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Container } from "~/components/layout/container";
-import { db } from "~/db";
-import { newsletters } from "~/db/schema";
+import { Container } from "@/components/layout/container";
+import { db } from "@/db";
+import { newsletters } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { unstable_setRequestLocale } from "next-intl/server";
 import ReactMarkdown from "react-markdown";

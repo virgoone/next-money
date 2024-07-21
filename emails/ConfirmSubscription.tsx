@@ -1,11 +1,11 @@
-import * as React from 'react'
+import * as React from "react";
 
-import { emailConfig } from '../config/email'
-import { Button, Heading, Hr, Img, Link, Section, Text } from './_components'
-import Layout from './Layout'
+import { emailConfig } from "../config/email";
+import { Button, Heading, Hr, Img, Link, Section, Text } from "./_components";
+import Layout from "./Layout";
 
-const ConfirmSubscriptionEmail = ({ link = 'link.com/confirm?fake-token' }) => {
-  const previewText = `确认订阅 Koya 的动态吗？`
+const ConfirmSubscriptionEmail = ({ link = "link.com/confirm?fake-token" }) => {
+  const previewText = `确认订阅 Koya 的动态吗？`;
 
   return (
     <Layout previewText={previewText}>
@@ -27,7 +27,7 @@ const ConfirmSubscriptionEmail = ({ link = 'link.com/confirm?fake-token' }) => {
       </Text>
       <Section className="mb-[32px] mt-[32px] text-center">
         <Button
-          className="px-4 py-3 rounded-xl bg-zinc-900 text-center text-[12px] font-semibold text-white no-underline"
+          className="rounded-xl bg-zinc-900 px-4 py-3 text-center text-[12px] font-semibold text-white no-underline"
           href={link}
         >
           确认订阅
@@ -45,7 +45,7 @@ const ConfirmSubscriptionEmail = ({ link = 'link.com/confirm?fake-token' }) => {
         如果不是你本人操作的可以无视本封邮件，如果你有任何疑问可以随时联系我。
       </Text>
     </Layout>
-  )
-}
+  );
+};
 
-export default ConfirmSubscriptionEmail
+export default ConfirmSubscriptionEmail;

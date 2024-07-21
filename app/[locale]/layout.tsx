@@ -5,7 +5,7 @@ import "../prism.css";
 import { fontHeading, fontSans, fontUrban } from "@/assets/fonts";
 import { enUS, zhCN } from "@clerk/localizations";
 import { ClerkProvider } from "@clerk/nextjs";
-import { locales } from "~/config";
+import { locales } from "@/config";
 import { NextIntlClientProvider } from "next-intl";
 import {
   getMessages,

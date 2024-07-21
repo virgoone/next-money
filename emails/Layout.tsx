@@ -1,6 +1,6 @@
-import * as React from 'react'
+import * as React from "react";
 
-import { emailConfig } from '../config/email'
+import { emailConfig } from "../config/email";
 import {
   Body,
   Container,
@@ -13,14 +13,14 @@ import {
   Section,
   Tailwind,
   Text,
-} from './_components'
+} from "./_components";
 
 export default function Layout({
   previewText,
   children,
 }: {
-  previewText: string
-  children: React.ReactNode
+  previewText: string;
+  children: React.ReactNode;
 }) {
   return (
     <Html>
@@ -58,7 +58,7 @@ export default function Layout({
                   className="text-xs text-zinc-600 underline"
                 >
                   Twitter
-                </Link>{' '}
+                </Link>{" "}
                 |&nbsp;
                 {/* <Link
                   href="https://blog.douni.one/youtube"
@@ -72,7 +72,7 @@ export default function Layout({
                   className="text-xs text-zinc-600 underline"
                 >
                   GitHub
-                </Link>{' '}
+                </Link>{" "}
                 {/* |&nbsp;
                 <Link
                   href="https://blog.douni.one/bilibili"
@@ -86,5 +86,5 @@ export default function Layout({
         </Body>
       </Tailwind>
     </Html>
-  )
+  );
 }

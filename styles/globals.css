@@ -89,6 +89,17 @@
   }
 }
 
+:root {
+  --header-height: 4rem;
+  --ui-background: 255 255 255;
+  --ui-foreground: var(--color-gray-700);
+}
+
+.dark {
+  --ui-background: var(--color-gray-900);
+  --ui-foreground: var(--color-gray-200);
+}
+
 .text-gradient_indigo-purple {
   background: linear-gradient(90deg, #6366f1 0%, rgb(168 85 247 / 0.8) 100%);
   -webkit-background-clip: text;

@@ -1,33 +1,33 @@
-import * as React from 'react'
+import * as React from "react";
 
-import ReactMarkdown from 'react-markdown'
+import ReactMarkdown from "react-markdown";
 
-import { parseDisplayName } from '../lib/string'
-import { Button, Heading, Hr, Img, Link, Section, Text } from './_components'
-import Layout from './Layout'
+import { parseDisplayName } from "../lib/string";
+import { Button, Heading, Hr, Img, Link, Section, Text } from "./_components";
+import Layout from "./Layout";
 
 const NewReplyCommentEmail = ({
-  postLink = 'https://blog.douni.one',
-  postTitle = '测试文章 Lorem ipsum dolor sit amet, consectetur adipisicing elit',
-  postImageUrl = 'https://blog.douni.one/api/og?title=测试文章',
-  userFirstName = 'Cali',
-  userLastName = 'Castle',
-  userImageUrl = 'https://blog.douni.one/icon.png',
-  commentContent = '*测试评论*\n- Wow wtf\n- Cool',
+  postLink = "https://blog.douni.one",
+  postTitle = "测试文章 Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+  postImageUrl = "https://blog.douni.one/api/og?title=测试文章",
+  userFirstName = "Cali",
+  userLastName = "Castle",
+  userImageUrl = "https://blog.douni.one/icon.png",
+  commentContent = "*测试评论*\n- Wow wtf\n- Cool",
 }: {
-  postLink?: string | null
-  postTitle?: string | null
-  postImageUrl?: string | null
-  userFirstName?: string | null
-  userLastName?: string | null
-  userImageUrl?: string | null
-  commentContent?: string | null
+  postLink?: string | null;
+  postTitle?: string | null;
+  postImageUrl?: string | null;
+  userFirstName?: string | null;
+  userLastName?: string | null;
+  userImageUrl?: string | null;
+  commentContent?: string | null;
 }) => {
   const user = parseDisplayName({
     firstName: userFirstName,
     lastName: userLastName,
-  })
-  const title = `👋 有人回复了你的评论`
+  });
+  const title = `👋 有人回复了你的评论`;
 
   return (
     <Layout previewText={title}>
@@ -72,7 +72,7 @@ const NewReplyCommentEmail = ({
       <Section className="mb-[32px] mt-[32px] text-center">
         {postLink && (
           <Button
-            className="px-4 py-3 rounded-xl bg-zinc-900 text-center text-[12px] font-semibold text-white no-underline"
+            className="rounded-xl bg-zinc-900 px-4 py-3 text-center text-[12px] font-semibold text-white no-underline"
             href={postLink}
           >
             查看文章
@@ -89,7 +89,7 @@ const NewReplyCommentEmail = ({
         </Text>
       )}
     </Layout>
-  )
-}
+  );
+};
 
-export default NewReplyCommentEmail
+export default NewReplyCommentEmail;

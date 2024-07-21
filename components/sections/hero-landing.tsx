@@ -1,32 +1,18 @@
 import Link from "next/link";
+import { DashboardIcon, UserArrowLeftIcon } from "@/assets";
+import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import { getTranslations } from "next-intl/server";
 
-import { env } from "@/env.mjs";
 import { siteConfig } from "@/config/site";
 import { cn, nFormatter } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Icons } from "@/components/shared/icons";
 
+import ShimmerButton from "../forms/shimmer-button";
 import AnimatedGradientText from "../magicui/animated-gradient-text";
 
 export default async function HeroLanding() {
   const t = await getTranslations({ namespace: "IndexPage" });
-
-  const { stargazers_count: stars } = await fetch(
-    "https://api.github.com/repos/mickasmt/next-saas-stripe-starter",
-    {
-      ...(env.GITHUB_OAUTH_TOKEN && {
-        headers: {
-          Authorization: `Bearer ${process.env.GITHUB_OAUTH_TOKEN}`,
-          "Content-Type": "application/json",
-        },
-      }),
-      // data will revalidate every hour
-      next: { revalidate: 3600 },
-    },
-  )
-    .then((res) => res.json())
-    .catch((e) => console.log(e));
 
   return (
     <section className="space-y-6 py-12 sm:py-20 lg:py-20">
@@ -40,7 +26,7 @@ export default async function HeroLanding() {
             <span className="mr-3">🎉</span>
             <span
               className={cn(
-                `animate-gradient inline bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`,
+                `inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`,
               )}
             >
               {t("intro")}
@@ -67,17 +53,29 @@ export default async function HeroLanding() {
           className="flex justify-center space-x-2 md:space-x-4"
           style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}
         >
-          <Link
-            href="/pricing"
-            prefetch={true}
-            className={cn(
-              buttonVariants({ size: "lg", rounded: "full" }),
-              "gap-2",
-            )}
-          >
-            <span>{t("action.pricing")}</span>
-            <Icons.arrowRight className="size-4" />
-          </Link>
+          <SignedIn>
+            <ShimmerButton>
+              <DashboardIcon className="mr-2 size-4"/>
+              <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10">
+                {t("action.dashboard")}
+              </span>
+            </ShimmerButton>
+          </SignedIn>
+
+          <SignedOut>
+            <SignInButton mode="redirect">
+              <Button
+                className={cn(
+                  buttonVariants({ size: "lg", rounded: "full" }),
+                  "gap-2",
+                )}
+              >
+                <UserArrowLeftIcon className="size-4 mr-2" />
+                <span>{t("action.login")}</span>
+              </Button>
+            </SignInButton>
+          </SignedOut>
+
           <Link
             href={siteConfig.links.github}
             target="_blank"
@@ -91,14 +89,8 @@ export default async function HeroLanding() {
               "px-5",
             )}
           >
-            <Icons.gitHub className="mr-2 size-4" />
-            <p>
-              <span className="hidden sm:inline-block">
-                {t("action.github.sm")}
-              </span>{" "}
-              {t("action.github.normal")}{" "}
-              <span className="font-semibold">{nFormatter(stars)}</span>
-            </p>
+            <p>{t("action.pricing")}</p>
+            <Icons.arrowRight className="ml-2 size-4" />
           </Link>
         </div>
       </div>

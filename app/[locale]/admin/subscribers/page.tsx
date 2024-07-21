@@ -1,6 +1,6 @@
 import React from "react";
-import { db } from "~/db";
-import { subscribers } from "~/db/schema";
+import { db } from "@/db";
+import { subscribers } from "@/db/schema";
 import { desc, lte, sql } from "drizzle-orm";
 
 import SubscribersCard from "./_mods/card";

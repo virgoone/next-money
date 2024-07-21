@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
-import { Container } from "~/components/layout/container";
-import { db } from "~/db";
-import { subscribers } from "~/db/schema";
+import { Container } from "@/components/layout/container";
+import { db } from "@/db";
+import { subscribers } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { unstable_setRequestLocale } from "next-intl/server";
 

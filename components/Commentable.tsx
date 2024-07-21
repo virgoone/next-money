@@ -4,36 +4,14 @@ import "dayjs/locale/zh-cn";
 
 import React from "react";
 import Image from "next/image";
-import { SignedIn, SignedOut, SignInButton, useUser } from "@clerk/nextjs";
+
 import { useMutation } from "@tanstack/react-query";
-import {
-  EyeCloseIcon,
-  EyeOpenIcon,
-  NewCommentIcon,
-  TiltedSendIcon,
-  UserArrowLeftIcon,
-  UTurnLeftIcon,
-  XIcon,
-  XSquareIcon,
-} from "~/assets";
-import { CommentMarkdown } from "~/components/CommentMarkdown";
-import { RichLink } from "~/components/links/RichLink";
-import { Button } from "~/components/ui/button";
-import { CommentHoverCard as HoverCard } from "~/components/ui/hover-card";
-import { ElegantTooltip } from "~/components/ui/tooltip";
-import {
-  type CommentDto,
-  type PostIDLessCommentDto,
-} from "~/db/dto/comment.dto";
-import { url } from "~/lib";
-import { usePathname } from "~/lib/navigation";
-import { parseDisplayName } from "~/lib/string";
-import { cn } from "~/lib/utils";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { AnimatePresence, motion } from "framer-motion";
 import TextareaAutosize from "react-textarea-autosize";
 import { useSnapshot } from "valtio";
+import { SignedIn, SignedOut, SignInButton, useUser } from "@clerk/nextjs";
 
 import {
   addComment,
@@ -43,6 +21,29 @@ import {
   focusBlock,
   replyTo,
 } from "@/app/[locale]/(marketing)/(blog)/blog-post.state";
+import {
+  EyeCloseIcon,
+  EyeOpenIcon,
+  NewCommentIcon,
+  TiltedSendIcon,
+  UserArrowLeftIcon,
+  UTurnLeftIcon,
+  XIcon,
+  XSquareIcon,
+} from "@/assets";
+import { CommentMarkdown } from "@/components/CommentMarkdown";
+import { RichLink } from "@/components/links/RichLink";
+import { Button } from "@/components/ui/button";
+import { CommentHoverCard as HoverCard } from "@/components/ui/hover-card";
+import { ElegantTooltip } from "@/components/ui/tooltip";
+import {
+  type CommentDto,
+  type PostIDLessCommentDto,
+} from "@/db/dto/comment.dto";
+import { url } from "@/lib";
+import { usePathname } from "@/lib/navigation";
+import { parseDisplayName } from "@/lib/string";
+import { cn } from "@/lib/utils";
 
 dayjs.extend(relativeTime);
 

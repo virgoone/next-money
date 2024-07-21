@@ -5,8 +5,8 @@ import React from 'react'
 import { useQuery } from '@tanstack/react-query'
 
 import { addComment, blogPostState } from '@/app/[locale]/(marketing)/(blog)/blog-post.state'
-import { type PostIDLessCommentDto } from '~/db/dto/comment.dto'
-import { type Post } from '~/sanity/schemas/post'
+import { type PostIDLessCommentDto } from '@/db/dto/comment.dto'
+import { type Post } from '@/sanity/schemas/post'
 
 export function BlogPostStateLoader({ post }: { post: Post }) {
   const { data: comments } = useQuery({

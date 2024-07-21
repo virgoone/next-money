@@ -18,6 +18,8 @@
     },
     "action": {
       "pricing":"Go Pricing",
+      "login": "Login",
+      "dashboard": "Dashboard",
       "github": {
         "sm": "Star on",
         "normal": "Github"

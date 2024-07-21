@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-import { Hashids } from '~/lib/hashid'
+import { Hashids } from '@/lib/hashid'
 
 export const MediaDtoSchema = z.object({
   id: z.string(),

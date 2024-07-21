@@ -4,9 +4,9 @@ import Link from 'next/link'
 
 import { Card, Col, Row, Statistic, Table } from 'antd'
 
-import { CommentDto } from '~/db/dto/comment.dto'
-import { url } from '~/lib'
-import { truncate } from '~/lib/string'
+import { CommentDto } from '@/db/dto/comment.dto'
+import { url } from '@/lib'
+import { truncate } from '@/lib/string'
 
 export default function CommentCard(props: {
   commentsCount: {

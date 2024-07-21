@@ -1,18 +1,18 @@
-import * as React from 'react'
+import * as React from "react";
 
-import ReactMarkdown from 'react-markdown'
+import ReactMarkdown from "react-markdown";
 
-import { Heading, Section } from './_components'
-import Layout from './Layout'
+import { Heading, Section } from "./_components";
+import Layout from "./Layout";
 
 const NewslettersTemplate = (props: {
-  subject?: string | null
-  body?: string | null
+  subject?: string | null;
+  body?: string | null;
 }) => {
-  const { subject = '测试主题', body = `## 测试内容` } = props
+  const { subject = "测试主题", body = `## 测试内容` } = props;
 
   return (
-    <Layout previewText={subject ?? ''}>
+    <Layout previewText={subject ?? ""}>
       <Heading>{subject}</Heading>
 
       {body && (
@@ -26,7 +26,7 @@ const NewslettersTemplate = (props: {
                     alt={alt}
                     className="mx-auto my-0 max-w-[465px]"
                   />
-                )
+                );
               },
             }}
           >
@@ -35,7 +35,7 @@ const NewslettersTemplate = (props: {
         </Section>
       )}
     </Layout>
-  )
-}
+  );
+};
 
-export default NewslettersTemplate
+export default NewslettersTemplate;

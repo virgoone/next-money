@@ -1,6 +1,6 @@
 import { defineType } from 'sanity'
 
-import ReadingTimeInput from '~/sanity/components/ReadingTimeInput'
+import ReadingTimeInput from '@/sanity/components/ReadingTimeInput'
 
 export const readingTimeType = defineType({
   name: 'readingTime',

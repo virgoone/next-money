@@ -1,11 +1,11 @@
 // @ts-nocheck
 // TODO: Fix this when we turn strict mode on.
-import { userPaymentInfo } from "@/db/schema";
-import { User } from "@clerk/nextjs/dist/types/server";
-import { db } from "~/db";
 import { eq } from "drizzle-orm";
+import { User } from "@clerk/nextjs/dist/types/server";
 
 import { pricingData } from "@/config/subscriptions";
+import { db } from "@/db";
+import { userPaymentInfo } from "@/db/schema";
 import { stripe } from "@/lib/stripe";
 
 export async function getUserSubscriptionPlan(userId: string, authUser?: User) {

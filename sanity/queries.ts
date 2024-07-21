@@ -1,7 +1,8 @@
-import { getDate } from "~/lib/date";
-import { client } from "~/sanity/lib/client";
-import { type Post, type PostDetail } from "~/sanity/schemas/post";
 import { groq } from "next-sanity";
+
+import { getDate } from "@/lib/date";
+import { client } from "@/sanity/lib/client";
+import { type Post, type PostDetail } from "@/sanity/schemas/post";
 
 export const getAllLatestBlogPostSlugsQuery = () =>
   groq`
@@ -104,7 +105,7 @@ export const getBlogPost = ({
   slug: string;
   locale: string;
 }) => {
-  console.log('slug, locale', slug, locale)
+  console.log("slug, locale", slug, locale);
   return client.fetch<PostDetail | undefined, { slug: string; locale }>(
     getBlogPostQuery,
     {

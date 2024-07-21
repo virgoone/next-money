@@ -1,12 +1,12 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { Ratelimit } from "@upstash/ratelimit";
-import { db } from "~/db";
-import { MediaDto, MediaHashids } from "~/db/dto/media.dto";
-import { media } from "~/db/schema";
-import { env } from "~/env.mjs";
-import { getErrorMessage } from "~/lib/handle-error";
-import { redis } from "~/lib/redis";
-import { S3Service } from "~/lib/s3";
+import { db } from "@/db";
+import { MediaDto, MediaHashids } from "@/db/dto/media.dto";
+import { media } from "@/db/schema";
+import { env } from "@/env.mjs";
+import { getErrorMessage } from "@/lib/handle-error";
+import { redis } from "@/lib/redis";
+import { S3Service } from "@/lib/s3";
 import { and, count, desc, eq, like } from "drizzle-orm";
 import { z } from "zod";
 

@@ -3,7 +3,7 @@
 import { type PortableTextComponentProps } from '@portabletext/react'
 import React from 'react'
 
-import { ClientOnly } from '~/components/ClientOnly'
+import { ClientOnly } from '@/components/ClientOnly'
 
 interface TableCell {
   _key: string

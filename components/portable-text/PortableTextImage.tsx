@@ -5,10 +5,10 @@ import * as Dialog from '@radix-ui/react-dialog'
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
 import React from 'react'
-import { cn } from '~/lib/utils'
+import { cn } from '@/lib/utils'
 
-import { ClientOnly } from '~/components/ClientOnly'
-import { Commentable } from '~/components/Commentable'
+import { ClientOnly } from '@/components/ClientOnly'
+import { Commentable } from '@/components/Commentable'
 
 export function PortableTextImage({
   value,

@@ -93,6 +93,8 @@ export const chargeOrder = pgTable("charge_order", {
   phase: varchar("phase").notNull(),
   channel: varchar("channel").notNull(),
   currency: varchar("currency").notNull(),
+  paymentAt: timestamp("payment_at"),
+  result: json("result"),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
 });
@@ -109,9 +111,19 @@ export const userCoin = pgTable("user_coin", {
 export const userCoinTransaction = pgTable("user_coin_transaction", {
   id: serial("id").primaryKey(),
   userId: varchar("user_id", { length: 200 }).notNull(),
-  type: varchar("type").notNull(),
   coin: integer("coin").notNull(),
   reward: integer("reward").default(0).notNull(),
+  billingId: varchar("billing_id"),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+export const userBilling = pgTable("user_billing", {
+  id: serial("id").primaryKey(),
+  userId: varchar("user_id", { length: 200 }).notNull(),
+  state: varchar("state").notNull(),
+  detail: json("detail").notNull(),
+  account: integer("account").notNull(),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
 });

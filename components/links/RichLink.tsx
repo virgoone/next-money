@@ -4,8 +4,8 @@ import Image from 'next/image'
 import Link, { type LinkProps } from 'next/link'
 import React from 'react'
 
-import { ExternalLinkIcon } from '~/assets'
-import { cn } from '~/lib/utils'
+import { ExternalLinkIcon } from '@/assets'
+import { cn } from '@/lib/utils'
 
 const hostsThatNeedInvertedFavicons = ['github.com']
 

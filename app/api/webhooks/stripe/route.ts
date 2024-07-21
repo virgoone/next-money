@@ -1,6 +1,6 @@
 import { headers } from "next/headers";
 import { userPaymentInfo } from "@/db/schema";
-import { db } from "~/db";
+import { db } from "@/db";
 import { eq } from "drizzle-orm";
 import Stripe from "stripe";
 
