@@ -15,10 +15,11 @@ CREATE TABLE IF NOT EXISTS "charge_order" (
 CREATE TABLE IF NOT EXISTS "charge_product" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"amount" integer NOT NULL,
+	"original_amount" integer NOT NULL,
 	"reward" integer NOT NULL,
 	"currency" varchar NOT NULL,
 	"tag" json,
-	"message" varchar,
+	"message" text,
 	"state" varchar NOT NULL,
 	"created_at" timestamp DEFAULT now(),
 	"updated_at" timestamp DEFAULT now()

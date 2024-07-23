@@ -254,6 +254,9 @@ dependencies:
   hashids:
     specifier: ^2.3.0
     version: 2.3.0
+  lodash-es:
+    specifier: ^4.17.21
+    version: 4.17.21
   lucide-react:
     specifier: ^0.381.0
     version: 0.381.0(react@18.3.1)
@@ -265,7 +268,7 @@ dependencies:
     version: 5.0.7
   next:
     specifier: 14.2.3
-    version: 14.2.3(@babel/core@7.24.5)(react-dom@18.3.1)(react@18.3.1)
+    version: 14.2.3(@babel/core@7.24.7)(react-dom@18.3.1)(react@18.3.1)
   next-intl:
     specifier: ^3.15.0
     version: 3.15.0(next@14.2.3)(react@18.3.1)
@@ -531,7 +534,7 @@ packages:
     dependencies:
       '@ant-design/cssinjs': 1.20.0(react-dom@18.3.1)(react@18.3.1)
       antd: 5.18.0(date-fns@3.6.0)(react-dom@18.3.1)(react@18.3.1)
-      next: 14.2.3(@babel/core@7.24.5)(react-dom@18.3.1)(react@18.3.1)
+      next: 14.2.3(@babel/core@7.24.7)(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
     dev: false
@@ -2682,7 +2685,7 @@ packages:
       '@clerk/shared': 2.2.2(react-dom@18.3.1)(react@18.3.1)
       '@clerk/types': 4.6.0
       crypto-js: 4.2.0
-      next: 14.2.3(@babel/core@7.24.5)(react-dom@18.3.1)(react@18.3.1)
+      next: 14.2.3(@babel/core@7.24.7)(react-dom@18.3.1)(react@18.3.1)
       path-to-regexp: 6.2.2
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -4504,7 +4507,7 @@ packages:
       next: ^13.0.0 || ^14.0.0
       react: ^18.2.0
     dependencies:
-      next: 14.2.3(@babel/core@7.24.5)(react-dom@18.3.1)(react@18.3.1)
+      next: 14.2.3(@babel/core@7.24.7)(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
       third-party-capital: 1.0.20
     dev: false
@@ -6763,7 +6766,7 @@ packages:
       '@sanity/client': 6.19.1
       '@sanity/preview-url-secret': 1.6.17(@sanity/client@6.19.1)
       '@vercel/stega': 0.1.2
-      next: 14.2.3(@babel/core@7.24.5)(react-dom@18.3.1)(react@18.3.1)
+      next: 14.2.3(@babel/core@7.24.7)(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       scroll-into-view-if-needed: 3.1.0
@@ -7501,7 +7504,7 @@ packages:
       react: ^18 || ^19
     dependencies:
       '@tanstack/react-query': 5.40.1(react@18.3.1)
-      next: 14.2.3(@babel/core@7.24.5)(react-dom@18.3.1)(react@18.3.1)
+      next: 14.2.3(@babel/core@7.24.7)(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
     dev: false
 
@@ -8062,7 +8065,7 @@ packages:
       react:
         optional: true
     dependencies:
-      next: 14.2.3(@babel/core@7.24.5)(react-dom@18.3.1)(react@18.3.1)
+      next: 14.2.3(@babel/core@7.24.7)(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
       server-only: 0.0.1
     dev: false
@@ -12492,6 +12495,10 @@ packages:
       p-locate: 6.0.0
     dev: true
 
+  /lodash-es@4.17.21:
+    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
+    dev: false
+
   /lodash.camelcase@4.3.0:
     resolution: {integrity: sha512-TwuEnCnxbc3rAvhf/LbG7tJUDzhqXyFnv3dtzLOPgCG/hODL7WFnsbwktkD7yUV0RrreP/l1PALq/YSg6VvjlA==}
     dev: true
@@ -13310,7 +13317,7 @@ packages:
     dependencies:
       '@formatjs/intl-localematcher': 0.2.32
       negotiator: 0.6.3
-      next: 14.2.3(@babel/core@7.24.5)(react-dom@18.3.1)(react@18.3.1)
+      next: 14.2.3(@babel/core@7.24.7)(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
       use-intl: 3.15.0(react@18.3.1)
     dev: false
@@ -13337,7 +13344,7 @@ packages:
       '@sanity/visual-editing': 2.1.3(@sanity/client@6.19.1)(next@14.2.3)(react-dom@18.3.1)(react@18.3.1)
       groq: 3.45.0
       history: 5.3.0
-      next: 14.2.3(@babel/core@7.24.5)(react-dom@18.3.1)(react@18.3.1)
+      next: 14.2.3(@babel/core@7.24.7)(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
       sanity: 3.45.0(@types/node@20.14.2)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)(styled-components@6.1.11)
       styled-components: 6.1.11(react-dom@18.3.1)(react@18.3.1)
@@ -13397,7 +13404,7 @@ packages:
       - babel-plugin-macros
     dev: false
 
-  /next@14.2.3(@babel/core@7.24.5)(react-dom@18.3.1)(react@18.3.1):
+  /next@14.2.3(@babel/core@7.24.7)(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-dowFkFTR8v79NPJO4QsBUtxv0g9BrS/phluVpMAt2ku7H+cbcBJlopXjkWlwxrk/xGqMemr7JkGPGemPrLLX7A==}
     engines: {node: '>=18.17.0'}
     hasBin: true
@@ -13423,7 +13430,7 @@ packages:
       postcss: 8.4.31
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      styled-jsx: 5.1.1(@babel/core@7.24.5)(react@18.3.1)
+      styled-jsx: 5.1.1(@babel/core@7.24.7)(react@18.3.1)
     optionalDependencies:
       '@next/swc-darwin-arm64': 14.2.3
       '@next/swc-darwin-x64': 14.2.3
@@ -16716,6 +16723,24 @@ packages:
         optional: true
     dependencies:
       '@babel/core': 7.24.5
+      client-only: 0.0.1
+      react: 18.3.1
+    dev: false
+
+  /styled-jsx@5.1.1(@babel/core@7.24.7)(react@18.3.1):
+    resolution: {integrity: sha512-pW7uC1l4mBZ8ugbiZrcIsiIvVx1UmTfw7UkC3Um2tmfUq9Bhk8IiyEIPl6F8agHgjzku6j0xQEZbfA5uSgSaCw==}
+    engines: {node: '>= 12.0.0'}
+    peerDependencies:
+      '@babel/core': '*'
+      babel-plugin-macros: '*'
+      react: '>= 16.8.0 || 17.x.x || ^18.0.0-0'
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+      babel-plugin-macros:
+        optional: true
+    dependencies:
+      '@babel/core': 7.24.7
       client-only: 0.0.1
       react: 18.3.1
     dev: false

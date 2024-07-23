@@ -76,14 +76,19 @@ export const userPaymentInfo = pgTable("user_payment_info", {
 export const chargeProduct = pgTable("charge_product", {
   id: serial("id").primaryKey(),
   amount: integer("amount").notNull(),
+  originalAmount: integer("original_amount").notNull(),
   reward: integer("reward").notNull(),
   currency: varchar("currency").notNull(),
   tag: json("tag"),
-  message: varchar("message"),
+  message: text("message"),
   state: varchar("state").notNull(),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
 });
+
+export type ChargeProductDto = Omit<typeof chargeProduct.$inferSelect, "id"> & {
+  id: string;
+};
 
 export const chargeOrder = pgTable("charge_order", {
   id: serial("id").primaryKey(),
@@ -98,6 +103,8 @@ export const chargeOrder = pgTable("charge_order", {
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
 });
+
+export type ChargeOrderDto = typeof chargeOrder.$inferSelect;
 
 export const userCoin = pgTable("user_coin", {
   id: serial("id").primaryKey(),

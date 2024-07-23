@@ -1,5 +1,5 @@
 {
-  "id": "ea570523-1772-4c96-b39d-8dbbf319034d",
+  "id": "ff252a83-6105-4665-a4ad-627f9f7cbce9",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -98,6 +98,12 @@
           "primaryKey": false,
           "notNull": true
         },
+        "original_amount": {
+          "name": "original_amount",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
         "reward": {
           "name": "reward",
           "type": "integer",
@@ -118,7 +124,7 @@
         },
         "message": {
           "name": "message",
-          "type": "varchar",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
         },

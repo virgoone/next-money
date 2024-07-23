@@ -14,11 +14,13 @@ import { menus, RenderMenu, type MenuType } from "./Sidebar";
 const buildMenuObject = (menus: MenuType[]) => {
   const menuObject: Record<string, any> = {};
   menus.forEach((item) => {
-    menuObject[item.href!] = { ...item };
+    if (item.href) {
+      menuObject[item.href!] = { ...item };
+    }
     if (item.children) {
       item.children.forEach((child) => {
         // 动态路由不作为顶级菜单项添加
-        if (!child.href!.includes(":")) {
+        if (child.href && !child.href!.includes(":")) {
           menuObject[child.href!] = { ...child, parent: item };
         }
       });
@@ -35,6 +37,9 @@ const findMenu = (menus: MenuType[], path: string) => {
 
     if (!item) {
       return []; // 如果找不到菜单项，返回空数组
+    }
+    if (item.parent && !item.parent.href) {
+      return [{...item.parent},{ ...item, parent: null }];
     }
 
     const breadcrumbs = [{ ...item, parent: null }];

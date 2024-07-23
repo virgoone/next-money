@@ -1,27 +1,31 @@
-import { db } from "@/db";
-import { newsletters } from "@/db/schema";
-import { desc, sql } from "drizzle-orm";
+import React from "react";
 
-import NewsLatterCard from "./_mods/card";
+import { Table } from "@/components/data-table";
+import { SearchParams } from "@/components/data-table/types";
 
-export default async function AdminNewslettersPage() {
-  const {
-    rows: [count],
-  } = await db.execute<{
-    total: number;
-    today_count: number;
-    this_month_count: number;
-  }>(
-    sql`SELECT 
-    (SELECT COUNT(*) FROM newsletters WHERE sent_at::date = CURRENT_DATE) AS today_count,
-    (SELECT COUNT(*) FROM newsletters WHERE EXTRACT(YEAR FROM sent_at) = EXTRACT(YEAR FROM CURRENT_DATE) AND EXTRACT(MONTH FROM sent_at) = EXTRACT(MONTH FROM CURRENT_DATE)) AS this_month_count,
-    (SELECT COUNT(*) FROM newsletters) as total`,
+import { getBySearch } from "./_lib/queries";
+import { searchParamsSchema } from "./_lib/validations";
+import { getColumns } from "./_mods/columns";
+import { TableToolbarActions } from "./_mods/toolbar-action";
+
+export interface IndexPageProps {
+  searchParams: SearchParams;
+}
+
+export default async function AdminChargeProductPage({
+  searchParams,
+}: IndexPageProps) {
+  const search = searchParamsSchema.parse(searchParams);
+
+  const searchPromise = getBySearch(search);
+
+  return (
+    <>
+      <Table
+        getColumns={getColumns}
+        toolbarElement={<TableToolbarActions />}
+        searchPromise={searchPromise}
+      />
+    </>
   );
-  const nl = await db
-    .select()
-    .from(newsletters)
-    .limit(100)
-    .orderBy(desc(newsletters.sentAt));
-
-  return <NewsLatterCard count={count} dataSource={nl} />;
 }

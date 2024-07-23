@@ -146,3 +146,19 @@ export const truncate = (str: string, length: number) => {
   if (!str || str.length <= length) return str;
   return `${str.slice(0, length)}...`;
 };
+
+export function formatPrice(price?: number, currency = "¥") {
+  return price ? currency + (price / 100).toFixed(2) : `${currency}0.00`;
+}
+
+export function formatOriginalPrice(
+  price?: number,
+  fixedNumber?: number,
+  currency = "¥",
+) {
+  return price ? currency + price.toFixed(fixedNumber || 2) : `${currency}0.00`;
+}
+
+export function convertMoney(money: number) {
+  return money * 100;
+}
