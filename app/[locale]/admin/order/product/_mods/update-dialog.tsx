@@ -53,9 +53,10 @@ export function UpdateDialog(props: { detail: ChargeProductDto }) {
       currency: detail?.currency as Currency,
       tag: (detail?.tag || []) as string[],
       message: detail?.message || "",
+      locale: detail?.locale as "en" | "zh",
       state: (detail?.state || "enable") as "enable" | "disabled",
     });
-  }, [detail]);
+  }, [detail, open]);
 
   return (
     <>
@@ -83,6 +84,9 @@ export function UpdateDialog(props: { detail: ChargeProductDto }) {
         }
       >
         <Form layout="vertical" {...formField}>
+          <FormItem {...inputField} label="Title" name="title">
+            <Input className="!w-full" placeholder="Please input..." />
+          </FormItem>
           <FormItem {...inputField} label="Amount" name="amount">
             <InputNumber className="!w-full" placeholder="Please input..." />
           </FormItem>
@@ -128,7 +132,21 @@ export function UpdateDialog(props: { detail: ChargeProductDto }) {
             />
           </FormItem>
           <FormItem {...inputField} label="Message" name="message">
-            <Input className="!w-full" placeholder="Please input..." />
+            <Input.TextArea rows={3} className="!w-full" placeholder="Please input..." />
+          </FormItem>
+          <FormItem {...inputField} label="Locale" name="locale">
+            <Select
+              options={[
+                {
+                  label: "英文",
+                  value: "en",
+                },
+                {
+                  label: "中文",
+                  value: "zh",
+                },
+              ]}
+            />
           </FormItem>
           <FormItem {...inputField} label="Tag" name="tag">
             <Select

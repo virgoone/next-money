@@ -18,6 +18,8 @@ CREATE TABLE IF NOT EXISTS "charge_product" (
 	"original_amount" integer NOT NULL,
 	"credit" integer NOT NULL,
 	"currency" varchar NOT NULL,
+	"locale" varchar NOT NULL,
+	"title" varchar NOT NULL,
 	"tag" json,
 	"message" text,
 	"state" varchar NOT NULL,
@@ -104,6 +106,7 @@ CREATE TABLE IF NOT EXISTS "subscribers" (
 CREATE TABLE IF NOT EXISTS "user_billing" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"user_id" varchar(200) NOT NULL,
+	"credit" integer NOT NULL,
 	"state" varchar NOT NULL,
 	"detail" json NOT NULL,
 	"account" integer NOT NULL,
@@ -122,9 +125,9 @@ CREATE TABLE IF NOT EXISTS "user_credit" (
 CREATE TABLE IF NOT EXISTS "user_credit_transaction" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"user_id" varchar(200) NOT NULL,
-	"amount" integer NOT NULL,
 	"credit" integer NOT NULL,
-	"billing_id" varchar,
+	"balance" integer NOT NULL,
+	"billing_id" integer,
 	"created_at" timestamp DEFAULT now(),
 	"updated_at" timestamp DEFAULT now()
 );

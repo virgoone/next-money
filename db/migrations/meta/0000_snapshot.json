@@ -1,5 +1,5 @@
 {
-  "id": "9c113b87-5c37-4643-ab3d-66d173d17885",
+  "id": "2cdbd768-fe08-45d1-971f-a39e24054140",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -112,6 +112,18 @@
         },
         "currency": {
           "name": "currency",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "locale": {
+          "name": "locale",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "title": {
+          "name": "title",
           "type": "varchar",
           "primaryKey": false,
           "notNull": true
@@ -601,6 +613,12 @@
           "primaryKey": false,
           "notNull": true
         },
+        "credit": {
+          "name": "credit",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
         "state": {
           "name": "state",
           "type": "varchar",
@@ -697,21 +715,21 @@
           "primaryKey": false,
           "notNull": true
         },
-        "amount": {
-          "name": "amount",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true
-        },
         "credit": {
           "name": "credit",
           "type": "integer",
           "primaryKey": false,
           "notNull": true
         },
+        "balance": {
+          "name": "balance",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
         "billing_id": {
           "name": "billing_id",
-          "type": "varchar",
+          "type": "integer",
           "primaryKey": false,
           "notNull": false
         },

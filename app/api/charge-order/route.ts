@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 
-import { currentUser } from "@clerk/nextjs/server";
+import { auth, currentUser } from "@clerk/nextjs/server";
 import { Ratelimit } from "@upstash/ratelimit";
 import { eq } from "drizzle-orm";
 import { z } from "zod";
@@ -22,8 +22,11 @@ const CreateChargeOrderSchema = z.object({
 const billingUrl = absoluteUrl("/pricing");
 
 export async function POST(req: NextRequest) {
+  const { userId } = auth();
+
   const user = await currentUser();
-  if (!user || !user.primaryEmailAddress) {
+  console.log('user--->', user, userId)
+  if (!userId || !user || !user.primaryEmailAddress) {
     return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
   }
   const ratelimit = new Ratelimit({

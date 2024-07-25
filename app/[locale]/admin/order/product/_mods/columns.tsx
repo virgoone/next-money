@@ -57,9 +57,8 @@ export function getColumns(): TableColumnsType<ChargeProductDto> {
       render: (price) => formatPrice(price, "$"),
     },
     {
-      title: "奖励金额",
-      dataIndex: "reward",
-      render: (price) => formatPrice(price, "$"),
+      title: "赠送积分",
+      dataIndex: "credit",
     },
     {
       title: "币种",

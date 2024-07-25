@@ -35,7 +35,7 @@ export function CreateDialog() {
           return "Created";
         },
         error: (error) => {
-          console.log('create error--->', error)
+          console.log("create error--->", error);
           setOpen(false);
           return getErrorMessage(error);
         },
@@ -52,7 +52,7 @@ export function CreateDialog() {
       currency: Currency.USD,
       state: "enable",
     });
-  }, []);
+  }, [open]);
 
   return (
     <>
@@ -84,11 +84,18 @@ export function CreateDialog() {
         }
       >
         <Form layout="vertical" {...formField}>
+          <FormItem {...inputField} label="Title" name="title">
+            <Input className="!w-full" placeholder="Please input..." />
+          </FormItem>
           <FormItem {...inputField} label="Amount" name="amount">
             <InputNumber className="!w-full" placeholder="Please input..." />
           </FormItem>
 
-          <FormItem {...inputField} label="Original Amount" name="originalAmount">
+          <FormItem
+            {...inputField}
+            label="Original Amount"
+            name="originalAmount"
+          >
             <InputNumber className="!w-full" placeholder="Please input..." />
           </FormItem>
 
@@ -125,10 +132,28 @@ export function CreateDialog() {
             />
           </FormItem>
           <FormItem {...inputField} label="Message" name="message">
-            <Input className="!w-full" placeholder="Please input..." />
+            <Input.TextArea rows={3} className="!w-full" placeholder="Please input..." />
           </FormItem>
           <FormItem {...inputField} label="Tag" name="tag">
-            <Select mode="tags" className="!w-full" placeholder="Please input..." />
+            <Select
+              mode="tags"
+              className="!w-full"
+              placeholder="Please input..."
+            />
+          </FormItem>
+          <FormItem {...inputField} label="Locale" name="locale">
+            <Select
+              options={[
+                {
+                  label: "英文",
+                  value: "en",
+                },
+                {
+                  label: "中文",
+                  value: "zh",
+                },
+              ]}
+            />
           </FormItem>
         </Form>
       </Drawer>

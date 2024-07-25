@@ -79,6 +79,8 @@ export const chargeProduct = pgTable("charge_product", {
   originalAmount: integer("original_amount").notNull(),
   credit: integer("credit").notNull(),
   currency: varchar("currency").notNull(),
+  locale: varchar("locale").notNull(),
+  title: varchar("title").notNull(),
   tag: json("tag"),
   message: text("message"),
   state: varchar("state").notNull(),
@@ -117,9 +119,9 @@ export const userCredit = pgTable("user_credit", {
 export const userCreditTransaction = pgTable("user_credit_transaction", {
   id: serial("id").primaryKey(),
   userId: varchar("user_id", { length: 200 }).notNull(),
-  amount: integer("amount").notNull(),
-  credit: integer("credit").notNull(),
-  billingId: varchar("billing_id"),
+  credit: integer("credit").notNull(), // 消耗积分
+  balance: integer("balance").notNull(), // 余额
+  billingId: integer("billing_id"),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
 });
@@ -127,6 +129,7 @@ export const userCreditTransaction = pgTable("user_credit_transaction", {
 export const userBilling = pgTable("user_billing", {
   id: serial("id").primaryKey(),
   userId: varchar("user_id", { length: 200 }).notNull(),
+  credit: integer("credit").notNull(),
   state: varchar("state").notNull(),
   detail: json("detail").notNull(),
   account: integer("account").notNull(),

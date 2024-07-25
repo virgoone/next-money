@@ -20,7 +20,9 @@ export const createSchema = z.object({
   currency: z.enum(["CNY", "USD"]),
   message: z.string().optional(),
   state: z.enum(["enable", "disabled"]),
+  locale: z.enum(["en", "zh"]),
   tag: z.array(z.string()).optional(),
+  title: z.string(),
 })
 
 export type CreateSchema = z.infer<typeof createSchema>
@@ -28,8 +30,10 @@ export type CreateSchema = z.infer<typeof createSchema>
 export const updateSchema = z.object({
   amount: z.number().optional(),
   credit: z.number().optional(),
+  title: z.string().optional(),
   originalAmount: z.number(),
   currency: z.enum(["CNY", "USD"]).optional(),
+  locale: z.enum(["en", "zh"]).optional(),
   message: z.string().optional(),
   state:  z.enum(["enable", "disabled"]).optional(),
   tag: z.array(z.string()).optional(),

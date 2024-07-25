@@ -17,13 +17,22 @@
       }
     },
     "action": {
-      "pricing":"Go Pricing",
+      "pricing":"Pricing",
       "login": "Login",
       "dashboard": "Dashboard",
       "github": {
         "sm": "Star on",
         "normal": "Github"
       }
+    }
+  },
+  "PricingPage": {
+    "title": "Choose a plan to buy credits",
+    "label": "Pricing",
+    "tip": {
+      "title": "💳 Payment Tip: If you encounter any issues during the payment process, feel free to reach out to us! 😉",
+      "subtitle": "Questions?",
+      "contact": "contact us"
     }
   },
   "NewsLetter": {

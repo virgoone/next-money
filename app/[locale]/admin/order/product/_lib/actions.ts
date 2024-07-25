@@ -15,13 +15,24 @@ import type { CreateSchema, UpdateSchema } from "./validations";
 export async function createAction(input: CreateSchema) {
   noStore();
   try {
-    const { credit, amount, currency, tag, originalAmount, message, state } =
-      input;
+    const {
+      title,
+      locale,
+      credit,
+      amount,
+      currency,
+      tag = [],
+      originalAmount,
+      message = "",
+      state,
+    } = input;
 
     await Promise.all([
       await db
         .insert(chargeProduct)
         .values({
+          title,
+          locale,
           credit,
           amount,
           currency,
@@ -53,9 +64,30 @@ export async function updateAction(input: UpdateSchema & { id: string }) {
   noStore();
   try {
     const [id] = ChargeProductHashids.decode(input.id);
+    const {
+      title,
+      locale,
+      credit,
+      amount,
+      currency,
+      originalAmount,
+      tag,
+      message,
+      state,
+    } = input;
     await db
       .update(chargeProduct)
-      .set(omitBy(input, (v) => !v))
+      .set({
+        title,
+        locale,
+        credit,
+        amount,
+        currency,
+        originalAmount,
+        tag,
+        message,
+        state,
+      })
       .where(eq(chargeProduct.id, id as number));
 
     revalidatePath("/");
@@ -65,6 +97,7 @@ export async function updateAction(input: UpdateSchema & { id: string }) {
       error: null,
     };
   } catch (err) {
+    console.log("err--->", err);
     return {
       data: null,
       error: getErrorMessage(err),
