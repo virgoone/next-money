@@ -35,6 +35,7 @@ export function CreateDialog() {
           return "Created";
         },
         error: (error) => {
+          console.log('create error--->', error)
           setOpen(false);
           return getErrorMessage(error);
         },

@@ -15,14 +15,14 @@ import type { CreateSchema, UpdateSchema } from "./validations";
 export async function createAction(input: CreateSchema) {
   noStore();
   try {
-    const { reward, amount, currency, tag, originalAmount, message, state } =
+    const { credit, amount, currency, tag, originalAmount, message, state } =
       input;
 
     await Promise.all([
       await db
         .insert(chargeProduct)
         .values({
-          reward,
+          credit,
           amount,
           currency,
           originalAmount,
