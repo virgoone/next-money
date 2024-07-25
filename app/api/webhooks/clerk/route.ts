@@ -1,5 +1,5 @@
 import { headers } from "next/headers";
-import { userCoin } from "@/db/schema";
+import { userCredit } from "@/db/schema";
 import { WebhookEvent } from "@clerk/nextjs/server";
 import { db } from "@/db";
 import { eq } from "drizzle-orm";
@@ -64,13 +64,12 @@ export async function POST(req: Request) {
     const userId = evt.data.id;
     const accountInfo = await db
       .select()
-      .from(userCoin)
-      .where(eq(userCoin.userId, userId));
+      .from(userCredit)
+      .where(eq(userCredit.userId, userId));
     if (!accountInfo?.length) {
-      await db.insert(userCoin).values({
+      await db.insert(userCredit).values({
         userId: userId,
-        coin: 0,
-        reward: 0,
+        credit: 0,
       });
     }
   }

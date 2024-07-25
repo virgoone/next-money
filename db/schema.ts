@@ -77,7 +77,7 @@ export const chargeProduct = pgTable("charge_product", {
   id: serial("id").primaryKey(),
   amount: integer("amount").notNull(),
   originalAmount: integer("original_amount").notNull(),
-  reward: integer("reward").notNull(),
+  credit: integer("credit").notNull(),
   currency: varchar("currency").notNull(),
   tag: json("tag"),
   message: text("message"),
@@ -106,20 +106,19 @@ export const chargeOrder = pgTable("charge_order", {
 
 export type ChargeOrderDto = typeof chargeOrder.$inferSelect;
 
-export const userCoin = pgTable("user_coin", {
+export const userCredit = pgTable("user_credit", {
   id: serial("id").primaryKey(),
   userId: varchar("user_id", { length: 200 }).notNull(),
-  coin: integer("coin").notNull(),
-  reward: integer("reward").notNull(),
+  credit: integer("credit").notNull(),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
 });
 
-export const userCoinTransaction = pgTable("user_coin_transaction", {
+export const userCreditTransaction = pgTable("user_credit_transaction", {
   id: serial("id").primaryKey(),
   userId: varchar("user_id", { length: 200 }).notNull(),
-  coin: integer("coin").notNull(),
-  reward: integer("reward").default(0).notNull(),
+  amount: integer("amount").notNull(),
+  credit: integer("credit").notNull(),
   billingId: varchar("billing_id"),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),

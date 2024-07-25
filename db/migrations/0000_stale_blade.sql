@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS "charge_product" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"amount" integer NOT NULL,
 	"original_amount" integer NOT NULL,
-	"reward" integer NOT NULL,
+	"credit" integer NOT NULL,
 	"currency" varchar NOT NULL,
 	"tag" json,
 	"message" text,
@@ -111,20 +111,19 @@ CREATE TABLE IF NOT EXISTS "user_billing" (
 	"updated_at" timestamp DEFAULT now()
 );
 --> statement-breakpoint
-CREATE TABLE IF NOT EXISTS "user_coin" (
+CREATE TABLE IF NOT EXISTS "user_credit" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"user_id" varchar(200) NOT NULL,
-	"coin" integer NOT NULL,
-	"reward" integer NOT NULL,
+	"credit" integer NOT NULL,
 	"created_at" timestamp DEFAULT now(),
 	"updated_at" timestamp DEFAULT now()
 );
 --> statement-breakpoint
-CREATE TABLE IF NOT EXISTS "user_coin_transaction" (
+CREATE TABLE IF NOT EXISTS "user_credit_transaction" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"user_id" varchar(200) NOT NULL,
-	"coin" integer NOT NULL,
-	"reward" integer DEFAULT 0 NOT NULL,
+	"amount" integer NOT NULL,
+	"credit" integer NOT NULL,
 	"billing_id" varchar,
 	"created_at" timestamp DEFAULT now(),
 	"updated_at" timestamp DEFAULT now()

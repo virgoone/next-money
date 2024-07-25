@@ -1,12 +1,13 @@
 import Link from "next/link";
-import { DashboardIcon, UserArrowLeftIcon } from "@/assets";
+
 import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import { getTranslations } from "next-intl/server";
 
+import { DashboardIcon, UserArrowLeftIcon } from "@/assets";
+import { Icons } from "@/components/shared/icons";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { cn, nFormatter } from "@/lib/utils";
-import { Button, buttonVariants } from "@/components/ui/button";
-import { Icons } from "@/components/shared/icons";
 
 import ShimmerButton from "../forms/shimmer-button";
 import AnimatedGradientText from "../magicui/animated-gradient-text";
@@ -54,12 +55,18 @@ export default async function HeroLanding() {
           style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}
         >
           <SignedIn>
-            <ShimmerButton>
-              <DashboardIcon className="mr-2 size-4"/>
-              <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10">
-                {t("action.dashboard")}
-              </span>
-            </ShimmerButton>
+            <Link
+              className="group relative w-full max-w-52 items-center justify-center gap-2 overflow-hidden whitespace-pre rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-all duration-300 ease-out hover:bg-primary/90 hover:ring-2 hover:ring-primary hover:ring-offset-2 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 md:flex"
+              href="/dashboard"
+            >
+              <span className="absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 bg-white opacity-10 transition-all duration-1000 ease-out group-hover:-translate-x-40" />
+              <div className="flex items-center">
+                <DashboardIcon className="mr-2 size-4" />
+                <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10">
+                  {t("action.dashboard")}
+                </span>
+              </div>
+            </Link>
           </SignedIn>
 
           <SignedOut>
@@ -70,7 +77,7 @@ export default async function HeroLanding() {
                   "gap-2",
                 )}
               >
-                <UserArrowLeftIcon className="size-4 mr-2" />
+                <UserArrowLeftIcon className="mr-2 size-4" />
                 <span>{t("action.login")}</span>
               </Button>
             </SignInButton>

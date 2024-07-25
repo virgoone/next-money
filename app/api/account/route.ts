@@ -1,7 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { db } from "@/db";
 import { AccountHashids } from "@/db/dto/account.dto";
-import { userCoin } from "@/db/schema";
+import { userCredit } from "@/db/schema";
 import { currentUser } from "@clerk/nextjs/server";
 import { Ratelimit } from "@upstash/ratelimit";
 import { eq } from "drizzle-orm";
@@ -31,23 +31,21 @@ export async function GET(req: NextRequest) {
 
   let [accountInfo] = await db
     .select()
-    .from(userCoin)
-    .where(eq(userCoin.userId, user.id));
+    .from(userCredit)
+    .where(eq(userCredit.userId, user.id));
   if (!accountInfo?.id) {
     const data = await db
-      .insert(userCoin)
+      .insert(userCredit)
       .values({
         userId: user.id,
-        coin: 0,
-        reward: 0,
+        credit: 0,
       })
       .returning({
-        id: userCoin.id,
-        coin: userCoin.coin,
-        reward: userCoin.reward,
-        userId: userCoin.userId,
-        createdAt: userCoin.createdAt,
-        updatedAt: userCoin.updatedAt,
+        id: userCredit.id,
+        credit: userCredit.credit,
+        userId: userCredit.userId,
+        createdAt: userCredit.createdAt,
+        updatedAt: userCredit.updatedAt,
       });
     accountInfo = data as unknown as any;
   }

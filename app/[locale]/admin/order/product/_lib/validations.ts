@@ -15,7 +15,7 @@ export type GetSchema = z.infer<typeof getSchema>
 
 export const createSchema = z.object({
   amount: z.number().min(100),
-  reward: z.number().min(0),
+  credit: z.number().min(0),
   originalAmount: z.number(),
   currency: z.enum(["CNY", "USD"]),
   message: z.string().optional(),
@@ -27,7 +27,7 @@ export type CreateSchema = z.infer<typeof createSchema>
 
 export const updateSchema = z.object({
   amount: z.number().optional(),
-  reward: z.number().optional(),
+  credit: z.number().optional(),
   originalAmount: z.number(),
   currency: z.enum(["CNY", "USD"]).optional(),
   message: z.string().optional(),

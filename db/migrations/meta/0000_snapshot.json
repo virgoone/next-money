@@ -1,5 +1,5 @@
 {
-  "id": "ff252a83-6105-4665-a4ad-627f9f7cbce9",
+  "id": "9c113b87-5c37-4643-ab3d-66d173d17885",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -104,8 +104,8 @@
           "primaryKey": false,
           "notNull": true
         },
-        "reward": {
-          "name": "reward",
+        "credit": {
+          "name": "credit",
           "type": "integer",
           "primaryKey": false,
           "notNull": true
@@ -639,8 +639,8 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "public.user_coin": {
-      "name": "user_coin",
+    "public.user_credit": {
+      "name": "user_credit",
       "schema": "",
       "columns": {
         "id": {
@@ -655,14 +655,8 @@
           "primaryKey": false,
           "notNull": true
         },
-        "coin": {
-          "name": "coin",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "reward": {
-          "name": "reward",
+        "credit": {
+          "name": "credit",
           "type": "integer",
           "primaryKey": false,
           "notNull": true
@@ -687,8 +681,8 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "public.user_coin_transaction": {
-      "name": "user_coin_transaction",
+    "public.user_credit_transaction": {
+      "name": "user_credit_transaction",
       "schema": "",
       "columns": {
         "id": {
@@ -703,18 +697,17 @@
           "primaryKey": false,
           "notNull": true
         },
-        "coin": {
-          "name": "coin",
+        "amount": {
+          "name": "amount",
           "type": "integer",
           "primaryKey": false,
           "notNull": true
         },
-        "reward": {
-          "name": "reward",
+        "credit": {
+          "name": "credit",
           "type": "integer",
           "primaryKey": false,
-          "notNull": true,
-          "default": 0
+          "notNull": true
         },
         "billing_id": {
           "name": "billing_id",

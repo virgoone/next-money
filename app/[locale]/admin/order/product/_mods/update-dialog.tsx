@@ -95,7 +95,7 @@ export function UpdateDialog(props: { detail: ChargeProductDto }) {
             <InputNumber className="!w-full" placeholder="Please input..." />
           </FormItem>
 
-          <FormItem {...inputField} label="Reward" name="reward">
+          <FormItem {...inputField} label="Credit" name="credit">
             <InputNumber className="!w-full" placeholder="Please input..." />
           </FormItem>
 
