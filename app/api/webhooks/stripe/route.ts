@@ -18,6 +18,10 @@ import { OrderPhase } from "@/db/type";
 import { env } from "@/env.mjs";
 import { stripe } from "@/lib/stripe";
 
+export async function GET() {
+  return new Response("OK", { status: 200 });
+}
+
 export async function POST(req: Request) {
   const body = await req.text();
   const signature = headers().get("Stripe-Signature") as string;
@@ -150,19 +154,16 @@ export async function POST(req: Request) {
           result: session,
         })
         .where(eq(chargeOrder.id, order.id));
-      const [{ newCredit }] = await tx
+      await tx
         .update(userCredit)
         .set({
           credit: addCredit,
         })
-        .where(eq(userCredit.id, account.id))
-        .returning({
-          newCredit: userCredit.credit,
-        });
+        .where(eq(userCredit.id, account.id));
       await tx.insert(userCreditTransaction).values({
         userId: userId,
         credit: addCredit,
-        balance: newCredit,
+        balance: account.credit + addCredit,
         type: "Charge",
       });
     });
