@@ -14,6 +14,7 @@ import {
   userCreditTransaction,
   userPaymentInfo,
 } from "@/db/schema";
+import { OrderPhase } from "@/db/type";
 import { env } from "@/env.mjs";
 import { stripe } from "@/lib/stripe";
 
@@ -74,7 +75,48 @@ export async function POST(req: Request) {
   //     })
   //     .where(eq(userPaymentInfo.stripeSubscriptionId, subscription.id));
   // }
-  if (event.type === "payment_intent.succeeded") {
+  if (event.type === "payment_intent.payment_failed") {
+    const metaOrderId = session?.metadata?.orderId as string;
+    const [orderId] = ChargeOrderHashids.decode(metaOrderId);
+    const [order] = await db
+      .select()
+      .from(chargeOrder)
+      .where(eq(chargeOrder.id, orderId as number));
+    if (!order || order.phase !== OrderPhase.Pending) {
+      return new Response(`Order Phase Error`, { status: 400 });
+    }
+    await db
+      .update(chargeOrder)
+      .set({
+        phase: "Failed",
+        result: {
+          ...session,
+          failedAt: new Date(),
+        },
+      })
+      .where(eq(chargeOrder.id, orderId as number));
+  } else if (event.type === "payment_intent.canceled") {
+    const metaOrderId = session?.metadata?.orderId as string;
+    const [orderId] = ChargeOrderHashids.decode(metaOrderId);
+    const [order] = await db
+      .select()
+      .from(chargeOrder)
+      .where(eq(chargeOrder.id, orderId as number));
+    if (!order || order.phase !== OrderPhase.Pending) {
+      return new Response(`Order Phase Error`, { status: 400 });
+    }
+    await db
+      .update(chargeOrder)
+      .set({
+        phase: "Canceled",
+        paymentAt: new Date(),
+        result: {
+          ...session,
+          canceledAt: new Date(),
+        },
+      })
+      .where(eq(chargeOrder.id, orderId as number));
+  } else if (event.type === "payment_intent.succeeded") {
     const metaOrderId = session?.metadata?.orderId as string;
     const userId = session?.metadata?.userId as string;
     const metaChargeProductId = session?.metadata?.chargeProductId as string;
@@ -90,7 +132,7 @@ export async function POST(req: Request) {
         .from(chargeProduct)
         .where(eq(chargeProduct.id, chargeProductId as number)),
     ]);
-    if (!order || !product?.id || order.phase !== "Pending") {
+    if (!order || !product?.id || order.phase !== OrderPhase.Pending) {
       return new Response(`Order Phase Error`, { status: 400 });
     }
     const account = await getUserCredit(userId);

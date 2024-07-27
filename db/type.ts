@@ -6,6 +6,7 @@ export enum Currency {
 export enum OrderPhase {
   Pending = "Pending",
   Paid = "Paid",
+  Canceled = "Canceled",
   Failed = "Failed",
 }
 
