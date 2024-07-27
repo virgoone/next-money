@@ -1,12 +1,14 @@
 import { NextResponse } from "next/server";
+
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 import { get } from "@vercel/edge-config";
+import createMiddleware from "next-intl/middleware";
+
 import { kvKeys } from "@/config/kv";
 import { env } from "@/env.mjs";
 import countries from "@/lib/countries.json";
 import { getIP } from "@/lib/ip";
 import { redis } from "@/lib/redis";
-import createMiddleware from "next-intl/middleware";
 
 import { defaultLocale, localePrefix, locales } from "./config";
 
@@ -17,6 +19,8 @@ const isProtectedRoute = createRouteMatcher([
   "/:locale/dashboard(.*)",
   "/:locale/admin(.*)",
 ]);
+const isPublicRoute = createRouteMatcher(["/api/webhooks(.*)"]);
+
 const nextIntlMiddleware = createMiddleware({
   defaultLocale,
   locales,
@@ -26,6 +30,9 @@ const nextIntlMiddleware = createMiddleware({
 export default clerkMiddleware(async (auth, req) => {
   const { userId, redirectToSignIn } = auth();
 
+  if (isPublicRoute(req)) {
+    return;
+  }
   if (isProtectedRoute(req)) {
     if (!userId) {
       return redirectToSignIn();
