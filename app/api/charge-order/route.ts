@@ -64,7 +64,7 @@ export async function POST(req: NextRequest) {
         newId: chargeOrder.id,
       });
     const orderId = ChargeOrderHashids.encode(newChargeOrder.newId);
-    const billingUrl = absoluteUrl(`/billing?orderId=${orderId}`);
+    const billingUrl = absoluteUrl(`/pricing?orderId=${orderId}`);
 
     if (channel === "Stripe") {
       const stripeSession = await stripe.checkout.sessions.create({
