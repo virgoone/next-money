@@ -1,6 +1,6 @@
 import { headers } from "next/headers";
 
-import { eq } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 import Stripe from "stripe";
 
 import { db } from "@/db";
@@ -157,7 +157,7 @@ export async function POST(req: Request) {
       await tx
         .update(userCredit)
         .set({
-          credit: addCredit,
+          credit: sql`${userCredit.credit} + ${addCredit}`,
         })
         .where(eq(userCredit.id, account.id));
       await tx.insert(userCreditTransaction).values({
