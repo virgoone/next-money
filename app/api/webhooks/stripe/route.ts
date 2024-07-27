@@ -82,13 +82,14 @@ export async function POST(req: Request) {
       .select()
       .from(chargeOrder)
       .where(eq(chargeOrder.id, orderId as number));
+    console.log("payment_failed order-->", order);
     if (!order || order.phase !== OrderPhase.Pending) {
       return new Response(`Order Phase Error`, { status: 400 });
     }
     await db
       .update(chargeOrder)
       .set({
-        phase: "Failed",
+        phase: OrderPhase.Failed,
         result: {
           ...session,
           failedAt: new Date(),
@@ -102,13 +103,15 @@ export async function POST(req: Request) {
       .select()
       .from(chargeOrder)
       .where(eq(chargeOrder.id, orderId as number));
+    console.log("canceled order-->", order);
+
     if (!order || order.phase !== OrderPhase.Pending) {
       return new Response(`Order Phase Error`, { status: 400 });
     }
     await db
       .update(chargeOrder)
       .set({
-        phase: "Canceled",
+        phase: OrderPhase.Pending,
         paymentAt: new Date(),
         result: {
           ...session,
@@ -132,6 +135,7 @@ export async function POST(req: Request) {
         .from(chargeProduct)
         .where(eq(chargeProduct.id, chargeProductId as number)),
     ]);
+    console.log("payment succeeded order-->", order, product);
     if (!order || !product?.id || order.phase !== OrderPhase.Pending) {
       return new Response(`Order Phase Error`, { status: 400 });
     }

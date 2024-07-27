@@ -83,6 +83,13 @@ export async function POST(req: NextRequest) {
             quantity: 1,
           },
         ],
+        payment_intent_data: {
+          metadata: {
+            orderId: ChargeOrderHashids.encode(newChargeOrder.newId),
+            userId: user.id,
+            chargeProductId: productId,
+          },
+        },
         metadata: {
           orderId: ChargeOrderHashids.encode(newChargeOrder.newId),
           userId: user.id,
