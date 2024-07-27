@@ -116,12 +116,15 @@ export const userCredit = pgTable("user_credit", {
   updatedAt: timestamp("updated_at").defaultNow(),
 });
 
+export type UserCreditDto = typeof userCredit.$inferSelect;
+
 export const userCreditTransaction = pgTable("user_credit_transaction", {
   id: serial("id").primaryKey(),
   userId: varchar("user_id", { length: 200 }).notNull(),
   credit: integer("credit").notNull(), // 消耗积分
   balance: integer("balance").notNull(), // 余额
   billingId: integer("billing_id"),
+  type: varchar("type").notNull(),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
 });

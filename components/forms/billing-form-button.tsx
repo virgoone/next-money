@@ -12,9 +12,13 @@ import { SubscriptionPlan, UserSubscriptionPlan } from "@/types";
 
 interface BillingFormButtonProps {
   offer: ChargeProductDto;
+  btnText?: string;
 }
 
-export function BillingFormButton({ offer }: BillingFormButtonProps) {
+export function BillingFormButton({
+  offer,
+  btnText = "Buy Plan",
+}: BillingFormButtonProps) {
   let [isPending, startTransition] = useTransition();
   const { getToken } = useAuth();
 
@@ -25,16 +29,17 @@ export function BillingFormButton({ offer }: BillingFormButtonProps) {
         body: JSON.stringify({
           amount: offer.amount,
           chanel: "Stripe",
+          productId: offer.id,
           currency: offer.currency?.toUpperCase(),
         }),
         headers: { Authorization: `Bearer ${await getToken()}` },
       }).then((res) => res.json());
-      console.log("data--->", data);
+      window.location.href = data.url;
     });
-
+  const userOffer = offer.amount === 1990;
   return (
     <Button
-      variant={"outline"}
+      variant={userOffer ? "default" : "outline"}
       rounded="full"
       className="w-full"
       disabled={isPending}
@@ -45,7 +50,7 @@ export function BillingFormButton({ offer }: BillingFormButtonProps) {
           <Icons.spinner className="mr-2 size-4 animate-spin" /> Loading...
         </>
       ) : (
-        <>{"Buy Plan"}</>
+        <>{btnText}</>
       )}
     </Button>
   );

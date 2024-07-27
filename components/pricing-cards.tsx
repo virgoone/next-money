@@ -33,14 +33,13 @@ const PricingCard = ({
   offer: ChargeProductDto;
 }) => {
   const pathname = usePathname();
+  const t = useTranslations("PricingPage");
 
   return (
     <div
       className={cn(
         "relative flex flex-col overflow-hidden rounded-3xl border shadow-sm",
-        offer.title.toLocaleLowerCase() === "pro"
-          ? "-m-0.5 border-2 border-purple-400"
-          : "",
+        offer.amount === 1990 ? "-m-0.5 border-2 border-purple-400" : "",
       )}
       key={offer.title}
     >
@@ -64,12 +63,14 @@ const PricingCard = ({
               )}
             </div>
             <div className="-mb-1 ml-2 text-left text-sm font-medium text-muted-foreground">
-              <div>{offer.credit} Credit</div>
+              <div>
+                {offer.credit} {t("worth")}
+              </div>
             </div>
           </div>
         </div>
         <div className="text-left text-sm text-muted-foreground">
-          <div>No recurring</div>
+          <div>{t("description")}</div>
         </div>
       </div>
 
@@ -95,7 +96,7 @@ const PricingCard = ({
             ))} */}
         </ul>
         <SignedIn>
-          <BillingFormButton offer={offer} />
+          <BillingFormButton offer={offer} btnText={t("action.buy")} />
         </SignedIn>
 
         <SignedOut>
@@ -110,7 +111,7 @@ const PricingCard = ({
                 rounded="full"
                 // onClick={() => setShowSignInModal(true)}
               >
-                Sign in
+                {t("action.signin")}
               </Button>
             </SignInButton>
           </div>
@@ -138,7 +139,7 @@ export function PricingCards({ userId, chargeProduct }: PricingCardsProps) {
               {t("tip.title")}&nbsp;(
               {t("tip.subtitle")}&nbsp;
               <a
-                href="/contact"
+                href="mailto:support@douni.one"
                 className="font-semibold text-blue-700 underline decoration-blue-500 dark:text-white dark:decoration-white"
               >
                 {t("tip.contact")}
@@ -180,18 +181,19 @@ export function PricingCards({ userId, chargeProduct }: PricingCardsProps) {
         </div>
 
         <p className="mt-3 text-balance text-center text-base text-muted-foreground">
-          Email{" "}
+          {t("contact.title")}
+          <br />
           <a
             className="font-medium text-primary hover:underline"
-            href="mailto:support@saas-starter.com"
+            href="mailto:support@douni.one"
           >
-            support@saas-starter.com
+            support@douni.one
           </a>{" "}
-          for to contact our support team.
+          {t("contact.description")}
           <br />
-          <strong>
+          {/* <strong>
             You can test the subscriptions and won&apos;t be charged.
-          </strong>
+          </strong> */}
         </p>
       </section>
     </MaxWidthWrapper>

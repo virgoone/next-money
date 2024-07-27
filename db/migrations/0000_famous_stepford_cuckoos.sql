@@ -128,6 +128,7 @@ CREATE TABLE IF NOT EXISTS "user_credit_transaction" (
 	"credit" integer NOT NULL,
 	"balance" integer NOT NULL,
 	"billing_id" integer,
+	"type" varchar NOT NULL,
 	"created_at" timestamp DEFAULT now(),
 	"updated_at" timestamp DEFAULT now()
 );

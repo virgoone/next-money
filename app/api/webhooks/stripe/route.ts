@@ -1,12 +1,21 @@
 import { headers } from "next/headers";
-import { chargeOrder, userPaymentInfo } from "@/db/schema";
-import { db } from "@/db";
+
 import { eq } from "drizzle-orm";
 import Stripe from "stripe";
 
+import { db } from "@/db";
+import { ChargeOrderHashids } from "@/db/dto/charge-order.dto";
+import { ChargeProductHashids } from "@/db/dto/charge-product.dto";
+import { getUserCredit } from "@/db/queries/account";
+import {
+  chargeOrder,
+  chargeProduct,
+  userCredit,
+  userCreditTransaction,
+  userPaymentInfo,
+} from "@/db/schema";
 import { env } from "@/env.mjs";
 import { stripe } from "@/lib/stripe";
-import { ChargeOrderHashids } from "@/db/dto/charge-order.dto";
 
 export async function POST(req: Request) {
   const body = await req.text();
@@ -66,13 +75,51 @@ export async function POST(req: Request) {
   //     .where(eq(userPaymentInfo.stripeSubscriptionId, subscription.id));
   // }
   if (event.type === "payment_intent.succeeded") {
-    console.log('session--->', session)
-    // const metaOrderId =  session?.metadata?.orderId as string; 
-    // const [orderId] = ChargeOrderHashids.decode(metaOrderId)
-    // const [order] = await db.select().from(chargeOrder).where(eq(chargeOrder.id, orderId as number))
-    // if (!order || order.phase !== "Pending") {
-    //   return new Response(`Order Phase Error`, { status: 400 });
-    // }
+    const metaOrderId = session?.metadata?.orderId as string;
+    const userId = session?.metadata?.userId as string;
+    const metaChargeProductId = session?.metadata?.chargeProductId as string;
+    const [orderId] = ChargeOrderHashids.decode(metaOrderId);
+    const [chargeProductId] = ChargeProductHashids.decode(metaChargeProductId);
+    const [[order], [product]] = await Promise.all([
+      db
+        .select()
+        .from(chargeOrder)
+        .where(eq(chargeOrder.id, orderId as number)),
+      db
+        .select()
+        .from(chargeProduct)
+        .where(eq(chargeProduct.id, chargeProductId as number)),
+    ]);
+    if (!order || !product?.id || order.phase !== "Pending") {
+      return new Response(`Order Phase Error`, { status: 400 });
+    }
+    const account = await getUserCredit(userId);
+    await db.transaction(async (tx) => {
+      const addCredit = product.credit;
+      await tx
+        .update(chargeOrder)
+        .set({
+          phase: "Paid",
+          paymentAt: new Date(),
+          result: session,
+        })
+        .where(eq(chargeOrder.id, order.id));
+      const [{ newCredit }] = await tx
+        .update(userCredit)
+        .set({
+          credit: addCredit,
+        })
+        .where(eq(userCredit.id, account.id))
+        .returning({
+          newCredit: userCredit.credit,
+        });
+      await tx.insert(userCreditTransaction).values({
+        userId: userId,
+        credit: addCredit,
+        balance: newCredit,
+        type: "Charge",
+      });
+    });
   }
 
   return new Response(null, { status: 200 });

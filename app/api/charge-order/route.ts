@@ -7,7 +7,7 @@ import { z } from "zod";
 
 import { db } from "@/db";
 import { ChargeOrderHashids } from "@/db/dto/charge-order.dto";
-import { chargeOrder } from "@/db/schema";
+import { chargeOrder, chargeProduct } from "@/db/schema";
 import { OrderPhase } from "@/db/type";
 import { getErrorMessage } from "@/lib/handle-error";
 import { redis } from "@/lib/redis";
@@ -16,6 +16,7 @@ import { absoluteUrl } from "@/lib/utils";
 
 const CreateChargeOrderSchema = z.object({
   currency: z.enum(["CNY", "USD"]).default("USD"),
+  productId: z.string(),
   amount: z.number().min(100).max(1000000000),
   channel: z.enum(["GiftCode", "Stripe"]).default("Stripe"),
 });
@@ -25,7 +26,6 @@ export async function POST(req: NextRequest) {
   const { userId } = auth();
 
   const user = await currentUser();
-  console.log('user--->', user, userId)
   if (!userId || !user || !user.primaryEmailAddress) {
     return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
   }
@@ -45,7 +45,7 @@ export async function POST(req: NextRequest) {
 
   try {
     const data = await req.json();
-    const { currency, amount, channel } = CreateChargeOrderSchema.parse(data);
+    const { currency, amount, channel, productId } = CreateChargeOrderSchema.parse(data);
     const [newChargeOrder] = await db
       .insert(chargeOrder)
       .values({
@@ -86,6 +86,7 @@ export async function POST(req: NextRequest) {
         metadata: {
           orderId: ChargeOrderHashids.encode(newChargeOrder.newId),
           userId: user.id,
+          chargeProductId: productId,
         },
       });
       return NextResponse.json({

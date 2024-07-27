@@ -28,11 +28,25 @@
   },
   "PricingPage": {
     "title": "订阅会员享更多权益！",
+    "worth": "积分",
     "label": "价格",
+    "action": {
+      "signin": "登 陆",
+      "buy": "购 买"
+    },
+    "contact": {
+      "title": "联系我们",
+      "description": "如果使用过程中有遇到任何问题，您可以通过邮件联系我们"
+    },
     "tip": {
       "title": "💳💳 支付提示: 如果您在支付过程中遇到任何问题，请随时联系我们！😉",
       "subtitle": "有问题?",
       "contact": "联系我们！"
+    },
+    "faq": {
+      "label": "问题",
+      "title": "常见问题",
+      "subtitle": "探索我们常见问题解答（FAQ）。如果您需要进一步的帮助，请随时联系我们，以获得个性化的帮助。"
     }
   },
   "NewsLetter": {

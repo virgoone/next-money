@@ -1,14 +1,17 @@
 import { Skeleton } from "@/components/ui/skeleton";
 import { HeaderSection } from "@/components/shared/header-section";
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
+import { getTranslations } from "next-intl/server";
 
-export default function Loading() {
+export default async function Loading() {
+  const t = await getTranslations({ namespace: "PricingPage" });
+
   return (
     <div className="flex w-full flex-col gap-16 py-8 md:py-8">
       <MaxWidthWrapper>
         <section className="flex flex-col items-center">
           <div className="mx-auto flex w-full flex-col items-center gap-5">
-            <HeaderSection label="Pricing" title="Start at full speed !" />
+            <HeaderSection label={t("label")} title={t("title")} />
             <Skeleton className="mb-3 mt-5 h-8 w-1/5 rounded-full" />
           </div>
 

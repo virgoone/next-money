@@ -28,7 +28,22 @@
   },
   "PricingPage": {
     "title": "Choose a plan to buy credits",
+    "description": "No recurring",
+    "worth": "Credit",
     "label": "Pricing",
+    "action": {
+      "signin": "Sign in",
+      "buy": "Buy Plan"
+    },
+    "contact": {
+      "title": "Contact us",
+      "description": "If you have any questions, feel free to reach out to us."
+    },
+    "faq": {
+      "label": "FAQ",
+      "title": "Frequently asked questions",
+      "subtitle": "Explore our comprehensive FAQ to find quick answers to common inquiries. If you need further assistance, don't hesitate to contact us for personalized help."
+    },
     "tip": {
       "title": "💳 Payment Tip: If you encounter any issues during the payment process, feel free to reach out to us! 😉",
       "subtitle": "Questions?",

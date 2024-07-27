@@ -6,6 +6,7 @@ import {
 } from "@/components/ui/accordion";
 
 import { HeaderSection } from "./shared/header-section";
+import { useTranslations } from "next-intl";
 
 const pricingFaqData = [
   {
@@ -41,14 +42,14 @@ const pricingFaqData = [
 ];
 
 export function PricingFaq() {
+  const t = useTranslations("PricingPage");
+
   return (
     <section className="container max-w-4xl py-2">
       <HeaderSection
-        label="FAQ"
-        title="Frequently Asked Questions"
-        subtitle="Explore our comprehensive FAQ to find quick answers to common
-          inquiries. If you need further assistance, don't hesitate to
-          contact us for personalized help."
+        label={t("faq.label")}
+        title={t("faq.title")}
+        subtitle={t("faq.subtitle")}
       />
 
       <Accordion type="single" collapsible className="my-12 w-full">
