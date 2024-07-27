@@ -20,7 +20,6 @@ const CreateChargeOrderSchema = z.object({
   amount: z.number().min(100).max(1000000000),
   channel: z.enum(["GiftCode", "Stripe"]).default("Stripe"),
 });
-const billingUrl = absoluteUrl("/pricing");
 
 export async function POST(req: NextRequest) {
   const { userId } = auth();
@@ -45,7 +44,8 @@ export async function POST(req: NextRequest) {
 
   try {
     const data = await req.json();
-    const { currency, amount, channel, productId } = CreateChargeOrderSchema.parse(data);
+    const { currency, amount, channel, productId } =
+      CreateChargeOrderSchema.parse(data);
     const [newChargeOrder] = await db
       .insert(chargeOrder)
       .values({
@@ -63,10 +63,13 @@ export async function POST(req: NextRequest) {
       .returning({
         newId: chargeOrder.id,
       });
+    const orderId = ChargeOrderHashids.encode(newChargeOrder.newId);
+    const billingUrl = absoluteUrl(`/billing?orderId=${orderId}`);
+
     if (channel === "Stripe") {
       const stripeSession = await stripe.checkout.sessions.create({
-        success_url: billingUrl,
-        cancel_url: billingUrl,
+        success_url: `${billingUrl}&success=true`,
+        cancel_url: `${billingUrl}&success=false`,
         payment_method_types: ["card"],
         mode: "payment",
         billing_address_collection: "auto",
@@ -85,24 +88,24 @@ export async function POST(req: NextRequest) {
         ],
         payment_intent_data: {
           metadata: {
-            orderId: ChargeOrderHashids.encode(newChargeOrder.newId),
+            orderId,
             userId: user.id,
             chargeProductId: productId,
           },
         },
         metadata: {
-          orderId: ChargeOrderHashids.encode(newChargeOrder.newId),
+          orderId,
           userId: user.id,
           chargeProductId: productId,
         },
       });
       return NextResponse.json({
-        orderId: ChargeOrderHashids.encode(newChargeOrder.newId),
+        orderId,
         url: stripeSession.url as string,
       });
     }
     return NextResponse.json({
-      orderId: ChargeOrderHashids.encode(newChargeOrder.newId),
+      orderId,
     });
   } catch (error) {
     return NextResponse.json(

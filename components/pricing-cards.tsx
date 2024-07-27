@@ -1,10 +1,12 @@
 "use client";
 
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import { useTranslations } from "next-intl";
+import { useReward } from "react-rewards";
 
 import { BillingFormButton } from "@/components/forms/billing-form-button";
 import { HeaderSection } from "@/components/shared/header-section";
@@ -103,12 +105,9 @@ const PricingCard = ({
           <div className="flex justify-center">
             <SignInButton mode="modal" forceRedirectUrl={url(pathname).href}>
               <Button
-                variant={
-                  offer.title.toLocaleLowerCase() === "pro"
-                    ? "default"
-                    : "outline"
-                }
+                variant={offer.amount === 1990 ? "default" : "outline"}
                 rounded="full"
+                className="w-full"
                 // onClick={() => setShowSignInModal(true)}
               >
                 {t("action.signin")}
@@ -124,10 +123,32 @@ export function PricingCards({ userId, chargeProduct }: PricingCardsProps) {
   const t = useTranslations("PricingPage");
   const isYearlyDefault = false;
   const [isYearly, setIsYearly] = useState<boolean>(!!isYearlyDefault);
+  const searchParams = useSearchParams();
 
   const toggleBilling = () => {
     setIsYearly(!isYearly);
   };
+
+  const { reward } = useReward("order-success", "confetti", {
+    position: "fixed",
+    elementCount: 360,
+    spread: 80,
+    elementSize: 8,
+    lifetime: 400,
+  });
+
+  useEffect(() => {
+    if (!searchParams.size) {
+      return;
+    }
+    if (searchParams.get("success") === "true") {
+      setTimeout(() => {
+        reward();
+      }, 1000);
+    } else if (searchParams.get("success") === "false") {
+      console.log("支付失败");
+    }
+  }, [searchParams]);
 
   return (
     <MaxWidthWrapper>
@@ -196,6 +217,10 @@ export function PricingCards({ userId, chargeProduct }: PricingCardsProps) {
           </strong> */}
         </p>
       </section>
+      <div
+        className="pointer-events-none fixed bottom-10 left-[50%] translate-x-[-50%]"
+        id="order-success"
+      />
     </MaxWidthWrapper>
   );
 }
