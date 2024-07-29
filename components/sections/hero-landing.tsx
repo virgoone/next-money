@@ -51,7 +51,7 @@ export default async function HeroLanding() {
         </p>
 
         <div
-          className="flex justify-center space-x-2 md:space-x-4"
+          className="flex flex-col justify-center space-y-4 md:space-y-0 md:flex-row md:space-x-4"
           style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}
         >
           <SignedIn>
@@ -62,7 +62,7 @@ export default async function HeroLanding() {
               <span className="absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 bg-white opacity-10 transition-all duration-1000 ease-out group-hover:-translate-x-40" />
               <div className="flex items-center">
                 <DashboardIcon className="mr-2 size-4" />
-                <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10">
+                <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:text-slate-900 dark:from-white dark:to-slate-900/10">
                   {t("action.dashboard")}
                 </span>
               </div>
@@ -74,7 +74,7 @@ export default async function HeroLanding() {
               <Button
                 className={cn(
                   buttonVariants({ size: "lg", rounded: "full" }),
-                  "gap-2",
+                  "gap-2 min-w-32",
                 )}
               >
                 <UserArrowLeftIcon className="mr-2 size-4" />
