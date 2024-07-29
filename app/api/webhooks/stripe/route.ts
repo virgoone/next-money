@@ -16,6 +16,7 @@ import {
 } from "@/db/schema";
 import { OrderPhase } from "@/db/type";
 import { env } from "@/env.mjs";
+import { logsnag } from "@/lib/log-snag";
 import { stripe } from "@/lib/stripe";
 
 export async function GET() {
@@ -166,6 +167,17 @@ export async function POST(req: Request) {
         balance: account.credit + addCredit,
         type: "Charge",
       });
+    });
+    await logsnag.track({
+      channel: "payments",
+      event: "Successful Payment",
+      user_id: userId,
+      description: `${product.title} - ${product.amount}`,
+      icon: "💰",
+      tags: {
+        title: product.title,
+        amount: product.amount,
+      },
     });
   }
 

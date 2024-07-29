@@ -23,6 +23,9 @@ dependencies:
   '@hookform/resolvers':
     specifier: ^3.4.2
     version: 3.6.0(react-hook-form@7.51.5)
+  '@logsnag/next':
+    specifier: ^1.0.3
+    version: 1.0.3(next@14.2.3)(react-dom@18.3.1)(react@18.3.1)
   '@lokesh.dhakar/quantize':
     specifier: ^1.3.0
     version: 1.3.0
@@ -4305,6 +4308,18 @@ packages:
       '@lezer/common': 1.2.1
       '@lezer/highlight': 1.2.0
       '@lezer/lr': 1.4.1
+    dev: false
+
+  /@logsnag/next@1.0.3(next@14.2.3)(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-HcbZx2NlWK8qVVnsnTAxrWWts/eVZFI1hvHk5FgP/qXIqY5gRyYqwe/r3x6CnHZXw27s4BXW8jFT6zXusk0eYA==}
+    peerDependencies:
+      next: ^11.1.0 || ^12.0.0 || ^13.0.0 || ^14.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      next: 14.2.3(@babel/core@7.24.7)(react-dom@18.3.1)(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
     dev: false
 
   /@lokesh.dhakar/quantize@1.3.0:

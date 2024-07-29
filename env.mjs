@@ -27,6 +27,7 @@ export const env = createEnv({
     STRIPE_WEBHOOK_SECRET: z.string().min(1),
     WEBHOOK_SECRET: z.string().min(1),
     CLERK_SECRET_KEY: z.string().min(1),
+    LOG_SNAG_TOKEN: z.string().min(1),
   },
   client: {
     NEXT_PUBLIC_SANITY_PROJECT_ID: z.string().min(1),
@@ -48,6 +49,7 @@ export const env = createEnv({
   runtimeEnv: {
     DATABASE_URL: process.env.DATABASE_URL,
     HASHID_SALT: process.env.HASHID_SALT,
+    LOG_SNAG_TOKEN: process.env.LOG_SNAG_TOKEN,
     RESEND_API_KEY: process.env.RESEND_API_KEY,
     VERCEL_ENV: process.env.VERCEL_ENV,
     UPSTASH_REDIS_REST_URL: process.env.UPSTASH_REDIS_REST_URL,
