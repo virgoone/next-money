@@ -4,10 +4,10 @@
     "title": "Something went wrong!"
   },
   "IndexPage": {
-    "intro": "Introducing Random Face Generator",
-    "description": "Create unique faces with our AI-driven 'This Person Does Not Exist' face generator. ",
-    "title": "Random Face Generator",
-    "subtitle": "This Person Does Not Exist ",
+    "intro": "Introducing Flux AI Image Generator",
+    "description": "Revolutionizing Next-Generation Advanced Text-to-Image open model, support flux.1 pro and flux.1 schnell models.",
+    "title": "Flux AI Image Generator",
+    "subtitle": "Advanced Text-to-Image",
     "powered": {
       "title": "Powered by"
     },
@@ -61,19 +61,19 @@
     }
   },
   "LocaleLayout": {
-    "title": "This Person Does Not Exist | Random Face Generator",
-    "description": "Create unique faces with our AI-driven 'This Person Does Not Exist' face generator. Enjoy HD 1024x1024 faces for free. Generate up to 8 faces at once, choosing between genders or randomness. Explore the ultimate face generator tool!"
+    "title": "Flux AI Image Generator",
+    "description": "Revolutionizing Next-Generation Advanced Text-to-Image open model, support flux.1 pro and flux.1 schnell models."
   },
   "LocaleSwitcher": {
     "label": "Change language",
     "locale": "{locale, select, zh {🇨🇳 中国} en {🇺🇸 English} other {Unknown}}"
   },
   "Manifest": {
-    "name": "Random Face Generator"
+    "name": "Flux AI Image Generator"
   },
   "Navigation": {
     "pricing": "Pricing",
-    "title": "Random Face Generator",
+    "title": "Flux AI Image Generator",
     "blog": "Blog",
     "dashboard": "Dashboard",
     "tooltip": {

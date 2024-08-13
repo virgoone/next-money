@@ -4,10 +4,10 @@
     "title": "出错了！"
   },
   "IndexPage": {
-    "intro": "介绍随机人脸生成器",
-    "description": "使用我们的AI驱动的“这个人不存在”人脸生成器创建独特的面孔。",
-    "title": "随机人脸生成器",
-    "subtitle": "这个人在这个世界不存在",
+    "intro": "Flux AI图像生成器",
+    "description": "下一代高级文本转图像开放模型，支持flux.1 pro和flux.1 schnell模型",
+    "title": "Flux AI图像生成器",
+    "subtitle": "下一代高级文本转图像开放模型，支持flux.1 pro和flux.1 schnell模型",
     "powered": {
       "title": "技术支持"
     },
@@ -60,19 +60,19 @@
     }
   },
   "LocaleLayout": {
-    "title": "这个人不存在 | 随机人脸生成器",
-    "description": "使用我们的AI驱动的“这个人不存在”人脸生成器创建独特的面孔。免费享受1024x1024高清面孔。一次最多生成8张面孔，可以选择性别或随机。探索终极人脸生成器工具！"
+    "title": "Flux AI图像生成器",
+    "description": "下一代高级文本转图像开放模型，支持flux.1 pro和flux.1 schnell模型"
   },
   "LocaleSwitcher": {
     "label": "更改语言",
     "locale": "{locale, select, zh {🇨🇳 中文} en {🇺🇸 英文} other {未知}}"
   },
   "Manifest": {
-    "name": "随机人脸生成器"
+    "name": "Flux AI图像生成器"
   },
   "Navigation": {
     "pricing": "定价",
-    "title": "随机人脸生成器",
+    "title": "Flux AI图像生成器",
     "blog": "博客",
     "dashboard": "控制台",
     "tooltip": {

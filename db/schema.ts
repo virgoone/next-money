@@ -1,4 +1,5 @@
 import {
+  boolean,
   index,
   integer,
   json,
@@ -140,31 +141,48 @@ export const userBilling = pgTable("user_billing", {
   updatedAt: timestamp("updated_at").defaultNow(),
 });
 
-export const face = pgTable("face_data", {
+export const flux = pgTable("flux_data", {
   id: serial("id").primaryKey(),
-  age: integer("age").notNull(),
-  url: varchar("url").notNull(),
-  dominantEmotion: varchar("dominant_emotion").notNull(),
-  dominantGender: varchar("dominant_gender").notNull(),
-  dominantRace: varchar("dominant_race").notNull(),
-  downloads: integer("downloads").default(0).notNull(),
-  views: integer("views").default(0).notNull(),
-  deepFace: json("deep_face"),
+  userId: varchar("user_id").notNull(),
+  replicateId: varchar("replicate_id").notNull(),
+  inputPrompt: text("input_prompt"),
+  executePrompt: text("execute_prompt"),
+  steps: integer("steps"),
+  guidance: integer("guidance"),
+  interval: integer("interval"),
+  imageUrl: varchar("image_url"),
+  model: varchar("model").notNull(),
+  executeStartTime: integer("execute_start_time"),
+  executeEndTime: integer("execute_end_time"),
+  locale: varchar("locale", { length: 64 }),
+  aspectRatio: varchar("aspect_ratio").notNull(),
+  safetyTolerance: integer("safety_tolerance"),
+  seed: integer("seed"),
+  taskStatus: varchar("task_status").notNull(),
+  isPrivate: boolean("is_private").default(false),
+  downloadNum: integer("download_num").default(0).notNull(),
+  viewsNum: integer("views_num").default(0).notNull(),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
 });
 
-export const faceDownloads = pgTable("face_downloads", {
+export type FluxSchemaDto = typeof flux.$inferSelect;
+
+export type FluxDto = Omit<FluxSchemaDto, "id"> & {
+  id: string;
+};
+
+export const fluxDownloads = pgTable("flux_downloads", {
   id: serial("id").primaryKey(),
-  faceId: integer("face_id").notNull(),
+  fluxId: integer("flux_id").notNull(),
   userId: varchar("user_id", { length: 200 }).notNull(),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
 });
 
-export const faceViews = pgTable("face_views", {
+export const fluxViews = pgTable("flux_views", {
   id: serial("id").primaryKey(),
-  faceId: integer("face_id").notNull(),
+  fluxId: integer("flux_id").notNull(),
   userId: varchar("user_id", { length: 200 }).notNull(),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),

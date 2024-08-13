@@ -1,11 +1,12 @@
 import { use } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { getFaceDataBySeed } from "@/db/queries/face-query";
+
+import { getFluxDataBySeed } from "@/db/queries/flux-query";
 import { Link as I18nLink } from "@/lib/navigation";
 
 export default async function PreviewLanding() {
-  const { data } = await getFaceDataBySeed({ limit: 24 });
+  const { data } = await getFluxDataBySeed({ limit: 24 });
   return (
     <div className="mx-auto mb-10 mt-8 w-[90%]">
       <div
@@ -16,23 +17,19 @@ export default async function PreviewLanding() {
           <div className="mt-6" data-id={item.id} key={item.id}>
             <div className="checkerboard relative flex items-start justify-center rounded-xl">
               <I18nLink href={`/face/${item.id}`} className="cursor-pointer">
-                <Image
-                  className="rounded-lg"
-                  width={400}
-                  height={400}
-                  alt={`${item.dominantEmotion} ${item.dominantGender}`}
-                  src={item.url}
-                />
+                {item.imageUrl && (
+                  <Image
+                    className="rounded-lg"
+                    width={400}
+                    height={400}
+                    alt={`${item.inputPrompt}`}
+                    src={item.imageUrl}
+                  />
+                )}
               </I18nLink>
               <div className="tags absolute bottom-2 left-1 flex w-full space-x-2">
                 <span className="apple-tag rounded-md px-2 py-1 text-white">
-                  {item.dominantEmotion}
-                </span>
-                <span className="apple-tag rounded-md px-2 py-1 text-white">
-                  {item.dominantGender}
-                </span>
-                <span className="apple-tag rounded-md px-2 py-1 text-white">
-                  {item.dominantRace}
+                  {item.inputPrompt}
                 </span>
               </div>
               <Link

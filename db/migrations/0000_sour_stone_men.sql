@@ -38,31 +38,42 @@ CREATE TABLE IF NOT EXISTS "comments" (
 	"updated_at" timestamp DEFAULT now()
 );
 --> statement-breakpoint
-CREATE TABLE IF NOT EXISTS "face_data" (
+CREATE TABLE IF NOT EXISTS "flux_data" (
 	"id" serial PRIMARY KEY NOT NULL,
-	"age" integer NOT NULL,
-	"url" varchar NOT NULL,
-	"dominant_emotion" varchar NOT NULL,
-	"dominant_gender" varchar NOT NULL,
-	"dominant_race" varchar NOT NULL,
-	"downloads" integer DEFAULT 0 NOT NULL,
-	"views" integer DEFAULT 0 NOT NULL,
-	"deep_face" json,
+	"user_id" varchar NOT NULL,
+	"replicate_id" varchar NOT NULL,
+	"input_prompt" text,
+	"execute_prompt" text,
+	"steps" integer,
+	"guidance" integer,
+	"interval" integer,
+	"image_url" varchar,
+	"model" varchar NOT NULL,
+	"execute_start_time" integer,
+	"execute_end_time" integer,
+	"locale" varchar(64),
+	"aspect_ratio" varchar NOT NULL,
+	"safety_tolerance" integer,
+	"seed" integer,
+	"task_status" varchar NOT NULL,
+	"is_private" boolean DEFAULT false,
+	"download_num" integer DEFAULT 0 NOT NULL,
+	"views_num" integer DEFAULT 0 NOT NULL,
 	"created_at" timestamp DEFAULT now(),
 	"updated_at" timestamp DEFAULT now()
 );
 --> statement-breakpoint
-CREATE TABLE IF NOT EXISTS "face_downloads" (
+CREATE TABLE IF NOT EXISTS "flux_downloads" (
 	"id" serial PRIMARY KEY NOT NULL,
-	"face_id" integer NOT NULL,
+	"flux_id" integer NOT NULL,
 	"user_id" varchar(200) NOT NULL,
 	"created_at" timestamp DEFAULT now(),
 	"updated_at" timestamp DEFAULT now()
 );
 --> statement-breakpoint
-CREATE TABLE IF NOT EXISTS "face_views" (
+CREATE TABLE IF NOT EXISTS "flux_views" (
 	"id" serial PRIMARY KEY NOT NULL,
-	"face_id" integer NOT NULL,
+	"flux_id" integer NOT NULL,
 	"user_id" varchar(200) NOT NULL,
 	"created_at" timestamp DEFAULT now(),
 	"updated_at" timestamp DEFAULT now()

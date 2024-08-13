@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import { getTranslations } from "next-intl/server";
 
@@ -7,6 +5,7 @@ import { DashboardIcon, UserArrowLeftIcon } from "@/assets";
 import { Icons } from "@/components/shared/icons";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
+import { Link } from "@/lib/navigation";
 import { cn, nFormatter } from "@/lib/utils";
 
 import ShimmerButton from "../forms/shimmer-button";
@@ -37,7 +36,8 @@ export default async function HeroLanding() {
         </Link>
 
         <h1 className="text-balance font-urban text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-[66px]">
-          {t("subtitle")}
+          <span>{t("subtitle")}</span>
+          <br/>
           <span className="text-gradient_indigo-purple font-extrabold">
             {t("title")}
           </span>
@@ -51,7 +51,7 @@ export default async function HeroLanding() {
         </p>
 
         <div
-          className="flex flex-col justify-center space-y-4 md:space-y-0 md:flex-row md:space-x-4"
+          className="flex flex-col justify-center space-y-4 md:flex-row md:space-x-4 md:space-y-0"
           style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}
         >
           <SignedIn>
@@ -62,7 +62,7 @@ export default async function HeroLanding() {
               <span className="absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 bg-white opacity-10 transition-all duration-1000 ease-out group-hover:-translate-x-40" />
               <div className="flex items-center">
                 <DashboardIcon className="mr-2 size-4" />
-                <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:text-slate-900 dark:from-white dark:to-slate-900/10">
+                <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 dark:text-slate-900">
                   {t("action.dashboard")}
                 </span>
               </div>
@@ -74,7 +74,7 @@ export default async function HeroLanding() {
               <Button
                 className={cn(
                   buttonVariants({ size: "lg", rounded: "full" }),
-                  "gap-2 min-w-32",
+                  "min-w-32 gap-2",
                 )}
               >
                 <UserArrowLeftIcon className="mr-2 size-4" />
@@ -84,16 +84,14 @@ export default async function HeroLanding() {
           </SignedOut>
 
           <Link
-            href={siteConfig.links.github}
-            target="_blank"
-            rel="noreferrer"
+            href="/pricing"
             className={cn(
               buttonVariants({
                 variant: "outline",
                 size: "lg",
                 rounded: "full",
               }),
-              "px-5",
+              "min-w-32 px-5",
             )}
           >
             <p>{t("action.pricing")}</p>

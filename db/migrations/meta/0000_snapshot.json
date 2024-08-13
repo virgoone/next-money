@@ -1,5 +1,5 @@
 {
-  "id": "8b937689-0e2a-4428-b8d0-4fe537a83340",
+  "id": "f8be84a4-09df-4071-8a13-498a7bcefa62",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -242,8 +242,8 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "public.face_data": {
-      "name": "face_data",
+    "public.flux_data": {
+      "name": "flux_data",
       "schema": "",
       "columns": {
         "id": {
@@ -252,55 +252,122 @@
           "primaryKey": true,
           "notNull": true
         },
-        "age": {
-          "name": "age",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "url": {
-          "name": "url",
+        "user_id": {
+          "name": "user_id",
           "type": "varchar",
           "primaryKey": false,
           "notNull": true
         },
-        "dominant_emotion": {
-          "name": "dominant_emotion",
+        "replicate_id": {
+          "name": "replicate_id",
           "type": "varchar",
           "primaryKey": false,
           "notNull": true
         },
-        "dominant_gender": {
-          "name": "dominant_gender",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "dominant_race": {
-          "name": "dominant_race",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "downloads": {
-          "name": "downloads",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true,
-          "default": 0
-        },
-        "views": {
-          "name": "views",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true,
-          "default": 0
-        },
-        "deep_face": {
-          "name": "deep_face",
-          "type": "json",
+        "input_prompt": {
+          "name": "input_prompt",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
+        },
+        "execute_prompt": {
+          "name": "execute_prompt",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "steps": {
+          "name": "steps",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "guidance": {
+          "name": "guidance",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "interval": {
+          "name": "interval",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "image_url": {
+          "name": "image_url",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "model": {
+          "name": "model",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "execute_start_time": {
+          "name": "execute_start_time",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "execute_end_time": {
+          "name": "execute_end_time",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "locale": {
+          "name": "locale",
+          "type": "varchar(64)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "aspect_ratio": {
+          "name": "aspect_ratio",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "safety_tolerance": {
+          "name": "safety_tolerance",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "seed": {
+          "name": "seed",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "task_status": {
+          "name": "task_status",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "is_private": {
+          "name": "is_private",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "default": false
+        },
+        "download_num": {
+          "name": "download_num",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "views_num": {
+          "name": "views_num",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
         },
         "created_at": {
           "name": "created_at",
@@ -322,8 +389,8 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "public.face_downloads": {
-      "name": "face_downloads",
+    "public.flux_downloads": {
+      "name": "flux_downloads",
       "schema": "",
       "columns": {
         "id": {
@@ -332,8 +399,8 @@
           "primaryKey": true,
           "notNull": true
         },
-        "face_id": {
-          "name": "face_id",
+        "flux_id": {
+          "name": "flux_id",
           "type": "integer",
           "primaryKey": false,
           "notNull": true
@@ -364,8 +431,8 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "public.face_views": {
-      "name": "face_views",
+    "public.flux_views": {
+      "name": "flux_views",
       "schema": "",
       "columns": {
         "id": {
@@ -374,8 +441,8 @@
           "primaryKey": true,
           "notNull": true
         },
-        "face_id": {
-          "name": "face_id",
+        "flux_id": {
+          "name": "flux_id",
           "type": "integer",
           "primaryKey": false,
           "notNull": true
