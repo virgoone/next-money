@@ -2,12 +2,10 @@
 
 import { unstable_noStore as noStore, revalidatePath } from "next/cache";
 
-import { eq } from "drizzle-orm";
 import { omitBy } from "lodash-es";
 
-import { db } from "@/db";
 import { ChargeProductHashids } from "@/db/dto/charge-product.dto";
-import { chargeProduct, type ChargeProductDto } from "@/db/schema";
+import { prisma } from "@/db/prisma";
 import { getErrorMessage } from "@/lib/handle-error";
 
 import type { CreateSchema, UpdateSchema } from "./validations";
@@ -28,9 +26,8 @@ export async function createAction(input: CreateSchema) {
     } = input;
 
     await Promise.all([
-      await db
-        .insert(chargeProduct)
-        .values({
+      await prisma.chargeProduct.create({
+        data: {
           title,
           locale,
           credit,
@@ -40,10 +37,8 @@ export async function createAction(input: CreateSchema) {
           tag,
           message,
           state,
-        })
-        .returning({
-          newId: chargeProduct.id,
-        }),
+        },
+      }),
     ]);
 
     revalidatePath("/");
@@ -75,20 +70,25 @@ export async function updateAction(input: UpdateSchema & { id: string }) {
       message,
       state,
     } = input;
-    await db
-      .update(chargeProduct)
-      .set({
-        title,
-        locale,
-        credit,
-        amount,
-        currency,
-        originalAmount,
-        tag,
-        message,
-        state,
-      })
-      .where(eq(chargeProduct.id, id as number));
+    await prisma.chargeProduct.update({
+      where: {
+        id: id as number,
+      },
+      data: omitBy(
+        {
+          title,
+          locale,
+          credit,
+          amount,
+          currency,
+          originalAmount,
+          tag,
+          message,
+          state,
+        },
+        (value) => value === undefined,
+      ),
+    });
 
     revalidatePath("/");
 
@@ -108,7 +108,11 @@ export async function updateAction(input: UpdateSchema & { id: string }) {
 export async function deleteAction(input: { id: string }) {
   try {
     const [id] = ChargeProductHashids.decode(input.id);
-    await db.delete(chargeProduct).where(eq(chargeProduct.id, id as number));
+    await prisma.chargeProduct.delete({
+      where: {
+        id: id as number,
+      },
+    });
 
     revalidatePath("/");
   } catch (err) {

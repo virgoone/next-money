@@ -1,19 +1,11 @@
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 
-import { and, eq, sql } from "drizzle-orm";
 import { z } from "zod";
 
-import { db } from "@/db";
+import { prisma } from "@/db/prisma";
 import { getUserCredit } from "@/db/queries/account";
-import {
-  BillingType,
-  flux,
-  FluxTaskStatus,
-  userBilling,
-  userCredit,
-  userCreditTransaction,
-} from "@/db/schema";
+import { BillingType, FluxTaskStatus } from "@/db/type";
 import { env } from "@/env.mjs";
 import { getErrorMessage } from "@/lib/handle-error";
 import { logsnag } from "@/lib/log-snag";
@@ -22,8 +14,6 @@ const WebhookSchema = z.object({
   taskStatus: z.string(),
   replicateId: z.string(),
 });
-
-export const runtime = "edge";
 
 export async function POST(req: Request) {
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the endpoint
@@ -51,11 +41,12 @@ export async function POST(req: Request) {
     const { replicateId, taskStatus } = body;
     // Do something with the payload
     // For this guide, you simply log the payload to the console
-    const [fluxData] = await db
-      .select()
-      .from(flux)
-      .where(eq(flux.replicateId, replicateId));
-    if (!fluxData) {
+    const fluxData = await prisma.fluxData.findFirst({
+      where: {
+        replicateId: replicateId,
+      },
+    });
+    if (!fluxData || !fluxData.id) {
       return NextResponse.json(
         { error: "Flux data not found" },
         { status: 404 },
@@ -67,58 +58,73 @@ export async function POST(req: Request) {
     ) {
       return new Response("", { status: 200 });
     }
-    const [billingData] = await db
-      .select()
-      .from(userBilling)
-      .where(
-        and(
-          eq(userBilling.fluxId, fluxData.id),
-          eq(userBilling.type, BillingType.Refund),
-        ),
-      );
+    const account = await getUserCredit(fluxData.userId);
+
+    const billingData = await prisma.userBilling.findFirst({
+      where: {
+        AND: [
+          {
+            fluxId: fluxData.id,
+          },
+          {
+            type: BillingType.Refund,
+          },
+        ],
+      },
+    });
+
     if (billingData) {
       return new Response("", { status: 200 });
     }
 
-    await db.transaction(async (tx) => {
-      const [billingData] = await tx
-        .select()
-        .from(userBilling)
-        .where(
-          and(
-            eq(userBilling.fluxId, fluxData.id),
-            eq(userBilling.type, BillingType.Withdraw),
-          ),
-        );
-      const account = await getUserCredit(billingData.userId);
+    await prisma.$transaction(async (tx) => {
+      const billingData = await tx.userBilling.findFirst({
+        where: {
+          AND: [
+            {
+              fluxId: fluxData.id,
+            },
+            {
+              type: BillingType.Withdraw,
+            },
+          ],
+        },
+      });
+      if (!billingData) {
+        throw new Error("Billing data not found");
+      }
 
       const billingAmount = billingData.amount;
-      const [newBilling] = await tx
-        .insert(userBilling)
-        .values({
+      const newBilling = await tx.userBilling.create({
+        data: {
           userId: billingData.userId,
           state: "Done",
           amount: -billingAmount,
           type: BillingType.Refund,
           fluxId: fluxData.id,
           description: "Refund",
-        })
-        .returning({
-          newId: userBilling.id,
-        });
-      await tx.insert(userCreditTransaction).values({
-        userId: billingData.userId,
-        credit: -billingAmount,
-        billingId: newBilling.newId,
-        balance: account.credit - billingAmount,
-        type: "Refund",
+        },
       });
-      await tx
-        .update(userCredit)
-        .set({
-          credit: sql`${userCredit.credit} - ${billingAmount}`,
-        })
-        .where(eq(userCredit.id, account.id));
+
+      await tx.userCreditTransaction.create({
+        data: {
+          userId: billingData.userId,
+          credit: -billingAmount,
+          billingId: newBilling.id,
+          balance: account.credit - billingAmount,
+          type: "Refund",
+        },
+      });
+      await tx.userCredit.update({
+        where: {
+          id: account.id,
+        },
+        data: {
+          credit: {
+            decrement: billingAmount,
+          },
+        },
+      });
     });
     await logsnag.track({
       channel: "refund",

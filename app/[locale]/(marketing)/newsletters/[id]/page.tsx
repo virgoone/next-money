@@ -1,17 +1,18 @@
 import { type Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Container } from "@/components/layout/container";
-import { db } from "@/db";
-import { newsletters } from "@/db/schema";
-import { eq } from "drizzle-orm";
+
 import { unstable_setRequestLocale } from "next-intl/server";
 import ReactMarkdown from "react-markdown";
 
+import { Container } from "@/components/layout/container";
+import { prisma } from "@/db/prisma";
+
 async function getNewsletter(id: string) {
-  const [newsletter] = await db
-    .select()
-    .from(newsletters)
-    .where(eq(newsletters.id, parseInt(id)));
+  const newsletter = await prisma.newsletters.findFirst({
+    where: {
+      id: parseInt(id),
+    },
+  });
 
   if (!newsletter || !newsletter.body) {
     notFound();
@@ -19,8 +20,6 @@ async function getNewsletter(id: string) {
 
   return newsletter;
 }
-
-export const runtime = "edge";
 
 export async function generateMetadata({
   params,

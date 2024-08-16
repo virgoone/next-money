@@ -17,7 +17,7 @@ export const metadata = constructMetadata({
 type Props = {
   params: { locale: string };
 };
-export const runtime = "edge";
+
 
 export default async function DashboardPage({ params: { locale } }: Props) {
   unstable_setRequestLocale(locale);

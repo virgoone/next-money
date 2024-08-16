@@ -1,12 +1,10 @@
 import { NextResponse, type NextRequest } from "next/server";
 
 import { Ratelimit } from "@upstash/ratelimit";
-import { eq } from "drizzle-orm";
 import { z } from "zod";
 
 import { emailConfig } from "@/config/email";
-import { db } from "@/db";
-import { subscribers } from "@/db/schema";
+import { prisma } from "@/db/prisma";
 import ConfirmSubscriptionEmail from "@/emails/ConfirmSubscription";
 import { env } from "@/env.mjs";
 import { url } from "@/lib";
@@ -16,7 +14,6 @@ import { redis } from "@/lib/redis";
 const newsletterFormSchema = z.object({
   email: z.string().email().min(1),
 });
-export const runtime = "edge";
 
 const ratelimit = new Ratelimit({
   redis,
@@ -36,10 +33,11 @@ export async function POST(req: NextRequest) {
     const { data } = await req.json();
     const parsed = newsletterFormSchema.parse(data);
 
-    const [subscriber] = await db
-      .select()
-      .from(subscribers)
-      .where(eq(subscribers.email, parsed.email));
+    const subscriber = await prisma.subscribers.findFirst({
+      where: {
+        email: parsed.email,
+      },
+    });
 
     if (subscriber) {
       return NextResponse.json({ status: "success" });
@@ -58,9 +56,11 @@ export async function POST(req: NextRequest) {
         }),
       });
 
-      await db.insert(subscribers).values({
-        email: parsed.email,
-        token,
+      await prisma.subscribers.create({
+        data: {
+          email: parsed.email,
+          token,
+        },
       });
     }
 

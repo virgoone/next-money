@@ -1,19 +1,19 @@
 import { NextResponse, type NextRequest } from "next/server";
+
 import { Ratelimit } from "@upstash/ratelimit";
-import { db } from "@/db";
+import { z } from "zod";
+
 import { MediaDto, MediaHashids } from "@/db/dto/media.dto";
-import { media } from "@/db/schema";
+import { prisma } from "@/db/prisma";
 import { env } from "@/env.mjs";
 import { getErrorMessage } from "@/lib/handle-error";
 import { redis } from "@/lib/redis";
 import { S3Service } from "@/lib/s3";
-import { and, count, desc, eq, like } from "drizzle-orm";
-import { z } from "zod";
 
 function getKey(id: string) {
   return `media:${id}`;
 }
-export const runtime = "edge";
+
 const ratelimit = new Ratelimit({
   redis,
   limiter: Ratelimit.slidingWindow(5, "10 s"),
@@ -57,17 +57,20 @@ export async function GET(req: NextRequest) {
     });
 
     const offset = (page - 1) * pageSize;
-
-    const data = await db
-      .select()
-      .from(media)
-      .limit(pageSize)
-      .offset(offset)
-      .where(name ? like(media.name, `%${name}%`) : undefined)
-      .orderBy(desc(media.id));
-    const a2 = Date.now() - a1;
-    const a3 = Date.now() - start;
-    console.log("time-->", a1 - start, a2, a3);
+    const data = await prisma.media.findMany({
+      where: {
+        name: name
+          ? {
+              contains: name,
+            }
+          : undefined,
+      },
+      orderBy: {
+        id: "desc",
+      },
+      skip: offset,
+      take: pageSize,
+    });
     return NextResponse.json({
       list: data.map(
         ({ id, ...rest }) =>
@@ -99,10 +102,12 @@ export async function DELETE(req: NextRequest) {
 
     const { id } = deleteSchema.parse(body);
     const [mediaId] = MediaHashids.decode(id);
-    const [data] = await db
-      .select()
-      .from(media)
-      .where(eq(media.id, mediaId as number));
+    const data = await prisma.media.findFirst({
+      where: {
+        id: mediaId as number,
+      },
+    });
+
     if (!data) {
       return NextResponse.json({
         error: "Media not found",
@@ -121,7 +126,11 @@ export async function DELETE(req: NextRequest) {
     } catch (error) {
       console.log("删除失败-->", error);
     }
-    await db.delete(media).where(eq(media.id, mediaId as number));
+    await prisma.media.delete({
+      where: {
+        id: mediaId as number,
+      },
+    });
     return NextResponse.json({
       id,
     });

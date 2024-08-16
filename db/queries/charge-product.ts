@@ -1,20 +1,17 @@
-import { db } from "@/db";
 import { ChargeProductHashids } from "@/db/dto/charge-product.dto";
-import { chargeProduct, type ChargeProductDto } from "@/db/schema";
+import { prisma } from "@/db/prisma";
 
 export async function getChargeProduct() {
-  const data = await db
-    .select()
-    .from(chargeProduct)
-    .orderBy(chargeProduct.credit);
+  const data = await prisma.chargeOrder.findMany({
+    orderBy: {
+      credit: "asc",
+    },
+  });
 
   return {
-    data: data.map(
-      ({ id, ...rest }) =>
-        ({
-          ...rest,
-          id: ChargeProductHashids.encode(id),
-        }) as ChargeProductDto,
-    ),
+    data: data.map(({ id, ...rest }) => ({
+      ...rest,
+      id: ChargeProductHashids.encode(id),
+    })),
   };
 }

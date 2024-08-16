@@ -13,7 +13,7 @@ type Props = {
   params: { locale: string };
 };
 
-export const runtime = "edge";
+
 
 export default function PlaygroundPage({ params: { locale } }: Props) {
   unstable_setRequestLocale(locale);

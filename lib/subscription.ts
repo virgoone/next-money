@@ -1,30 +1,18 @@
-// @ts-nocheck
-// TODO: Fix this when we turn strict mode on.
-import { eq } from "drizzle-orm";
+//@ts-nocheck
 import { User } from "@clerk/nextjs/dist/types/server";
 
 import { pricingData } from "@/config/subscriptions";
-import { db } from "@/db";
-import { userPaymentInfo } from "@/db/schema";
+import { prisma } from "@/db/prisma";
 import { stripe } from "@/lib/stripe";
 
 export async function getUserSubscriptionPlan(userId: string, authUser?: User) {
-  let [user] = await db
-    .select()
-    .from(userPaymentInfo)
-    .where(eq(userPaymentInfo.userId, userId));
+  let user = await prisma.userPaymentInfo.findFirst({
+    where: {
+      userId,
+    },
+  });
+
   if (!user && !authUser) {
-    // if (authUser) {
-    //   user = await db
-    //     .insert(userPaymentInfo)
-    //     .values({
-    //       userId,
-    //       stripePriceId: null,
-    //       stripeSubscriptionId: null,
-    //       stripeCurrentPeriodEnd: null,
-    //     })
-    //     .returning("*");
-    // } else {
     throw new Error("User not found");
   } else if (authUser) {
     user = {

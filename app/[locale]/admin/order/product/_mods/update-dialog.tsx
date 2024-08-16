@@ -6,8 +6,7 @@ import { Button, Drawer, Form, Input, InputNumber, Select, Space } from "antd";
 import { FormListFieldData } from "antd/lib/form";
 import { toast } from "sonner";
 
-import { ChargeProductDto } from "@/db/schema";
-import { Currency } from "@/db/type";
+import { ChargeProductDto, Currency } from "@/db/type";
 import useForm from "@/hooks/use-form";
 import { getErrorMessage } from "@/lib/handle-error";
 
@@ -132,7 +131,11 @@ export function UpdateDialog(props: { detail: ChargeProductDto }) {
             />
           </FormItem>
           <FormItem {...inputField} label="Message" name="message">
-            <Input.TextArea rows={3} className="!w-full" placeholder="Please input..." />
+            <Input.TextArea
+              rows={3}
+              className="!w-full"
+              placeholder="Please input..."
+            />
           </FormItem>
           <FormItem {...inputField} label="Locale" name="locale">
             <Select

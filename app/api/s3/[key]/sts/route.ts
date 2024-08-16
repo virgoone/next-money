@@ -8,8 +8,6 @@ import { env } from "@/env.mjs";
 import { redis } from "@/lib/redis";
 import { S3Service } from "@/lib/s3";
 
-export const runtime = "edge";
-
 const ratelimit = new Ratelimit({
   redis,
   limiter: Ratelimit.slidingWindow(10, "10 s"),

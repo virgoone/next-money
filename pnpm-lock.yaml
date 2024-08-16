@@ -38,6 +38,9 @@ dependencies:
   '@portabletext/react':
     specifier: ^3.1.0
     version: 3.1.0(react@18.3.1)
+  '@prisma/client':
+    specifier: ^5.18.0
+    version: 5.18.0(prisma@5.18.0)
   '@radix-ui/react-accessible-icon':
     specifier: ^1.1.0
     version: 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)
@@ -235,7 +238,7 @@ dependencies:
     version: 16.4.5
   drizzle-orm:
     specifier: ^0.33.0
-    version: 0.33.0(@neondatabase/serverless@0.9.4)(@opentelemetry/api@1.9.0)(@types/react@18.3.3)(postgres@3.4.4)(prisma@5.18.0)(react@18.3.1)
+    version: 0.33.0(@neondatabase/serverless@0.9.4)(@opentelemetry/api@1.9.0)(@prisma/client@5.18.0)(@types/react@18.3.3)(postgres@3.4.4)(prisma@5.18.0)(react@18.3.1)
   edge-cors:
     specifier: ^0.2.1
     version: 0.2.1
@@ -3875,6 +3878,19 @@ packages:
   /@portabletext/types@2.0.13:
     resolution: {integrity: sha512-5xk5MSyQU9CrDho3Rsguj38jhijhD36Mk8S6mZo3huv6PM+t4M/5kJN2KFIxgvt4ONpvOEs1pVIZAV0cL0Vi+Q==}
     engines: {node: ^14.13.1 || >=16.0.0 || >=18.0.0}
+    dev: false
+
+  /@prisma/client@5.18.0(prisma@5.18.0):
+    resolution: {integrity: sha512-BWivkLh+af1kqC89zCJYkHsRcyWsM8/JHpsDMM76DjP3ZdEquJhXa4IeX+HkWPnwJ5FanxEJFZZDTWiDs/Kvyw==}
+    engines: {node: '>=16.13'}
+    requiresBuild: true
+    peerDependencies:
+      prisma: '*'
+    peerDependenciesMeta:
+      prisma:
+        optional: true
+    dependencies:
+      prisma: 5.18.0
     dev: false
 
   /@prisma/debug@5.18.0:
@@ -9198,7 +9214,7 @@ packages:
       - supports-color
     dev: true
 
-  /drizzle-orm@0.33.0(@neondatabase/serverless@0.9.4)(@opentelemetry/api@1.9.0)(@types/react@18.3.3)(postgres@3.4.4)(prisma@5.18.0)(react@18.3.1):
+  /drizzle-orm@0.33.0(@neondatabase/serverless@0.9.4)(@opentelemetry/api@1.9.0)(@prisma/client@5.18.0)(@types/react@18.3.3)(postgres@3.4.4)(prisma@5.18.0)(react@18.3.1):
     resolution: {integrity: sha512-SHy72R2Rdkz0LEq0PSG/IdvnT3nGiWuRk+2tXZQ90GVq/XQhpCzu/EFT3V2rox+w8MlkBQxifF8pCStNYnERfA==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
@@ -9289,6 +9305,7 @@ packages:
     dependencies:
       '@neondatabase/serverless': 0.9.4
       '@opentelemetry/api': 1.9.0
+      '@prisma/client': 5.18.0(prisma@5.18.0)
       '@types/react': 18.3.3
       postgres: 3.4.4
       prisma: 5.18.0

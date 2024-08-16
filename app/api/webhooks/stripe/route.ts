@@ -1,19 +1,12 @@
 import { headers } from "next/headers";
 
-import { eq, sql } from "drizzle-orm";
+import { Prisma } from "@prisma/client";
 import Stripe from "stripe";
 
-import { db } from "@/db";
 import { ChargeOrderHashids } from "@/db/dto/charge-order.dto";
 import { ChargeProductHashids } from "@/db/dto/charge-product.dto";
+import { prisma } from "@/db/prisma";
 import { getUserCredit } from "@/db/queries/account";
-import {
-  chargeOrder,
-  chargeProduct,
-  userCredit,
-  userCreditTransaction,
-  userPaymentInfo,
-} from "@/db/schema";
 import { OrderPhase } from "@/db/type";
 import { env } from "@/env.mjs";
 import { logsnag } from "@/lib/log-snag";
@@ -22,8 +15,6 @@ import { stripe } from "@/lib/stripe";
 export async function GET() {
   return new Response("OK", { status: 200 });
 }
-
-export const runtime = "edge";
 
 export async function POST(req: Request) {
   const body = await req.text();
@@ -85,89 +76,110 @@ export async function POST(req: Request) {
   if (event.type === "payment_intent.payment_failed") {
     const metaOrderId = session?.metadata?.orderId as string;
     const [orderId] = ChargeOrderHashids.decode(metaOrderId);
-    const [order] = await db
-      .select()
-      .from(chargeOrder)
-      .where(eq(chargeOrder.id, orderId as number));
+    const order = await prisma.chargeOrder.findUnique({
+      where: {
+        id: orderId as number,
+      },
+    });
     console.log("payment_failed order-->", order);
     if (!order || order.phase !== OrderPhase.Pending) {
       return new Response(`Order Phase Error`, { status: 400 });
     }
-    await db
-      .update(chargeOrder)
-      .set({
+    await prisma.chargeOrder.update({
+      where: {
+        id: orderId as number,
+      },
+      data: {
         phase: OrderPhase.Failed,
         result: {
           ...session,
           failedAt: new Date(),
-        },
-      })
-      .where(eq(chargeOrder.id, orderId as number));
+        } as unknown as Prisma.JsonObject,
+      },
+    });
   } else if (event.type === "payment_intent.canceled") {
     const metaOrderId = session?.metadata?.orderId as string;
     const [orderId] = ChargeOrderHashids.decode(metaOrderId);
-    const [order] = await db
-      .select()
-      .from(chargeOrder)
-      .where(eq(chargeOrder.id, orderId as number));
+    const order = await prisma.chargeOrder.findUnique({
+      where: {
+        id: orderId as number,
+      },
+    });
     console.log("canceled order-->", order);
 
     if (!order || order.phase !== OrderPhase.Pending) {
       return new Response(`Order Phase Error`, { status: 400 });
     }
-    await db
-      .update(chargeOrder)
-      .set({
+    await prisma.chargeOrder.update({
+      where: {
+        id: orderId as number,
+      },
+      data: {
         phase: OrderPhase.Pending,
-        paymentAt: new Date(),
         result: {
           ...session,
           canceledAt: new Date(),
-        },
-      })
-      .where(eq(chargeOrder.id, orderId as number));
+        } as unknown as Prisma.JsonObject,
+      },
+    });
   } else if (event.type === "payment_intent.succeeded") {
     const metaOrderId = session?.metadata?.orderId as string;
     const userId = session?.metadata?.userId as string;
     const metaChargeProductId = session?.metadata?.chargeProductId as string;
     const [orderId] = ChargeOrderHashids.decode(metaOrderId);
     const [chargeProductId] = ChargeProductHashids.decode(metaChargeProductId);
-    const [[order], [product]] = await Promise.all([
-      db
-        .select()
-        .from(chargeOrder)
-        .where(eq(chargeOrder.id, orderId as number)),
-      db
-        .select()
-        .from(chargeProduct)
-        .where(eq(chargeProduct.id, chargeProductId as number)),
+    const [order, product] = await Promise.all([
+      prisma.chargeOrder.findUnique({
+        where: {
+          id: orderId as number,
+        },
+      }),
+      prisma.chargeProduct.findUnique({
+        where: {
+          id: chargeProductId as number,
+        },
+      }),
     ]);
     console.log("payment succeeded order-->", order, product);
-    if (!order || !product?.id || order.phase !== OrderPhase.Pending) {
+    if (
+      !order ||
+      !product ||
+      !product?.id ||
+      order.phase !== OrderPhase.Pending
+    ) {
       return new Response(`Order Phase Error`, { status: 400 });
     }
     const account = await getUserCredit(userId);
-    await db.transaction(async (tx) => {
+    await prisma.$transaction(async (tx) => {
       const addCredit = product.credit;
-      await tx
-        .update(chargeOrder)
-        .set({
+      await tx.chargeOrder.update({
+        where: {
+          id: order.id,
+        },
+        data: {
           phase: "Paid",
           paymentAt: new Date(),
-          result: session,
-        })
-        .where(eq(chargeOrder.id, order.id));
-      await tx
-        .update(userCredit)
-        .set({
-          credit: sql`${userCredit.credit} + ${addCredit}`,
-        })
-        .where(eq(userCredit.id, account.id));
-      await tx.insert(userCreditTransaction).values({
-        userId: userId,
-        credit: addCredit,
-        balance: account.credit + addCredit,
-        type: "Charge",
+          result: session as unknown as Prisma.JsonObject,
+        },
+      });
+      await tx.userCredit.update({
+        where: {
+          id: account.id,
+        },
+        data: {
+          credit: {
+            increment: addCredit,
+          },
+        },
+      });
+
+      await tx.userCreditTransaction.create({
+        data: {
+          userId: userId,
+          credit: addCredit,
+          balance: account.credit + addCredit,
+          type: "Charge",
+        },
       });
     });
     await logsnag.track({

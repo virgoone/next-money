@@ -7,11 +7,11 @@ import { useAuth } from "@clerk/nextjs";
 import { generateUserStripe } from "@/actions/generate-user-stripe";
 import { Icons } from "@/components/shared/icons";
 import { Button } from "@/components/ui/button";
-import { ChargeProductDto } from "@/db/schema";
 import { SubscriptionPlan, UserSubscriptionPlan } from "@/types";
+import { Prisma } from "@prisma/client";
 
 interface BillingFormButtonProps {
-  offer: ChargeProductDto;
+  offer: Prisma.ChargeProductGetPayload<any>;
   btnText?: string;
 }
 

@@ -15,7 +15,7 @@ type Props = {
   params: { locale: string };
 };
 
-export const runtime = "edge";
+
 
 export default function IndexPage({ params: { locale } }: Props) {
   // Enable static rendering

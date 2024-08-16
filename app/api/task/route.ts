@@ -2,16 +2,12 @@ import { NextResponse, type NextRequest } from "next/server";
 
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { Ratelimit } from "@upstash/ratelimit";
-import { eq } from "drizzle-orm";
 import { z } from "zod";
 
-import { db } from "@/db";
 import { FluxHashids } from "@/db/dto/flux.dto";
-import { flux } from "@/db/schema";
+import { prisma } from "@/db/prisma";
 import { getErrorMessage } from "@/lib/handle-error";
 import { redis } from "@/lib/redis";
-
-export const runtime = "edge";
 
 const ratelimit = new Ratelimit({
   redis,
@@ -50,12 +46,13 @@ export async function POST(req: NextRequest) {
         status: 404,
       });
     }
-    const [fluxData] = await db
-      .select()
-      .from(flux)
-      .where(eq(flux.id, id as number));
+    const fluxData = await prisma.fluxData.findUnique({
+      where: {
+        id: id as number,
+      },
+    });
 
-    if (!fluxData.id) {
+    if (!fluxData || !fluxData?.id) {
       return new Response("not found", {
         status: 404,
       });

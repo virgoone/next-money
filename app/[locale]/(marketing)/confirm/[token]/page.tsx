@@ -1,17 +1,15 @@
 import { redirect } from "next/navigation";
-import { Container } from "@/components/layout/container";
-import { db } from "@/db";
-import { subscribers } from "@/db/schema";
-import { eq } from "drizzle-orm";
+
 import { unstable_setRequestLocale } from "next-intl/server";
+
+import { Container } from "@/components/layout/container";
+import { prisma } from "@/db/prisma";
 
 import { SubbedCelebration } from "./SubbedCelebration";
 
 export const metadata = {
   title: "感谢你的订阅",
 };
-
-export const runtime = "edge";
 
 export default async function ConfirmPage({
   params,
@@ -20,19 +18,25 @@ export default async function ConfirmPage({
 }) {
   unstable_setRequestLocale(params.locale);
 
-  const [subscriber] = await db
-    .select()
-    .from(subscribers)
-    .where(eq(subscribers.token, params.token));
+  const subscriber = await prisma.subscribers.findFirst({
+    where: {
+      token: params.token,
+    },
+  });
 
   if (!subscriber || subscriber.subscribedAt) {
     redirect("/");
   }
 
-  await db
-    .update(subscribers)
-    .set({ subscribedAt: new Date(), token: null })
-    .where(eq(subscribers.id, subscriber.id));
+  await prisma.subscribers.update({
+    where: {
+      id: subscriber.id,
+    },
+    data: {
+      subscribedAt: new Date(),
+      token: null,
+    },
+  });
 
   return (
     <Container className="mt-16 sm:mt-32">

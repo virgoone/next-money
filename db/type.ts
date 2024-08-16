@@ -1,3 +1,5 @@
+import { Prisma } from "@prisma/client";
+
 export enum Currency {
   CNY = "CNY",
   USD = "USD",
@@ -17,3 +19,25 @@ export enum PaymentChannelType {
   GiftCode = "GiftCode",
   InviteCode = "InviteCode",
 }
+
+export enum BillingType {
+  Refund = "Refund", // 退款
+  Withdraw = "Withdraw",
+}
+
+export enum FluxTaskStatus {
+  Processing = "processing",
+  Succeeded = "succeeded",
+  Failed = "failed",
+  Canceled = "canceled",
+}
+
+export type ChargeProductDto = Prisma.ChargeProductGetPayload<any>;
+
+export type ChargeOrderDto = Prisma.ChargeOrderGetPayload<any>;
+
+export type GiftCodeDto = Prisma.GiftCodeGetPayload<any>;
+
+export type GiftCodeSchema = Prisma.GiftCodeCreateInput;
+
+export type GiftCodeSelectDto = Omit<GiftCodeDto, "id"> & { id: string };

@@ -4,7 +4,7 @@ import { useTransition } from "react";
 
 import { Button, Popconfirm, Space, type TableColumnsType } from "antd";
 
-import { type ChargeProductDto } from "@/db/schema";
+import { type ChargeProductDto } from "@/db/type";
 import { formatPrice } from "@/lib/utils";
 
 import { deleteAction } from "../_lib/actions";

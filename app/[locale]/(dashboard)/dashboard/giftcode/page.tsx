@@ -18,7 +18,7 @@ type Props = {
   params: { locale: string };
 };
 
-export const runtime = "edge";
+
 
 export default async function SettingsPage({ params: { locale } }: Props) {
   unstable_setRequestLocale(locale);

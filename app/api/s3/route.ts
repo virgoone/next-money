@@ -2,15 +2,14 @@ import { NextRequest, NextResponse } from "next/server";
 
 import { currentUser } from "@clerk/nextjs/server";
 
-import { db } from "@/db";
 import { MediaDto, MediaDtoSchema, MediaHashids } from "@/db/dto/media.dto";
-import { media } from "@/db/schema";
+import { prisma } from "@/db/prisma";
 import { ratelimit } from "@/lib/redis";
 
 function getKey(id?: string) {
   return `s3${id ? `:${id}` : ""}`;
 }
-export const runtime = "edge";
+
 const CreateMediaDtoSchema = MediaDtoSchema.omit({
   id: true,
   createdAt: true,
@@ -44,9 +43,8 @@ export async function POST(req: NextRequest) {
       ext = {},
     } = CreateMediaDtoSchema.parse(data);
 
-    const [newMedia] = await db
-      .insert(media)
-      .values({
+    const newMedia = await prisma.media.create({
+      data: {
         name,
         key,
         url,
@@ -56,14 +54,12 @@ export async function POST(req: NextRequest) {
         fileType,
         md5,
         ext: ext as any,
-      })
-      .returning({
-        newId: media.id,
-      });
+      },
+    });
 
     return NextResponse.json(
       {
-        id: MediaHashids.encode(newMedia.newId),
+        id: MediaHashids.encode(newMedia.id),
         createdAt: new Date(),
       },
       {

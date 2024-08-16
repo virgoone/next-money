@@ -6,7 +6,7 @@ import { Button, Drawer, Form, Input, InputNumber, Select, Space } from "antd";
 import { FormListFieldData } from "antd/lib/form";
 import { toast } from "sonner";
 
-import { GiftCodeDto } from "@/db/schema";
+import { GiftCodeDto } from "@/db/type";
 import useForm from "@/hooks/use-form";
 import { getErrorMessage } from "@/lib/handle-error";
 import { generateGifCode } from "@/lib/utils";

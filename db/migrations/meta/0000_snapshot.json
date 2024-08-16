@@ -1,5 +1,5 @@
 {
-  "id": "3800e395-7db9-4f1c-826d-73d248be32ed",
+  "id": "af73bafe-bf72-4fa2-a337-be4e8d0229cd",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -28,6 +28,12 @@
         },
         "amount": {
           "name": "amount",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "credit": {
+          "name": "credit",
           "type": "integer",
           "primaryKey": false,
           "notNull": true
@@ -451,12 +457,11 @@
           "notNull": false,
           "default": "now()"
         },
-        "updated_at": {
-          "name": "updated_at",
+        "expired_at": {
+          "name": "expired_at",
           "type": "timestamp",
           "primaryKey": false,
-          "notNull": false,
-          "default": "now()"
+          "notNull": false
         }
       },
       "indexes": {},

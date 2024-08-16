@@ -2,13 +2,11 @@ import { NextResponse, type NextRequest } from "next/server";
 
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { Ratelimit } from "@upstash/ratelimit";
-import { eq } from "drizzle-orm";
 import { z } from "zod";
 
-import { db } from "@/db";
 import { ChargeOrderHashids } from "@/db/dto/charge-order.dto";
 import { ChargeProductHashids } from "@/db/dto/charge-product.dto";
-import { chargeOrder, chargeProduct } from "@/db/schema";
+import { prisma } from "@/db/prisma";
 import { OrderPhase } from "@/db/type";
 import { getErrorMessage } from "@/lib/handle-error";
 import { redis } from "@/lib/redis";
@@ -27,8 +25,6 @@ const ratelimit = new Ratelimit({
   limiter: Ratelimit.slidingWindow(2, "5 s"),
   analytics: true,
 });
-
-export const runtime = "edge";
 
 export async function POST(req: NextRequest) {
   const { userId } = auth();
@@ -52,16 +48,25 @@ export async function POST(req: NextRequest) {
     const { currency, amount, channel, productId } =
       CreateChargeOrderSchema.parse(data);
     if (channel !== "Stripe") {
-      NextResponse.json({ error: "Not Support Channel" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Not Support Channel" },
+        { status: 400 },
+      );
     }
     const [chargeProductId] = ChargeProductHashids.decode(productId);
-    const [product] = await db
-      .select()
-      .from(chargeProduct)
-      .where(eq(chargeProduct.id, chargeProductId as number));
-    const [newChargeOrder] = await db
-      .insert(chargeOrder)
-      .values({
+    const product = await prisma.chargeProduct.findFirst({
+      where: {
+        id: chargeProductId as number,
+      },
+    });
+    if (!product) {
+      return NextResponse.json(
+        { error: "product not exists" },
+        { status: 404 },
+      );
+    }
+    const newChargeOrder = await prisma.chargeOrder.create({
+      data: {
         userId: user.id,
         userInfo: {
           fullName: user.fullName,
@@ -73,11 +78,10 @@ export async function POST(req: NextRequest) {
         amount,
         channel,
         phase: OrderPhase.Pending,
-      })
-      .returning({
-        newId: chargeOrder.id,
-      });
-    const orderId = ChargeOrderHashids.encode(newChargeOrder.newId);
+      },
+    });
+
+    const orderId = ChargeOrderHashids.encode(newChargeOrder.id);
     const billingUrl = absoluteUrl(`/pricing?orderId=${orderId}`);
 
     if (channel === "Stripe") {

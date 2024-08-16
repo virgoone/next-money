@@ -12,7 +12,7 @@ export const metadata = constructMetadata({
   description: "Explore our subscription plans.",
 });
 
-export const runtime = "edge";
+
 
 type Props = {
   params: { locale: string };

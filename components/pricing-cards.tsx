@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
+import { Prisma } from "@prisma/client";
 import { useTranslations } from "next-intl";
 import { useReward } from "react-rewards";
 
@@ -12,14 +13,13 @@ import { HeaderSection } from "@/components/shared/header-section";
 import { Icons } from "@/components/shared/icons";
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
 import { Button } from "@/components/ui/button";
-import { ChargeProductDto } from "@/db/schema";
 import { url } from "@/lib";
 import { usePathname } from "@/lib/navigation";
 import { cn, formatPrice } from "@/lib/utils";
 
 interface PricingCardsProps {
   userId?: string;
-  chargeProduct?: ChargeProductDto[];
+  chargeProduct?: Prisma.ChargeProductGetPayload<any>[];
 }
 
 const PricingCard = ({
@@ -27,7 +27,7 @@ const PricingCard = ({
   offer,
 }: {
   userId?: string;
-  offer: ChargeProductDto;
+  offer: Prisma.ChargeProductGetPayload<any>;
 }) => {
   const pathname = usePathname();
   const t = useTranslations("PricingPage");

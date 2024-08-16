@@ -1,36 +1,35 @@
-'use server'
+"use server";
 
-import { unstable_noStore as noStore } from 'next/cache'
-import { redirect } from 'next/navigation'
+import { unstable_noStore as noStore } from "next/cache";
+import { redirect } from "next/navigation";
 
-import { lte } from 'drizzle-orm'
+import { emailConfig } from "@/config/email";
+import { prisma } from "@/db/prisma";
+import NewslettersTemplate from "@/emails/NewslettersTemplate";
+import { env } from "@/env.mjs";
+import { resend } from "@/lib/email";
+import { getErrorMessage } from "@/lib/handle-error";
 
-import { emailConfig } from '@/config/email'
-import { db } from '@/db'
-import { newsletters, subscribers } from '@/db/schema'
-import NewslettersTemplate from '@/emails/NewslettersTemplate'
-import { env } from '@/env.mjs'
-import { getErrorMessage } from '@/lib/handle-error'
-import { resend } from '@/lib/email'
-
-import { CreateNewsletterSchema, CreateSchema } from './validations'
+import { CreateNewsletterSchema, CreateSchema } from "./validations";
 
 export async function createAction(input: CreateSchema) {
-  noStore()
+  noStore();
   try {
-    const data = input
+    const data = input;
 
-    const subs = await db
-      .select({
-        email: subscribers.email,
-      })
-      .from(subscribers)
-      .where(lte(subscribers.subscribedAt, new Date()))
+    const subs = await prisma.subscribers.findMany({
+      where: {
+        subscribedAt: {
+          lte: new Date(),
+        },
+      },
+    });
+
     const subscriberEmails = new Set([
       ...subs
-        .filter((sub) => typeof sub.email === 'string' && sub.email.length > 0)
+        .filter((sub) => typeof sub.email === "string" && sub.email.length > 0)
         .map((sub) => sub.email),
-    ])
+    ]);
 
     await resend.emails.send({
       subject: data.subject,
@@ -42,17 +41,19 @@ export async function createAction(input: CreateSchema) {
         subject: data.subject,
         body: data.body,
       }),
-    })
+    });
 
-    await db.insert(newsletters).values({
-      ...data,
-    })
+    await prisma.newsletters.create({
+      data: {
+        ...data,
+      },
+    });
 
-    redirect('/admin/newsletters')
+    redirect("/admin/newsletters");
   } catch (err) {
     return {
       data: null,
       error: getErrorMessage(err),
-    }
+    };
   }
 }

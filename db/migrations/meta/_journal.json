@@ -5,22 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1723711293862,
-      "tag": "0000_groovy_makkari",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1723713844409,
-      "tag": "0001_jazzy_night_nurse",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1723715583522,
-      "tag": "0002_superb_jane_foster",
+      "when": 1723779239865,
+      "tag": "0000_conscious_doctor_octopus",
       "breakpoints": true
     }
   ]

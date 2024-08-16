@@ -1,14 +1,10 @@
 import { headers } from "next/headers";
 
 import { WebhookEvent } from "@clerk/nextjs/server";
-import { eq } from "drizzle-orm";
 import { Webhook } from "svix";
 
-import { db } from "@/db";
-import { userCredit } from "@/db/schema";
+import { getUserCredit } from "@/db/queries/account";
 import { env } from "@/env.mjs";
-
-export const runtime = "edge";
 
 export async function POST(req: Request) {
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the endpoint
@@ -65,16 +61,7 @@ export async function POST(req: Request) {
 
   if (evt.type === "user.created") {
     const userId = evt.data.id;
-    const accountInfo = await db
-      .select()
-      .from(userCredit)
-      .where(eq(userCredit.userId, userId));
-    if (!accountInfo?.length) {
-      await db.insert(userCredit).values({
-        userId: userId,
-        credit: 0,
-      });
-    }
+    await getUserCredit(userId);
   }
 
   return new Response("", { status: 200 });

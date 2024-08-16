@@ -2,31 +2,21 @@ import { NextResponse, type NextRequest } from "next/server";
 
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { Ratelimit } from "@upstash/ratelimit";
-import { eq, sql } from "drizzle-orm";
 import { z } from "zod";
 
-import { db } from "@/db";
 import { FluxHashids } from "@/db/dto/flux.dto";
+import { prisma } from "@/db/prisma";
 import { getUserCredit } from "@/db/queries/account";
-import {
-  BillingType,
-  flux,
-  userBilling,
-  userCredit,
-  userCreditTransaction,
-} from "@/db/schema";
+import { BillingType } from "@/db/type";
 import { env } from "@/env.mjs";
 import { getErrorMessage } from "@/lib/handle-error";
 import { redis } from "@/lib/redis";
-import { S3Service } from "@/lib/s3";
 
 const ratelimit = new Ratelimit({
   redis,
   limiter: Ratelimit.slidingWindow(10, "10 s"),
   analytics: true,
 });
-
-export const runtime = "edge";
 
 function getKey(id: string) {
   return `generate:${id}`;
@@ -102,45 +92,46 @@ export async function POST(req: NextRequest, { params }: Params) {
         locale,
       }),
     }).then((res) => res.json());
-    console.log('res--->', res)
-    const [fluxData] = await db
-      .select({
-        id: flux.id,
-      })
-      .from(flux)
-      .where(eq(flux.replicateId, res.replicate_id));
-    console.log('fluxData--->', fluxData)
+    console.log("res--->", res);
+    const fluxData = await prisma.fluxData.findFirst({
+      where: {
+        replicateId: res.replicate_id,
+      },
+    });
+    if (!fluxData) {
+      return NextResponse.json({ error: "Create Task Error" }, { status: 400 });
+    }
 
-    await db.transaction(async (tx) => {
-      const [newAccount] = await tx
-        .update(userCredit)
-        .set({
-          credit: sql`${userCredit.credit} - ${needCredit}`,
-        })
-        .where(eq(userCredit.id, account.id))
-        .returning({
-          accountId: userCredit.id,
-          newCredit: userCredit.credit,
-        });
-      const [billing] = await tx
-        .insert(userBilling)
-        .values({
+    console.log("fluxData--->", fluxData);
+
+    await prisma.$transaction(async (tx) => {
+      const newAccount = await tx.userCredit.update({
+        where: { id: account.id },
+        data: {
+          credit: {
+            decrement: needCredit,
+          },
+        },
+      });
+      const billing = await tx.userBilling.create({
+        data: {
           userId,
           fluxId: fluxData.id,
           state: "Done",
           amount: -needCredit,
           type: BillingType.Withdraw,
           description: `Generate ${model} - ${aspectRatio} Withdraw`,
-        })
-        .returning({
-          newId: userBilling.id,
-        });
-      await tx.insert(userCreditTransaction).values({
-        userId,
-        credit: -needCredit,
-        balance: newAccount.newCredit,
-        billingId: billing.newId,
-        type: "Generate",
+        },
+      });
+
+      await tx.userCreditTransaction.create({
+        data: {
+          userId,
+          credit: -needCredit,
+          balance: newAccount.credit,
+          billingId: billing.id,
+          type: "Generate",
+        },
       });
     });
     return NextResponse.json({ id: FluxHashids.encode(fluxData.id) });

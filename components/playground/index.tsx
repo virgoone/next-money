@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 
 import { useAuth } from "@clerk/nextjs";
+import { Prisma } from "@prisma/client";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
@@ -18,7 +19,6 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
-import { FluxDto } from "@/db/schema";
 import { cn } from "@/lib/utils";
 
 import { Icons } from "../shared/icons";
@@ -65,7 +65,7 @@ export default function Playground({ locale }: { locale: string }) {
   const [inputPrompt, setInputPrompt] = React.useState<string>("");
   const [loading, setLoading] = useState(false);
   const [fluxId, setFluxId] = useState("");
-  const [fluxData, setFluxData] = useState<FluxDto>();
+  const [fluxData, setFluxData] = useState<Prisma.FluxDataGetPayload<any>>();
   const useCreateTask = useCreateTaskMutation();
   const t = useTranslations("Playground");
   const { getToken } = useAuth();
@@ -116,7 +116,7 @@ export default function Playground({ locale }: { locale: string }) {
         isPrivate: isPublic ? 0 : 1,
         locale,
       });
-      console.log('res--->', res)
+      console.log("res--->", res);
       if (!res.error) {
         setFluxId(res.id);
       } else {

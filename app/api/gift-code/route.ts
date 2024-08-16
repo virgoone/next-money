@@ -2,22 +2,15 @@ import { NextResponse, type NextRequest } from "next/server";
 
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { Ratelimit } from "@upstash/ratelimit";
-import { eq, sql } from "drizzle-orm";
 import { z } from "zod";
 
-import { db } from "@/db";
 import { ChargeOrderHashids } from "@/db/dto/charge-order.dto";
-import {
-  chargeOrder,
-  giftCode,
-  userCredit,
-  userCreditTransaction,
-} from "@/db/schema";
+import { prisma } from "@/db/prisma";
+import { getUserCredit } from "@/db/queries/account";
+
 import { Currency, OrderPhase } from "@/db/type";
 import { getErrorMessage } from "@/lib/handle-error";
 import { redis } from "@/lib/redis";
-import { stripe } from "@/lib/stripe";
-import { absoluteUrl } from "@/lib/utils";
 
 const CreateGiftCodeOrderSchema = z.object({
   code: z.string().min(8),
@@ -28,8 +21,6 @@ const ratelimit = new Ratelimit({
   limiter: Ratelimit.slidingWindow(2, "5 s"),
   analytics: true,
 });
-
-export const runtime = "edge";
 
 export async function POST(req: NextRequest) {
   const { userId } = auth();
@@ -51,16 +42,18 @@ export async function POST(req: NextRequest) {
   try {
     const data = await req.json();
     const { code } = CreateGiftCodeOrderSchema.parse(data);
-    const [giftCodeData] = await db
-      .select()
-      .from(giftCode)
-      .where(eq(giftCode.code, code));
-    if (!giftCodeData.id) {
+    const giftCodeData = await prisma.giftCode.findFirst({
+      where: {
+        code,
+      },
+    });
+
+    if (!giftCodeData || !giftCodeData?.id) {
       return new Response("gift code doesn't exist", {
         status: 400,
       });
     }
-    if (giftCodeData.expiredAt && giftCodeData.expiredAt < new Date()) {
+    if (giftCodeData?.expiredAt && giftCodeData?.expiredAt < new Date()) {
       return new Response("gift code has expired", {
         status: 400,
       });
@@ -70,10 +63,11 @@ export async function POST(req: NextRequest) {
         status: 400,
       });
     }
-    await db.transaction(async (tx) => {
-      await tx
-        .insert(chargeOrder)
-        .values({
+    const account = await getUserCredit(userId);
+
+    await prisma.$transaction(async (tx) => {
+      await tx.chargeOrder.create({
+        data: {
           userId,
           userInfo: {
             fullName: user.fullName,
@@ -85,39 +79,39 @@ export async function POST(req: NextRequest) {
           credit: giftCodeData.creditAmount,
           channel: "GiftCode",
           phase: OrderPhase.Paid,
-        })
-        .returning({
-          newId: chargeOrder.id,
-        });
-      const [newUserCredit] = await tx
-        .update(userCredit)
-        .set({
-          credit: sql`${userCredit.credit} + ${giftCodeData.creditAmount}`,
-        })
-        .where(eq(userCredit.userId, userId))
-        .returning({
-          creditAmount: userCredit.credit,
-        });
-      const [transaction] = await tx
-        .insert(userCreditTransaction)
-        .values({
+        },
+      });
+
+      const newUserCredit = await tx.userCredit.update({
+        where: {
+          id: account.id,
+        },
+        data: {
+          credit: {
+            increment: giftCodeData.creditAmount,
+          },
+        },
+      });
+      const transaction = await tx.userCreditTransaction.create({
+        data: {
           userId: userId,
           credit: giftCodeData.creditAmount,
-          balance: newUserCredit.creditAmount,
+          balance: newUserCredit.credit,
           type: "Charge",
-        })
-        .returning({
-          transactionId: userCreditTransaction.id,
-        });
-      await tx
-        .update(giftCode)
-        .set({
+        },
+      });
+
+      await tx.giftCode.update({
+        where: {
+          id: giftCodeData.id,
+        },
+        data: {
           used: true,
           usedBy: userId,
           usedAt: new Date(),
-          transactionId: transaction.transactionId,
-        })
-        .where(eq(giftCode.id, giftCodeData.id));
+          transactionId: transaction.id,
+        },
+      });
     });
 
     return NextResponse.json({

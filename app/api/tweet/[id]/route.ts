@@ -5,7 +5,7 @@ import { getTweet } from "react-tweet/api";
 
 type RouteSegment = { params: { id: string } };
 
-export const runtime = "edge";
+
 
 export async function GET(req: Request, { params }: RouteSegment) {
   try {

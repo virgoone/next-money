@@ -20,7 +20,7 @@ export const metadata = constructMetadata({
   description: "Manage billing and your subscription plan.",
 });
 
-export const runtime = "edge";
+
 
 export default async function BillingPage({ params: { locale } }: Props) {
   unstable_setRequestLocale(locale);

@@ -3,6 +3,7 @@ CREATE TABLE IF NOT EXISTS "charge_order" (
 	"user_id" varchar(200) NOT NULL,
 	"user_info" json,
 	"amount" integer NOT NULL,
+	"credit" integer NOT NULL,
 	"phase" varchar NOT NULL,
 	"channel" varchar NOT NULL,
 	"currency" varchar NOT NULL,
@@ -77,7 +78,7 @@ CREATE TABLE IF NOT EXISTS "gift_code" (
 	"used_at" timestamp,
 	"transaction_id" integer,
 	"created_at" timestamp DEFAULT now(),
-	"updated_at" timestamp DEFAULT now()
+	"expired_at" timestamp
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "media" (
