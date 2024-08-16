@@ -56,7 +56,7 @@ export async function getBySearch(input: GetSchema) {
     return {
       data: data.map(({ id, ...rest }) => ({
         ...rest,
-        id: id.toString(), // Assuming you want to convert id to string
+        id: ChargeProductHashids.encode(id), // Assuming you want to convert id to string
       })),
       pageCount,
       total,

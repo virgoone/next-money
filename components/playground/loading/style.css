@@ -8,6 +8,10 @@
   animation: rotate calc(var(--uib-speed) * 4) linear infinite;
 }
 
+.dark .loading-container {
+  --uib-color: white;
+}
+
 @keyframes rotate {
   0% {
     transform: rotate(0deg);

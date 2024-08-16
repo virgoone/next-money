@@ -74,20 +74,17 @@ export async function updateAction(input: UpdateSchema & { id: string }) {
       where: {
         id: id as number,
       },
-      data: omitBy(
-        {
-          title,
-          locale,
-          credit,
-          amount,
-          currency,
-          originalAmount,
-          tag,
-          message,
-          state,
-        },
-        (value) => value === undefined,
-      ),
+      data: {
+        title,
+        locale,
+        credit,
+        amount,
+        currency,
+        originalAmount,
+        tag,
+        message,
+        state,
+      },
     });
 
     revalidatePath("/");

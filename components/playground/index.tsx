@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
+import { Credits } from "@/config/constants";
 import { FluxSelectDto } from "@/db/type";
 import { cn } from "@/lib/utils";
 
@@ -207,7 +208,9 @@ export default function Playground({ locale }: { locale: string }) {
                       Loading...
                     </>
                   ) : (
-                    t("form.submit")
+                    <>
+                      {t("form.submit")}}
+                    </>
                   )}
                 </Button>
                 <PrivateSwitch isPublic={isPublic} onChange={setIsPublic} />

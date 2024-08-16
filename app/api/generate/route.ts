@@ -4,6 +4,7 @@ import { auth, currentUser } from "@clerk/nextjs/server";
 import { Ratelimit } from "@upstash/ratelimit";
 import { z } from "zod";
 
+import { Credits, model } from "@/config/constants";
 import { FluxHashids } from "@/db/dto/flux.dto";
 import { prisma } from "@/db/prisma";
 import { getUserCredit } from "@/db/queries/account";
@@ -20,10 +21,6 @@ const ratelimit = new Ratelimit({
 
 function getKey(id: string) {
   return `generate:${id}`;
-}
-enum model {
-  pro = "black-forest-labs/flux-pro",
-  schnell = "black-forest-labs/flux-schnell",
 }
 
 enum Ratio {
@@ -43,10 +40,6 @@ const CreateGenerateSchema = z.object({
   locale: z.string().default("en"),
 });
 
-const Credits = {
-  [model.pro]: 80,
-  [model.schnell]: 15,
-};
 export async function POST(req: NextRequest, { params }: Params) {
   const { userId } = auth();
 
