@@ -46,7 +46,7 @@ const useCreateTaskMutation = (config?: {
         headers: { Authorization: `Bearer ${await getToken()}` },
       });
 
-      if (!res.ok) {
+      if (!res.ok && res.status >= 500) {
         throw new Error("Network response error");
       }
 

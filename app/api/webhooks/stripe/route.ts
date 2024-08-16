@@ -18,10 +18,10 @@ export async function GET() {
 
 export async function POST(req: Request) {
   const body = await req.text();
-  const signature = headers().get("Stripe-Signature") as string;
+  const signature = (headers().get("Stripe-Signature") ||
+    headers().get("stripe-signature")) as string;
 
   let event: Stripe.Event;
-
   try {
     event = stripe.webhooks.constructEvent(
       body,
@@ -29,7 +29,7 @@ export async function POST(req: Request) {
       env.STRIPE_WEBHOOK_SECRET,
     );
   } catch (error) {
-    return new Response(`Webhook Error: ${error.message}`, { status: 400 });
+    return new Response(`Stripe Webhook Error: ${error.message}`, { status: 400 });
   }
 
   const session = event.data.object as Stripe.Checkout.Session;
