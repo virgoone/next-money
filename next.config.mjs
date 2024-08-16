@@ -2,6 +2,8 @@
  * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation.
  * This is especially useful for Docker builds.
  */
+// import { setupDevPlatform } from "@cloudflare/next-on-pages/next-dev";
+import { withContentlayer } from "next-contentlayer2";
 import withNextIntl from "next-intl/plugin";
 
 import("./env.mjs");
@@ -84,6 +86,25 @@ const nextConfig = {
       },
     ];
   },
+  webpack: (config, { webpack }) => {
+    config.plugins.push(
+      new webpack.IgnorePlugin({
+        resourceRegExp: /^pg-native$|^cloudflare:sockets$|^onnxruntime-node$/,
+      }),
+    );
+    // config.plugins.push(
+    //   new webpack.IgnorePlugin({
+    //     resourceRegExp: /^onnxruntime-node$/,
+    //     exclude: [/node:/],
+    //   }),
+    // );
+
+    return config;
+  },
 };
 
-export default withNextIntl()(nextConfig);
+// if (process.env.NODE_ENV === "development") {
+//   await setupDevPlatform();
+// }
+
+export default withNextIntl()(withContentlayer(nextConfig));

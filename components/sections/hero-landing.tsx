@@ -73,8 +73,8 @@ export default async function HeroLanding() {
             <SignInButton mode="redirect">
               <Button
                 className={cn(
-                  buttonVariants({ size: "lg", rounded: "full" }),
-                  "min-w-32 gap-2",
+                  buttonVariants({ size: "lg" }),
+                  "min-w-32 gap-2 rounded-full",
                 )}
               >
                 <UserArrowLeftIcon className="mr-2 size-4" />
@@ -89,9 +89,8 @@ export default async function HeroLanding() {
               buttonVariants({
                 variant: "outline",
                 size: "lg",
-                rounded: "full",
               }),
-              "min-w-32 px-5",
+              "min-w-32 px-5 rounded-full",
             )}
           >
             <p>{t("action.pricing")}</p>

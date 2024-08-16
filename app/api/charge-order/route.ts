@@ -7,6 +7,7 @@ import { z } from "zod";
 
 import { db } from "@/db";
 import { ChargeOrderHashids } from "@/db/dto/charge-order.dto";
+import { ChargeProductHashids } from "@/db/dto/charge-product.dto";
 import { chargeOrder, chargeProduct } from "@/db/schema";
 import { OrderPhase } from "@/db/type";
 import { getErrorMessage } from "@/lib/handle-error";
@@ -21,6 +22,14 @@ const CreateChargeOrderSchema = z.object({
   channel: z.enum(["GiftCode", "Stripe"]).default("Stripe"),
 });
 
+const ratelimit = new Ratelimit({
+  redis,
+  limiter: Ratelimit.slidingWindow(2, "5 s"),
+  analytics: true,
+});
+
+export const runtime = "edge";
+
 export async function POST(req: NextRequest) {
   const { userId } = auth();
 
@@ -28,11 +37,7 @@ export async function POST(req: NextRequest) {
   if (!userId || !user || !user.primaryEmailAddress) {
     return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
   }
-  const ratelimit = new Ratelimit({
-    redis,
-    limiter: Ratelimit.slidingWindow(2, "5 s"),
-    analytics: true,
-  });
+
   const { success } = await ratelimit.limit(
     "charge-order:created" + `_${req.ip ?? ""}`,
   );
@@ -46,6 +51,14 @@ export async function POST(req: NextRequest) {
     const data = await req.json();
     const { currency, amount, channel, productId } =
       CreateChargeOrderSchema.parse(data);
+    if (channel !== "Stripe") {
+      NextResponse.json({ error: "Not Support Channel" }, { status: 400 });
+    }
+    const [chargeProductId] = ChargeProductHashids.decode(productId);
+    const [product] = await db
+      .select()
+      .from(chargeProduct)
+      .where(eq(chargeProduct.id, chargeProductId as number));
     const [newChargeOrder] = await db
       .insert(chargeOrder)
       .values({
@@ -56,6 +69,7 @@ export async function POST(req: NextRequest) {
           username: user.username,
         },
         currency,
+        credit: product.credit,
         amount,
         channel,
         phase: OrderPhase.Pending,

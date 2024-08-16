@@ -1,0 +1,1 @@
+ALTER TABLE "charge_order" ADD COLUMN "credit" integer NOT NULL;

@@ -37,7 +37,7 @@ export async function getFluxDataBySeed({
       ({ id, imageUrl, ...rest }) =>
         ({
           ...rest,
-          imageUrl: `https://img.douni.one/?url=${encodeURIComponent(url)}&action=resize!520,520,2|draw_text!s.douni.one/a,10,400`,
+          imageUrl: `https://img.douni.one/?url=${encodeURIComponent(imageUrl!)}&action=resize!520,520,2|draw_text!s.douni.one/a,10,400`,
           id: FluxHashids.encode(id),
         }) as FluxDto,
     ),

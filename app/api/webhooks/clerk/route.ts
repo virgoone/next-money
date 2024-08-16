@@ -1,11 +1,14 @@
 import { headers } from "next/headers";
-import { userCredit } from "@/db/schema";
+
 import { WebhookEvent } from "@clerk/nextjs/server";
-import { db } from "@/db";
 import { eq } from "drizzle-orm";
 import { Webhook } from "svix";
 
+import { db } from "@/db";
+import { userCredit } from "@/db/schema";
 import { env } from "@/env.mjs";
+
+export const runtime = "edge";
 
 export async function POST(req: Request) {
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the endpoint

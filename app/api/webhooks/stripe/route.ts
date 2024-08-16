@@ -23,6 +23,8 @@ export async function GET() {
   return new Response("OK", { status: 200 });
 }
 
+export const runtime = "edge";
+
 export async function POST(req: Request) {
   const body = await req.text();
   const signature = headers().get("Stripe-Signature") as string;

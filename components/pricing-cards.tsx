@@ -1,7 +1,6 @@
 "use client";
 
-import { useContext, useEffect, useState } from "react";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
@@ -12,15 +11,11 @@ import { BillingFormButton } from "@/components/forms/billing-form-button";
 import { HeaderSection } from "@/components/shared/header-section";
 import { Icons } from "@/components/shared/icons";
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
-import { Button, buttonVariants } from "@/components/ui/button";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { pricingData } from "@/config/subscriptions";
+import { Button } from "@/components/ui/button";
 import { ChargeProductDto } from "@/db/schema";
 import { url } from "@/lib";
 import { usePathname } from "@/lib/navigation";
 import { cn, formatPrice } from "@/lib/utils";
-import { UserSubscriptionPlan } from "@/types";
-import { SubscriptionPlan } from "@/types/index";
 
 interface PricingCardsProps {
   userId?: string;
@@ -106,7 +101,6 @@ const PricingCard = ({
             <SignInButton mode="modal" forceRedirectUrl={url(pathname).href}>
               <Button
                 variant={offer.amount === 1990 ? "default" : "outline"}
-                rounded="full"
                 className="w-full"
                 // onClick={() => setShowSignInModal(true)}
               >

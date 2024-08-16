@@ -13,7 +13,7 @@ import { z } from "zod";
 function getKey(id: string) {
   return `media:${id}`;
 }
-
+export const runtime = "edge";
 const ratelimit = new Ratelimit({
   redis,
   limiter: Ratelimit.slidingWindow(5, "10 s"),

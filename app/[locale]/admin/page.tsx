@@ -1,8 +1,12 @@
 import React from "react";
-import StatisticsCard from "@/components/StatisticsCard";
-import { db } from "@/db";
+
 import { sql } from "drizzle-orm";
 import { motion } from "framer-motion";
+
+import StatisticsCard from "@/components/StatisticsCard";
+import { db } from "@/db";
+
+export const runtime = "edge";
 
 export default async function AdminPage() {
   const {

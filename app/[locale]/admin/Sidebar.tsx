@@ -59,6 +59,10 @@ export const menus = [
         name: "充值产品管理",
         href: "/admin/order/product",
       },
+      {
+        name: "礼品码管理",
+        href: "/admin/order/giftcode",
+      },
     ],
   },
   {
@@ -83,7 +87,6 @@ export const menus = [
       },
     ],
   },
-  { name: "评论", href: "/admin/comments", icon: NewCommentIcon },
   { name: "订阅", href: "/admin/subscribers", icon: SubscriberIcon },
   { name: "Newsletters", href: "/admin/newsletters", icon: TiltedSendIcon },
 ];

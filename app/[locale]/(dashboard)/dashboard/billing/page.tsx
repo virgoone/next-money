@@ -1,15 +1,16 @@
 import { redirect } from "next/navigation";
-import type { UserSubscriptionPlan } from "@/types";
+
 import { currentUser } from "@clerk/nextjs/server";
 import { unstable_setRequestLocale } from "next-intl/server";
 
-import { getUserSubscriptionPlan } from "@/lib/subscription";
-import { constructMetadata } from "@/lib/utils";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { BillingInfo } from "@/components/billing-info";
 import { DashboardHeader } from "@/components/dashboard/header";
 import { DashboardShell } from "@/components/dashboard/shell";
 import { Icons } from "@/components/shared/icons";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { getUserSubscriptionPlan } from "@/lib/subscription";
+import { constructMetadata } from "@/lib/utils";
+import type { UserSubscriptionPlan } from "@/types";
 
 type Props = {
   params: { locale: string };
@@ -18,6 +19,8 @@ export const metadata = constructMetadata({
   title: "Billing – SaaS Starter",
   description: "Manage billing and your subscription plan.",
 });
+
+export const runtime = "edge";
 
 export default async function BillingPage({ params: { locale } }: Props) {
   unstable_setRequestLocale(locale);

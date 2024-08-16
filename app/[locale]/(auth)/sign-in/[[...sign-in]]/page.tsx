@@ -1,10 +1,12 @@
 import { SignIn } from "@clerk/nextjs";
-import { Container } from "@/components/layout/container";
 import { unstable_setRequestLocale } from "next-intl/server";
+
+import { Container } from "@/components/layout/container";
 
 type Props = {
   params: { locale: string };
 };
+export const runtime = "edge";
 
 export default function Page({ params: { locale } }: Props) {
   unstable_setRequestLocale(locale);

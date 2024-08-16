@@ -12,6 +12,8 @@ export interface IndexPageProps {
   searchParams: SearchParams;
 }
 
+export const runtime = "edge";
+
 export default async function AdminChargeProductPage({
   searchParams,
 }: IndexPageProps) {

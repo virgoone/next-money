@@ -1,37 +1,36 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from "next/server";
 
-import { currentUser } from '@clerk/nextjs/server';
+import { currentUser } from "@clerk/nextjs/server";
 
-
-import { db } from '@/db'
-import { MediaDto, MediaDtoSchema, MediaHashids } from '@/db/dto/media.dto'
-import { media } from '@/db/schema'
-import { ratelimit } from '@/lib/redis'
+import { db } from "@/db";
+import { MediaDto, MediaDtoSchema, MediaHashids } from "@/db/dto/media.dto";
+import { media } from "@/db/schema";
+import { ratelimit } from "@/lib/redis";
 
 function getKey(id?: string) {
-  return `s3${id ? `:${id}` : ''}`
+  return `s3${id ? `:${id}` : ""}`;
 }
-
+export const runtime = "edge";
 const CreateMediaDtoSchema = MediaDtoSchema.omit({
   id: true,
   createdAt: true,
-})
+});
 
 export async function POST(req: NextRequest) {
-  const user = await currentUser()
+  const user = await currentUser();
   if (!user || !user.publicMetadata.siteOwner) {
-    return NextResponse.json({ error: 'Not authenticated' }, { status: 401 })
+    return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
   }
 
-  const { success } = await ratelimit.limit(getKey(user.id))
+  const { success } = await ratelimit.limit(getKey(user.id));
   if (!success) {
-    return new Response('Too Many Requests', {
+    return new Response("Too Many Requests", {
       status: 429,
-    })
+    });
   }
 
   try {
-    const data = await req.json()
+    const data = await req.json();
 
     const {
       name,
@@ -43,7 +42,7 @@ export async function POST(req: NextRequest) {
       fileType,
       md5,
       ext = {},
-    } = CreateMediaDtoSchema.parse(data)
+    } = CreateMediaDtoSchema.parse(data);
 
     const [newMedia] = await db
       .insert(media)
@@ -60,7 +59,7 @@ export async function POST(req: NextRequest) {
       })
       .returning({
         newId: media.id,
-      })
+      });
 
     return NextResponse.json(
       {
@@ -70,8 +69,8 @@ export async function POST(req: NextRequest) {
       {
         status: 201,
       },
-    )
+    );
   } catch (error) {
-    return NextResponse.json({ error }, { status: 400 })
+    return NextResponse.json({ error }, { status: 400 });
   }
 }

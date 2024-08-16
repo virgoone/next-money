@@ -92,7 +92,7 @@ export default function useForm<T extends Record<string, any>>({
             errors: errorMap[field],
           }));
           console.log(fields);
-          form.setFields(fields);
+          form.setFields(fields as any);
           onSubmit(null, e);
         });
     },

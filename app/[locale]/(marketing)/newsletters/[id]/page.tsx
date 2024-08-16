@@ -20,6 +20,8 @@ async function getNewsletter(id: string) {
   return newsletter;
 }
 
+export const runtime = "edge";
+
 export async function generateMetadata({
   params,
 }: {

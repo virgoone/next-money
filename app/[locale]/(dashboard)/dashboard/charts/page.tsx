@@ -14,6 +14,7 @@ export const metadata = constructMetadata({
   title: "Charts – Next Template",
   description: "List of charts by shadcn-ui",
 });
+export const runtime = "edge";
 
 export default function ChartsPage() {
   return (

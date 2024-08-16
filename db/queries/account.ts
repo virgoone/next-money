@@ -10,7 +10,7 @@ export async function getUserCredit(userId: string) {
     .from(userCredit)
     .where(eq(userCredit.userId, userId));
   if (!accountInfo?.id) {
-    const data = await db
+    const [data] = await db
       .insert(userCredit)
       .values({
         userId: userId,

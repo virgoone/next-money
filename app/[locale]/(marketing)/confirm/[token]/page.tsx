@@ -11,6 +11,8 @@ export const metadata = {
   title: "感谢你的订阅",
 };
 
+export const runtime = "edge";
+
 export default async function ConfirmPage({
   params,
 }: {

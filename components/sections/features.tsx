@@ -51,8 +51,7 @@ export default function Features() {
                     <Button
                       variant="secondary"
                       size="sm"
-                      rounded="xl"
-                      className="px-4"
+                      className="px-4 rounded-xl"
                     >
                       <Link href="/" className="flex items-center gap-2">
                         <span>Visit the site</span>

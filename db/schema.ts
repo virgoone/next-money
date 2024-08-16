@@ -1,4 +1,5 @@
 import {
+  bigint,
   boolean,
   index,
   integer,
@@ -29,23 +30,6 @@ export const newsletters = pgTable("newsletters", {
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
 });
-
-export const comments = pgTable(
-  "comments",
-  {
-    id: serial("id").primaryKey(),
-    userId: varchar("user_id", { length: 200 }).notNull(),
-    userInfo: json("user_info"),
-    postId: varchar("post_id", { length: 100 }).notNull(),
-    parentId: integer("parent_id"),
-    body: json("body"),
-    createdAt: timestamp("created_at").defaultNow(),
-    updatedAt: timestamp("updated_at").defaultNow(),
-  },
-  (table) => ({
-    postIdx: index("post_idx").on(table.postId),
-  }),
-);
 
 export const media = pgTable("media", {
   id: serial("id").primaryKey(),
@@ -98,6 +82,7 @@ export const chargeOrder = pgTable("charge_order", {
   userId: varchar("user_id", { length: 200 }).notNull(),
   userInfo: json("user_info"),
   amount: integer("amount").notNull(),
+  credit: integer("credit").notNull(),
   phase: varchar("phase").notNull(),
   channel: varchar("channel").notNull(),
   currency: varchar("currency").notNull(),
@@ -106,6 +91,24 @@ export const chargeOrder = pgTable("charge_order", {
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
 });
+
+export const giftCode = pgTable("gift_code", {
+  id: serial("id").primaryKey(),
+  code: varchar("code", { length: 256 }).notNull(),
+  creditAmount: integer("credit_amount").notNull(),
+  used: boolean("used").default(false),
+  usedBy: varchar("used_by", { length: 200 }),
+  usedAt: timestamp("used_at"),
+  transactionId: integer("transaction_id"),
+  createdAt: timestamp("created_at").defaultNow(),
+  expiredAt: timestamp("expired_at"),
+});
+
+export type GiftCodeSchemaDto = typeof giftCode.$inferSelect;
+
+export type GiftCodeDto = Omit<GiftCodeSchemaDto, "id"> & {
+  id: string;
+};
 
 export type ChargeOrderDto = typeof chargeOrder.$inferSelect;
 
@@ -130,16 +133,29 @@ export const userCreditTransaction = pgTable("user_credit_transaction", {
   updatedAt: timestamp("updated_at").defaultNow(),
 });
 
+export enum BillingType {
+  Refund = "Refund", // 退款
+  Withdraw = "Withdraw",
+}
+
 export const userBilling = pgTable("user_billing", {
   id: serial("id").primaryKey(),
   userId: varchar("user_id", { length: 200 }).notNull(),
-  credit: integer("credit").notNull(),
   state: varchar("state").notNull(),
-  detail: json("detail").notNull(),
-  account: integer("account").notNull(),
+  amount: integer("amount").notNull(),
+  type: varchar("type").notNull(),
+  fluxId: integer("flux_id"),
+  description: varchar("description"),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
 });
+
+export enum FluxTaskStatus {
+  Processing = "processing",
+  Succeeded = "succeeded",
+  Failed = "failed",
+  Canceled = "canceled",
+}
 
 export const flux = pgTable("flux_data", {
   id: serial("id").primaryKey(),
@@ -151,9 +167,9 @@ export const flux = pgTable("flux_data", {
   guidance: integer("guidance"),
   interval: integer("interval"),
   imageUrl: varchar("image_url"),
-  model: varchar("model").notNull(),
-  executeStartTime: integer("execute_start_time"),
-  executeEndTime: integer("execute_end_time"),
+  model: varchar("model", { length: 255 }).notNull(),
+  executeStartTime: bigint("execute_start_time", { mode: "bigint" }),
+  executeEndTime: bigint("execute_end_time", { mode: "bigint" }),
   locale: varchar("locale", { length: 64 }),
   aspectRatio: varchar("aspect_ratio").notNull(),
   safetyTolerance: integer("safety_tolerance"),

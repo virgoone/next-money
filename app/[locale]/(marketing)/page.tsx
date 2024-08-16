@@ -8,12 +8,14 @@ import Powered from "@/components/sections/powered";
 import PreviewLanding from "@/components/sections/preview-landing";
 import PricingCard from "@/components/sections/pricing-card";
 import Testimonials from "@/components/sections/testimonials";
-import TwitterList from "@/components/sections/twitter-list";
+// import TwitterList from "@/components/sections/twitter-list";
 import { infos } from "@/config/landing";
 
 type Props = {
   params: { locale: string };
 };
+
+export const runtime = "edge";
 
 export default function IndexPage({ params: { locale } }: Props) {
   // Enable static rendering
@@ -29,7 +31,7 @@ export default function IndexPage({ params: { locale } }: Props) {
       {/* <InfoLanding data={infos[1]} /> */}
       {/* <Features /> */}
       <Testimonials />
-      <TwitterList />
+      {/* <TwitterList /> */}
       <PricingCard />
     </>
   );

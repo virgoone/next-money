@@ -1,12 +1,13 @@
 import { redirect } from "next/navigation";
 
+import { currentUser } from "@clerk/nextjs/server";
+import { unstable_setRequestLocale } from "next-intl/server";
+
 import { DashboardHeader } from "@/components/dashboard/header";
 import { DashboardShell } from "@/components/dashboard/shell";
 import { EmptyPlaceholder } from "@/components/shared/empty-placeholder";
 import { Button } from "@/components/ui/button";
 import { constructMetadata } from "@/lib/utils";
-import { currentUser } from "@clerk/nextjs/server";
-import { unstable_setRequestLocale } from "next-intl/server";
 
 export const metadata = constructMetadata({
   title: "Settings – SaaS Starter",
@@ -16,6 +17,7 @@ export const metadata = constructMetadata({
 type Props = {
   params: { locale: string };
 };
+export const runtime = "edge";
 
 export default async function DashboardPage({ params: { locale } }: Props) {
   unstable_setRequestLocale(locale);

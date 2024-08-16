@@ -17,7 +17,7 @@
       }
     },
     "action": {
-      "pricing":"Pricing",
+      "pricing": "Pricing",
       "login": "Login",
       "dashboard": "Dashboard",
       "github": {
@@ -48,6 +48,29 @@
       "title": "💳 Payment Tip: If you encounter any issues during the payment process, feel free to reach out to us! 😉",
       "subtitle": "Questions?",
       "contact": "contact us"
+    }
+  },
+  "Playground": {
+    "title": "Flux AI Image Generator",
+    "form": {
+      "input": "Input",
+      "result": "Result",
+      "placeholder":"Enter prompt to generate image...",
+      "model": "Model",
+      "submit": "Generate"
+    }
+  },
+  "GiftCode": {
+    "title": "Gift Code Exchange",
+    "text": "Enter your gift code to redeem credits.",
+    "form": {
+      "placeholder": "Enter your gift code",
+      "aria_label": "Gift code",
+      "button": "Redeem",
+      "required": "This field is required.",
+      "invalid": "Invalid gift code.",
+      "success": "Successfully redeemed {credits} credits.",
+      "error": "Failed to redeem gift code."
     }
   },
   "NewsLetter": {

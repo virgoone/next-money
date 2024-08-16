@@ -18,6 +18,15 @@ export const dashboardConfig: DashboardConfig = {
           icon: "post",
         },
         {
+          title: "Generate",
+          href: "/dashboard/generate",
+        },
+        {
+          title: "Gift Code",
+          href: "/dashboard/giftcode",
+          icon: "Gift",
+        },
+        {
           title: "Charts",
           href: "/dashboard/charts",
           icon: "lineChart",
