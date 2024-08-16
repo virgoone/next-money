@@ -27,8 +27,8 @@ export default async function PreviewLanding() {
                   />
                 )}
               </I18nLink>
-              <div className="tags absolute bottom-2 left-1 flex w-full space-x-2">
-                <span className="apple-tag rounded-md px-2 py-1 text-white">
+              <div className="tags absolute bottom-0 left-0 flex w-full">
+                <span className="apple-tag rounded-md px-2 py-1 text-white line-clamp-2 overflow-hidden text-ellipsis">
                   {item.inputPrompt}
                 </span>
               </div>

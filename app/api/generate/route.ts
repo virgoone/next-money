@@ -78,7 +78,7 @@ export async function POST(req: NextRequest, { params }: Params) {
       );
     }
     headers.append("Content-Type", "application/json");
-    headers.append("API-TOKEN", "flux_400bd52fd5a1849c747e7189266428fa");
+    headers.append("API-TOKEN", env.FLUX_HEADER_KEY);
 
     const res = await fetch("https://api.noobdriver.com/flux/create", {
       method: "POST",

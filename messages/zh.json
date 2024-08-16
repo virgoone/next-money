@@ -1,13 +1,13 @@
 {
   "Error": {
-    "description": "<p>很遗憾，我们遇到了一个错误。</p><p>您可以尝试<retry>重新加载</retry>您正在访问的页面。</p>",
+    "description": "<p>很抱歉，我们遇到了一个错误。</p><p>您可以尝试<retry>重新加载</retry>您正在访问的页面。</p>",
     "title": "出错了！"
   },
   "IndexPage": {
-    "intro": "Flux AI图像生成器",
-    "description": "下一代高级文本转图像开放模型，支持flux.1 pro和flux.1 schnell模型",
-    "title": "Flux AI图像生成器",
-    "subtitle": "下一代高级文本转图像开放模型，支持flux.1 pro和flux.1 schnell模型",
+    "intro": "介绍 Flux AI 图像生成器",
+    "description": "革新下一代高级文本到图像的开放模型，支持 flux.1 pro和 flux.1 schnell模型。",
+    "title": "Flux AI 图像生成器",
+    "subtitle": "高级文本到图像转换",
     "powered": {
       "title": "技术支持"
     },
@@ -19,79 +19,103 @@
     "action": {
       "pricing": "定价",
       "login": "登录",
-      "dashboard": "控制台",
+      "dashboard": "仪表板",
       "github": {
-        "sm": "在",
-        "normal": "GitHub"
+        "sm": "在 Github 上加星",
+        "normal": "Github"
       }
     }
   },
   "PricingPage": {
-    "title": "订阅会员享更多权益！",
+    "title": "选择套餐购买积分",
+    "description": "无重复收费",
     "worth": "积分",
-    "label": "价格",
+    "label": "定价",
     "action": {
-      "signin": "登 陆",
-      "buy": "购 买"
+      "signin": "登录",
+      "buy": "购买套餐"
     },
     "contact": {
       "title": "联系我们",
-      "description": "如果使用过程中有遇到任何问题，您可以通过邮件联系我们"
-    },
-    "tip": {
-      "title": "💳💳 支付提示: 如果您在支付过程中遇到任何问题，请随时联系我们！😉",
-      "subtitle": "有问题?",
-      "contact": "联系我们！"
+      "description": "如果您有任何疑问，请随时与我们联系。"
     },
     "faq": {
-      "label": "问题",
-      "title": "常见问题",
-      "subtitle": "探索我们常见问题解答（FAQ）。如果您需要进一步的帮助，请随时联系我们，以获得个性化的帮助。"
+      "label": "常见问题",
+      "title": "常见问题解答",
+      "subtitle": "浏览我们全面的常见问题解答，快速找到常见疑问的答案。如果您需要进一步帮助，请随时联系我们获取个性化支持。"
+    },
+    "tip": {
+      "title": "💳 支付提示：如果您在支付过程中遇到任何问题，请随时联系我们！😉",
+      "subtitle": "有问题？",
+      "contact": "联系我们"
+    }
+  },
+  "Playground": {
+    "title": "Flux AI 图像生成器",
+    "form": {
+      "input": "输入",
+      "result": "结果",
+      "placeholder": "输入提示词生成图像...",
+      "model": "模型",
+      "submit": "生成"
+    }
+  },
+  "GiftCode": {
+    "title": "礼品码兑换",
+    "text": "输入您的礼品码以兑换积分。",
+    "form": {
+      "placeholder": "输入您的礼品码",
+      "aria_label": "礼品码",
+      "button": "兑换",
+      "required": "此字段为必填项。",
+      "invalid": "无效的礼品码。",
+      "success": "成功兑换 {credits} 积分。",
+      "error": "兑换礼品码失败。"
     }
   },
   "NewsLetter": {
-    "title": "加入我们的新闻通讯",
-    "subtitle": "订阅以获取更新！",
+    "title": "订阅我们的新闻简报",
+    "subtitle": "订阅以获取最新更新！",
     "form": {
       "placeholder": "输入您的电子邮件地址",
       "aria_label": "电子邮件",
-      "confirm": "请检查订阅确认电子邮件。",
+      "confirm": "请查看订阅确认邮件。",
       "button": "订阅"
     }
   },
   "LocaleLayout": {
-    "title": "Flux AI图像生成器",
-    "description": "下一代高级文本转图像开放模型，支持flux.1 pro和flux.1 schnell模型"
+    "title": "Flux AI 图像生成器",
+    "description": "革新下一代高级文本到图像的开放模型，支持 flux.1 专业版和 flux.1 快速版模型。"
   },
   "LocaleSwitcher": {
     "label": "更改语言",
     "locale": "{locale, select, zh {🇨🇳 中文} en {🇺🇸 英文} other {未知}}"
   },
   "Manifest": {
-    "name": "Flux AI图像生成器"
+    "name": "Flux AI 图像生成器"
   },
   "Navigation": {
     "pricing": "定价",
-    "title": "Flux AI图像生成器",
+    "title": "Flux AI 图像生成器",
     "blog": "博客",
-    "dashboard": "控制台",
+    "dashboard": "仪表板",
     "tooltip": {
       "login": "登录"
     }
   },
   "NotFoundPage": {
-    "description": "请仔细检查浏览器地址栏或使用导航前往已知页面。",
+    "description": "请检查浏览器地址栏或使用导航前往已知页面。",
     "title": "页面未找到"
   },
   "PageLayout": {
     "links": {
       "docs": {
-        "description": "在官方文档中了解更多关于next-intl的信息。",
+        "description": "在官方文档中了解更多关于 next-intl 的信息。",
         "href": "https://next-intl-docs.vercel.app/",
         "title": "文档"
       },
       "source": {
-        "description": "在GitHub上浏览此示例的源代码。",
+        "description": "在 GitHub 上浏览此示例的源代码。",
         "href": "https://github.com/amannn/next-intl/tree/main/examples/example-app-router",
         "title": "源代码"
       }
@@ -99,6 +123,6 @@
   },
   "BlogPage": {
     "title": "博客",
-    "description": "来自我们的最新消息和更新"
+    "description": "我们的最新新闻和更新"
   }
 }

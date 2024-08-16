@@ -29,11 +29,9 @@ export const env = createEnv({
     CLERK_SECRET_KEY: z.string().min(1),
     LOG_SNAG_TOKEN: z.string().min(1),
     TASK_HEADER_KEY: z.string().min(1),
+    FLUX_HEADER_KEY: z.string().min(1),
   },
   client: {
-    NEXT_PUBLIC_SANITY_PROJECT_ID: z.string().min(1),
-    NEXT_PUBLIC_SANITY_DATASET: z.string().min(1),
-    NEXT_PUBLIC_SANITY_USE_CDN: z.boolean(),
     NEXT_PUBLIC_SITE_URL: z.string().min(1),
     NEXT_PUBLIC_SITE_EMAIL_FROM: z.string().min(1),
     NEXT_PUBLIC_SITE_LINK_PREVIEW_ENABLED: z
@@ -55,10 +53,6 @@ export const env = createEnv({
     VERCEL_ENV: process.env.VERCEL_ENV,
     UPSTASH_REDIS_REST_URL: process.env.UPSTASH_REDIS_REST_URL,
     UPSTASH_REDIS_REST_TOKEN: process.env.UPSTASH_REDIS_REST_TOKEN,
-    NEXT_PUBLIC_SANITY_PROJECT_ID: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-    NEXT_PUBLIC_SANITY_DATASET: process.env.NEXT_PUBLIC_SANITY_DATASET,
-    NEXT_PUBLIC_SANITY_USE_CDN:
-      process.env.NEXT_PUBLIC_SANITY_USE_CDN == "true",
     NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
     NEXT_PUBLIC_SITE_EMAIL_FROM: process.env.NEXT_PUBLIC_SITE_EMAIL_FROM,
     NEXT_PUBLIC_SITE_LINK_PREVIEW_ENABLED:
@@ -87,5 +81,6 @@ export const env = createEnv({
     NEXT_PUBLIC_STRIPE_BUSINESS_YEARLY_PLAN_ID:
       process.env.NEXT_PUBLIC_STRIPE_BUSINESS_YEARLY_PLAN_ID,
     TASK_HEADER_KEY: process.env.TASK_HEADER_KEY,
+    FLUX_HEADER_KEY: process.env.FLUX_HEADER_KEY,
   },
 });
