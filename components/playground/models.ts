@@ -15,17 +15,23 @@ export const models: Model<ModelType>[] = [
     id: "black-forest-labs/flux-pro",
     name: "FLUX.1 [pro]",
     description:
-      "Most capable GPT-3 model. Can do any task the other models can do, often with higher quality, longer output and better instruction-following. Also supports inserting completions within text.",
+      "A distilled version of FLUX.1 that operates up to 10 times faster. text-to-image",
     type: "Flux AI",
-    strengths:
-      "Complex intent, cause and effect, creative generation, search, summarization for audience",
+    // strengths:
+    //   "Complex intent, cause and effect, creative generation, search, summarization for audience",
   },
   {
     id: "black-forest-labs/flux-schnell",
     name: "FLUX.1 [schnell]",
-    description: "Very capable, but faster and lower cost than Davinci.",
+    description: "The pro version of FLUX.1, served in partnership with BFL text-to-image",
     type: "Flux AI",
-    strengths:
-      "Language translation, complex classification, sentiment, summarization",
+    // strengths:
+    //   "Language translation, complex classification, sentiment, summarization",
   },
+  {
+    id: "black-forest-labs/flux-dev",
+    name: "FLUX.1 [dev]",
+    description: "FLUX.1, a 12B parameters text-to-image model with outstanding aesthetics. text-to-imageinference",
+    type: "Flux AI",
+  }
 ];

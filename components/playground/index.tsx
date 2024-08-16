@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 
 import { useAuth } from "@clerk/nextjs";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 
@@ -15,14 +15,20 @@ import { ModelSelector } from "@/components/playground/model-selector";
 import { Model, models, types } from "@/components/playground/models";
 import { PrivateSwitch } from "@/components/playground/private-switch";
 import { Button } from "@/components/ui/button";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
-import { Credits } from "@/config/constants";
+import { Credits, model } from "@/config/constants";
 import { FluxSelectDto } from "@/db/type";
 import { cn } from "@/lib/utils";
 
 import { Icons } from "../shared/icons";
+import Upload from "../upload";
 import Loading from "./loading";
 
 const aspectRatios = [Ratio.r1, Ratio.r2, Ratio.r3, Ratio.r4, Ratio.r5];
@@ -68,8 +74,10 @@ export default function Playground({ locale }: { locale: string }) {
   const [fluxId, setFluxId] = useState("");
   const [fluxData, setFluxData] = useState<FluxSelectDto>();
   const useCreateTask = useCreateTaskMutation();
+  const [uploadInputImage, setUploadInputImage] = useState<any[]>([]);
   const t = useTranslations("Playground");
   const { getToken } = useAuth();
+  const queryClient = useQueryClient();
 
   const queryTask = useQuery({
     queryKey: ["queryFluxTask", fluxId],
@@ -110,20 +118,26 @@ export default function Playground({ locale }: { locale: string }) {
     }
     setLoading(true);
     try {
+      const inputImageUrl = uploadInputImage
+        ? uploadInputImage?.[0]?.completedUrl
+        : undefined;
       const res = await useCreateTask.mutateAsync({
         model: selectedModel.id,
         inputPrompt,
         aspectRatio: ratio,
+        inputImageUrl,
         isPrivate: isPublic ? 0 : 1,
         locale,
       });
       console.log("res--->", res);
       if (!res.error) {
         setFluxId(res.id);
+        queryClient.invalidateQueries({ queryKey: ["queryUserPoints"] });
       } else {
         toast.error(res.error);
       }
     } catch (error) {
+      console.log("error", error);
       toast.error("An error occurred");
     } finally {
       setLoading(false);
@@ -142,6 +156,34 @@ export default function Playground({ locale }: { locale: string }) {
               models={models}
             />
             <AspectRatioSelector ratio={ratio} onChange={setRatio} />
+            {selectedModel.id === model.dev && (
+              <div className="flx flex-col gap-4">
+                <HoverCard openDelay={200}>
+                  <HoverCardTrigger asChild>
+                    <Label htmlFor="model">{t("form.inputImage")}</Label>
+                  </HoverCardTrigger>
+                  <HoverCardContent
+                    align="start"
+                    className="w-[260px] text-sm"
+                    side="left"
+                  >
+                    {t("form.inputImageTooltip")}
+                  </HoverCardContent>
+                </HoverCard>
+                <Upload
+                  maxFiles={1}
+                  maxSize={102400 * 2}
+                  placeholder={t("form.inputImagePlaceholder")}
+                  value={uploadInputImage}
+                  onChange={setUploadInputImage}
+                  previewClassName="h-[90px]"
+                  accept={{
+                    "image/*": [],
+                  }}
+                />
+              </div>
+            )}
+
             {/* <TemperatureSelector defaultValue={[0.56]} /> */}
             {/* <MaxLengthSelector defaultValue={[256]} /> */}
           </div>
@@ -208,9 +250,7 @@ export default function Playground({ locale }: { locale: string }) {
                       Loading...
                     </>
                   ) : (
-                    <>
-                      {t("form.submit")}
-                    </>
+                    <>{t("form.submit")}</>
                   )}
                 </Button>
                 <PrivateSwitch isPublic={isPublic} onChange={setIsPublic} />

@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import { useAuth } from "@clerk/nextjs";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Loader2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useForm } from "react-hook-form";
@@ -48,6 +48,8 @@ const useGiftCodeMutation = (config?: { onSuccess: (result: any) => void }) => {
 };
 export default function CardRedemption() {
   const t = useTranslations("GiftCode");
+  const queryClient = useQueryClient();
+
   const profileFormSchema = z.object({
     giftCode: z
       .string({
@@ -79,9 +81,12 @@ export default function CardRedemption() {
     try {
       const res = await useGiftCode.mutateAsync({ code: data.giftCode });
       if (!res.error) {
-        toast.success(t("form.success", {
-          credits: res.creditAmount,
-        }));
+        toast.success(
+          t("form.success", {
+            credits: res.creditAmount,
+          }),
+        );
+        queryClient.invalidateQueries({ queryKey: ["queryUserPoints"] });
         setTimeout(() => {
           reward();
         }, 1000);

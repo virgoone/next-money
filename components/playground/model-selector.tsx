@@ -3,6 +3,7 @@
 import * as React from "react";
 
 import { PopoverProps } from "@radix-ui/react-popover";
+import { useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -33,27 +34,33 @@ import { Model, ModelType } from "./models";
 interface ModelSelectorProps extends PopoverProps {
   types: readonly ModelType[];
   models: Model[];
-  selectedModel: Model
+  selectedModel: Model;
   onChange: (model: Model) => void;
 }
 
-export function ModelSelector({ models, types, selectedModel, onChange, ...props }: ModelSelectorProps) {
+export function ModelSelector({
+  models,
+  types,
+  selectedModel,
+  onChange,
+  ...props
+}: ModelSelectorProps) {
   const [open, setOpen] = React.useState(false);
   const [peekedModel, setPeekedModel] = React.useState<Model>(models[0]);
+  const t = useTranslations("Playground");
 
   return (
     <div className="grid gap-2">
       <HoverCard openDelay={200}>
         <HoverCardTrigger asChild>
-          <Label htmlFor="model">Model</Label>
+          <Label htmlFor="model">{t("form.model")}</Label>
         </HoverCardTrigger>
         <HoverCardContent
           align="start"
           className="w-[260px] text-sm"
           side="left"
         >
-          The model which will generate the completion. Some models are suitable
-          for natural language tasks, others specialize in code. Learn more.
+          {t("form.modelTooltip")}
         </HoverCardContent>
       </HoverCard>
       <Popover open={open} onOpenChange={setOpen} {...props}>
@@ -76,7 +83,7 @@ export function ModelSelector({ models, types, selectedModel, onChange, ...props
               side="left"
               align="start"
               forceMount
-              className="min-h-[280px]"
+              className="min-h-[200px]"
             >
               <div className="grid gap-2">
                 <h4 className="font-medium leading-none">{peekedModel.name}</h4>

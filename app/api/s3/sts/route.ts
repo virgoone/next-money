@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 
-import { currentUser } from "@clerk/nextjs/server";
+import { auth, currentUser } from "@clerk/nextjs/server";
 import { Ratelimit } from "@upstash/ratelimit";
 import { z } from "zod";
 
@@ -20,19 +20,21 @@ function getKey(id: string) {
 
 type Params = { params: { key: string } };
 const CreateS3StsSchema = z.object({
-  md5: z.string(),
+  key: z.string(),
   fileType: z.string(),
   prefix: z.string().nullish().optional(),
 });
 
 export async function POST(req: NextRequest, { params }: Params) {
+  const { userId } = auth();
+
   const user = await currentUser();
-  if (!user || !user.publicMetadata.siteOwner) {
+  if (!userId || !user) {
     return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
   }
 
   const { success } = await ratelimit.limit(
-    getKey("s3-key") + `_${req.ip ?? ""}`,
+    getKey("s3-key" + userId) + `_${req.ip ?? ""}`,
   );
   if (!success) {
     return new Response("Too Many Requests", {
@@ -41,12 +43,12 @@ export async function POST(req: NextRequest, { params }: Params) {
   }
 
   try {
-    const key = params.key;
     const data = await req.json();
     const {
-      md5,
+      // md5,
       fileType,
-      prefix = "/post/category/icon",
+      key,
+      prefix = `/flux-input/user/${userId}`,
     } = CreateS3StsSchema.parse(data);
 
     const s3 = new S3Service({

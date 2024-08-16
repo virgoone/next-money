@@ -1,4 +1,6 @@
-import { dashboardConfig } from "@/config/dashboard";
+import { unstable_setRequestLocale } from "next-intl/server";
+
+import UserPoints from "@/components/dashboard/points";
 import { SearchCommand } from "@/components/dashboard/search-command";
 import {
   DashboardSidebar,
@@ -9,7 +11,7 @@ import { ModeToggle } from "@/components/layout/mode-toggle";
 import { NavBar, NavbarUserInfo } from "@/components/layout/navbar";
 import { SiteFooter } from "@/components/layout/site-footer";
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
-import { unstable_setRequestLocale } from "next-intl/server";
+import { dashboardConfig } from "@/config/dashboard";
 
 interface DashboardLayoutProps {
   children?: React.ReactNode;
@@ -59,8 +61,10 @@ export default function DashboardLayout({
             </div>
 
             {/* <Notifications /> */}
+            <UserPoints />
             <ModeToggle />
             <NavbarUserInfo />
+
           </header>
 
           <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 xl:px-10">

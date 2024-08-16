@@ -33,11 +33,12 @@ enum Ratio {
 
 type Params = { params: { key: string } };
 const CreateGenerateSchema = z.object({
-  model: z.enum([model.pro, model.schnell]),
+  model: z.enum([model.pro, model.schnell, model.dev]),
   inputPrompt: z.string(),
   aspectRatio: z.enum([Ratio.r1, Ratio.r2, Ratio.r3, Ratio.r4, Ratio.r5]),
   isPrivate: z.number().default(0),
   locale: z.string().default("en"),
+  inputImageUrl: z.string().url().optional(),
 });
 
 export async function POST(req: NextRequest, { params }: Params) {
@@ -59,8 +60,14 @@ export async function POST(req: NextRequest, { params }: Params) {
 
   try {
     const data = await req.json();
-    const { model, inputPrompt, aspectRatio, isPrivate, locale } =
-      CreateGenerateSchema.parse(data);
+    const {
+      model,
+      inputPrompt,
+      aspectRatio,
+      isPrivate,
+      locale,
+      inputImageUrl,
+    } = CreateGenerateSchema.parse(data);
     const headers = new Headers();
     const account = await getUserCredit(userId);
     const needCredit = Credits[model];
@@ -70,6 +77,7 @@ export async function POST(req: NextRequest, { params }: Params) {
         { status: 400 },
       );
     }
+
     headers.append("Content-Type", "application/json");
     headers.append("API-TOKEN", env.FLUX_HEADER_KEY);
 
@@ -78,6 +86,7 @@ export async function POST(req: NextRequest, { params }: Params) {
       headers,
       body: JSON.stringify({
         model,
+        input_image_url: inputImageUrl,
         input_prompt: inputPrompt,
         aspect_ratio: aspectRatio,
         is_private: isPrivate,

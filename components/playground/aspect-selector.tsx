@@ -2,6 +2,8 @@
 
 import * as React from "react";
 
+import { useTranslations } from "next-intl";
+
 import {
   HoverCard,
   HoverCardContent,
@@ -25,19 +27,19 @@ export enum Ratio {
 const aspectRatios = [Ratio.r1, Ratio.r2, Ratio.r3, Ratio.r4, Ratio.r5];
 
 export function AspectRatioSelector({ ratio, onChange }: SelectorProps) {
+  const t = useTranslations("Playground");
+
   return (
     <Tabs value={ratio} onValueChange={(value) => onChange(value as Ratio)}>
       <div className="grid gap-2">
         <HoverCard openDelay={200}>
           <HoverCardTrigger asChild>
             <span className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-              AspectRatio
+              {t("form.aspectRatio")}
             </span>
           </HoverCardTrigger>
           <HoverCardContent className="w-[320px] text-sm" side="left">
-            Choose the interface that best suits your task. You can provide: a
-            simple prompt to complete, starting and ending text to insert a
-            completion within, or some text with instructions to edit it.
+            {t("form.aspectRatioTooltip")}
           </HoverCardContent>
         </HoverCard>
 

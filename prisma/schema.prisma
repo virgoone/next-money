@@ -50,6 +50,7 @@ model FluxData {
   steps            Int?
   guidance         Int?
   interval         Int?
+  inputImageUrl    String?  @map(name: "input_image_url") @db.VarChar
   imageUrl         String?  @map(name: "image_url") @db.VarChar
   model            String   @db.VarChar(255)
   executeStartTime BigInt?  @map(name: "execute_start_time")

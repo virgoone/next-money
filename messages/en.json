@@ -57,7 +57,13 @@
       "result": "Result",
       "placeholder":"Enter prompt to generate image...",
       "model": "Model",
-      "submit": "Generate"
+      "modelTooltip": "Choose a model to generate images.",
+      "submit": "Generate",
+      "aspectRatio": "AspectRatio",
+      "aspectRatioTooltip": "Aspect ratio for the generated image.",
+      "inputImage": "Image",
+      "inputImageTooltip": "Input image for image to image mode. The aspect ratio of your output will match this image",
+      "inputImagePlaceholder": "Upload input image"
     }
   },
   "GiftCode": {
