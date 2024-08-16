@@ -55,17 +55,6 @@
     "form": {
       "input": "输入",
       "result": "结果",
-      "placeholder": "输入提示词生成图像...",
-      "model": "模型",
-      "submit": "生成"
-    }
-  },
-  "GiftCode": {
-    "title": "礼品码兑换",
-    "text": "输入您的礼品码以兑换积分。",
-    "form": {
-      "input": "输入",
-      "result": "结果",
       "placeholder": "输入提示以生成图像...",
       "model": "模型",
       "modelTooltip": "选择一个模型来生成图像。",
@@ -75,6 +64,19 @@
       "inputImage": "图像",
       "inputImageTooltip": "图像到图像模式的输入图像。您的输出纵横比将与此图像匹配",
       "inputImagePlaceholder": "上传输入图像"
+    }
+  },
+  "GiftCode": {
+    "title": "礼品码兑换",
+    "text": "输入您的礼品码以兑换积分。",
+    "form": {
+      "placeholder": "输入您的礼品码",
+      "aria_label": "礼品码",
+      "button": "兑换",
+      "required": "此字段为必填项。",
+      "invalid": "无效的礼品码。",
+      "success": "成功兑换 {credits} 积分。",
+      "error": "兑换礼品码失败。"
     }
   },
   "NewsLetter": {
