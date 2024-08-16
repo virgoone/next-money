@@ -20,7 +20,7 @@ type Props = {
 export default async function PricingPage({ params: { locale } }: Props) {
   unstable_setRequestLocale(locale);
 
-  const { data: chargeProduct } = await getChargeProduct();
+  const { data: chargeProduct = [] } = await getChargeProduct();
 
   return (
     <div className="flex w-full flex-col gap-16 py-8 md:py-8">

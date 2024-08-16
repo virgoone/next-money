@@ -6,7 +6,7 @@ import { Button, Drawer, Form, Input, InputNumber, Select, Space } from "antd";
 import { FormListFieldData } from "antd/lib/form";
 import { toast } from "sonner";
 
-import { ChargeProductDto, Currency } from "@/db/type";
+import { Currency, type ChargeProductSelectDto } from "@/db/type";
 import useForm from "@/hooks/use-form";
 import { getErrorMessage } from "@/lib/handle-error";
 
@@ -14,7 +14,7 @@ import { updateAction } from "../_lib/actions";
 import { updateSchema, type UpdateSchema } from "../_lib/validations";
 
 const FormItem = Form.Item;
-export function UpdateDialog(props: { detail: ChargeProductDto }) {
+export function UpdateDialog(props: { detail: ChargeProductSelectDto }) {
   const { detail } = props;
   const [open, setOpen] = React.useState(false);
   const [isCreatePending, startCreateTransition] = React.useTransition();

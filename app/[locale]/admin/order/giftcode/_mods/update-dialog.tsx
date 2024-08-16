@@ -6,7 +6,7 @@ import { Button, Drawer, Form, Input, InputNumber, Select, Space } from "antd";
 import { FormListFieldData } from "antd/lib/form";
 import { toast } from "sonner";
 
-import { GiftCodeDto } from "@/db/type";
+import type { GiftCodeSelectDto } from "@/db/type";
 import useForm from "@/hooks/use-form";
 import { getErrorMessage } from "@/lib/handle-error";
 import { generateGifCode } from "@/lib/utils";
@@ -15,7 +15,7 @@ import { updateAction } from "../_lib/actions";
 import { updateSchema, type UpdateSchema } from "../_lib/validations";
 
 const FormItem = Form.Item;
-export function UpdateDialog(props: { detail: GiftCodeDto }) {
+export function UpdateDialog(props: { detail: GiftCodeSelectDto }) {
   const { detail } = props;
   const [open, setOpen] = React.useState(false);
   const [isCreatePending, startCreateTransition] = React.useTransition();

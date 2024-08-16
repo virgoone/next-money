@@ -2,8 +2,6 @@ import "server-only";
 
 import { unstable_noStore as noStore } from "next/cache";
 
-import { DrizzleWhere } from "@/components/data-table/types";
-import { db } from "@/db";
 import { ChargeProductHashids } from "@/db/dto/charge-product.dto";
 import { prisma } from "@/db/prisma";
 import { type ChargeProductDto } from "@/db/type";

@@ -6,7 +6,6 @@ import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { DashboardHeader } from "@/components/dashboard/header";
 import { DashboardShell } from "@/components/dashboard/shell";
 import GiftCodeForm from "@/components/forms/gift-code-form";
-import { UserNameForm } from "@/components/forms/user-name-form";
 import { constructMetadata } from "@/lib/utils";
 
 export const metadata = constructMetadata({

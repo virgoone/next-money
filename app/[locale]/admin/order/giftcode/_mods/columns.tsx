@@ -4,7 +4,7 @@ import { useTransition } from "react";
 
 import { Button, Popconfirm, Space, type TableColumnsType } from "antd";
 
-import { type ChargeProductDto } from "@/db/type";
+import { type GiftCodeSelectDto } from "@/db/type";
 import { formatPrice } from "@/lib/utils";
 
 import { deleteAction } from "../_lib/actions";
@@ -40,7 +40,7 @@ const DeleteAction = (props: { id: string }) => {
   );
 };
 
-export function getColumns(): TableColumnsType<ChargeProductDto> {
+export function getColumns(): TableColumnsType<GiftCodeSelectDto> {
   return [
     {
       title: "ID",
@@ -67,7 +67,7 @@ export function getColumns(): TableColumnsType<ChargeProductDto> {
     {
       title: "Action",
       dataIndex: "actions",
-      render: (_date, row: ChargeProductDto) => {
+      render: (_date, row: GiftCodeSelectDto) => {
         return (
           <Space>
             <UpdateDialog detail={row} />

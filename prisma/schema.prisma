@@ -43,7 +43,7 @@ model ChargeProduct {
 
 model FluxData {
   id               Int      @id @default(autoincrement())
-  userId          String   @map(name: "user_id") @db.VarChar
+  userId           String   @map(name: "user_id") @db.VarChar
   replicateId      String   @map(name: "replicate_id") @db.VarChar
   inputPrompt      String?  @map(name: "input_prompt")
   executePrompt    String?  @map(name: "execute_prompt")
@@ -55,8 +55,8 @@ model FluxData {
   executeStartTime BigInt?  @map(name: "execute_start_time")
   executeEndTime   BigInt?  @map(name: "execute_end_time")
   locale           String?  @db.VarChar(64)
-  aspect_ratio     String   @db.VarChar
-  safety_tolerance Int?
+  aspectRatio      String   @map("aspect_ratio") @db.VarChar
+  safetyTolerance  Int?     @map("safety_tolerance")
   seed             Int?
   taskStatus       String   @map(name: "task_status") @db.VarChar
   isPrivate        Boolean? @default(false) @map(name: "is_private")

@@ -7,8 +7,6 @@ import { Breadcrumb, Button, Drawer } from "antd";
 import { motion } from "framer-motion";
 import { PanelLeftIcon, SearchIcon } from "lucide-react";
 
-import { UserInfo } from "@/components/user-info";
-
 import { menus, RenderMenu, type MenuType } from "./Sidebar";
 
 const buildMenuObject = (menus: MenuType[]) => {
@@ -87,7 +85,6 @@ export default function () {
       </Button>
       <Drawer open={open} placement="left" onClose={() => setOpen(false)}>
         <div className="sm:max-w-xs">
-          <UserInfo />
           <nav className="grid gap-6 text-lg font-medium">
             <ul>{menus.map((menu) => RenderMenu(menu))}</ul>
           </nav>
@@ -111,7 +108,6 @@ export default function () {
         initial={{ opacity: 0, y: -20, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
       >
-        <UserInfo />
         {/* <div className="pointer-events-auto">
           <ThemeSwitcher />
         </div> */}

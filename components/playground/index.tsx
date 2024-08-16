@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from "react";
 
 import { useAuth } from "@clerk/nextjs";
-import { Prisma } from "@prisma/client";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
@@ -19,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
+import { FluxSelectDto } from "@/db/type";
 import { cn } from "@/lib/utils";
 
 import { Icons } from "../shared/icons";
@@ -65,7 +65,7 @@ export default function Playground({ locale }: { locale: string }) {
   const [inputPrompt, setInputPrompt] = React.useState<string>("");
   const [loading, setLoading] = useState(false);
   const [fluxId, setFluxId] = useState("");
-  const [fluxData, setFluxData] = useState<Prisma.FluxDataGetPayload<any>>();
+  const [fluxData, setFluxData] = useState<FluxSelectDto>();
   const useCreateTask = useCreateTaskMutation();
   const t = useTranslations("Playground");
   const { getToken } = useAuth();

@@ -34,6 +34,12 @@ export enum FluxTaskStatus {
 
 export type ChargeProductDto = Prisma.ChargeProductGetPayload<any>;
 
+export type ChargeProductSchema = Prisma.ChargeProductCreateInput;
+
+export type ChargeProductSelectDto = Omit<ChargeProductDto, "id"> & {
+  id: string;
+};
+
 export type ChargeOrderDto = Prisma.ChargeOrderGetPayload<any>;
 
 export type GiftCodeDto = Prisma.GiftCodeGetPayload<any>;

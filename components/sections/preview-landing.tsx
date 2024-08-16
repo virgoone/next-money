@@ -6,7 +6,7 @@ import { getFluxDataBySeed } from "@/db/queries/flux-query";
 import { Link as I18nLink } from "@/lib/navigation";
 
 export default async function PreviewLanding() {
-  const { data } = await getFluxDataBySeed({ limit: 24 });
+  const { data = [] } = await getFluxDataBySeed({ limit: 24 });
   return (
     <div className="mx-auto mb-10 mt-8 w-[90%]">
       <div
