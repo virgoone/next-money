@@ -76,7 +76,7 @@ export default function Playground({ locale }: { locale: string }) {
     enabled: !!fluxId,
     refetchInterval: (query) => {
       if (query.state.data?.data?.taskStatus === FluxTaskStatus.Processing) {
-        return 1400;
+        return 2000;
       }
       return false;
     },
@@ -209,7 +209,7 @@ export default function Playground({ locale }: { locale: string }) {
                     </>
                   ) : (
                     <>
-                      {t("form.submit")}}
+                      {t("form.submit")}
                     </>
                   )}
                 </Button>
