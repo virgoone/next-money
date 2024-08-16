@@ -23,6 +23,8 @@ function getKey(id: string) {
   return `generate:${id}`;
 }
 
+export const maxDuration = 60;
+
 enum Ratio {
   r1 = "1:1",
   r2 = "16:9",
