@@ -44,6 +44,13 @@ const useQueryMineFluxMutation = (config?: {
   });
 };
 
+const breakpointColumnsObj = {
+  default: 4,
+  1024: 3,
+  768: 2,
+  640: 1
+};
+
 export default function History({ locale }: { locale: string }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [init, setInit] = useState(false);
@@ -114,7 +121,7 @@ export default function History({ locale }: { locale: string }) {
         >
           {dataSource.length > 0 ? (
             <Masonry
-              breakpointCols={4}
+              breakpointCols={breakpointColumnsObj}
               className="flex w-auto"
               columnClassName="bg-clip-padding pl-4 first:pl-0"
             >
