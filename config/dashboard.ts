@@ -10,30 +10,30 @@ export const dashboardConfig: DashboardConfig = {
   ],
   sidebarNav: [
     {
-      title: "Dashboard",
+      title: "Index",
       items: [
         {
-          title: "Dashboard",
-          href: "/dashboard",
+          title: "Index",
+          href: "/app",
           icon: "post",
         },
         {
           title: "Generate",
-          href: "/dashboard/generate",
+          href: "/app/generate",
         },
         {
           title: "Gift Code",
-          href: "/dashboard/giftcode",
+          href: "/app/giftcode",
           icon: "Gift",
         },
         {
-          title: "Charts",
-          href: "/dashboard/charts",
-          icon: "lineChart",
+          title: "History",
+          href: "/app/history",
+          icon: "Eraser",
         },
         {
           title: "Billing",
-          href: "/dashboard/billing",
+          href: "/app/billing",
           icon: "billing",
         },
       ],

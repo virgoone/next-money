@@ -83,8 +83,8 @@ export function UserInfo() {
               </span>
             )}
           </motion.div>
-          {!pathname?.includes("dashboard") && (
-            <Link href="/dashboard" className="size-full">
+          {!pathname?.includes("app") && (
+            <Link href="/app" className="size-full">
               <ShimmerButton>
                 <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10">
                   {t("dashboard")}

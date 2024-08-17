@@ -9,7 +9,6 @@ import { toast } from "sonner";
 
 import {
   AspectRatioSelector,
-  Ratio,
 } from "@/components/playground/aspect-selector";
 import { ModelSelector } from "@/components/playground/model-selector";
 import { Model, models, types } from "@/components/playground/models";
@@ -23,7 +22,7 @@ import {
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
-import { Credits, model } from "@/config/constants";
+import { Credits, model, Ratio } from "@/config/constants";
 import { FluxSelectDto } from "@/db/type";
 import { cn } from "@/lib/utils";
 

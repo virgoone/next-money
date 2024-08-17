@@ -55,7 +55,7 @@
     "form": {
       "input": "Input",
       "result": "Result",
-      "placeholder":"Enter prompt to generate image...",
+      "placeholder": "Enter prompt to generate image...",
       "model": "Model",
       "modelTooltip": "Choose a model to generate images.",
       "submit": "Generate",
@@ -77,6 +77,18 @@
       "invalid": "Invalid gift code.",
       "success": "Successfully redeemed {credits} credits.",
       "error": "Failed to redeem gift code."
+    }
+  },
+  "History": {
+    "title": "History",
+    "description": "View your recent image generation history.",
+    "empty": "No history yet.",
+    "action": {
+      "copy": "Copy prompt",
+      "copySuccess": "Prompt copied to clipboard.",
+      "download": "Download Image",
+      "downloadSuccess": "Image downloaded.",
+      "downloadLoading": "Downloading..."
     }
   },
   "NewsLetter": {

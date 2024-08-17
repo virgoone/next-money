@@ -27,6 +27,7 @@ import {
   Trash,
   User,
   X,
+  Eraser,
 } from "lucide-react";
 
 export type Icon = LucideIcon;
@@ -44,6 +45,7 @@ export const Icons = {
   ellipsis: MoreVertical,
   lineChart: LineChart,
   Gift,
+  Eraser,
   gitHub: ({ ...props }: LucideProps) => (
     <svg
       aria-hidden="true"

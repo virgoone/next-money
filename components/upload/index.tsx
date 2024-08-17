@@ -9,7 +9,7 @@ import { nanoid } from "nanoid";
 import { Accept } from "react-dropzone";
 import { toast } from "sonner";
 
-import { cn } from "@/lib/utils";
+import { cn, getMime } from "@/lib/utils";
 
 import Upload from "./base-upload";
 import { RemoveAction } from "./remove-action";
@@ -68,11 +68,6 @@ export const useGetLicenseSts = (config?: {
   });
 };
 
-export const getMime = (filename: string) =>
-  filename
-    .substring(filename.lastIndexOf(".") + 1, filename.length)
-    .toLowerCase();
-
 const FormUpload = (props: FormUploadProps) => {
   const {
     value = [],
@@ -93,7 +88,7 @@ const FormUpload = (props: FormUploadProps) => {
       try {
         setUploadLoading(true);
         const file: File = files[0];
-        const key = `${nanoid(8)}.${getMime(file.name) || "_"}`;
+        const key = `${nanoid(12)}.${getMime(file.name) || "_"}`;
         // md5Worker =
         //   md5Worker ||
         //   new Worker(new URL("~/lib/workers/md5.worker.ts", import.meta.url));

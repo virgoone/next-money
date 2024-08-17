@@ -2,13 +2,10 @@
 
 import { Fragment, useEffect, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { NavItem, SidebarNavItem } from "@/types";
+
 import { Menu, PanelLeftClose, PanelRightClose } from "lucide-react";
 
-import { siteConfig } from "@/config/site";
-import { cn } from "@/lib/utils";
-import { useMediaQuery } from "@/hooks/use-media-query";
+import { Icons } from "@/components/shared/icons";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -19,7 +16,11 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Icons } from "@/components/shared/icons";
+import { siteConfig } from "@/config/site";
+import { useMediaQuery } from "@/hooks/use-media-query";
+import { usePathname } from "@/lib/navigation";
+import { cn } from "@/lib/utils";
+import { NavItem, SidebarNavItem } from "@/types";
 
 import { NavBar, NavbarLogo } from "./navbar";
 

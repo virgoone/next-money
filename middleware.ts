@@ -20,7 +20,7 @@ export const config = {
   ], // Run middleware on API routes],
 };
 const isProtectedRoute = createRouteMatcher([
-  "/:locale/dashboard(.*)",
+  "/:locale/app(.*)",
   "/:locale/admin(.*)",
 ]);
 const isPublicRoute = createRouteMatcher(["/api/webhooks(.*)"]);

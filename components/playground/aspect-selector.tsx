@@ -4,6 +4,7 @@ import * as React from "react";
 
 import { useTranslations } from "next-intl";
 
+import { Ratio } from "@/config/constants";
 import {
   HoverCard,
   HoverCardContent,
@@ -14,14 +15,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 interface SelectorProps {
   ratio: Ratio;
   onChange: (ratio: Ratio) => void;
-}
-
-export enum Ratio {
-  r1 = "1:1",
-  r2 = "16:9",
-  r3 = "9:16",
-  r4 = "3:2",
-  r5 = "2:3",
 }
 
 const aspectRatios = [Ratio.r1, Ratio.r2, Ratio.r3, Ratio.r4, Ratio.r5];
