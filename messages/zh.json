@@ -79,6 +79,18 @@
       "error": "兑换礼品码失败。"
     }
   },
+  "History": {
+    "title": "历史记录",
+    "description": "查看您最近的图像生成历史。",
+    "empty": "暂无历史记录。",
+    "action": {
+      "copy": "复制 Prompt",
+      "copySuccess": "Prompt 已复制到剪贴板。",
+      "download": "下载图像",
+      "downloadSuccess": "图像已下载。",
+      "downloadLoading": "正在下载..."
+    }
+  },
   "NewsLetter": {
     "title": "订阅我们的新闻简报",
     "subtitle": "订阅以获取最新更新！",
