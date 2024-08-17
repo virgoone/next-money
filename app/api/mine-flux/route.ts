@@ -8,15 +8,12 @@ import { FluxHashids } from "@/db/dto/flux.dto";
 import { prisma } from "@/db/prisma";
 import { getErrorMessage } from "@/lib/handle-error";
 
-export const searchParamsSchema = z.object({
+const searchParamsSchema = z.object({
   page: z.coerce.number().default(1),
   pageSize: z.coerce.number().default(10),
   sort: z.string().optional(),
   model: z.enum([model.dev, model.pro, model.schnell]).optional(),
 });
-export const getSchema = searchParamsSchema;
-
-export type GetSchema = z.infer<typeof getSchema>;
 
 export async function GET(req: NextRequest) {
   const { userId } = auth();

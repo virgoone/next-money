@@ -10,7 +10,7 @@ import { FluxTaskStatus } from "@/db/type";
 import { getErrorMessage } from "@/lib/handle-error";
 import { redis } from "@/lib/redis";
 
-export const searchParamsSchema = z.object({
+const searchParamsSchema = z.object({
   fluxId: z.string(),
 });
 
