@@ -10,16 +10,22 @@ export const dashboardConfig: DashboardConfig = {
   ],
   sidebarNav: [
     {
-      title: "Index",
+      title: "App",
       items: [
         {
           title: "Index",
           href: "/app",
-          icon: "post",
+          icon: "HomeIcon",
         },
         {
           title: "Generate",
           href: "/app/generate",
+          icon: "Eraser"
+        },
+        {
+          title: "History",
+          href: "/app/history",
+          icon: "History",
         },
         {
           title: "Gift Code",
@@ -27,13 +33,8 @@ export const dashboardConfig: DashboardConfig = {
           icon: "Gift",
         },
         {
-          title: "History",
-          href: "/app/history",
-          icon: "Eraser",
-        },
-        {
-          title: "Billing",
-          href: "/app/billing",
+          title: "Charge Order",
+          href: "/app/order",
           icon: "billing",
         },
       ],

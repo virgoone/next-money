@@ -20,6 +20,7 @@
       "pricing": "Pricing",
       "login": "Login",
       "dashboard": "Dashboard",
+      "generate": "Generate",
       "github": {
         "sm": "Star on",
         "normal": "Github"
@@ -82,13 +83,57 @@
   "History": {
     "title": "History",
     "description": "View your recent image generation history.",
-    "empty": "No history yet.",
+    "empty": {
+      "title": "No history yet.",
+      "description": "Generate an image to see it here."
+    },
     "action": {
       "copy": "Copy prompt",
+      "generate": "Generate",
       "copySuccess": "Prompt copied to clipboard.",
       "download": "Download Image",
       "downloadSuccess": "Image downloaded.",
       "downloadLoading": "Downloading..."
+    }
+  },
+  "Billings": {
+    "title": "Recent predictions",
+    "empty": {
+      "title": "Recent Empty",
+      "description": "There is no record yet."
+    },
+    "table": {
+      "fluxId": "Task ID",
+      "status": "Status",
+      "amount": "Credit",
+      "type": "Type",
+      "createdAt": "Created At",
+      "total": "Total",
+      "records": "Orders"
+    }
+  },
+  "Orders": {
+    "title": "Orders",
+    "description": "View your billing history.",
+    "empty": {
+      "title": "Orders Empty",
+      "description": "There is no payment record yet."
+    },
+    "table": {
+      "customer": "Customer",
+      "amount": "Price",
+      "status": "Status",
+      "channel": "Channel",
+      "createdAt": "Created At",
+      "total": "Total",
+      "records": "Orders"
+    },
+    "order": {
+      "all": "All",
+      "paid": "Paid",
+      "pending": "Pending",
+      "failed": "Failed",
+      "canceled": "Canceled"
     }
   },
   "NewsLetter": {

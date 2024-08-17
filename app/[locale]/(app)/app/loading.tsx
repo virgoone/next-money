@@ -1,14 +1,9 @@
-import { Skeleton } from "@/components/ui/skeleton";
-import { DashboardHeader } from "@/components/dashboard/header";
-import { DashboardShell } from "@/components/dashboard/shell";
+import Loading from "@/components/loading";
 
 export default function DashboardLoading() {
   return (
-    <DashboardShell>
-      <DashboardHeader heading="Posts" text="Create and manage posts." />
-      <div className="divide-border-200 divide-y rounded-md border">
-        <Skeleton className="h-[400px] w-full rounded-lg" />
-      </div>
-    </DashboardShell>
+    <div className="flex h-full min-h-96 w-full items-center justify-center">
+      <Loading />
+    </div>
   );
 }

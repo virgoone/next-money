@@ -6,20 +6,23 @@ import { useAuth } from "@clerk/nextjs";
 import { useMutation } from "@tanstack/react-query";
 import copy from "copy-to-clipboard";
 import { debounce } from "lodash-es";
-import { ArrowDownToLine, Copy } from "lucide-react";
+import { Copy } from "lucide-react";
 import { useTranslations } from "next-intl";
 import qs from "query-string";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Masonry from "react-masonry-css";
 import { toast } from "sonner";
 
+import Loading from "@/components/loading";
+import { EmptyPlaceholder } from "@/components/shared/empty-placeholder";
 import { ModelName, Ratio } from "@/config/constants";
 import { FluxSelectDto } from "@/db/type";
 import { cn, createRatio } from "@/lib/utils";
 
+import { Button } from "../ui/button";
 import Container from "./container";
-import Loading from "./loading";
 import { DownloadAction } from "./download-action";
+import LoadMoreLoading from "./loading";
 
 const useQueryMineFluxMutation = (config?: {
   onSuccess: (result: any) => void;
@@ -48,7 +51,7 @@ const breakpointColumnsObj = {
   default: 4,
   1024: 3,
   768: 2,
-  640: 1
+  640: 1,
 };
 
 export default function History({ locale }: { locale: string }) {
@@ -107,13 +110,19 @@ export default function History({ locale }: { locale: string }) {
           next={debounceLoadMore}
           hasMore={hasMore}
           loader={
-            <div
-              className={cn("flex h-16 w-full items-center justify-center", {
-                "h-96": !init,
-              })}
-            >
-              <Loading />
-            </div>
+            init ? (
+              <div
+                className={cn("flex h-16 w-full items-center justify-center", {
+                  "h-96": !init,
+                })}
+              >
+                <LoadMoreLoading />
+              </div>
+            ) : (
+              <div className="flex h-full min-h-96 w-full items-center justify-center">
+                <Loading />
+              </div>
+            )
           }
           className="pb-10"
           // onScroll={handleScroll}
@@ -159,8 +168,17 @@ export default function History({ locale }: { locale: string }) {
               ))}
             </Masonry>
           ) : init ? (
-            <div className="flex h-96 items-center justify-center">
-              <p className="text-content-light">{t("empty")}</p>
+            <div className="flex min-h-96 items-center justify-center">
+              <EmptyPlaceholder>
+                <EmptyPlaceholder.Icon name="post" />
+                <EmptyPlaceholder.Title>
+                  {t("empty.title")}
+                </EmptyPlaceholder.Title>
+                <EmptyPlaceholder.Description>
+                  {t("empty.description")}
+                </EmptyPlaceholder.Description>
+                <Button variant="outline">{t("action.generate")}</Button>
+              </EmptyPlaceholder>
             </div>
           ) : (
             <div className="hidden"></div>

@@ -1,8 +1,10 @@
 import { ReactNode, Suspense, useEffect } from "react";
 import { redirect } from "next/navigation";
+
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { auth, currentUser } from "@clerk/nextjs/server";
-import Loading from "@/components/loading/Loading";
+
+import Loading from "@/components/loading";
 import AntdThemeProvider from "@/components/theme/theme-provider";
 
 import Header from "./Header";

@@ -28,6 +28,8 @@ import {
   User,
   X,
   Eraser,
+  History,
+  HomeIcon
 } from "lucide-react";
 
 export type Icon = LucideIcon;
@@ -46,6 +48,8 @@ export const Icons = {
   lineChart: LineChart,
   Gift,
   Eraser,
+  History,
+  HomeIcon,
   gitHub: ({ ...props }: LucideProps) => (
     <svg
       aria-hidden="true"
