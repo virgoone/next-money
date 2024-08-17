@@ -25,7 +25,9 @@ export async function POST(req: Request) {
   //   payload: body,
   //   secret: env.STRIPE_WEBHOOK_SECRET,
   // });
-  console.log('signature-->', signature);
+  console.log("signature-->", signature);
+  console.log("body-->", body);
+  console.log("body-->", env.STRIPE_WEBHOOK_SECRET);
   let event: Stripe.Event;
   try {
     event = stripe.webhooks.constructEvent(
