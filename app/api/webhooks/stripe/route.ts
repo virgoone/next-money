@@ -18,9 +18,14 @@ export async function GET() {
 
 export async function POST(req: Request) {
   const body = await req.text();
+  // const body = JSON.stringify(payload, null, 2);
   const signature = (headers().get("Stripe-Signature") ||
     headers().get("stripe-signature")) as string;
-
+  // const signature = stripe.webhooks.generateTestHeaderString({
+  //   payload: body,
+  //   secret: env.STRIPE_WEBHOOK_SECRET,
+  // });
+  console.log('signature-->', signature);
   let event: Stripe.Event;
   try {
     event = stripe.webhooks.constructEvent(
@@ -29,7 +34,9 @@ export async function POST(req: Request) {
       env.STRIPE_WEBHOOK_SECRET,
     );
   } catch (error) {
-    return new Response(`Stripe Webhook Error: ${error.message}`, { status: 400 });
+    return new Response(`Stripe Webhook Error: ${error.message}`, {
+      status: 400,
+    });
   }
 
   const session = event.data.object as Stripe.Checkout.Session;
@@ -76,6 +83,9 @@ export async function POST(req: Request) {
   if (event.type === "payment_intent.payment_failed") {
     const metaOrderId = session?.metadata?.orderId as string;
     const [orderId] = ChargeOrderHashids.decode(metaOrderId);
+    if (!orderId) {
+      return new Response(`Order Error`, { status: 400 });
+    }
     const order = await prisma.chargeOrder.findUnique({
       where: {
         id: orderId as number,
@@ -100,6 +110,9 @@ export async function POST(req: Request) {
   } else if (event.type === "payment_intent.canceled") {
     const metaOrderId = session?.metadata?.orderId as string;
     const [orderId] = ChargeOrderHashids.decode(metaOrderId);
+    if (!orderId) {
+      return new Response(`Order Error`, { status: 400 });
+    }
     const order = await prisma.chargeOrder.findUnique({
       where: {
         id: orderId as number,
@@ -128,6 +141,9 @@ export async function POST(req: Request) {
     const metaChargeProductId = session?.metadata?.chargeProductId as string;
     const [orderId] = ChargeOrderHashids.decode(metaOrderId);
     const [chargeProductId] = ChargeProductHashids.decode(metaChargeProductId);
+    if (!orderId || !chargeProductId) {
+      return new Response(`Order Error`, { status: 400 });
+    }
     const [order, product] = await Promise.all([
       prisma.chargeOrder.findUnique({
         where: {

@@ -132,7 +132,7 @@
     "shiki": "^1.13.0",
     "sonner": "^1.5.0",
     "spark-md5": "^3.0.2",
-    "stripe": "^16.7.0",
+    "stripe": "^15.8.0",
     "svix": "^1.29.0",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
