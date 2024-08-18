@@ -1,0 +1,274 @@
+{
+  "Error": {
+    "description": "<p>Nous avons malheureusement rencontré une erreur.</p><p>Vous pouvez essayer de <retry>recharger la page</retry> que vous visitiez.</p>",
+    "title": "Une erreur s'est produite !"
+  },
+  "IndexPage": {
+    "intro": "Découvrez Flux AI, le générateur d'images",
+    "description": "Révolutionnez la création d'images avec notre modèle avancé de texte vers image, compatible avec flux.1 pro et flux.1 schnell.",
+    "title": "Flux AI Générateur d'Images",
+    "subtitle": "Conversion avancée de texte en image",
+    "examples": {
+      "label": "Exemple",
+      "title": "Exemples d'images Flux AI",
+      "subtitle": "Générez des images à partir de descriptions textuelles."
+    },
+    "features": {
+      "title": "Fonctionnalités",
+      "description": "Flux AI est un outil puissant de génération d'images à partir de texte. Il utilise des modèles d'IA avancés pour créer des images époustouflantes, parfaites pour tous vos projets.",
+      "action": {
+        "visit": "Générer"
+      },
+      "item1": {
+        "title": "FLUX.1 [pro]",
+        "description": "Le meilleur de FLUX.1, offrant une génération d'images de pointe avec une excellente interprétation des consignes, une qualité visuelle supérieure et une grande diversité de résultats."
+      },
+      "item2": {
+        "title": "FLUX.1 [dev]",
+        "description": "Directement dérivé de FLUX.1 [pro], FLUX.1 [dev] offre une qualité et une fidélité similaires, tout en étant plus efficace qu'un modèle standard de même taille."
+      },
+      "item3": {
+        "title": "FLUX.1 [schnell]",
+        "description": "Le modèle de génération d'images le plus rapide, idéal pour le développement local et l'usage personnel."
+      },
+      "item4": {
+        "title": "Ultra-rapide",
+        "description": "Flux AI génère des images de haute qualité en quelques secondes, bien plus rapidement que Stable Diffusion 3 et Midjourney. Cette rapidité exceptionnelle vous fait gagner un temps précieux."
+      },
+      "item5": {
+        "title": "Personnalisable",
+        "description": "Le modèle avancé Flux.1 produit des images plus détaillées et cohérentes que ses concurrents. Avec ses fonctionnalités personnalisables et son interface conviviale, Flux AI est l'outil ultime pour tous les créateurs d'images, débutants comme professionnels."
+      },
+      "item6": {
+        "title": "Interface conviviale",
+        "description": "Plus facile à utiliser que ComfyUI, parfait pour les débutants comme pour les pros. Flux AI rend la création d'images extraordinaires accessible à tous grâce à son interface intuitive et ses puissants modèles d'IA."
+      }
+    },
+    "powered": {
+      "title": "Propulsé par"
+    },
+    "bent": {
+      "first": {
+        "title": "Personnalisable"
+      }
+    },
+    "action": {
+      "pricing": "Acheter des crédits",
+      "login": "Connexion",
+      "dashboard": "Tableau de bord",
+      "generate": "Générer",
+      "github": {
+        "sm": "Étoile sur",
+        "normal": "Github"
+      }
+    }
+  },
+  "PricingPage": {
+    "title": "Choisissez un forfait pour acheter des crédits",
+    "description": "Sans abonnement",
+    "worth": "Crédit",
+    "label": "Tarification",
+    "action": {
+      "signin": "Se connecter",
+      "buy": "Acheter"
+    },
+    "contact": {
+      "title": "Contactez-nous",
+      "description": "Pour toute question, n'hésitez pas à nous contacter."
+    },
+    "faq": {
+      "label": "FAQ",
+      "title": "Questions fréquemment posées",
+      "subtitle": "Explorez notre FAQ complète pour trouver rapidement des réponses à vos questions. Pour une aide personnalisée, n'hésitez pas à nous contacter.",
+      "item1": {
+        "question": "Comment Flux AI se compare-t-il à Stable Diffusion 3 ?",
+        "answer": "Flux AI offre des temps de génération plus rapides, une meilleure qualité d'image et une interface plus conviviale que Stable Diffusion 3. Le modèle Flux.1 intègre les dernières avancées de la recherche en IA."
+      },
+      "item2": {
+        "question": "Flux AI est-il disponible sur GitHub ou Hugging Face ?",
+        "answer": "Oui, Flux AI est open-source et disponible à la fois sur GitHub et Hugging Face."
+      },
+      "item3": {
+        "question": "Qu'est-ce qui distingue Flux AI des autres générateurs d'images IA ?",
+        "answer": "Flux AI allie vitesse, qualité et facilité d'utilisation. Il est plus rapide que Midjourney, plus convivial que ComfyUI et produit des images de meilleure qualité que de nombreux concurrents."
+      },
+      "item4": {
+        "question": "Comment utiliser Flux AI ?",
+        "answer": "Pour utiliser Flux AI, visitez simplement fluxaipro.art, entrez votre description et assistez à la création d'images époustouflantes en quelques secondes."
+      },
+      "item5": {
+        "question": "Quels sont les plans tarifaires proposés par Flux AI ?",
+        "answer": "Nous utilisons des points pour nos services. Vous pouvez cliquer sur la carte de prix pour acheter des points (un seul paiement est nécessaire)."
+      },
+      "item6": {
+        "question": "Comment puis-je obtenir de l'aide en ligne ?",
+        "answer": "Vous pouvez nous contacter à support@douni.one."
+      }
+    },
+    "tip": {
+      "title": "💳 Conseil de paiement : Si vous rencontrez des problèmes lors du processus de paiement, n'hésitez pas à nous contacter ! 😉",
+      "subtitle": "Des questions ?",
+      "contact": "contactez-nous"
+    }
+  },
+  "Playground": {
+    "title": "Flux AI Générateur d'Images",
+    "description": "Des modèles d'IA impressionnants pour générer des images à partir de texte.",
+    "empty": {
+      "title": "Erreur de génération",
+      "description": "Info d'erreur : {error}",
+      "errorPlaceholder": "Une erreur s'est produite"
+    },
+    "form": {
+      "input": "Entrée",
+      "result": "Résultat",
+      "placeholder": "Entrez une description pour générer une image...",
+      "model": "Modèle",
+      "modelTooltip": "Choisissez un modèle pour générer des images.",
+      "submit": "Générer",
+      "aspectRatio": "Format",
+      "aspectRatioTooltip": "Format de l'image générée.",
+      "inputImage": "Image",
+      "inputImageTooltip": "Image d'entrée pour le mode image vers image. Le format de sortie correspondra à cette image.",
+      "inputImagePlaceholder": "Télécharger une image d'entrée"
+    }
+  },
+  "GiftCode": {
+    "title": "Échange de code cadeau",
+    "text": "Entrez votre code cadeau pour obtenir des crédits.",
+    "form": {
+      "placeholder": "Entrez votre code cadeau",
+      "aria_label": "Code cadeau",
+      "button": "Échanger",
+      "required": "Ce champ est obligatoire.",
+      "invalid": "Code cadeau invalide.",
+      "success": "{credits} crédits échangés avec succès.",
+      "error": "Échec de l'échange du code cadeau."
+    }
+  },
+  "History": {
+    "title": "Historique de génération d'images",
+    "description": "Consultez votre historique récent de génération d'images.",
+    "empty": {
+      "title": "Aucun historique pour le moment.",
+      "description": "Générez une image pour la voir ici."
+    },
+    "action": {
+      "copy": "Copier la description",
+      "generate": "Générer",
+      "copySuccess": "Description copiée dans le presse-papiers.",
+      "download": "Télécharger l'image",
+      "downloadSuccess": "Image téléchargée.",
+      "downloadLoading": "Téléchargement en cours..."
+    }
+  },
+  "Billings": {
+    "page": {
+      "title": "App – Flux AI Générateur d'Images",
+      "description": "Voir vos prédictions récentes"
+    },
+    "title": "Prédictions récentes",
+    "empty": {
+      "title": "Aucune prédiction récente",
+      "description": "Il n'y a pas encore d'enregistrement."
+    },
+    "table": {
+      "fluxId": "ID de tâche",
+      "status": "Statut",
+      "amount": "Crédit",
+      "type": "Type",
+      "createdAt": "Créé le",
+      "total": "Total",
+      "records": "Commandes"
+    }
+  },
+  "Orders": {
+    "title": "Commandes",
+    "description": "Consultez votre historique de facturation.",
+    "empty": {
+      "title": "Aucune commande",
+      "description": "Il n'y a pas encore d'enregistrement de paiement."
+    },
+    "table": {
+      "customer": "Client",
+      "amount": "Prix",
+      "status": "Statut",
+      "channel": "Canal",
+      "createdAt": "Créé le",
+      "total": "Total",
+      "records": "Commandes"
+    },
+    "order": {
+      "all": "Toutes",
+      "paid": "Payées",
+      "pending": "En attente",
+      "failed": "Échouées",
+      "canceled": "Annulées"
+    }
+  },
+  "NewsLetter": {
+    "title": "Rejoignez notre newsletter",
+    "subtitle": "Abonnez-vous pour recevoir des mises à jour !",
+    "form": {
+      "placeholder": "Entrez votre adresse e-mail",
+      "aria_label": "E-mail",
+      "confirm": "Veuillez vérifier l'e-mail de confirmation d'abonnement.",
+      "button": "S'abonner"
+    }
+  },
+  "LocaleLayout": {
+    "title": "Flux AI Générateur d'Images",
+    "description": "Révolutionnez la création d'images avec notre modèle avancé de texte vers image, compatible avec flux.1 pro et flux.1 schnell."
+  },
+  "LocaleSwitcher": {
+    "label": "Changer de langue",
+    "locale": "{locale, select, zh {🇨🇳 简体中文} en {🇺🇸 English} fr {🇫🇷 Français} other {Inconnu}}"
+  },
+  "Manifest": {
+    "name": "Flux AI Générateur d'Images"
+  },
+  "AppNavigation": {
+    "Index": "Accueil",
+    "Generate": "Générer",
+    "History": "Historique",
+    "GiftCode": "Code cadeau",
+    "ChargeOrder": "Recharger"
+  },
+  "Navigation": {
+    "pricing": "Tarifs",
+    "title": "Flux AI Générateur d'Images",
+    "blog": "Blog",
+    "dashboard": "Tableau de bord",
+    "tooltip": {
+      "login": "Connexion"
+    }
+  },
+  "NotFoundPage": {
+    "description": "Veuillez vérifier l'adresse dans la barre de navigation ou utiliser le menu pour accéder à une page connue.",
+    "title": "Page non trouvée"
+  },
+  "PageLayout": {
+    "footer": {
+      "title": "Flux AI Générateur d'Images",
+      "term": "Conditions",
+      "privacy": "Confidentialité",
+      "contact": "Contact"
+    },
+    "links": {
+      "docs": {
+        "description": "En savoir plus sur next-intl dans la documentation officielle.",
+        "href": "https://next-intl-docs.vercel.app/",
+        "title": "Documentation"
+      },
+      "source": {
+        "description": "Parcourez le code source de cet exemple sur GitHub.",
+        "href": "https://github.com/amannn/next-intl/tree/main/examples/example-app-router",
+        "title": "Code source"
+      }
+    }
+  },
+  "BlogPage": {
+    "title": "Blog",
+    "description": "Les dernières nouvelles et mises à jour de notre équipe"
+  }
+}

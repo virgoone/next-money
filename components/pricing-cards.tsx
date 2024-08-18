@@ -19,6 +19,7 @@ import { cn, formatPrice } from "@/lib/utils";
 
 interface PricingCardsProps {
   userId?: string;
+  locale?: string;
   chargeProduct?: ChargeProductSelectDto[];
 }
 
@@ -113,7 +114,11 @@ const PricingCard = ({
     </div>
   );
 };
-export function PricingCards({ userId, chargeProduct }: PricingCardsProps) {
+export function PricingCards({
+  userId,
+  chargeProduct,
+  locale,
+}: PricingCardsProps) {
   const t = useTranslations("PricingPage");
   const isYearlyDefault = false;
   const [isYearly, setIsYearly] = useState<boolean>(!!isYearlyDefault);

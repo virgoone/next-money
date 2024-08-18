@@ -152,6 +152,10 @@ export function CreateDialog() {
                   label: "中文",
                   value: "zh",
                 },
+                {
+                  label: "法语",
+                  value: "fr"
+                }
               ]}
             />
           </FormItem>

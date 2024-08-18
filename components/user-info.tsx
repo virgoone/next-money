@@ -4,19 +4,19 @@ import React from "react";
 import { usePathname } from "next/navigation";
 
 import {
-  AnimatePresence,
-  motion,
-  useMotionTemplate,
-  useMotionValue,
-} from "framer-motion";
-import { useTranslations } from "next-intl";
-import {
   SignedIn,
   SignedOut,
   SignInButton,
   UserButton,
   useUser,
 } from "@clerk/nextjs";
+import {
+  AnimatePresence,
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+} from "framer-motion";
+import { useTranslations } from "next-intl";
 
 import {
   GitHubBrandIcon,
@@ -35,6 +35,8 @@ import { url } from "@/lib";
 import { clamp } from "@/lib/math";
 import { Link } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
+
+import { LocaleSwitcher } from "./layout/locale-switcher";
 
 export function UserInfo() {
   const t = useTranslations("Navigation");
@@ -62,7 +64,8 @@ export function UserInfo() {
   return (
     <AnimatePresence>
       <SignedIn key="user-info">
-        <div className="flex space-x-3">
+        <div className="flex items-center space-x-3">
+          <LocaleSwitcher />
           <motion.div
             className="pointer-events-auto relative flex h-10 items-center"
             initial={{ opacity: 0, x: 25 }}

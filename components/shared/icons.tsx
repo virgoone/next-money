@@ -29,7 +29,8 @@ import {
   X,
   Eraser,
   History,
-  HomeIcon
+  HomeIcon,
+  Languages,
 } from "lucide-react";
 
 export type Icon = LucideIcon;
@@ -49,6 +50,7 @@ export const Icons = {
   Gift,
   Eraser,
   History,
+  Languages,
   HomeIcon,
   gitHub: ({ ...props }: LucideProps) => (
     <svg

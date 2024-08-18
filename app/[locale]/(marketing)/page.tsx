@@ -24,7 +24,7 @@ export default function IndexPage({ params: { locale } }: Props) {
       {/* <InfoLanding data={infos[1]} /> */}
       <Features />
       <Examples />
-      <PricingCard />
+      <PricingCard locale={locale} />
       {process.env.NODE_ENV === "production" && <TwitterList />}
     </>
   );

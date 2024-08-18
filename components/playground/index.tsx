@@ -30,6 +30,7 @@ import { Icons } from "../shared/icons";
 import Upload from "../upload";
 import ComfortingMessages from "./comforting";
 import Loading from "./loading";
+import { Locale } from "@/config";
 
 const aspectRatios = [Ratio.r1, Ratio.r2, Ratio.r3, Ratio.r4, Ratio.r5];
 
@@ -217,7 +218,7 @@ export default function Playground({ locale }: { locale: string }) {
                         <Loading />
                         <div className="text-content-light mt-3 px-4 text-center text-sm">
                           <ComfortingMessages
-                            language={locale as "en" | "zh"}
+                            language={locale as Locale}
                           />
                         </div>
                       </div>

@@ -55,7 +55,7 @@
     "action": {
       "pricing": "购买积分",
       "login": "登录",
-      "dashboard": "仪表板",
+      "dashboard": "去使用",
       "generate": "去使用",
       "github": {
         "sm": "在 Github 上加星",
@@ -222,7 +222,7 @@
   },
   "LocaleSwitcher": {
     "label": "更改语言",
-    "locale": "{locale, select, zh {🇨🇳 中文} en {🇺🇸 英文} other {未知}}"
+    "locale": "{locale, select, zh {🇨🇳 简体中文} en {🇺🇸 English} fr {🇫🇷 Français} other {未知}}"
   },
   "Manifest": {
     "name": "Flux AI 图像生成器"
@@ -231,7 +231,7 @@
     "pricing": "定价",
     "title": "Flux AI 图像生成器",
     "blog": "博客",
-    "dashboard": "仪表板",
+    "dashboard": "去使用",
     "tooltip": {
       "login": "登录"
     }

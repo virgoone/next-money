@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 
+import { Locale } from "@/config";
+
 interface ComfortingMessagesProps {
-  language: "en" | "zh";
+  language: Locale;
 }
 
 const ComfortingMessages: React.FC<ComfortingMessagesProps> = ({
@@ -28,6 +30,16 @@ const ComfortingMessages: React.FC<ComfortingMessagesProps> = ({
       "试图打破自己的高分记录...",
       "正在解开一些虚拟意大利面条代码...",
       "逗逗电子羊，很快就好...",
+    ],
+    fr: [
+      "Notre IA fait des pompes pour devenir plus forte...",
+      "En train d'enseigner aux robots à moonwalk tout en traitant...",
+      "Comptage jusqu'à l'infini, je reviens tout de suite...",
+      "Convaincre les 1 et les 0 de coopérer...",
+      "À la recherche du sens de la vie... et de vos résultats !",
+      "Essayant de battre son propre record...",
+      "Déroulant un peu de code spaghetti virtuel...",
+      "Taquinant le mouton électronique, ça sera bientôt prêt...",
     ],
   };
 

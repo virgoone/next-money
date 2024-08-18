@@ -14,8 +14,8 @@ export const metadata = constructMetadata({
 type Props = {
   locale: string;
 };
-export default async function PricingCard() {
-  const { data: chargeProduct } = await getChargeProduct();
+export default async function PricingCard(props: Props) {
+  const { data: chargeProduct } = await getChargeProduct(props.locale);
 
   return (
     <div className="flex w-full flex-col gap-16 py-8 md:py-8">

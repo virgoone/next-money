@@ -78,7 +78,7 @@ export default async function HeroLanding() {
               <Button
                 className={cn(
                   buttonVariants({ size: "lg" }),
-                  "min-w-32 gap-2 rounded-full",
+                  "min-w-34 gap-2 rounded-full",
                 )}
               >
                 <UserArrowLeftIcon className="mr-2 size-4" />
@@ -94,7 +94,7 @@ export default async function HeroLanding() {
                 variant: "outline",
                 size: "lg",
               }),
-              "min-w-32 rounded-full px-5",
+              "min-w-34 rounded-full px-5",
             )}
           >
             <p>{t("action.pricing")}</p>

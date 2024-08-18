@@ -6,6 +6,7 @@ import { Button, Drawer, Form, Input, InputNumber, Select, Space } from "antd";
 import { FormListFieldData } from "antd/lib/form";
 import { toast } from "sonner";
 
+import { Locale } from "@/config";
 import { Currency, type ChargeProductSelectDto } from "@/db/type";
 import useForm from "@/hooks/use-form";
 import { getErrorMessage } from "@/lib/handle-error";
@@ -52,7 +53,7 @@ export function UpdateDialog(props: { detail: ChargeProductSelectDto }) {
       currency: detail?.currency as Currency,
       tag: (detail?.tag || []) as string[],
       message: detail?.message || "",
-      locale: detail?.locale as "en" | "zh",
+      locale: detail?.locale as Locale,
       state: (detail?.state || "enable") as "enable" | "disabled",
     });
   }, [detail, open]);
@@ -147,6 +148,10 @@ export function UpdateDialog(props: { detail: ChargeProductSelectDto }) {
                 {
                   label: "中文",
                   value: "zh",
+                },
+                {
+                  label: "法语",
+                  value: "fr",
                 },
               ]}
             />

@@ -1,7 +1,9 @@
 "use client";
 
 import * as React from "react";
+import { useParams } from "next/navigation";
 
+import { useLocale, useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 
 import { Icons } from "@/components/shared/icons";
@@ -12,31 +14,59 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { locales } from "@/config";
-import { useLocale, useTranslations } from "next-intl";
+import { Locale, locales } from "@/config";
+import { usePathname, useRouter } from "@/lib/navigation";
+import { cn } from "@/lib/utils";
 
-export function ModeToggle() {
-  const { setTheme } = useTheme();
+export function LocaleSwitcher() {
   const t = useTranslations("LocaleSwitcher");
   const locale = useLocale();
+  const router = useRouter();
+  const [isPending, startTransition] = React.useTransition();
+  const pathname = usePathname();
+  const params = useParams();
+
+  const changeLocale = (nextLocale: Locale) => {
+    startTransition(() => {
+      router.replace(
+        {
+          pathname,
+          // @ts-expect-error -- TypeScript will validate that only known `params`
+          // are used in combination with a given `pathname`. Since the two will
+          // always match for the current route, we can skip runtime checks.
+          params,
+        },
+        { locale: nextLocale },
+      );
+    });
+  };
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="sm" className="size-8 px-0">
-          <Icons.sun className="rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <Icons.moon className="absolute rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          <span className="sr-only">Toggle Language</span>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        {locales.map((cur) => (
-          <DropdownMenuItem key={cur} onClick={() => setTheme("light")}>
-            <Icons.sun className="mr-2 size-4" />
-            <span>{cur}</span>
-          </DropdownMenuItem>
-        ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <div className="flex h-full items-center justify-center">
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="ghost" size="sm" className="size-8 px-0">
+            <Icons.Languages className="rotate-0 scale-100 transition-all" />
+            <span className="sr-only">{t("label")}</span>
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end">
+          {locales.map((cur) => (
+            <DropdownMenuItem
+              disabled={isPending}
+              key={cur}
+              onClick={() => changeLocale(cur)}
+            >
+              <span>{t("locale", { locale: cur })}</span>
+              {locale === cur && (
+                <Icons.CheckIcon
+                  className={cn("ml-auto h-4 w-4 opacity-100")}
+                />
+              )}
+            </DropdownMenuItem>
+          ))}
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </div>
   );
 }

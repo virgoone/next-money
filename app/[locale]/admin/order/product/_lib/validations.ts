@@ -20,7 +20,7 @@ export const createSchema = z.object({
   currency: z.enum(["CNY", "USD"]),
   message: z.string().optional(),
   state: z.enum(["enable", "disabled"]),
-  locale: z.enum(["en", "zh"]),
+  locale: z.enum(["en", "zh", "fr"]),
   tag: z.array(z.string()).optional(),
   title: z.string(),
 })
@@ -33,7 +33,7 @@ export const updateSchema = z.object({
   title: z.string().optional(),
   originalAmount: z.number(),
   currency: z.enum(["CNY", "USD"]).optional(),
-  locale: z.enum(["en", "zh"]).optional(),
+  locale: z.enum(["en", "zh", "fr"]).optional(),
   message: z.string().optional(),
   state:  z.enum(["enable", "disabled"]).optional(),
   tag: z.array(z.string()).optional(),

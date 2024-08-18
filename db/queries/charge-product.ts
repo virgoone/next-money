@@ -3,8 +3,11 @@ import { prisma } from "@/db/prisma";
 
 import type { ChargeProductSelectDto } from "../type";
 
-export async function getChargeProduct() {
+export async function getChargeProduct(locale?: string) {
   const data = await prisma.chargeProduct.findMany({
+    where: {
+      locale,
+    },
     orderBy: {
       credit: "asc",
     },

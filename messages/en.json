@@ -222,7 +222,7 @@
   },
   "LocaleSwitcher": {
     "label": "Change language",
-    "locale": "{locale, select, zh {🇨🇳 中国} en {🇺🇸 English} other {Unknown}}"
+    "locale": "{locale, select, zh {🇨🇳 简体中文} en {🇺🇸 English} fr {🇫🇷 Français} other {Unknown}}"
   },
   "Manifest": {
     "name": "Flux AI Image Generator"
@@ -251,7 +251,8 @@
     "footer": {
       "title": "Flux AI Image Generator",
       "term": "Terms",
-      "privacy": "Privacy"
+      "privacy": "Privacy",
+      "contact": "Contact"
     },
     "links": {
       "docs": {
