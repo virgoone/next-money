@@ -144,3 +144,9 @@
 .bg-surface-alpha-strong {
   background-color: var(--surface-alpha-strong)
 }
+
+.bg-pattern {
+  background-image: linear-gradient(45deg, hsla(0, 0%, 100%, .1) 25%, transparent 0, transparent 75%, hsla(0, 0%, 100%, .1) 0, hsla(0, 0%, 100%, .1)), linear-gradient(45deg, hsla(0, 0%, 100%, .1) 25%, transparent 0, transparent 75%, hsla(0, 0%, 100%, .1) 0, hsla(0, 0%, 100%, .1));
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}

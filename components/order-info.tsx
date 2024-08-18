@@ -127,7 +127,7 @@ export function OrderInfo() {
                     <TableRow>
                       <TableHead>{t("table.customer")}</TableHead>
                       <TableHead>{t("table.status")}</TableHead>
-                      <TableHead className="hidden md:table-cell">
+                      <TableHead>
                         {t("table.amount")}
                       </TableHead>
                       <TableHead className="hidden md:table-cell">
@@ -150,7 +150,7 @@ export function OrderInfo() {
                             {item.userInfo?.email}
                           </div>
                         </TableCell>
-                        <TableCell className="hidden md:table-cell">
+                        <TableCell>
                           <Badge variant={OrderBadge[item.phase]}>
                             {item.phase}
                           </Badge>

@@ -57,14 +57,15 @@ export default function DashboardLayout({
             <MobileSheetSidebar links={filteredLinks} />
 
             <div className="w-full flex-1">
-              <SearchCommand links={filteredLinks} />
+              <div className="hidden md:block">
+                <SearchCommand links={filteredLinks} />
+              </div>
             </div>
 
             {/* <Notifications /> */}
             <UserPoints />
             <ModeToggle />
             <NavbarUserInfo />
-
           </header>
 
           <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 xl:px-10">

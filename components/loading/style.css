@@ -11,6 +11,10 @@
   outline: none;
 }
 
+.dark .loading-ring {
+  --uib-color: white;
+}
+
 .loading-ring circle {
   fill: none;
   stroke: var(--uib-color);

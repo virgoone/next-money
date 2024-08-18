@@ -43,7 +43,7 @@ export async function POST(req: Request) {
     // For this guide, you simply log the payload to the console
     const fluxData = await prisma.fluxData.findFirst({
       where: {
-        replicateId: replicateId,
+        replicateId,
       },
     });
     if (!fluxData || !fluxData.id) {
@@ -53,7 +53,7 @@ export async function POST(req: Request) {
       );
     }
     if (
-      fluxData.taskStatus === FluxTaskStatus.Succeeded ||
+      fluxData.taskStatus === FluxTaskStatus.Succeeded &&
       taskStatus !== FluxTaskStatus.Succeeded
     ) {
       return new Response("", { status: 200 });
@@ -134,6 +134,7 @@ export async function POST(req: Request) {
       icon: "💰",
     });
   } catch (error) {
+    console.log("error--->", error);
     return NextResponse.json(
       { error: getErrorMessage(error) },
       { status: 400 },

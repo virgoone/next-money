@@ -9,7 +9,13 @@ import { toast } from "sonner";
 
 import { getErrorMessage } from "@/lib/handle-error";
 
-export function DownloadAction({ id }: { id: string }) {
+export function DownloadAction({
+  id,
+  disabled,
+}: {
+  id: string;
+  disabled?: boolean;
+}) {
   const t = useTranslations("History");
   const [isDownloading, startDownloadTransition] = useTransition();
   const [isPending, setIsPending] = useState(false);
@@ -55,6 +61,7 @@ export function DownloadAction({ id }: { id: string }) {
   return (
     <button
       aria-label={t("action.download")}
+      disabled={disabled}
       className="focus-ring text-content-strong border-stroke-strong hover:border-stroke-stronger data-[state=open]:bg-surface-alpha-light inline-flex h-8 items-center justify-center whitespace-nowrap rounded-lg border bg-transparent px-2.5 text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50"
       onClick={() => download(id!)}
     >

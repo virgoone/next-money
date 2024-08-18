@@ -6,6 +6,7 @@ import { z } from "zod";
 import { model } from "@/config/constants";
 import { FluxHashids } from "@/db/dto/flux.dto";
 import { prisma } from "@/db/prisma";
+import { FluxTaskStatus } from "@/db/type";
 import { getErrorMessage } from "@/lib/handle-error";
 
 const searchParamsSchema = z.object({
@@ -33,6 +34,9 @@ export async function GET(req: NextRequest) {
     const offset = (page - 1) * pageSize;
     const whereConditions: any = {
       userId,
+      taskStatus: {
+        in: [FluxTaskStatus.Succeeded, FluxTaskStatus.Processing],
+      },
     };
     if (model) {
       whereConditions.model = model;

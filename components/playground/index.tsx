@@ -1,15 +1,13 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 import { useAuth } from "@clerk/nextjs";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 
-import {
-  AspectRatioSelector,
-} from "@/components/playground/aspect-selector";
+import { AspectRatioSelector } from "@/components/playground/aspect-selector";
 import { ModelSelector } from "@/components/playground/model-selector";
 import { Model, models, types } from "@/components/playground/models";
 import { PrivateSwitch } from "@/components/playground/private-switch";
@@ -22,7 +20,7 @@ import {
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
-import { Credits, model, Ratio } from "@/config/constants";
+import { Credits, model, ModelName, Ratio } from "@/config/constants";
 import { FluxSelectDto } from "@/db/type";
 import { cn } from "@/lib/utils";
 
@@ -142,12 +140,19 @@ export default function Playground({ locale }: { locale: string }) {
       setLoading(false);
     }
   };
+  const generateLoading = useMemo(() => {
+    return (
+      queryTask.isPending ||
+      queryTask.isLoading ||
+      fluxData?.taskStatus === FluxTaskStatus.Processing
+    );
+  }, [fluxData, queryTask]);
 
   return (
     <div className="overflow-hidden rounded-[0.5rem] border bg-background shadow">
       <div className="container h-full p-6">
         <div className="grid h-full items-stretch gap-6 md:grid-cols-[1fr_240px]">
-          <div className="hidden flex-col space-y-4 sm:flex md:order-2">
+          <div className="flex-col space-y-4 sm:flex md:order-2">
             <ModelSelector
               selectedModel={selectedModel}
               onChange={(model) => setSelectedModel(model)}
@@ -203,16 +208,12 @@ export default function Playground({ locale }: { locale: string }) {
                 </div>
                 <div className="flex flex-1 flex-col space-y-2">
                   <Label htmlFor="Result">{t("form.result")}</Label>
-                  <div className="min-h-[400px] rounded-md border lg:min-h-[450px]">
-                    {loading ||
-                    ((queryTask.isPending ||
-                      queryTask.isLoading ||
-                      fluxData?.taskStatus === FluxTaskStatus.Processing) &&
-                      fluxId) ? (
+                  <div className="min-h-[400px] rounded-md border-0 md:border lg:min-h-[450px]">
+                    {loading || (generateLoading && fluxId) ? (
                       <div className="flex size-full items-center justify-center">
                         <Loading />
                       </div>
-                    ) : (
+                    ) : fluxData?.id ? (
                       <div
                         className={cn("size-full", {
                           "bg-muted": !fluxData?.imageUrl || !fluxId,
@@ -225,7 +226,19 @@ export default function Playground({ locale }: { locale: string }) {
                             className={`w-full rounded-md aspect-[${fluxData?.aspectRatio ? fluxData?.aspectRatio?.split(":").join("/") : "auto"}]`}
                           />
                         )}
+                        <div className="text-content-light inline-block px-4 py-2 text-sm">
+                          <p className="line-clamp-4 italic md:line-clamp-6 lg:line-clamp-[8]">
+                            {fluxData?.inputPrompt}
+                          </p>
+                        </div>
+                        <div className="flex flex-row flex-wrap space-x-1 px-4">
+                          <div className="bg-surface-alpha-strong text-content-base inline-flex items-center rounded-md border border-transparent px-1.5 py-0.5 font-mono text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
+                            {ModelName[fluxData?.model]}
+                          </div>
+                        </div>
                       </div>
+                    ) : (
+                      <div />
                     )}
                   </div>
                 </div>
@@ -236,10 +249,7 @@ export default function Playground({ locale }: { locale: string }) {
                   disabled={
                     !inputPrompt.length ||
                     loading ||
-                    ((queryTask.isPending ||
-                      queryTask.isLoading ||
-                      fluxData?.taskStatus === FluxTaskStatus.Processing) &&
-                      !!fluxId)
+                    (generateLoading && !!fluxId)
                   }
                   onClick={handleSubmit}
                 >

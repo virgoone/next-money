@@ -3,18 +3,19 @@
 import { useContext } from "react";
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
+
 import { useTranslations } from "next-intl";
 
+import { Icons } from "@/components/shared/icons";
+import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
+import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import { dashboardConfig } from "@/config/dashboard";
 import { docsConfig } from "@/config/docs";
 import { marketingConfig } from "@/config/marketing";
 import { siteConfig } from "@/config/site";
-import { cn } from "@/lib/utils";
 import { useScroll } from "@/hooks/use-scroll";
-import { Button } from "@/components/ui/button";
-import { Skeleton } from "@/components/ui/skeleton";
-import { Icons } from "@/components/shared/icons";
-import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
+import { cn } from "@/lib/utils";
 
 import { UserInfo } from "../user-info";
 
@@ -28,8 +29,8 @@ export function NavbarLogo(props: { size?: "sm" | "md" | "lg" | "xl" }) {
   const { size = "xl" } = props;
   return (
     <Link href="/" className="flex items-center space-x-2">
-      <Icons.logo className="h-6 w-6" />
-      <span className={cn("font-urban font-bold", `text-${size}`)}>
+      <Icons.logo className="h-6 w-6 hidden md:block" />
+      <span className={cn("font-urban font-bold", `text-xs md:text-${size}`)}>
         {t("title")}
       </span>
     </Link>

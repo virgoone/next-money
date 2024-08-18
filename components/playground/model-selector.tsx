@@ -51,13 +51,13 @@ export function ModelSelector({
 
   return (
     <div className="grid gap-2">
-      <HoverCard openDelay={200}>
+      <HoverCard openDelay={500}>
         <HoverCardTrigger asChild>
           <Label htmlFor="model">{t("form.model")}</Label>
         </HoverCardTrigger>
         <HoverCardContent
           align="start"
-          className="w-[260px] text-sm"
+          className="w-[150px] md:w-[260px] text-sm"
           side="left"
         >
           {t("form.modelTooltip")}

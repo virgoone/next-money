@@ -14,11 +14,13 @@ import Masonry from "react-masonry-css";
 import { toast } from "sonner";
 
 import Loading from "@/components/loading";
+import PlaygroundLoading from "@/components/playground/loading";
 import { EmptyPlaceholder } from "@/components/shared/empty-placeholder";
 import { ModelName, Ratio } from "@/config/constants";
 import { FluxSelectDto } from "@/db/type";
 import { cn, createRatio } from "@/lib/utils";
 
+import { FluxTaskStatus } from "../playground";
 import { Button } from "../ui/button";
 import Container from "./container";
 import { DownloadAction } from "./download-action";
@@ -139,11 +141,20 @@ export default function History({ locale }: { locale: string }) {
                   key={item.id}
                   className="border-stroke-light bg-surface-300 hover:border-stroke-strong mb-4 flex break-inside-avoid flex-col space-y-4 overflow-hidden rounded-xl border"
                 >
-                  <img
-                    src={item.imageUrl!}
-                    alt={item.inputPrompt!}
-                    className={`w-full rounded-xl object-cover ${createRatio(item.aspectRatio as Ratio)} pointer-events-none`}
-                  />
+                  {item.taskStatus === FluxTaskStatus.Processing ? (
+                    <div
+                      className={`bg-pattern flx w-full items-center justify-center rounded-xl ${createRatio(item.aspectRatio as Ratio)} pointer-events-none`}
+                    >
+                      <PlaygroundLoading />
+                    </div>
+                  ) : (
+                    <img
+                      src={item.imageUrl!}
+                      alt={item.inputPrompt!}
+                      className={`w-full rounded-xl object-cover ${createRatio(item.aspectRatio as Ratio)} pointer-events-none`}
+                    />
+                  )}
+
                   <div className="text-content-light inline-block px-4 py-2 text-sm">
                     <p className="line-clamp-4 italic md:line-clamp-6 lg:line-clamp-[8]">
                       {item.inputPrompt}
@@ -162,7 +173,10 @@ export default function History({ locale }: { locale: string }) {
                       <Copy className="icon-xs me-1" />
                       {t("action.copy")}
                     </button>
-                    <DownloadAction id={item.id} />
+                    <DownloadAction
+                      disabled={item.taskStatus === FluxTaskStatus.Processing}
+                      id={item.id}
+                    />
                   </div>
                 </div>
               ))}

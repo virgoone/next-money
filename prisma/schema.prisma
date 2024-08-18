@@ -65,6 +65,7 @@ model FluxData {
   viewsNum         Int      @default(0) @map(name: "views_num")
   createdAt        DateTime @default(now()) @map(name: "created_at") @db.Timestamp(6)
   updatedAt        DateTime @default(now()) @map(name: "updated_at") @db.Timestamp(6)
+  errorMsg         String?  @map(name: "error_msg")
 
   @@map(name: "flux_data")
 }
