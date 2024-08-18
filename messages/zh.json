@@ -180,6 +180,13 @@
     "description": "请检查浏览器地址栏或使用导航前往已知页面。",
     "title": "页面未找到"
   },
+  "AppNavigation": {
+    "Index": "首页",
+    "Generate": "AI 生图",
+    "History": "历史记录",
+    "GiftCode": "兑换",
+    "ChargeOrder": "充值订单"
+  },
   "PageLayout": {
     "links": {
       "docs": {

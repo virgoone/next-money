@@ -209,7 +209,7 @@ export default function Playground({ locale }: { locale: string }) {
                 </div>
                 <div className="flex flex-1 flex-col space-y-2">
                   <Label htmlFor="Result">{t("form.result")}</Label>
-                  <div className="min-h-[400px] rounded-md border-0 md:border lg:min-h-[450px]">
+                  <div className="min-h-20 md:min-h-[400px] rounded-md border-0 md:border lg:min-h-[450px]">
                     {loading || (generateLoading && fluxId) ? (
                       <div className="flex size-full items-center justify-center">
                         <Loading />
@@ -225,7 +225,7 @@ export default function Playground({ locale }: { locale: string }) {
                           <img
                             src={fluxData?.imageUrl}
                             alt="Generated Image"
-                            className={`w-full rounded-md aspect-[${fluxData?.aspectRatio ? fluxData?.aspectRatio?.split(":").join("/") : "auto"}]`}
+                            className={`pointer-events-none w-full rounded-md aspect-[${fluxData?.aspectRatio ? fluxData?.aspectRatio?.split(":").join("/") : "auto"}]`}
                           />
                         )}
                         <div className="text-content-light inline-block px-4 py-2 text-sm">

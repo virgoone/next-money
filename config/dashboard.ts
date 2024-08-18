@@ -28,12 +28,12 @@ export const dashboardConfig: DashboardConfig = {
           icon: "History",
         },
         {
-          title: "Gift Code",
+          title: "GiftCode",
           href: "/app/giftcode",
           icon: "Gift",
         },
         {
-          title: "Charge Order",
+          title: "ChargeOrder",
           href: "/app/order",
           icon: "billing",
         },

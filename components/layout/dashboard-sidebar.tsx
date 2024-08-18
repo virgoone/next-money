@@ -4,6 +4,7 @@ import { Fragment, useEffect, useState } from "react";
 import Link from "next/link";
 
 import { Menu, PanelLeftClose, PanelRightClose } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { Icons } from "@/components/shared/icons";
 import { Badge } from "@/components/ui/badge";
@@ -30,7 +31,7 @@ interface DashboardSidebarProps {
 
 export function DashboardSidebar({ links }: DashboardSidebarProps) {
   const path = usePathname();
-
+  const t = useTranslations("AppNavigation");
   // NOTE: Use this if you want save in local storage -- Credits: Hosna Qasmei
   //
   // const [isSidebarExpanded, setIsSidebarExpanded] = useState(() => {
@@ -128,7 +129,7 @@ export function DashboardSidebar({ links }: DashboardSidebarProps) {
                                 )}
                               >
                                 <Icon className="size-5" />
-                                {item.title}
+                                {t(item.title)}
                                 {item.badge && (
                                   <Badge className="ml-auto flex size-5 shrink-0 items-center justify-center rounded-full">
                                     {item.badge}
@@ -156,7 +157,7 @@ export function DashboardSidebar({ links }: DashboardSidebarProps) {
                                   </Link>
                                 </TooltipTrigger>
                                 <TooltipContent side="right">
-                                  {item.title}
+                                  {t(item.title)}
                                 </TooltipContent>
                               </Tooltip>
                             )}
@@ -183,6 +184,7 @@ export function MobileSheetSidebar({ links }: DashboardSidebarProps) {
   const path = usePathname();
   const [open, setOpen] = useState(false);
   const { isSm, isMobile } = useMediaQuery();
+  const t = useTranslations("AppNavigation");
 
   if (isSm || isMobile) {
     return (
@@ -233,7 +235,7 @@ export function MobileSheetSidebar({ links }: DashboardSidebarProps) {
                               )}
                             >
                               <Icon className="size-5" />
-                              {item.title}
+                              {t(item.title)}
                               {item.badge && (
                                 <Badge className="ml-auto flex size-5 shrink-0 items-center justify-center rounded-full">
                                   {item.badge}

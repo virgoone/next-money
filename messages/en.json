@@ -167,6 +167,13 @@
   "Manifest": {
     "name": "Flux AI Image Generator"
   },
+  "AppNavigation": {
+    "Index": "Home",
+    "Generate": "Generate",
+    "History": "History",
+    "GiftCode": "Gift Code",
+    "ChargeOrder": "Charge Order"
+  },
   "Navigation": {
     "pricing": "Pricing",
     "title": "Flux AI Image Generator",
