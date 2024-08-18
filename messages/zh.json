@@ -53,6 +53,11 @@
   },
   "Playground": {
     "title": "Flux AI 图像生成器",
+    "empty": {
+      "title": "生成失败",
+      "description": "错误信息: {error}",
+      "errorPlaceholder": "未知错误"
+    },
     "form": {
       "input": "输入",
       "result": "结果",

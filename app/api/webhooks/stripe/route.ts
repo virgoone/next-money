@@ -11,6 +11,7 @@ import { OrderPhase } from "@/db/type";
 import { env } from "@/env.mjs";
 import { logsnag } from "@/lib/log-snag";
 import { stripe } from "@/lib/stripe";
+import { formatPrice } from "@/lib/utils";
 
 export async function GET() {
   return new Response("OK", { status: 200 });
@@ -24,7 +25,6 @@ export async function POST(req: Request) {
   //   payload: body,
   //   secret: env.STRIPE_WEBHOOK_SECRET,
   // });
-  console.log("body-->", typeof body);
   let event: Stripe.Event;
   try {
     event = stripe.webhooks.constructEvent(
@@ -199,15 +199,16 @@ export async function POST(req: Request) {
         },
       });
     });
+    const price = formatPrice(product.amount)
     await logsnag.track({
       channel: "payments",
       event: "Successful Payment",
       user_id: userId,
-      description: `${product.title} - ${product.amount}`,
+      description: `用户购买积分：${product.title} - $${price}`,
       icon: "💰",
       tags: {
         title: product.title,
-        amount: product.amount,
+        amount: price,
       },
     });
   }

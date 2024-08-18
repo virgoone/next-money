@@ -53,6 +53,11 @@
   },
   "Playground": {
     "title": "Flux AI Image Generator",
+    "empty": {
+      "title": "Generator Error",
+      "description": "Error Info: {error}",
+      "errorPlaceholder": "An error occurred"
+    },
     "form": {
       "input": "Input",
       "result": "Result",

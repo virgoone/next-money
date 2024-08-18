@@ -24,6 +24,7 @@ import { Credits, model, ModelName, Ratio } from "@/config/constants";
 import { FluxSelectDto } from "@/db/type";
 import { cn } from "@/lib/utils";
 
+import { EmptyPlaceholder } from "../shared/empty-placeholder";
 import { Icons } from "../shared/icons";
 import Upload from "../upload";
 import Loading from "./loading";
@@ -213,7 +214,8 @@ export default function Playground({ locale }: { locale: string }) {
                       <div className="flex size-full items-center justify-center">
                         <Loading />
                       </div>
-                    ) : fluxData?.id ? (
+                    ) : fluxData?.id &&
+                      fluxData.taskStatus === FluxTaskStatus.Succeeded ? (
                       <div
                         className={cn("size-full", {
                           "bg-muted": !fluxData?.imageUrl || !fluxId,
@@ -236,6 +238,22 @@ export default function Playground({ locale }: { locale: string }) {
                             {ModelName[fluxData?.model]}
                           </div>
                         </div>
+                      </div>
+                    ) : fluxData?.taskStatus === FluxTaskStatus.Failed ? (
+                      <div className="flex min-h-96 items-center justify-center">
+                        <EmptyPlaceholder>
+                          <EmptyPlaceholder.Icon name="Eraser" />
+                          <EmptyPlaceholder.Title>
+                            {t("empty.title")}
+                          </EmptyPlaceholder.Title>
+                          <EmptyPlaceholder.Description>
+                            {t("empty.description", {
+                              error:
+                                fluxData?.errorMsg ??
+                                t("empty.errorPlaceholder"),
+                            })}
+                          </EmptyPlaceholder.Description>
+                        </EmptyPlaceholder>
                       </div>
                     ) : (
                       <div />
