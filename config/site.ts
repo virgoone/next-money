@@ -15,22 +15,3 @@ export const siteConfig: SiteConfig = {
   },
   mailSupport: "support@saas-starter.com",
 };
-
-export const footerLinks: SidebarNavItem[] = [
-  {
-    title: "Company",
-    items: [
-      { title: "Terms", href: "/terms-of-use" },
-      { title: "Privacy", href: "/privacy-policy" },
-    ],
-  },
-  {
-    title: "Product",
-    items: [
-      { title: "Security", href: "#" },
-      { title: "Customization", href: "#" },
-      { title: "Customers", href: "#" },
-      { title: "Changelog", href: "#" },
-    ],
-  },
-];
