@@ -4,8 +4,6 @@ type Props = {
   params: { locale: string };
 };
 
-
-
 export default function IndexPage({ params: { locale } }: Props) {
   // Enable static rendering
   unstable_setRequestLocale(locale);
@@ -111,7 +109,7 @@ export default function IndexPage({ params: { locale } }: Props) {
           <li className="mt-2">
             <p className="leading-7 [&:not(:first-child)]:mt-6">
               <strong>Company</strong> (referred to as either "the Company",
-              "We", "Us" or "Our" in this Agreement) refers to IndieHackers.
+              "We", "Us" or "Our" in this Agreement) refers to FluxAIProTeam.
             </p>
           </li>
           <li className="mt-2">
@@ -164,12 +162,12 @@ export default function IndexPage({ params: { locale } }: Props) {
           </li>
           <li className="mt-2">
             <p className="leading-7 [&:not(:first-child)]:mt-6">
-              <strong>Website</strong> refers to IndieHackers, accessible from{" "}
+              <strong>Website</strong> refers to FluxAIProTeam, accessible from{" "}
               <a
                 className="font-medium underline underline-offset-4"
-                href="https://indiehackers.site"
+                href="https://fluxaipro.art"
               >
-                https://indiehackers.site
+                https://fluxaipro.art
               </a>
             </p>
           </li>
@@ -805,9 +803,9 @@ export default function IndexPage({ params: { locale } }: Props) {
             By email:{" "}
             <a
               className="font-medium underline underline-offset-4"
-              href="mailto:javayhu@gmail.com"
+              href="mailto:support@douni.one"
             >
-              javayhu@gmail.com
+              support@douni.one
             </a>
           </li>
         </ul>

@@ -16,8 +16,44 @@
         "title": "可定制"
       }
     },
+    "examples": {
+      "label": "示例",
+      "title": "Flux AI 生成示例 - 高级文本图像转换",
+      "subtitle": "浏览 Flux AI 生成示例，从文本提示生成图像。体验下一代高级文本到图像的开放模型。"
+    },
+    "features": {
+      "title": "产品特点",
+      "action": {
+        "visit": "去生成"
+      },
+      "description": "Flux AI 图像生成器是一个强大的工具，可以根据文本提示生成图像。它使用先进的 AI 模型创建出色的图像，非常适合任何项目。",
+      "item1": {
+        "title": "FLUX.1 [pro]",
+        "description": "FLUX.1 的最佳版本，提供先进的性能图像生成，具有一流的提示跟随、视觉质量、图像细节和输出多样性。"
+      },
+      "item2": {
+        "title": "FLUX.1 [dev]",
+        "description": "FLUX.1 [dev] 具有类似的质量和提示遵循能力，同时比相同大小的标准模型更高效。"
+      },
+      "item3": {
+        "title": "FLUX.1 [schnell]",
+        "description": "专为本地开发和个人使用而量身定制的最快图像生成模型，价格成本更低，高效，文本提示生成图像"
+      },
+      "item4": {
+        "title": "极速生成",
+        "description": "Flux AI 在几秒钟内生成高质量图像，比 Stable Diffusion 3 和 Midjourney 快得多。凭借其极速生成能力，Flux AI 确保快速高效生成，为您节省宝贵的时间资源。"
+      },
+      "item5": {
+        "title": "可定制化",
+        "description": "先进的 Flux.1 模型比竞争对手生成更详细、更连贯的图像。凭借其可定制化的功能和用户友好的界面，Flux AI 图像生成器是从文本提示生成惊人图像的终极工具。"
+      },
+      "item6": {
+        "title": "易于使用",
+        "description": "比 ComfyUI 更易于使用，适合初学者和专业人士。Flux AI 图像生成器是从文本提示生成惊人图像的终极工具。Flux AI 让初学者和专业人士轻松创建出色视觉效果。"
+      }
+    },
     "action": {
-      "pricing": "定价",
+      "pricing": "购买积分",
       "login": "登录",
       "dashboard": "仪表板",
       "generate": "去使用",
@@ -43,7 +79,31 @@
     "faq": {
       "label": "常见问题",
       "title": "常见问题解答",
-      "subtitle": "浏览我们全面的常见问题解答，快速找到常见疑问的答案。如果您需要进一步帮助，请随时联系我们获取个性化支持。"
+      "subtitle": "浏览我们全面的常见问题解答，快速找到常见疑问的答案。如果您需要进一步帮助，请随时联系我们获取个性化支持。",
+      "item1": {
+        "question": "Flux AI 与 Stable Diffusion 3 相比有什么不同？",
+        "answer": "与 Stable Diffusion 3 相比，Flux AI 提供更快的生成时间、更高的图像质量和更用户友好的界面。Flux.1 模型融合了最新的人工智能研究成果。"
+      },
+      "item2": {
+        "question": "Flux AI 是否在 GitHub 或 Hugging Face 上可用？",
+        "answer": "是的，Flux AI 是开源的，可在 GitHub 和 Hugging Face 上使用。"
+      },
+      "item3": {
+        "question": "Flux AI 与其他人工智能图像生成器有何不同？",
+        "answer": "Flux AI 结合了速度、质量和易用性。它比 Midjourney 更快，比 ComfyUI 更易于使用，并且比许多竞争对手生成更高质量的图像。"
+      },
+      "item4": {
+        "question": "如何使用 Flux AI？",
+        "answer": "要使用 Flux AI，只需访问 fluxaipro.art，输入您的提示，然后在几秒钟内见证令人惊叹的视觉效果的创作过程。"
+      },
+      "item5": {
+        "question": "Flux AI 提供哪些定价计划？",
+        "answer": "我们使用积分来使用我们的服务，您可以点击价格卡购买积分（只需一次付款）。"
+      },
+      "item6": {
+        "question": "如何获取在线支持？",
+        "answer": "您可以通过发送电子邮件至 support@douni.one 联系我们的支持团队。"
+      }
     },
     "tip": {
       "title": "💳 支付提示：如果您在支付过程中遇到任何问题，请随时联系我们！😉",
@@ -188,6 +248,12 @@
     "ChargeOrder": "充值订单"
   },
   "PageLayout": {
+    "footer": {
+      "title": "Flux AI Image Generator",
+      "term": "使用条款",
+      "privacy": "隐私政策",
+      "contact": "联系我们"
+    },
     "links": {
       "docs": {
         "description": "在官方文档中了解更多关于 next-intl 的信息。",

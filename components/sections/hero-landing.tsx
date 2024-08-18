@@ -1,4 +1,5 @@
 import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
+import { Eraser } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import { DashboardIcon, UserArrowLeftIcon } from "@/assets";
@@ -10,7 +11,6 @@ import { cn, nFormatter } from "@/lib/utils";
 
 import ShimmerButton from "../forms/shimmer-button";
 import AnimatedGradientText from "../magicui/animated-gradient-text";
-import { Eraser } from "lucide-react";
 
 export default async function HeroLanding() {
   const t = await getTranslations({ namespace: "IndexPage" });
@@ -38,7 +38,7 @@ export default async function HeroLanding() {
 
         <h1 className="text-balance font-urban text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-[66px]">
           <span>{t("subtitle")}</span>
-          <br/>
+          <br />
           <span className="text-gradient_indigo-purple font-extrabold">
             {t("title")}
           </span>
@@ -57,7 +57,10 @@ export default async function HeroLanding() {
         >
           <SignedIn>
             <Link
-              className="group relative w-full max-w-52 items-center justify-center gap-2 overflow-hidden whitespace-pre rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-all duration-300 ease-out hover:bg-primary/90 hover:ring-2 hover:ring-primary hover:ring-offset-2 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 md:flex"
+              className={cn(
+                buttonVariants({ size: "lg" }),
+                "group relative w-full max-w-52 items-center justify-center gap-2 overflow-hidden whitespace-pre rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-all duration-300 ease-out hover:bg-primary/90 hover:ring-2 hover:ring-primary hover:ring-offset-2 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 md:flex",
+              )}
               href="/app/generate"
             >
               <span className="absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 bg-white opacity-10 transition-all duration-1000 ease-out group-hover:-translate-x-40" />
@@ -91,7 +94,7 @@ export default async function HeroLanding() {
                 variant: "outline",
                 size: "lg",
               }),
-              "min-w-32 px-5 rounded-full",
+              "min-w-32 rounded-full px-5",
             )}
           >
             <p>{t("action.pricing")}</p>

@@ -8,6 +8,42 @@
     "description": "Revolutionizing Next-Generation Advanced Text-to-Image open model, support flux.1 pro and flux.1 schnell models.",
     "title": "Flux AI Image Generator",
     "subtitle": "Advanced Text-to-Image",
+    "examples": {
+      "label": "Example",
+      "title": "Flux AI Image Examples",
+      "subtitle": "Generate images from text prompts."
+    },
+    "features": {
+      "title": "Features",
+      "description": "Flux AI Image Generator is a powerful tool that allows you to generate images from text prompts. It uses advanced AI models to create stunning images that are perfect for any project.",
+      "action": {
+        "visit": "Generate"
+      },
+      "item1": {
+        "title": "FLUX.1 [pro]",
+        "description": "The best of FLUX.1, offering state-of-the-art performance image generation with top of the line prompt following, visual quality, image detail and output diversity."
+      },
+      "item2": {
+        "title": "FLUX.1 [dev]",
+        "description": "Directly distilled from FLUX.1 [pro], FLUX.1 [dev] obtains similar quality and prompt adherence capabilities, while being more efficient than a standard model of the same size. "
+      },
+      "item3": {
+        "title": "FLUX.1 [schnell]",
+        "description": "The fastest image generation model tailored for local development and personal use"
+      },
+      "item4": {
+        "title": "Lightning-Fast",
+        "description": "Flux AI generates high-quality images in seconds, significantly faster than Stable Diffusion 3 and Midjourney. With its lightning-fast image generation capabilities, Flux AI ensures quick and efficient results, saving you valuable time and resources."
+      },
+      "item5": {
+        "title": "Customizable",
+        "description": "The advanced Flux.1 model produces more detailed and coherent images than competitors. With its customizable features and user-friendly interface, Flux AI Image Generator is the ultimate tool for generating stunning images from text prompts. Whether you're a beginner or a professional, Flux AI has got you covered. Experience the power of AI and revolutionize your image generation process today!"
+      },
+      "item6": {
+        "title": "User-Friendly Interface",
+        "description": "Easier to use than ComfyUI, perfect for beginners and pros alike. Flux AI Image Generator is the ultimate tool for generating stunning images from text prompts. With its user-friendly interface and powerful AI models, Flux AI makes it easy for both beginners and professionals to create amazing visuals."
+      }
+    },
     "powered": {
       "title": "Powered by"
     },
@@ -17,7 +53,7 @@
       }
     },
     "action": {
-      "pricing": "Pricing",
+      "pricing": "Bug Credits",
       "login": "Login",
       "dashboard": "Dashboard",
       "generate": "Generate",
@@ -43,7 +79,31 @@
     "faq": {
       "label": "FAQ",
       "title": "Frequently asked questions",
-      "subtitle": "Explore our comprehensive FAQ to find quick answers to common inquiries. If you need further assistance, don't hesitate to contact us for personalized help."
+      "subtitle": "Explore our comprehensive FAQ to find quick answers to common inquiries. If you need further assistance, don't hesitate to contact us for personalized help.",
+      "item1": {
+        "question": "How does Flux AI compare to Stable Diffusion 3?",
+        "answer": "Flux AI offers faster generation times, higher image quality, and a more user-friendly interface compared to Stable Diffusion 3. The Flux.1 model incorporates the latest advancements in AI research."
+      },
+      "item2": {
+        "question": "Is Flux AI available on GitHub or Hugging Face?",
+        "answer": "Yes, Flux AI is open-source and available on both GitHub and Hugging Face."
+      },
+      "item3": {
+        "question": "What makes Flux AI different from other AI image generators?",
+        "answer": "Flux AI combines speed, quality, and ease of use. It's faster than Midjourney, more user-friendly than ComfyUI, and produces higher quality images than many competitors."
+      },
+      "item4": {
+        "question": "How to use Flux AI?",
+        "answer": "To use Flux AI, simply visit fluxaipro.art, enter your prompt, and witness the creation of breathtaking visuals in a matter of seconds."
+      },
+      "item5": {
+        "question": "What pricing plans does Flux AI offer?",
+        "answer": "We use points to use our services, and you can click on the price card to buy points (only one payment is required)."
+      },
+      "item6": {
+        "question": "How can I get support for Online?",
+        "answer": "You can reach out to us at support@douni.one."
+      }
     },
     "tip": {
       "title": "💳 Payment Tip: If you encounter any issues during the payment process, feel free to reach out to us! 😉",
@@ -188,6 +248,11 @@
     "title": "Page not found"
   },
   "PageLayout": {
+    "footer": {
+      "title": "Flux AI Image Generator",
+      "term": "Terms",
+      "privacy": "Privacy"
+    },
     "links": {
       "docs": {
         "description": "Learn more about next-intl in the official docs.",

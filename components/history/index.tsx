@@ -14,6 +14,7 @@ import Masonry from "react-masonry-css";
 import { toast } from "sonner";
 
 import Loading from "@/components/loading";
+import BlurFade from "@/components/magicui/blur-fade";
 import PlaygroundLoading from "@/components/playground/loading";
 import { EmptyPlaceholder } from "@/components/shared/empty-placeholder";
 import { ModelName, Ratio } from "@/config/constants";
@@ -136,7 +137,7 @@ export default function History({ locale }: { locale: string }) {
               className="flex w-auto"
               columnClassName="bg-clip-padding pl-4 first:pl-0"
             >
-              {dataSource.map((item) => (
+              {dataSource.map((item, idx) => (
                 <div
                   key={item.id}
                   className="border-stroke-light bg-surface-300 hover:border-stroke-strong mb-4 flex break-inside-avoid flex-col space-y-4 overflow-hidden rounded-xl border"
@@ -148,11 +149,17 @@ export default function History({ locale }: { locale: string }) {
                       <PlaygroundLoading />
                     </div>
                   ) : (
-                    <img
-                      src={item.imageUrl!}
-                      alt={item.inputPrompt!}
-                      className={`w-full rounded-xl object-cover ${createRatio(item.aspectRatio as Ratio)} pointer-events-none`}
-                    />
+                    <BlurFade
+                      key={item?.imageUrl!}
+                      delay={0.25 + (idx % pageParams.pageSize) * 0.05}
+                      inView
+                    >
+                      <img
+                        src={item.imageUrl!}
+                        alt={item.inputPrompt!}
+                        className={`w-full rounded-xl object-cover ${createRatio(item.aspectRatio as Ratio)} pointer-events-none`}
+                      />
+                    </BlurFade>
                   )}
 
                   <div className="text-content-light inline-block px-4 py-2 text-sm">

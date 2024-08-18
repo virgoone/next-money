@@ -1,3 +1,5 @@
+import { useTranslations } from "next-intl";
+
 import {
   Accordion,
   AccordionContent,
@@ -6,38 +8,37 @@ import {
 } from "@/components/ui/accordion";
 
 import { HeaderSection } from "./shared/header-section";
-import { useTranslations } from "next-intl";
 
 const pricingFaqData = [
   {
     id: "item-1",
-    question: "What is the cost of the free plan?",
-    answer:
-      "Our free plan is completely free, with no monthly or annual charges. It's a great way to get started and explore our basic features.",
+    question: "item1.question",
+    answer: "item1.answer",
   },
   {
     id: "item-2",
-    question: "How much does the Basic Monthly plan cost?",
-    answer:
-      "The Basic Monthly plan is priced at $15 per month. It provides access to our core features and is billed on a monthly basis.",
+    question: "item2.question",
+    answer: "item2.answer",
   },
   {
     id: "item-3",
-    question: "What is the price of the Pro Monthly plan?",
-    answer:
-      "The Pro Monthly plan is available for $25 per month. It offers advanced features and is billed on a monthly basis for added flexibility.",
+    question: "item3.question",
+    answer: "item3.answer",
   },
   {
     id: "item-4",
-    question: "Do you offer any annual subscription plans?",
-    answer:
-      "Yes, we offer annual subscription plans for even more savings. The Basic Annual plan is $144 per year, and the Pro Annual plan is $300 per year.",
+    question: "item4.question",
+    answer: "item4.answer",
   },
   {
     id: "item-5",
-    question: "Is there a trial period for the paid plans?",
-    answer:
-      "We offer a 14-day free trial for both the Pro Monthly and Pro Annual plans. It's a great way to experience all the features before committing to a paid subscription.",
+    question: "item5.question",
+    answer: "item5.answer",
+  },
+  {
+    id: "item-6",
+    question: "item6.question",
+    answer: "item6.answer",
   },
 ];
 
@@ -47,7 +48,6 @@ export function PricingFaq() {
   return (
     <section className="container max-w-4xl py-2">
       <HeaderSection
-        label={t("faq.label")}
         title={t("faq.title")}
         subtitle={t("faq.subtitle")}
       />
@@ -55,9 +55,9 @@ export function PricingFaq() {
       <Accordion type="single" collapsible className="my-12 w-full">
         {pricingFaqData.map((faqItem) => (
           <AccordionItem key={faqItem.id} value={faqItem.id}>
-            <AccordionTrigger>{faqItem.question}</AccordionTrigger>
+            <AccordionTrigger>{t(`faq.${faqItem.question}`)}</AccordionTrigger>
             <AccordionContent className="text-sm text-muted-foreground sm:text-[15px]">
-              {faqItem.answer}
+              {t(`faq.${faqItem.answer}`)}
             </AccordionContent>
           </AccordionItem>
         ))}

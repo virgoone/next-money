@@ -7,6 +7,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 
+import BlurFade from "@/components/magicui/blur-fade";
 import { AspectRatioSelector } from "@/components/playground/aspect-selector";
 import { ModelSelector } from "@/components/playground/model-selector";
 import { Model, models, types } from "@/components/playground/models";
@@ -22,7 +23,7 @@ import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 import { Credits, model, ModelName, Ratio } from "@/config/constants";
 import { FluxSelectDto } from "@/db/type";
-import { cn } from "@/lib/utils";
+import { cn, createRatio } from "@/lib/utils";
 
 import { EmptyPlaceholder } from "../shared/empty-placeholder";
 import { Icons } from "../shared/icons";
@@ -212,9 +213,9 @@ export default function Playground({ locale }: { locale: string }) {
                   <Label htmlFor="Result">{t("form.result")}</Label>
                   <div className="min-h-20 rounded-md border-0 md:min-h-[400px] md:border lg:min-h-[450px]">
                     {loading || (generateLoading && fluxId) ? (
-                      <div className="flex flex-col size-full items-center justify-center">
+                      <div className="flex size-full flex-col items-center justify-center">
                         <Loading />
-                        <div className="text-content-light text-center px-4 mt-3 text-sm">
+                        <div className="text-content-light mt-3 px-4 text-center text-sm">
                           <ComfortingMessages
                             language={locale as "en" | "zh"}
                           />
@@ -228,11 +229,13 @@ export default function Playground({ locale }: { locale: string }) {
                         })}
                       >
                         {fluxData?.imageUrl && fluxId && (
-                          <img
-                            src={fluxData?.imageUrl}
-                            alt="Generated Image"
-                            className={`pointer-events-none w-full rounded-md aspect-[${fluxData?.aspectRatio ? fluxData?.aspectRatio?.split(":").join("/") : "auto"}]`}
-                          />
+                          <BlurFade key={fluxData?.imageUrl} inView>
+                            <img
+                              src={fluxData?.imageUrl}
+                              alt="Generated Image"
+                              className={`pointer-events-none w-full rounded-md aspect-[${createRatio(fluxData?.aspectRatio as Ratio)}]`}
+                            />
+                          </BlurFade>
                         )}
                         <div className="text-content-light inline-block px-4 py-2 text-sm">
                           <p className="line-clamp-4 italic md:line-clamp-6 lg:line-clamp-[8]">
