@@ -12,19 +12,12 @@ import { env } from "@/env.mjs";
 import { logsnag } from "@/lib/log-snag";
 import { stripe } from "@/lib/stripe";
 
-//
-// export const stripe = new Stripe(`whsec_9G8BgefZAS7qa3NcH3p4ENrWkDojAOlW`, {
-//   apiVersion: "2024-04-10",
-//   typescript: true,
-// });
-
 export async function GET() {
   return new Response("OK", { status: 200 });
 }
 
 export async function POST(req: Request) {
   const body = await req.text();
-  // const signature = 't=1723882195,v1=734a22df74031c9e4f084d9e0388f32a8b2364ec09a1b909da72c4e9eebf3436,v0=6516f39b1949d904fe76e1295abb4fc60f49684b4dbc17b3b59ced9f674489bb'
   const signature = (headers().get("Stripe-Signature") ||
     headers().get("stripe-signature")) as string;
   // const signature = stripe.webhooks.generateTestHeaderString({
