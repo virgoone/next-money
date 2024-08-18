@@ -4,9 +4,10 @@ import * as React from "react";
 
 import { Button, Drawer, Form, Input, InputNumber, Select, Space } from "antd";
 import { FormListFieldData } from "antd/lib/form";
+import { useLocale, useTranslations } from "next-intl";
 import { toast } from "sonner";
 
-import { Locale } from "@/config";
+import { Locale, locales } from "@/config";
 import { Currency, type ChargeProductSelectDto } from "@/db/type";
 import useForm from "@/hooks/use-form";
 import { getErrorMessage } from "@/lib/handle-error";
@@ -19,6 +20,7 @@ export function UpdateDialog(props: { detail: ChargeProductSelectDto }) {
   const { detail } = props;
   const [open, setOpen] = React.useState(false);
   const [isCreatePending, startCreateTransition] = React.useTransition();
+  const t = useTranslations("LocaleSwitcher");
 
   function onSubmit(input: UpdateSchema, error: FormListFieldData | null) {
     if (error) {
@@ -140,36 +142,10 @@ export function UpdateDialog(props: { detail: ChargeProductSelectDto }) {
           </FormItem>
           <FormItem {...inputField} label="Locale" name="locale">
             <Select
-              options={[
-                {
-                  label: "英文",
-                  value: "en",
-                },
-                {
-                  label: "中文",
-                  value: "zh",
-                },
-                {
-                  label: "法语",
-                  value: "fr",
-                },
-                {
-                  label: "繁体中文",
-                  value: "tw",
-                },
-                {
-                  label: "韩语",
-                  value: "kr",
-                },
-                {
-                  label: "日语",
-                  value: "jp",
-                },
-                {
-                  label: "西班牙语",
-                  value: "es",
-                },
-              ]}
+              options={locales.map((item) => ({
+                value: item,
+                label: t("locale", { locale: item }),
+              }))}
             />
           </FormItem>
           <FormItem {...inputField} label="Tag" name="tag">

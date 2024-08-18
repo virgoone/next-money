@@ -5,8 +5,10 @@ import * as React from "react";
 import { Button, Drawer, Form, Input, InputNumber, Select, Space } from "antd";
 import { FormListFieldData } from "antd/lib/form";
 import { PlusIcon } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
 import { toast } from "sonner";
 
+import { Locale, locales } from "@/config";
 import { Currency } from "@/db/type";
 import useForm from "@/hooks/use-form";
 import { getErrorMessage } from "@/lib/handle-error";
@@ -18,6 +20,7 @@ const FormItem = Form.Item;
 export function CreateDialog() {
   const [open, setOpen] = React.useState(false);
   const [isCreatePending, startCreateTransition] = React.useTransition();
+  const t = useTranslations("LocaleSwitcher");
 
   function onSubmit(input: CreateSchema, error: FormListFieldData | null) {
     if (error) {
@@ -132,7 +135,11 @@ export function CreateDialog() {
             />
           </FormItem>
           <FormItem {...inputField} label="Message" name="message">
-            <Input.TextArea rows={3} className="!w-full" placeholder="Please input..." />
+            <Input.TextArea
+              rows={3}
+              className="!w-full"
+              placeholder="Please input..."
+            />
           </FormItem>
           <FormItem {...inputField} label="Tag" name="tag">
             <Select
@@ -143,36 +150,10 @@ export function CreateDialog() {
           </FormItem>
           <FormItem {...inputField} label="Locale" name="locale">
             <Select
-              options={[
-                {
-                  label: "英文",
-                  value: "en",
-                },
-                {
-                  label: "中文",
-                  value: "zh",
-                },
-                {
-                  label: "法语",
-                  value: "fr"
-                },
-                {
-                  label: "繁体中文",
-                  value: "tw",
-                },
-                {
-                  label: "韩语",
-                  value: "kr",
-                },
-                {
-                  label: "日语",
-                  value: "jp",
-                },
-                {
-                  label: "西班牙语",
-                  value: "es",
-                },
-              ]}
+              options={locales.map((item) => ({
+                value: item,
+                label: t("locale", { locale: item }),
+              }))}
             />
           </FormItem>
         </Form>
