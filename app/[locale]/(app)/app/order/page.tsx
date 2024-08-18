@@ -1,17 +1,23 @@
-import { unstable_setRequestLocale } from "next-intl/server";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 
 import { OrderInfo } from "@/components/order-info";
-import { constructMetadata } from "@/lib/utils";
 
-type Props = {
+interface PageProps {
   params: { locale: string };
-};
-export const metadata = constructMetadata({
-  title: "Billing – SaaS Starter",
-  description: "Manage billing and your subscription plan.",
-});
+}
 
-export default async function BillingPage({ params: { locale } }: Props) {
+export async function generateMetadata({
+  params: { locale },
+}: PageProps) {
+  const t = await getTranslations({ locale, namespace: "Orders" });
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
+
+export default async function BillingPage({ params: { locale } }: PageProps) {
   unstable_setRequestLocale(locale);
 
   return <OrderInfo />;

@@ -53,6 +53,7 @@
   },
   "Playground": {
     "title": "Flux AI Image Generator",
+    "description": "Amazing AI models to generate images from text prompts.",
     "empty": {
       "title": "Generator Error",
       "description": "Error Info: {error}",
@@ -86,7 +87,7 @@
     }
   },
   "History": {
-    "title": "History",
+    "title": "Generate Image History",
     "description": "View your recent image generation history.",
     "empty": {
       "title": "No history yet.",
@@ -102,6 +103,10 @@
     }
   },
   "Billings": {
+    "page": {
+      "title": "App – Flux AI Image Generator",
+      "description": "View Your Recent predictions"
+    },
     "title": "Recent predictions",
     "empty": {
       "title": "Recent Empty",

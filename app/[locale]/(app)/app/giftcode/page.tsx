@@ -6,20 +6,24 @@ import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { DashboardHeader } from "@/components/dashboard/header";
 import { DashboardShell } from "@/components/dashboard/shell";
 import GiftCodeForm from "@/components/forms/gift-code-form";
-import { constructMetadata } from "@/lib/utils";
 
-export const metadata = constructMetadata({
-  title: "Settings – SaaS Starter",
-  description: "Configure your account and website settings.",
-});
-
-type Props = {
+interface PageProps {
   params: { locale: string };
-};
+}
+
+export async function generateMetadata({
+  params: { locale },
+}: PageProps) {
+  const t = await getTranslations({ locale, namespace: "GiftCode" });
+
+  return {
+    title: t("title"),
+    description: t("text"),
+  };
+}
 
 
-
-export default async function SettingsPage({ params: { locale } }: Props) {
+export default async function SettingsPage({ params: { locale } }: PageProps) {
   unstable_setRequestLocale(locale);
 
   const user = await currentUser();

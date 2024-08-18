@@ -53,6 +53,7 @@
   },
   "Playground": {
     "title": "Flux AI 图像生成器",
+    "description": "令人惊叹的AI模型，可以根据文本提示生成图像。",
     "empty": {
       "title": "生成失败",
       "description": "错误信息: {error}",
@@ -86,8 +87,8 @@
     }
   },
   "History": {
-    "title": "历史记录",
-    "description": "查看您最近的图像生成历史。",
+    "title": "生成记录",
+    "description": "查看您最近的图像生成记录。",
     "empty": {
       "title": "还没有历史记录",
       "description": "当前空空如也，快去生成吧～"
@@ -102,6 +103,10 @@
     }
   },
   "Billings": {
+    "page": {
+      "title": "App – Flux AI 图像生成器",
+      "description": "查看您的账单记录。"
+    },
     "title": "账单",
     "empty": {
       "title": "未找到",
@@ -118,8 +123,8 @@
     }
   },
   "Orders": {
-    "title": "订单",
-    "description": "查看您的订单历史记录。",
+    "title": "充值订单",
+    "description": "查看您的充值订单记录。",
     "empty": {
       "title": "订单为空",
       "description": "尚未有任何支付记录。"
