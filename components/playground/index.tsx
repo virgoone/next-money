@@ -27,6 +27,7 @@ import { cn } from "@/lib/utils";
 import { EmptyPlaceholder } from "../shared/empty-placeholder";
 import { Icons } from "../shared/icons";
 import Upload from "../upload";
+import ComfortingMessages from "./comforting";
 import Loading from "./loading";
 
 const aspectRatios = [Ratio.r1, Ratio.r2, Ratio.r3, Ratio.r4, Ratio.r5];
@@ -209,10 +210,15 @@ export default function Playground({ locale }: { locale: string }) {
                 </div>
                 <div className="flex flex-1 flex-col space-y-2">
                   <Label htmlFor="Result">{t("form.result")}</Label>
-                  <div className="min-h-20 md:min-h-[400px] rounded-md border-0 md:border lg:min-h-[450px]">
+                  <div className="min-h-20 rounded-md border-0 md:min-h-[400px] md:border lg:min-h-[450px]">
                     {loading || (generateLoading && fluxId) ? (
-                      <div className="flex size-full items-center justify-center">
+                      <div className="flex flex-col size-full items-center justify-center">
                         <Loading />
+                        <div className="text-content-light text-center px-4 mt-3 text-sm">
+                          <ComfortingMessages
+                            language={locale as "en" | "zh"}
+                          />
+                        </div>
                       </div>
                     ) : fluxData?.id &&
                       fluxData.taskStatus === FluxTaskStatus.Succeeded ? (
