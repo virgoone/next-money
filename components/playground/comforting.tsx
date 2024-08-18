@@ -41,6 +41,16 @@ const ComfortingMessages: React.FC<ComfortingMessagesProps> = ({
       "Déroulant un peu de code spaghetti virtuel...",
       "Taquinant le mouton électronique, ça sera bientôt prêt...",
     ],
+    tw: [
+      "AI 正在練肌肉，等會兒要讓你驚豔！",
+      "機器人邊跳月球舞一邊算數，真是忙碌又充實。",
+      "我這邊正跟無限大較勁，馬上回來報告好消息！",
+      "正在努力讓數字和字母和睦相處，請稍候片刻。",
+      "在尋找人生的解答，順便幫你把結果也找出來！",
+      "想要打破紀錄的 AI，正在努力中，請給它點時間。",
+      "解開這堆代碼就像解開壹包即食麵，馬上就會有好東西出現。",
+      "逗逗電子羊，它快樂得像隻兔子，請再等一下下。",
+    ],
   };
 
   useEffect(() => {

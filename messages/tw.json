@@ -1,0 +1,274 @@
+{
+  "Error": {
+    "description": "<p>很抱歉，我們遇到了壹個錯誤。</p><p>您可以嘗試<retry>重新載入</retry>您正在訪問的頁面。</p>",
+    "title": "出現錯誤！"
+  },
+  "IndexPage": {
+    "intro": "介紹 Flux AI 圖像生成工具",
+    "description": "領先市場的高階文字轉換圖像開放模型，支援 flux.1 pro 與 flux.1 schnell 模型。",
+    "title": "Flux AI 圖像生成工具",
+    "subtitle": "高階文字轉圖像技術",
+    "powered": {
+      "title": "技術支援服務"
+    },
+    "bent": {
+      "first": {
+        "title": "可自訂"
+      }
+    },
+    "examples": {
+      "label": "示範案例",
+      "title": "Flux AI 生成示範 - 高階文字圖像轉換",
+      "subtitle": "探索 Flux AI 的生成示範，透過文字提示創造圖像。體驗尖端的文字轉圖像技術。"
+    },
+    "features": {
+      "title": "產品特色",
+      "action": {
+        "visit": "去生成"
+      },
+      "description": "Flux AI 圖像生成工具是壹個強大的工具，可以根據文字提示生成圖像。它採用最先進的 AI 模型來創造卓越的圖像，適合各種專案需求。",
+      "item1": {
+        "title": "FLUX.1 [pro]",
+        "description": "FLUX.1 的頂級版本，提供卓越的圖像生成性能，擁有頂尖的提示追隨、視覺品質、圖像細節與輸出多樣性。"
+      },
+      "item2": {
+        "title": "FLUX.1 [dev]",
+        "description": "FLUX.1 [dev] 提供與頂級版本相當的品質與提示追隨能力，且比同規格的標準模型更加高效。"
+      },
+      "item3": {
+        "title": "FLUX.1 [schnell]",
+        "description": "專為本地開發及個人使用而設計的超快速圖像生成模型，具有更低的成本效益，快速生成圖像並提供文字提示功能。"
+      },
+      "item4": {
+        "title": "极速生成",
+        "description": "Flux AI 能夠在幾秒鐘內生成高品質圖像，速度遠超 Stable Diffusion 3 和 Midjourney。憑藉其快速的生成能力，Flux AI 確保了高效快速的圖像創造，節省您的寶貴時間。"
+      },
+      "item5": {
+        "title": "可自訂化",
+        "description": "Flux.1 模型生成的圖像比競爭對手更細膩、更有連貫性。結合其可自訂化的功能與易用的介面，Flux AI 圖像生成工具是從文字轉換到驚人圖像的最佳選擇。"
+      },
+      "item6": {
+        "title": "簡易操作",
+        "description": "Flux AI 圖像生成工具比 ComfyUI 更簡單易用，適合初學者及專業人士。輕鬆創造出色的視覺效果，無需複雜操作。"
+      }
+    },
+    "action": {
+      "pricing": "購買積分",
+      "login": "登錄",
+      "dashboard": "去使用",
+      "generate": "去生成",
+      "github": {
+        "sm": "在 Github 上加星",
+        "normal": "Github"
+      }
+    }
+  },
+  "PricingPage": {
+    "title": "選擇方案購買積分",
+    "description": "無隱藏費用",
+    "worth": "積分價值",
+    "label": "價格方案",
+    "action": {
+      "signin": "登錄",
+      "buy": "購買方案"
+    },
+    "contact": {
+      "title": "聯絡我們",
+      "description": "如果您有任何疑問，歡迎隨時與我們聯絡。"
+    },
+    "faq": {
+      "label": "常見問題",
+      "title": "FAQ",
+      "subtitle": "瀏覽我們的 FAQ，快速找到您需要的答案。若需要進壹步協助，請隨時聯絡我們獲得專業支援。",
+      "item1": {
+        "question": "Flux AI 與 Stable Diffusion 3 有什麼不同？",
+        "answer": "Flux AI 相較於 Stable Diffusion 3，提供更快速的生成時間、更優質的圖像與更直觀的用戶介面。Flux.1 模型結合了最新的 AI 研究成果。"
+      },
+      "item2": {
+        "question": "Flux AI 在 GitHub 或 Hugging Face 上可用嗎？",
+        "answer": "是的，Flux AI 是開源的，可以在 GitHub 和 Hugging Face 上找到。"
+      },
+      "item3": {
+        "question": "Flux AI 與其他 AI 圖像生成工具有何區別？",
+        "answer": "Flux AI 結合了速度、品質與易用性。它比 Midjourney 更快，比 ComfyUI 更簡單易用，並且在圖像品質上優於許多競爭對手。"
+      },
+      "item4": {
+        "question": "如何使用 Flux AI？",
+        "answer": "使用 Flux AI 很簡單，只需訪問 fluxaipro.art，輸入您的文字提示，即可在幾秒鐘內看到驚人的圖像產生。"
+      },
+      "item5": {
+        "question": "Flux AI 提供哪些購買方案？",
+        "answer": "我們使用積分制度，您可以選擇適合自己的方案進行購買（只需壹次付款）。"
+      },
+      "item6": {
+        "question": "如何獲得線上支援？",
+        "answer": "如有任何問題，請透過電子郵件 support@douni.one 與我們的技術團隊聯絡。"
+      }
+    },
+    "tip": {
+      "title": "💳 付款提示：如果您在付款過程中有任何問題，歡迎隨時與我們聯絡！😉",
+      "subtitle": "有問題？",
+      "contact": "聯絡我們"
+    }
+  },
+  "Playground": {
+    "title": "Flux AI 圖像產生器",
+    "description": "令人驚嘆的 AI 模型，能夠依據文字提示生成圖像。",
+    "empty": {
+      "title": "生成失敗",
+      "description": "錯誤訊息: {error}",
+      "errorPlaceholder": "未知錯誤"
+    },
+    "form": {
+      "input": "輸入",
+      "result": "結果",
+      "placeholder": "輸入提示以生成圖像...",
+      "model": "模型",
+      "modelTooltip": "選擇壹個模型來生成圖像。",
+      "submit": "生成",
+      "aspectRatio": "解析度",
+      "aspectRatioTooltip": "生成圖像的解析度",
+      "inputImage": "圖像",
+      "inputImageTooltip": "圖像轉圖像模式的輸入圖像。您的輸出縱橫比將與此圖像相符",
+      "inputImagePlaceholder": "上傳輸入圖像"
+    }
+  },
+  "GiftCode": {
+    "title": "禮品碼兌換",
+    "text": "輸入您的禮品碼以兌換積分。",
+    "form": {
+      "placeholder": "輸入您的禮品碼",
+      "aria_label": "禮品碼",
+      "button": "兌換",
+      "required": "此欄位為必填項。",
+      "invalid": "無效的禮品碼。",
+      "success": "成功兌換 {credits} 積分。",
+      "error": "兌換禮品碼失敗。"
+    }
+  },
+  "History": {
+    "title": "生成記錄",
+    "description": "查看您最近的圖像生成記錄。",
+    "empty": {
+      "title": "還沒有歷史記錄",
+      "description": "目前空空如也，快去生成吧～"
+    },
+    "action": {
+      "copy": "複製 Prompt",
+      "generate": "去生成",
+      "copySuccess": "Prompt 已複製至剪貼簿。",
+      "download": "下載圖像",
+      "downloadSuccess": "圖像已下載。",
+      "downloadLoading": "正在下載中..."
+    }
+  },
+  "Billings": {
+    "page": {
+      "title": "應用 – Flux AI 圖像產生器",
+      "description": "查看您的帳單記錄。"
+    },
+    "title": "帳單",
+    "empty": {
+      "title": "未找到",
+      "description": "還沒有帳單記錄哦～"
+    },
+    "table": {
+      "fluxId": "任務ID",
+      "status": "狀態",
+      "amount": "消耗積分",
+      "type": "類型",
+      "createdAt": "創建時間",
+      "total": "總計",
+      "records": "訂單數"
+    }
+  },
+  "Orders": {
+    "title": "充值訂單",
+    "description": "查看您的充值訂單記錄。",
+    "empty": {
+      "title": "訂單為空",
+      "description": "尚未有任何支付記錄。"
+    },
+    "table": {
+      "customer": "客戶",
+      "amount": "金額",
+      "status": "狀態",
+      "channel": "渠道",
+      "createdAt": "創建時間",
+      "total": "總計",
+      "records": "訂單數"
+    },
+    "order": {
+      "all": "全部",
+      "paid": "已支付",
+      "pending": "待處理",
+      "failed": "失敗",
+      "canceled": "已取消"
+    }
+  },
+  "NewsLetter": {
+    "title": "訂閱我們的新聞簡報",
+    "subtitle": "訂閱以獲取最新更新！",
+    "form": {
+      "placeholder": "輸入您的電子郵件地址",
+      "aria_label": "電子郵件",
+      "confirm": "請查看訂閱確認郵件。",
+      "button": "訂閱"
+    }
+  },
+  "LocaleLayout": {
+    "title": "Flux AI 圖像產生器",
+    "description": "革新下一代高階文字轉圖像的開放模型，支援 flux.1 專業版和 flux.1 快速版模型。"
+  },
+  "LocaleSwitcher": {
+    "label": "更改語言",
+    "locale": "{locale, select, zh {🇨🇳 簡體中文} en {🇺🇸 English} fr {🇫🇷 Français} tw {🇨🇳 繁體中文} other {未知}}"
+  },
+  "Manifest": {
+    "name": "Flux AI 圖像產生器"
+  },
+  "Navigation": {
+    "pricing": "定價",
+    "title": "Flux AI 圖像產生器",
+    "blog": "博客",
+    "dashboard": "去使用",
+    "tooltip": {
+      "login": "登錄"
+    }
+  },
+  "NotFoundPage": {
+    "description": "請檢查瀏覽器地址欄或使用導航前往已知頁面。",
+    "title": "頁面未找到"
+  },
+  "AppNavigation": {
+    "Index": "首頁",
+    "Generate": "AI 生圖",
+    "History": "歷史記錄",
+    "GiftCode": "兌換",
+    "ChargeOrder": "充值訂單"
+  },
+  "PageLayout": {
+    "footer": {
+      "title": "Flux AI Image Generator",
+      "term": "使用條款",
+      "privacy": "隱私政策",
+      "contact": "聯絡我們"
+    },
+    "links": {
+      "docs": {
+        "description": "在官方文檔中了解更多關於 next-intl 的資訊。",
+        "href": "https://next-intl-docs.vercel.app/",
+        "title": "文檔"
+      },
+      "source": {
+        "description": "在 GitHub 上瀏覽此範例的源代碼。",
+        "href": "https://github.com/amannn/next-intl/tree/main/examples/example-app-router",
+        "title": "源代碼"
+      }
+    }
+  },
+  "BlogPage": {
+    "title": "博客",
+    "description": "我們的最新新聞和更新"
+  }
+}
