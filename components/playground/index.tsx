@@ -4,6 +4,7 @@ import React, { useEffect, useMemo, useState } from "react";
 
 import { useAuth } from "@clerk/nextjs";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { debounce } from "lodash-es";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 
@@ -21,6 +22,7 @@ import {
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
+import { Locale } from "@/config";
 import { Credits, model, ModelName, Ratio } from "@/config/constants";
 import { FluxSelectDto } from "@/db/type";
 import { cn, createRatio } from "@/lib/utils";
@@ -30,7 +32,6 @@ import { Icons } from "../shared/icons";
 import Upload from "../upload";
 import ComfortingMessages from "./comforting";
 import Loading from "./loading";
-import { Locale } from "@/config";
 
 const aspectRatios = [Ratio.r1, Ratio.r2, Ratio.r3, Ratio.r4, Ratio.r5];
 
@@ -144,6 +145,8 @@ export default function Playground({ locale }: { locale: string }) {
       setLoading(false);
     }
   };
+  const debounceHandleSubmit = debounce(handleSubmit, 800);
+
   const generateLoading = useMemo(() => {
     return (
       queryTask.isPending ||
@@ -217,9 +220,7 @@ export default function Playground({ locale }: { locale: string }) {
                       <div className="flex size-full flex-col items-center justify-center">
                         <Loading />
                         <div className="text-content-light mt-3 px-4 text-center text-sm">
-                          <ComfortingMessages
-                            language={locale as Locale}
-                          />
+                          <ComfortingMessages language={locale as Locale} />
                         </div>
                       </div>
                     ) : fluxData?.id &&
@@ -279,7 +280,7 @@ export default function Playground({ locale }: { locale: string }) {
                     loading ||
                     (generateLoading && !!fluxId)
                   }
-                  onClick={handleSubmit}
+                  onClick={debounceHandleSubmit}
                 >
                   {loading ? (
                     <>
