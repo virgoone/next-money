@@ -1,0 +1,274 @@
+{
+  "Error": {
+    "description": "<p>Infelizmente, encontramos um erro.</p><p>Você pode tentar <retry>recarregar a página</retry> que estava visitando.</p>",
+    "title": "Algo deu errado!"
+  },
+  "IndexPage": {
+    "intro": "Apresentando o Gerador de Imagens Flux AI",
+    "description": "Revolutionando o modelo avançado de texto para imagem de próxima geração, suporte para os modelos flux.1 pro e flux.1 schnell.",
+    "title": "Gerador de Imagens Flux AI",
+    "subtitle": "Texto para Imagem Avançado",
+    "examples": {
+      "label": "Exemplo",
+      "title": "Exemplos de Imagens Flux AI",
+      "subtitle": "Gerar imagens a partir de prompts de texto."
+    },
+    "features": {
+      "title": "Recursos",
+      "description": "O Gerador de Imagens Flux AI é uma ferramenta poderosa que permite gerar imagens a partir de prompts de texto. Ele usa modelos avançados de IA para criar imagens impressionantes que são perfeitas para qualquer projeto.",
+      "action": {
+        "visit": "Gerar"
+      },
+      "item1": {
+        "title": "FLUX.1 [pro]",
+        "description": "O melhor do FLUX.1, oferecendo geração de imagens de desempenho de última geração com acompanhamento de prompts de primeira linha, qualidade visual, detalhes da imagem e diversidade de saída."
+      },
+      "item2": {
+        "title": "FLUX.1 [dev]",
+        "description": "Destilado diretamente do FLUX.1 [pro], o FLUX.1 [dev] obtém qualidade semelhante e capacidades de aderência a prompts, sendo mais eficiente do que um modelo padrão do mesmo tamanho."
+      },
+      "item3": {
+        "title": "FLUX.1 [schnell]",
+        "description": "O modelo de geração de imagens mais rápido, especialmente projetado para desenvolvimento local e uso pessoal."
+      },
+      "item4": {
+        "title": "Rápido como um raio",
+        "description": "Flux AI gera imagens de alta qualidade em segundos, significativamente mais rápido que Stable Diffusion 3 e Midjourney. Com suas capacidades de geração de imagens ultrarrápidas, Flux AI garante resultados rápidos e eficientes, economizando tempo e recursos valiosos."
+      },
+      "item5": {
+        "title": "Personalizável",
+        "description": "O modelo avançado Flux.1 produz imagens mais detalhadas e coerentes do que os concorrentes. Com seus recursos personalizáveis e interface de usuário amigável, o Gerador de Imagens Flux AI é a ferramenta definitiva para gerar imagens deslumbrantes a partir de prompts de texto. Seja você um iniciante ou um profissional, Flux AI tem você coberto. Experimente o poder da IA e revolucione seu processo de geração de imagens hoje!"
+      },
+      "item6": {
+        "title": "Interface de Usuário Amigável",
+        "description": "Mais fácil de usar do que ComfyUI, perfeito para iniciantes e profissionais. O Gerador de Imagens Flux AI é a ferramenta definitiva para gerar imagens deslumbrantes a partir de prompts de texto. Com sua interface de usuário amigável e poderosos modelos de IA, Flux AI facilita a criação de incríveis visuais para iniciantes e profissionais."
+      }
+    },
+    "powered": {
+      "title": "Desenvolvido por"
+    },
+    "bent": {
+      "first": {
+        "title": "Personalizável"
+      }
+    },
+    "action": {
+      "pricing": "Créditos de Bug",
+      "login": "Login",
+      "dashboard": "Painel de Controle",
+      "generate": "Gerar",
+      "github": {
+        "sm": "Estrela no",
+        "normal": "Github"
+      }
+    }
+  },
+  "PricingPage": {
+    "title": "Escolha um plano para comprar créditos",
+    "description": "Sem recorrência",
+    "worth": "Crédito",
+    "label": "Preços",
+    "action": {
+      "signin": "Entrar",
+      "buy": "Comprar Plano"
+    },
+    "contact": {
+      "title": "Contate-nos",
+      "description": "Se tiver alguma dúvida, sinta-se à vontade para entrar em contato conosco."
+    },
+    "faq": {
+      "label": "FAQ",
+      "title": "Perguntas Frequentes",
+      "subtitle": "Explore nosso FAQ abrangente para encontrar respostas rápidas para perguntas comuns. Se precisar de mais assistência, não hesite em entrar em contato conosco para ajuda personalizada.",
+      "item1": {
+        "question": "Como o Flux AI se compara ao Stable Diffusion 3?",
+        "answer": "Flux AI oferece tempos de geração mais rápidos, maior qualidade de imagem e uma interface de usuário mais amigável em comparação com o Stable Diffusion 3. O modelo Flux.1 incorpora os últimos avanços na pesquisa de IA."
+      },
+      "item2": {
+        "question": "O Flux AI está disponível no GitHub ou Hugging Face?",
+        "answer": "Sim, Flux AI é de código aberto e disponível tanto no GitHub quanto no Hugging Face."
+      },
+      "item3": {
+        "question": "O que faz o Flux AI diferente de outros geradores de imagens por IA?",
+        "answer": "Flux AI combina velocidade, qualidade e facilidade de uso. É mais rápido que Midjourney, mais amigável que ComfyUI, e produz imagens de maior qualidade do que muitos concorrentes."
+      },
+      "item4": {
+        "question": "Como usar o Flux AI?",
+        "answer": "Para usar o Flux AI, simplesmente visite fluxaipro.art, insira seu prompt e testemunhe a criação de visuais deslumbrantes em questão de segundos."
+      },
+      "item5": {
+        "question": "Quais planos de preços o Flux AI oferece?",
+        "answer": "Usamos pontos para usar nossos serviços, e você pode clicar na carta de preço para comprar pontos (apenas um pagamento é necessário)."
+      },
+      "item6": {
+        "question": "Como posso obter suporte online?",
+        "answer": "Você pode entrar em contato conosco em support@douni.one."
+      }
+    },
+    "tip": {
+      "title": "💳 Dica de Pagamento: Se encontrar algum problema durante o processo de pagamento, sinta-se à vontade para entrar em contato conosco! 😉",
+      "subtitle": "Perguntas?",
+      "contact": "entre em contato conosco"
+    }
+  },
+  "Playground": {
+    "title": "Gerador de Imagens Flux AI",
+    "description": "Modelos de IA incríveis para gerar imagens a partir de prompts de texto.",
+    "empty": {
+      "title": "Erro do Gerador",
+      "description": "Informações do Erro: {error}",
+      "errorPlaceholder": "Ocorreu um erro"
+    },
+    "form": {
+      "input": "Entrada",
+      "result": "Resultado",
+      "placeholder": "Digite o prompt para gerar a imagem...",
+      "model": "Modelo",
+      "modelTooltip": "Escolha um modelo para gerar imagens.",
+      "submit": "Gerar",
+      "aspectRatio": "Proporção de Aspecto",
+      "aspectRatioTooltip": "Proporção de aspecto para a imagem gerada.",
+      "inputImage": "Imagem",
+      "inputImageTooltip": "Imagem de entrada para o modo de imagem para imagem. A proporção de aspecto da sua saída corresponderá a esta imagem",
+      "inputImagePlaceholder": "Carregar imagem de entrada"
+    }
+  },
+  "GiftCode": {
+    "title": "Troca de Código de Presente",
+    "text": "Insira seu código de presente para resgatar créditos.",
+    "form": {
+      "placeholder": "Digite seu código de presente",
+      "aria_label": "Código de presente",
+      "button": "Resgatar",
+      "required": "Este campo é obrigatório.",
+      "invalid": "Código de presente inválido.",
+      "success": "Créditos de {credits} resgatados com sucesso.",
+      "error": "Falha ao resgatar o código de presente."
+    }
+  },
+  "History": {
+    "title": "Histórico de Geração de Imagens",
+    "description": "Visualize seu histórico recente de geração de imagens.",
+    "empty": {
+      "title": "Ainda sem histórico.",
+      "description": "Gere uma imagem para vê-la aqui."
+    },
+    "action": {
+      "copy": "Copiar prompt",
+      "generate": "Gerar",
+      "copySuccess": "Prompt copiado para a área de transferência.",
+      "download": "Baixar Imagem",
+      "downloadSuccess": "Imagem baixada.",
+      "downloadLoading": "Baixando..."
+    }
+  },
+  "Billings": {
+    "page": {
+      "title": "App – Gerador de Imagens Flux AI",
+      "description": "Visualize Suas Previsões Recentes"
+    },
+    "title": "Previsões Recentes",
+    "empty": {
+      "title": "Recente Vazio",
+      "description": "Ainda não há registro."
+    },
+    "table": {
+      "fluxId": "ID da Tarefa",
+      "status": "Status",
+      "amount": "Crédito",
+      "type": "Tipo",
+      "createdAt": "Criado Em",
+      "total": "Total",
+      "records": "Pedidos"
+    }
+  },
+  "Orders": {
+    "title": "Pedidos",
+    "description": "Visualize seu histórico de faturamento.",
+    "empty": {
+      "title": "Pedidos Vazios",
+      "description": "Ainda não há registro de pagamento."
+    },
+    "table": {
+      "customer": "Cliente",
+      "amount": "Preço",
+      "status": "Status",
+      "channel": "Canal",
+      "createdAt": "Criado Em",
+      "total": "Total",
+      "records": "Pedidos"
+    },
+    "order": {
+      "all": "Todos",
+      "paid": "Pago",
+      "pending": "Pendente",
+      "failed": "Falhou",
+      "canceled": "Cancelado"
+    }
+  },
+  "NewsLetter": {
+    "title": "Junte-se ao nosso Boletim",
+    "subtitle": "Inscreva-se para receber atualizações!",
+    "form": {
+      "placeholder": "Digite seu endereço de e-mail",
+      "aria_label": "E-mail",
+      "confirm": "Por favor, verifique o e-mail de confirmação de inscrição.",
+      "button": "Inscrever-se"
+    }
+  },
+  "LocaleLayout": {
+    "title": "Gerador de Imagens Flux AI",
+    "description": "Revolutionando o modelo avançado de texto para imagem de próxima geração, suporte para os modelos flux.1 pro e flux.1 schnell."
+  },
+  "LocaleSwitcher": {
+    "label": "Alterar idioma",
+    "locale": "{locale, select, zh {🇨🇳 简体中文} tw { 繁體中文} en {🇺🇸 English} fr {🇫🇷 Français} ja {🇯🇵 日本語} ko {🇰🇷 한국어} es {🇪🇸 Español} de {🇩🇪 Deutsch} pt {🇧🇷 Português} other {Unknown}}"
+  },
+  "Manifest": {
+    "name": "Gerador de Imagens Flux AI"
+  },
+  "AppNavigation": {
+    "Index": "Início",
+    "Generate": "Gerar",
+    "History": "Histórico",
+    "GiftCode": "Código de Presente",
+    "ChargeOrder": "Pedido de Recarga"
+  },
+  "Navigation": {
+    "pricing": "Preços",
+    "title": "Gerador de Imagens Flux AI",
+    "blog": "Blog",
+    "dashboard": "Painel de Controle",
+    "tooltip": {
+      "login": "Login"
+    }
+  },
+  "NotFoundPage": {
+    "description": "Por favor, verifique a barra de endereço do navegador ou use a navegação para ir para uma página conhecida.",
+    "title": "Página não encontrada"
+  },
+  "PageLayout": {
+    "footer": {
+      "title": "Gerador de Imagens Flux AI",
+      "term": "Termos",
+      "privacy": "Privacidade",
+      "contact": "Contato"
+    },
+    "links": {
+      "docs": {
+        "description": "Aprenda mais sobre next-intl na documentação oficial.",
+        "href": "https://next-intl-docs.vercel.app/",
+        "title": "Documentos"
+      },
+      "source": {
+        "description": "Navegue o código-fonte deste exemplo no GitHub.",
+        "href": "https://github.com/amannn/next-intl/tree/main/examples/example-app-router",
+        "title": "Código-fonte"
+      }
+    }
+  },
+  "BlogPage": {
+    "title": "Blog",
+    "description": "As últimas notícias e atualizações de Nossa"
+  }
+}

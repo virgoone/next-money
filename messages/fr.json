@@ -222,7 +222,7 @@
   },
   "LocaleSwitcher": {
     "label": "Changer de langue",
-    "locale": "{locale, select, zh {🇨🇳 简体中文} tw { 繁體中文} en {🇺🇸 English} fr {🇫🇷 Français} ja {🇯🇵 日本語} ko {🇰🇷 한국어} other {Inconnu}}"
+    "locale": "{locale, select, zh {🇨🇳 简体中文} tw { 繁體中文} en {🇺🇸 English} fr {🇫🇷 Français} ja {🇯🇵 日本語} ko {🇰🇷 한국어} es {🇪🇸 Español} de {🇩🇪 Deutsch} pt {🇧🇷 Português} other {Inconnu}}"
   },
   "Manifest": {
     "name": "Flux AI Générateur d'Images"

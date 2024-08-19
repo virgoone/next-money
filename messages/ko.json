@@ -222,7 +222,7 @@
   },
   "LocaleSwitcher": {
     "label": "언어 변경",
-    "locale": "{locale, select, zh {🇨🇳 简体中文} tw { 繁體中文} en {🇺🇸 English} fr {🇫🇷 Français} ja {🇯🇵 日本語} ko {🇰🇷 한국어} other {알 수 없음}}"
+    "locale": "{locale, select, zh {🇨🇳 简体中文} tw { 繁體中文} en {🇺🇸 English} fr {🇫🇷 Français} ja {🇯🇵 日本語} ko {🇰🇷 한국어} es {🇪🇸 Español} de {🇩🇪 Deutsch} pt {🇧🇷 Português} other {알 수 없음}}"
   },
   "Manifest": {
     "name": "플럭스 AI 이미지 생성기"

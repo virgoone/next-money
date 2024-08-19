@@ -43,6 +43,10 @@ export async function generateMetadata({
         tw: "/tw",
         ja: "/ja",
         fr: "/fr",
+        es: "/es",
+        de: "/de",
+        ko: "/ko",
+        pt: "/pt",
       },
     },
     openGraph: {
