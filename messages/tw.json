@@ -222,7 +222,7 @@
   },
   "LocaleSwitcher": {
     "label": "更改語言",
-    "locale": "{locale, select, zh {🇨🇳 簡體中文} en {🇺🇸 English} fr {🇫🇷 Français} tw {🇨🇳 繁體中文} other {未知}}"
+    "locale": "{locale, select, zh {🇨🇳 简体中文} tw { 繁體中文} en {🇺🇸 English} fr {🇫🇷 Français} ja {🇯🇵 日本語}  other {未知}}"
   },
   "Manifest": {
     "name": "Flux AI 圖像產生器"

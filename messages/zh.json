@@ -7,7 +7,7 @@
     "intro": "介绍 Flux AI 图像生成器",
     "description": "革新下一代高级文本到图像的开放模型，支持 flux.1 pro和 flux.1 schnell模型。",
     "title": "Flux AI 图像生成器",
-    "subtitle": "高级文本到图像转换",
+    "subtitle": "高级文本图像生成",
     "powered": {
       "title": "技术支持"
     },
@@ -222,7 +222,7 @@
   },
   "LocaleSwitcher": {
     "label": "更改语言",
-    "locale": "{locale, select, zh {🇨🇳 简体中文} en {🇺🇸 English} fr {🇫🇷 Français} tw {🇨🇳 繁體中文} other {未知}}"
+    "locale": "{locale, select, zh {🇨🇳 简体中文} tw { 繁體中文} en {🇺🇸 English} fr {🇫🇷 Français} ja {🇯🇵 日本語} other {未知}}"
   },
   "Manifest": {
     "name": "Flux AI 图像生成器"

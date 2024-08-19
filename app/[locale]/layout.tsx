@@ -2,10 +2,8 @@ import "@/styles/globals.css";
 import "../clerk.css";
 import "../prism.css";
 
-import { fontHeading, fontSans, fontUrban } from "@/assets/fonts";
 import { enUS, zhCN } from "@clerk/localizations";
 import { ClerkProvider } from "@clerk/nextjs";
-import { locales } from "@/config";
 import { NextIntlClientProvider } from "next-intl";
 import {
   getMessages,
@@ -14,11 +12,13 @@ import {
 } from "next-intl/server";
 import { ThemeProvider } from "next-themes";
 
-import { siteConfig } from "@/config/site";
-import { cn, constructMetadata } from "@/lib/utils";
-import { Toaster } from "@/components/ui/toaster";
+import { fontHeading, fontSans, fontUrban } from "@/assets/fonts";
 import { Analytics } from "@/components/analytics";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
+import { Toaster } from "@/components/ui/toaster";
+import { locales } from "@/config";
+import { siteConfig } from "@/config/site";
+import { cn, constructMetadata } from "@/lib/utils";
 
 import { QueryProvider } from "../QueryProvider";
 
@@ -36,10 +36,13 @@ export async function generateMetadata({
     title: t("title"),
     metadataBase: siteConfig.url,
     alternates: {
-      canonical: "/",
+      canonical: `/${locale === "en" ? "" : locale}`,
       languages: {
-        en: "/en",
+        "x-default": "/",
         zh: "/zh",
+        tw: "/tw",
+        ja: "/ja",
+        fr: "/fr",
       },
     },
     openGraph: {

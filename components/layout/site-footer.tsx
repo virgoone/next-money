@@ -20,29 +20,32 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
           <Icons.logo className="h-6 w-6" />
           <span className="font-medium">Fluxaipro.Art Inc.</span>
         </div>
-        <div className="flex items-center gap-4">
-          <Link
-            href="/terms-of-use"
-            className="underline-offset-4 hover:underline"
-            prefetch={false}
-          >
-            {t("footer.term")}
-          </Link>
-          <Link
-            href="/privacy-policy"
-            className="underline-offset-4 hover:underline"
-            prefetch={false}
-          >
-            {t("footer.privacy")}
-          </Link>
-          <Link
-            href="mailto:support@douni.one"
-            className="underline-offset-4 hover:underline"
-            prefetch={false}
-          >
-            {t("footer.contact")}
-          </Link>
-          <ModeToggle />
+        <div className="flex flex-col items-center gap-4 md:flex-row">
+          <div className="flex-1 space-x-3 flex items-center">
+            <Link
+              href="/terms-of-use"
+              className="underline-offset-4 hover:underline"
+              prefetch={false}
+            >
+              {t("footer.term")}
+            </Link>
+            <Link
+              href="/privacy-policy"
+              className="underline-offset-4 hover:underline"
+              prefetch={false}
+            >
+              {t("footer.privacy")}
+            </Link>
+            <Link
+              href="mailto:support@douni.one"
+              className="underline-offset-4 hover:underline"
+              prefetch={false}
+            >
+              {t("footer.contact")}
+            </Link>
+            <ModeToggle />
+          </div>
+
           <p className="text-muted-foreground">
             &copy; 2024 fluxaipro.Art. All rights reserved.
           </p>

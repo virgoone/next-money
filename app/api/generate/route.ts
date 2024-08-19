@@ -50,6 +50,9 @@ export async function POST(req: NextRequest, { params }: Params) {
   if (!userId || !user) {
     return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
   }
+  if (env.APP_ENV !== "production" && !user.publicMetadata.siteOwner) {
+    return NextResponse.json({ error: "no permission" }, { status: 403 });
+  }
 
   const { success } = await ratelimit.limit(
     getKey(user.id) + `_${req.ip ?? ""}`,
@@ -83,7 +86,7 @@ export async function POST(req: NextRequest, { params }: Params) {
     headers.append("Content-Type", "application/json");
     headers.append("API-TOKEN", env.FLUX_HEADER_KEY);
 
-    const res = await fetch("https://api.noobdriver.com/flux/create", {
+    const res = await fetch(`${env.FLUX_CREATE_URL}/flux/create`, {
       method: "POST",
       headers,
       body: JSON.stringify({

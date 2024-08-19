@@ -1,0 +1,274 @@
+{
+  "Error": {
+    "description": "<p>申し訳ありませんが、エラーが発生しました。</p><p>閲覧していたページを<retry>再読み込み</retry>してみてください。</p>",
+    "title": "問題が発生しました"
+  },
+  "IndexPage": {
+    "intro": "Flux AI画像生成ツールのご紹介",
+    "description": "次世代の高度なテキストから画像への変換を革新する先進的なオープンモデルです。flux.1 proとflux.1 schnellモデルをサポートしています。",
+    "title": "Flux AI画像生成ツール",
+    "subtitle": "高度なテキストから画像への変換",
+    "examples": {
+      "label": "サンプル",
+      "title": "Flux AI画像の例",
+      "subtitle": "テキストプロンプトから画像を生成します。"
+    },
+    "features": {
+      "title": "特徴",
+      "description": "Flux AI画像生成ツールは、テキストプロンプトから画像を生成する強力なツールです。最先端のAIモデルを使用して、あらゆるプロジェクトに最適な素晴らしい画像を作成します。",
+      "action": {
+        "visit": "生成する"
+      },
+      "item1": {
+        "title": "FLUX.1 [pro]",
+        "description": "FLUX.1の最高峰モデルで、最先端のパフォーマンスを提供します。プロンプトの忠実な再現、視覚的品質、画像の細部、出力の多様性において卓越しています。"
+      },
+      "item2": {
+        "title": "FLUX.1 [dev]",
+        "description": "FLUX.1 [pro]から直接蒸留されたモデルで、同等の品質とプロンプト遵守能力を維持しつつ、同サイズの標準モデルよりも効率的です。"
+      },
+      "item3": {
+        "title": "FLUX.1 [schnell]",
+        "description": "ローカル開発や個人利用に最適化された、最速の画像生成モデルです。"
+      },
+      "item4": {
+        "title": "超高速",
+        "description": "Flux AIは、Stable Diffusion 3やMidjourneyよりも大幅に高速で、数秒で高品質な画像を生成します。その圧倒的な速さで、貴重な時間とリソースを節約します。"
+      },
+      "item5": {
+        "title": "カスタマイズ可能",
+        "description": "高度なFlux.1モデルは、競合他社よりも詳細で一貫性のある画像を生成します。カスタマイズ可能な機能とユーザーフレンドリーなインターフェースにより、Flux AI画像生成ツールはテキストプロンプトから驚くべき画像を生成する究極のツールです。初心者からプロフェッショナルまで、Flux AIがサポートします。今すぐAIの力を体験し、画像生成プロセスを革新しましょう！"
+      },
+      "item6": {
+        "title": "ユーザーフレンドリーなインターフェース",
+        "description": "ComfyUIよりも使いやすく、初心者からプロまで最適です。Flux AI画像生成ツールは、テキストプロンプトから驚くべき画像を生成する究極のツールです。ユーザーフレンドリーなインターフェースと強力なAIモデルにより、初心者もプロフェッショナルも簡単に素晴らしいビジュアルを作成できます。"
+      }
+    },
+    "powered": {
+      "title": "提供元"
+    },
+    "bent": {
+      "first": {
+        "title": "カスタマイズ可能"
+      }
+    },
+    "action": {
+      "pricing": "クレジット購入",
+      "login": "ログイン",
+      "dashboard": "ダッシュボード",
+      "generate": "生成",
+      "github": {
+        "sm": "スターを付ける",
+        "normal": "GitHub"
+      }
+    }
+  },
+  "PricingPage": {
+    "title": "クレジット購入プランを選択",
+    "description": "定期購入なし",
+    "worth": "クレジット",
+    "label": "価格",
+    "action": {
+      "signin": "サインイン",
+      "buy": "プラン購入"
+    },
+    "contact": {
+      "title": "お問い合わせ",
+      "description": "ご質問がある場合は、お気軽にお問い合わせください。"
+    },
+    "faq": {
+      "label": "よくある質問",
+      "title": "よくある質問",
+      "subtitle": "包括的なFAQをご覧いただき、一般的な質問への迅速な回答をご確認ください。さらなるサポートが必要な場合は、個別のサポートをご利用いただけます。",
+      "item1": {
+        "question": "Flux AIはStable Diffusion 3とどう違いますか？",
+        "answer": "Flux AIは、Stable Diffusion 3と比較して、生成時間が短く、画像品質が高く、よりユーザーフレンドリーなインターフェースを提供します。Flux.1モデルは、AIリサーチの最新の進歩を取り入れています。"
+      },
+      "item2": {
+        "question": "Flux AIはGitHubやHugging Faceで利用できますか？",
+        "answer": "はい、Flux AIはオープンソースで、GitHubとHugging Faceの両方で利用可能です。"
+      },
+      "item3": {
+        "question": "Flux AIが他のAI画像生成ツールと異なる点は何ですか？",
+        "answer": "Flux AIは、速度、品質、使いやすさを兼ね備えています。Midjourneyよりも高速で、ComfyUIよりも使いやすく、多くの競合他社よりも高品質な画像を生成します。"
+      },
+      "item4": {
+        "question": "Flux AIの使い方を教えてください。",
+        "answer": "Flux AIを使用するには、fluxaipro.artにアクセスし、プロンプトを入力するだけで、数秒で驚くべきビジュアルが作成されます。"
+      },
+      "item5": {
+        "question": "Flux AIはどのような価格プランを提供していますか？",
+        "answer": "サービス利用にはポイントを使用し、価格カードをクリックしてポイントを購入できます（1回の支払いのみ必要です）。"
+      },
+      "item6": {
+        "question": "オンラインサポートを受けるにはどうすればよいですか？",
+        "answer": "support@douni.oneまでお問い合わせください。"
+      }
+    },
+    "tip": {
+      "title": "💳 支払いに関するヒント：支払い処理中に問題が発生した場合は、お気軽にお問い合わせください！😉",
+      "subtitle": "ご質問は？",
+      "contact": "お問い合わせ"
+    }
+  },
+  "Playground": {
+    "title": "Flux AI画像生成ツール",
+    "description": "テキストプロンプトから画像を生成する素晴らしいAIモデル。",
+    "empty": {
+      "title": "生成エラー",
+      "description": "エラー情報: {error}",
+      "errorPlaceholder": "エラーが発生しました"
+    },
+    "form": {
+      "input": "入力",
+      "result": "結果",
+      "placeholder": "画像を生成するプロンプトを入力...",
+      "model": "モデル",
+      "modelTooltip": "画像生成に使用するモデルを選択してください。",
+      "submit": "生成",
+      "aspectRatio": "アスペクト比",
+      "aspectRatioTooltip": "生成される画像のアスペクト比。",
+      "inputImage": "画像",
+      "inputImageTooltip": "画像から画像へのモード用の入力画像。出力のアスペクト比はこの画像に合わせられます。",
+      "inputImagePlaceholder": "入力画像をアップロード"
+    }
+  },
+  "GiftCode": {
+    "title": "ギフトコード交換",
+    "text": "ギフトコードを入力してクレジットを獲得してください。",
+    "form": {
+      "placeholder": "ギフトコードを入力",
+      "aria_label": "ギフトコード",
+      "button": "交換",
+      "required": "このフィールドは必須です。",
+      "invalid": "無効なギフトコードです。",
+      "success": "{credits}クレジットの交換に成功しました。",
+      "error": "ギフトコードの交換に失敗しました。"
+    }
+  },
+  "History": {
+    "title": "画像生成履歴",
+    "description": "最近の画像生成履歴を表示します。",
+    "empty": {
+      "title": "まだ履歴がありません。",
+      "description": "画像を生成するとここに表示されます。"
+    },
+    "action": {
+      "copy": "プロンプトをコピー",
+      "generate": "生成",
+      "copySuccess": "プロンプトをクリップボードにコピーしました。",
+      "download": "画像をダウンロード",
+      "downloadSuccess": "画像をダウンロードしました。",
+      "downloadLoading": "ダウンロード中..."
+    }
+  },
+  "Billings": {
+    "page": {
+      "title": "アプリ - Flux AI画像生成ツール",
+      "description": "最近の予測を表示"
+    },
+    "title": "最近の予測",
+    "empty": {
+      "title": "記録なし",
+      "description": "まだ記録がありません。"
+    },
+    "table": {
+      "fluxId": "タスクID",
+      "status": "ステータス",
+      "amount": "クレジット",
+      "type": "タイプ",
+      "createdAt": "作成日時",
+      "total": "合計",
+      "records": "注文"
+    }
+  },
+  "Orders": {
+    "title": "注文",
+    "description": "請求履歴を表示します。",
+    "empty": {
+      "title": "注文なし",
+      "description": "まだ支払い記録がありません。"
+    },
+    "table": {
+      "customer": "顧客",
+      "amount": "価格",
+      "status": "ステータス",
+      "channel": "チャンネル",
+      "createdAt": "作成日時",
+      "total": "合計",
+      "records": "注文"
+    },
+    "order": {
+      "all": "全て",
+      "paid": "支払い済み",
+      "pending": "保留中",
+      "failed": "失敗",
+      "canceled": "キャンセル"
+    }
+  },
+  "NewsLetter": {
+    "title": "ニュースレターに登録",
+    "subtitle": "最新情報を受け取るために登録してください！",
+    "form": {
+      "placeholder": "メールアドレスを入力",
+      "aria_label": "メール",
+      "confirm": "購読確認メールをご確認ください。",
+      "button": "購読"
+    }
+  },
+  "LocaleLayout": {
+    "title": "Flux AI画像生成ツール",
+    "description": "次世代の高度なテキストから画像への変換を革新する先進的なオープンモデルです。flux.1 proとflux.1 schnellモデルをサポートしています。"
+  },
+  "LocaleSwitcher": {
+    "label": "言語を変更",
+    "locale": "{locale, select, zh {🇨🇳 简体中文} tw {繁體中文} en {🇺🇸 英語} fr {🇫🇷 フランス語} ja {🇯🇵 日本語} other {不明}}"
+  },
+  "Manifest": {
+    "name": "Flux AI画像生成ツール"
+  },
+  "AppNavigation": {
+    "Index": "ホーム",
+    "Generate": "生成",
+    "History": "履歴",
+    "GiftCode": "ギフトコード",
+    "ChargeOrder": "チャージオーダー"
+  },
+  "Navigation": {
+    "pricing": "価格",
+    "title": "Flux AI画像生成ツール",
+    "blog": "ブログ",
+    "dashboard": "ダッシュボード",
+    "tooltip": {
+      "login": "ログイン"
+    }
+  },
+  "NotFoundPage": {
+    "description": "ブラウザのアドレスバーを再確認するか、ナビゲーションを使用して既知のページに移動してください。",
+    "title": "ページが見つかりません"
+  },
+  "PageLayout": {
+    "footer": {
+      "title": "Flux AI画像生成ツール",
+      "term": "利用規約",
+      "privacy": "プライバシーポリシー",
+      "contact": "お問い合わせ"
+    },
+    "links": {
+      "docs": {
+        "description": "公式ドキュメントでnext-intlについて詳しく学びましょう。",
+        "href": "https://next-intl-docs.vercel.app/",
+        "title": "ドキュメント"
+      },
+      "source": {
+        "description": "GitHubでこの例のソースコードを閲覧できます。",
+        "href": "https://github.com/amannn/next-intl/tree/main/examples/example-app-router",
+        "title": "ソースコード"
+      }
+    }
+  },
+  "BlogPage": {
+    "title": "ブログ",
+    "description": "当社からの最新ニュースとアップデート"
+  }
+}

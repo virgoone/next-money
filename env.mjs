@@ -30,6 +30,10 @@ export const env = createEnv({
     LOG_SNAG_TOKEN: z.string().min(1),
     TASK_HEADER_KEY: z.string().min(1),
     FLUX_HEADER_KEY: z.string().min(1),
+    FLUX_CREATE_URL: z.string().min(1),
+    APP_ENV: z
+      .enum(["development", "production", "staging"])
+      .default("development"),
   },
   client: {
     NEXT_PUBLIC_SITE_URL: z.string().min(1),
@@ -82,5 +86,7 @@ export const env = createEnv({
       process.env.NEXT_PUBLIC_STRIPE_BUSINESS_YEARLY_PLAN_ID,
     TASK_HEADER_KEY: process.env.TASK_HEADER_KEY,
     FLUX_HEADER_KEY: process.env.FLUX_HEADER_KEY,
+    FLUX_CREATE_URL: process.env.FLUX_CREATE_URL,
+    APP_ENV: process.env.APP_ENV,
   },
 });

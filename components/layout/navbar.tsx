@@ -13,7 +13,6 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { dashboardConfig } from "@/config/dashboard";
 import { docsConfig } from "@/config/docs";
 import { marketingConfig } from "@/config/marketing";
-import { siteConfig } from "@/config/site";
 import { useScroll } from "@/hooks/use-scroll";
 import { cn } from "@/lib/utils";
 
@@ -29,7 +28,7 @@ export function NavbarLogo(props: { size?: "sm" | "md" | "lg" | "xl" }) {
   const { size = "xl" } = props;
   return (
     <Link href="/" className="flex items-center space-x-2">
-      <Icons.logo className="h-6 w-6 hidden md:block" />
+      <Icons.logo className="hidden h-6 w-6 md:block" />
       <span className={cn("font-urban font-bold", `text-xs md:text-${size}`)}>
         {t("title")}
       </span>
@@ -60,7 +59,7 @@ export function NavBar({ scroll = false }: NavBarProps) {
 
   return (
     <header
-      className={`sticky top-0 z-40 flex w-full justify-center bg-background/60 backdrop-blur-xl transition-all ${
+      className={`sticky top-0 z-40 pr-9 flex w-full justify-center bg-background/60 backdrop-blur-xl transition-all md:pr-0 ${
         scroll ? (scrolled ? "border-b" : "bg-transparent") : "border-b"
       }`}
     >
