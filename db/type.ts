@@ -32,6 +32,12 @@ export enum FluxTaskStatus {
   Canceled = "canceled",
 }
 
+export type UserCreditDto = Prisma.UserCreditGetPayload<any>;
+
+export type UserCreditSchema = Prisma.UserCreditCreateInput;
+
+export type UserCreditSelectDto = Omit<UserCreditDto, "id"> & { id: string };
+
 export type ChargeProductDto = Prisma.ChargeProductGetPayload<any>;
 
 export type ChargeProductSchema = Prisma.ChargeProductCreateInput;

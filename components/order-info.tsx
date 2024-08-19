@@ -131,6 +131,9 @@ export function OrderInfo() {
                         {t("table.amount")}
                       </TableHead>
                       <TableHead className="hidden md:table-cell">
+                        {t("table.credit")}
+                      </TableHead>
+                      <TableHead className="hidden md:table-cell">
                         {t("table.channel")}
                       </TableHead>
                       <TableHead className="hidden md:table-cell">
@@ -156,6 +159,9 @@ export function OrderInfo() {
                           </Badge>
                         </TableCell>
                         <TableCell>{formatPrice(item.amount)}</TableCell>
+                        <TableCell className="hidden md:table-cell">
+                          +{item.credit}
+                        </TableCell>
                         <TableCell className="hidden md:table-cell">
                           {item.channel}
                         </TableCell>

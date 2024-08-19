@@ -78,7 +78,7 @@ export async function POST(req: NextRequest, { params }: Params) {
     const needCredit = Credits[model];
     if (!account.credit || account.credit < needCredit) {
       return NextResponse.json(
-        { error: "Insufficient credit" },
+        { error: "Insufficient credit", code: 1000402 },
         { status: 400 },
       );
     }

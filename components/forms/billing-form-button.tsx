@@ -8,6 +8,8 @@ import { generateUserStripe } from "@/actions/generate-user-stripe";
 import { Icons } from "@/components/shared/icons";
 import { Button } from "@/components/ui/button";
 import type { ChargeProductSelectDto } from "@/db/type";
+import { url } from "@/lib";
+import { usePathname } from "@/lib/navigation";
 import { SubscriptionPlan, UserSubscriptionPlan } from "@/types";
 
 interface BillingFormButtonProps {
@@ -21,6 +23,7 @@ export function BillingFormButton({
 }: BillingFormButtonProps) {
   let [isPending, startTransition] = useTransition();
   const { getToken } = useAuth();
+  const pathname = usePathname();
 
   const stripeSessionAction = () =>
     startTransition(async () => {
@@ -30,6 +33,7 @@ export function BillingFormButton({
           amount: offer.amount,
           chanel: "Stripe",
           productId: offer.id,
+          url: url(pathname).href,
           currency: offer.currency?.toUpperCase(),
         }),
         headers: { Authorization: `Bearer ${await getToken()}` },

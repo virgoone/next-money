@@ -18,6 +18,7 @@ const CreateChargeOrderSchema = z.object({
   productId: z.string(),
   amount: z.number().min(100).max(1000000000),
   channel: z.enum(["GiftCode", "Stripe"]).default("Stripe"),
+  url: z.string().optional(),
 });
 
 const ratelimit = new Ratelimit({
@@ -45,7 +46,7 @@ export async function POST(req: NextRequest) {
 
   try {
     const data = await req.json();
-    const { currency, amount, channel, productId } =
+    const { currency, amount, channel, productId, url } =
       CreateChargeOrderSchema.parse(data);
     if (channel !== "Stripe") {
       return NextResponse.json(
@@ -86,8 +87,8 @@ export async function POST(req: NextRequest) {
 
     if (channel === "Stripe") {
       const stripeSession = await stripe.checkout.sessions.create({
-        success_url: `${billingUrl}&success=true`,
-        cancel_url: `${billingUrl}&success=false`,
+        success_url: url ?? `${billingUrl}&success=true`,
+        cancel_url: url ?? `${billingUrl}&success=false`,
         payment_method_types: ["card"],
         mode: "payment",
         billing_address_collection: "auto",

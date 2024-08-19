@@ -131,6 +131,16 @@
       "inputImage": "Image",
       "inputImageTooltip": "Input image for image to image mode. The aspect ratio of your output will match this image",
       "inputImagePlaceholder": "Upload input image"
+    },
+    "error": {
+      "insufficientCredits": "Oops, points are running low! Time to top up!"
+    },
+    "action": {
+      "copy": "Copy prompt",
+      "copySuccess": "Prompt copied to clipboard.",
+      "download": "Download Image",
+      "downloadSuccess": "Image downloaded.",
+      "downloadLoading": "Downloading..."
     }
   },
   "GiftCode": {
@@ -154,8 +164,8 @@
       "description": "Generate an image to see it here."
     },
     "action": {
-      "copy": "Copy prompt",
       "generate": "Generate",
+      "copy": "Copy prompt",
       "copySuccess": "Prompt copied to clipboard.",
       "download": "Download Image",
       "downloadSuccess": "Image downloaded.",
@@ -193,6 +203,7 @@
       "customer": "Customer",
       "amount": "Price",
       "status": "Status",
+      "credit": "Credits",
       "channel": "Channel",
       "createdAt": "Created At",
       "total": "Total",

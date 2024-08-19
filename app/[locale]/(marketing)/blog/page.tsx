@@ -1,12 +1,20 @@
 import { allPosts } from "contentlayer/generated";
 
 import { BlogPosts } from "@/components/content/blog-posts";
-import { constructMetadata, getBlurDataURL } from "@/lib/utils";
+import { getBlurDataURL } from "@/lib/utils";
+import { getTranslations } from "next-intl/server";
 
-export const metadata = constructMetadata({
-  title: "Blog – SaaS Starter",
-  description: "Latest news and updates from Next SaaS Starter.",
-});
+interface PageProps {
+  params: { locale: string };
+}
+
+export async function generateMetadata({ params: { locale } }: PageProps) {
+  const t = await getTranslations({ locale });
+  return {
+    title: `${t("BlogPage.title")} - ${t("LocaleLayout.title")}`,
+    description: t("BlogPage.description"),
+  };
+}
 
 export default async function BlogPage() {
   const posts = await Promise.all(

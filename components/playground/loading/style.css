@@ -1,4 +1,4 @@
-.loading-container {
+.playground-loading-container {
   --uib-size: 45px;
   --uib-color: black;
   --uib-speed: 1.75s;
@@ -8,7 +8,7 @@
   animation: rotate calc(var(--uib-speed) * 4) linear infinite;
 }
 
-.dark .loading-container {
+.dark .playground-loading-container {
   --uib-color: white;
 }
 

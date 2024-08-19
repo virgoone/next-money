@@ -1,18 +1,21 @@
-import { unstable_setRequestLocale } from "next-intl/server";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 
 import { PricingCards } from "@/components/pricing-cards";
 import { PricingFaq } from "@/components/pricing-faq";
 import { getChargeProduct } from "@/db/queries/charge-product";
-import { constructMetadata } from "@/lib/utils";
-
-export const metadata = constructMetadata({
-  title: "Pricing – SaaS Starter",
-  description: "Explore our subscription plans.",
-});
 
 type Props = {
   params: { locale: string };
 };
+
+export async function generateMetadata({ params: { locale } }: Props) {
+  const t = await getTranslations({ locale });
+  return {
+    title: `${t("PricingPage.title")} - ${t("LocaleLayout.title")}`,
+    description: t("LocaleLayout.description"),
+  };
+}
+
 export default async function PricingPage({ params: { locale } }: Props) {
   unstable_setRequestLocale(locale);
 

@@ -1,4 +1,4 @@
-.loading-container {
+.history-loading-container {
   --uib-size: 60px;
   --uib-color: black;
   --uib-speed: 2.5s;
@@ -11,7 +11,7 @@
   height: var(--uib-dot-size);
 }
 
-.dark .loading-container {
+.dark .history-loading-container {
   --uib-color: white;
 }
 

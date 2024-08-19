@@ -131,6 +131,16 @@
       "inputImage": "이미지",
       "inputImageTooltip": "이미지 대 이미지 모드를 위한 입력 이미지. 출력의 화면비는 이 이미지와 일치합니다",
       "inputImagePlaceholder": "입력 이미지 업로드"
+    },
+    "error": {
+      "insufficientCredits": "포인트가 부족해요. 충전해 주세요!"
+    },
+    "action": {
+      "copy": "프롬프트 복사",
+      "copySuccess": "프롬프트가 클립보드에 복사되었습니다.",
+      "download": "이미지 다운로드",
+      "downloadSuccess": "이미지가 다운로드되었습니다.",
+      "downloadLoading": "다운로드 중..."
     }
   },
   "GiftCode": {
@@ -154,8 +164,8 @@
       "description": "이미지를 생성하면 여기에 표시됩니다."
     },
     "action": {
-      "copy": "프롬프트 복사",
       "generate": "생성하기",
+      "copy": "프롬프트 복사",
       "copySuccess": "프롬프트가 클립보드에 복사되었습니다.",
       "download": "이미지 다운로드",
       "downloadSuccess": "이미지가 다운로드되었습니다.",
@@ -193,6 +203,7 @@
       "customer": "고객",
       "amount": "가격",
       "status": "상태",
+      "credit": "포인트",
       "channel": "채널",
       "createdAt": "생성 시간",
       "total": "총계",

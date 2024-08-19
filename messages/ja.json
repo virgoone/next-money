@@ -131,6 +131,16 @@
       "inputImage": "画像",
       "inputImageTooltip": "画像から画像へのモード用の入力画像。出力のアスペクト比はこの画像に合わせられます。",
       "inputImagePlaceholder": "入力画像をアップロード"
+    },
+    "error": {
+      "insufficientCredits": "ポイントが少ないですね。チャージしてください！"
+    },
+    "action": {
+      "copy": "プロンプトをコピー",
+      "copySuccess": "プロンプトをクリップボードにコピーしました。",
+      "download": "画像をダウンロード",
+      "downloadSuccess": "画像をダウンロードしました。",
+      "downloadLoading": "ダウンロード中..."
     }
   },
   "GiftCode": {
@@ -154,8 +164,8 @@
       "description": "画像を生成するとここに表示されます。"
     },
     "action": {
-      "copy": "プロンプトをコピー",
       "generate": "生成",
+      "copy": "プロンプトをコピー",
       "copySuccess": "プロンプトをクリップボードにコピーしました。",
       "download": "画像をダウンロード",
       "downloadSuccess": "画像をダウンロードしました。",
@@ -192,6 +202,7 @@
     "table": {
       "customer": "顧客",
       "amount": "価格",
+      "credit": "ポイント",
       "status": "ステータス",
       "channel": "チャンネル",
       "createdAt": "作成日時",

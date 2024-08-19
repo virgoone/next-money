@@ -131,6 +131,16 @@
       "inputImage": "Imagen",
       "inputImageTooltip": "Imagen de entrada para el modo de imagen a imagen. La relación de aspecto de tu salida coincidirá con esta imagen",
       "inputImagePlaceholder": "Subir imagen de entrada"
+    },
+    "error": {
+      "insufficientCredits": "Puntos insuficientes, ¡recarga por favor!"
+    },
+    "action": {
+      "copy": "Copiar aviso",
+      "copySuccess": "Aviso copiado al portapapeles.",
+      "download": "Descargar Imagen",
+      "downloadSuccess": "Imagen descargada.",
+      "downloadLoading": "Descargando..."
     }
   },
   "GiftCode": {
@@ -154,8 +164,8 @@
       "description": "Genera una imagen para verla aquí."
     },
     "action": {
-      "copy": "Copiar aviso",
       "generate": "Generar",
+      "copy": "Copiar aviso",
       "copySuccess": "Aviso copiado al portapapeles.",
       "download": "Descargar Imagen",
       "downloadSuccess": "Imagen descargada.",
@@ -193,6 +203,7 @@
       "customer": "Cliente",
       "amount": "Precio",
       "status": "Estado",
+      "credit": "Puntos",
       "channel": "Canal",
       "createdAt": "Creado En",
       "total": "Total",

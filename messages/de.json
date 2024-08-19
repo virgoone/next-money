@@ -131,6 +131,16 @@
       "inputImage": "Bild",
       "inputImageTooltip": "Eingabebild für den Bild-zu-Bild-Modus. Das Seitenverhältnis Ihrer Ausgabe entspricht diesem Bild",
       "inputImagePlaceholder": "Eingabebild hochladen"
+    },
+    "error": {
+      "insufficientCredits": "Punkte knapp, bitte aufladen!"
+    },
+    "action": {
+      "copy": "Prompt kopieren",
+      "copySuccess": "Prompt in die Zwischenablage kopiert.",
+      "download": "Bild herunterladen",
+      "downloadSuccess": "Bild heruntergeladen.",
+      "downloadLoading": "Wird heruntergeladen..."
     }
   },
   "GiftCode": {
@@ -154,8 +164,8 @@
       "description": "Generieren Sie ein Bild, um es hier zu sehen."
     },
     "action": {
-      "copy": "Prompt kopieren",
       "generate": "Generieren",
+      "copy": "Prompt kopieren",
       "copySuccess": "Prompt in die Zwischenablage kopiert.",
       "download": "Bild herunterladen",
       "downloadSuccess": "Bild heruntergeladen.",
@@ -193,6 +203,7 @@
       "customer": "Kunde",
       "amount": "Preis",
       "status": "Status",
+      "credit": "Punkte",
       "channel": "Kanal",
       "createdAt": "Erstellt am",
       "total": "Gesamt",

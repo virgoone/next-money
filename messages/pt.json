@@ -131,6 +131,16 @@
       "inputImage": "Imagem",
       "inputImageTooltip": "Imagem de entrada para o modo de imagem para imagem. A proporção de aspecto da sua saída corresponderá a esta imagem",
       "inputImagePlaceholder": "Carregar imagem de entrada"
+    },
+    "error": {
+      "insufficientCredits": "Pontos baixos, por favor recarregue!"
+    },
+    "action": {
+      "copy": "Copiar prompt",
+      "copySuccess": "Prompt copiado para a área de transferência.",
+      "download": "Baixar Imagem",
+      "downloadSuccess": "Imagem baixada.",
+      "downloadLoading": "Baixando..."
     }
   },
   "GiftCode": {
@@ -154,8 +164,8 @@
       "description": "Gere uma imagem para vê-la aqui."
     },
     "action": {
-      "copy": "Copiar prompt",
       "generate": "Gerar",
+      "copy": "Copiar prompt",
       "copySuccess": "Prompt copiado para a área de transferência.",
       "download": "Baixar Imagem",
       "downloadSuccess": "Imagem baixada.",
@@ -194,6 +204,7 @@
       "amount": "Preço",
       "status": "Status",
       "channel": "Canal",
+      "credit": "Pontos",
       "createdAt": "Criado Em",
       "total": "Total",
       "records": "Pedidos"

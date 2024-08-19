@@ -1,8 +1,18 @@
 import "@/styles/globals.css";
-import "../clerk.css";
+// import "../clerk.css";
 import "../prism.css";
 
-import { enUS, zhCN } from "@clerk/localizations";
+import {
+  deDE,
+  enUS,
+  esES,
+  frFR,
+  jaJP,
+  koKR,
+  ptPT,
+  zhCN,
+  zhTW,
+} from "@clerk/localizations";
 import { ClerkProvider } from "@clerk/nextjs";
 import { NextIntlClientProvider } from "next-intl";
 import {
@@ -60,6 +70,18 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
+const localeMap = {
+  en: enUS,
+  zh: zhCN,
+  tw: zhTW,
+  ja: jaJP,
+  ko: koKR,
+  fr: frFR,
+  es: esES,
+  de: deDE,
+  pt: ptPT,
+};
+
 export default async function RootLayout({
   children,
   params: { locale },
@@ -71,7 +93,7 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <ClerkProvider localization={locale === "zh" ? zhCN : enUS}>
+    <ClerkProvider localization={localeMap[locale] ?? enUS}>
       <html lang={locale} suppressHydrationWarning>
         <head />
         <body

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { cloneElement, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
@@ -12,7 +12,17 @@ import { HeaderSection } from "@/components/shared/header-section";
 import { Icons } from "@/components/shared/icons";
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import type { ChargeProductSelectDto } from "@/db/type";
+import { useMediaQuery } from "@/hooks/use-media-query";
 import { url } from "@/lib";
 import { usePathname } from "@/lib/navigation";
 import { cn, formatPrice } from "@/lib/utils";
@@ -221,5 +231,44 @@ export function PricingCards({
         id="order-success"
       />
     </MaxWidthWrapper>
+  );
+}
+
+export function PricingCardDialog({
+  onClose,
+  isOpen,
+  chargeProduct,
+}: {
+  isOpen: boolean;
+  chargeProduct?: ChargeProductSelectDto[];
+  onClose: (isOpen: boolean) => void;
+}) {
+  const t = useTranslations("PricingPage");
+  const { isSm, isMobile } = useMediaQuery();
+  const product = useMemo(() => {
+    if (isSm || isMobile) {
+      return ([chargeProduct?.[1]] ?? []) as ChargeProductSelectDto[];
+    }
+    return chargeProduct ?? ([] as ChargeProductSelectDto[]);
+  }, [isSm, isMobile]);
+
+  return (
+    <Dialog
+      open={isOpen}
+      onOpenChange={(open) => {
+        onClose(open);
+      }}
+    >
+      <DialogContent className="w-[96vw] md:w-[960px] md:max-w-[960px]">
+        <DialogHeader>
+          <DialogTitle>{t("title")}</DialogTitle>
+          <div className="grid grid-cols-1 gap-5 bg-inherit py-5 lg:grid-cols-3">
+            {product?.map((offer) => (
+              <PricingCard offer={offer} key={offer.id} />
+            ))}
+          </div>
+        </DialogHeader>
+      </DialogContent>
+    </Dialog>
   );
 }

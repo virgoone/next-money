@@ -4,7 +4,9 @@ import React, { useEffect, useMemo, useState } from "react";
 
 import { useAuth } from "@clerk/nextjs";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import copy from "copy-to-clipboard";
 import { debounce } from "lodash-es";
+import { Copy } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 
@@ -24,9 +26,15 @@ import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 import { Locale } from "@/config";
 import { Credits, model, ModelName, Ratio } from "@/config/constants";
-import { FluxSelectDto } from "@/db/type";
+import {
+  ChargeProductSelectDto,
+  FluxSelectDto,
+  UserCreditSelectDto,
+} from "@/db/type";
 import { cn, createRatio } from "@/lib/utils";
 
+import { DownloadAction } from "../history/download-action";
+import { PricingCardDialog } from "../pricing-cards";
 import { EmptyPlaceholder } from "../shared/empty-placeholder";
 import { Icons } from "../shared/icons";
 import Upload from "../upload";
@@ -67,7 +75,13 @@ export enum FluxTaskStatus {
   Canceled = "canceled",
 }
 
-export default function Playground({ locale }: { locale: string }) {
+export default function Playground({
+  locale,
+  chargeProduct,
+}: {
+  locale: string;
+  chargeProduct?: ChargeProductSelectDto[];
+}) {
   const [isPublic, setIsPublic] = React.useState(true);
   const [selectedModel, setSelectedModel] = React.useState<Model>(models[0]);
   const [ratio, setRatio] = React.useState<Ratio>(Ratio.r1);
@@ -80,6 +94,7 @@ export default function Playground({ locale }: { locale: string }) {
   const t = useTranslations("Playground");
   const { getToken } = useAuth();
   const queryClient = useQueryClient();
+  const [pricingCardOpen, setPricingCardOpen] = useState(false);
 
   const queryTask = useQuery({
     queryKey: ["queryFluxTask", fluxId],
@@ -118,7 +133,17 @@ export default function Playground({ locale }: { locale: string }) {
     if (!inputPrompt) {
       return toast.error("Please enter a prompt");
     }
+    const queryData = queryClient.getQueryData([
+      "queryUserPoints",
+    ]) as UserCreditSelectDto;
+    if (queryData?.credit <= 0) {
+      t("error.insufficientCredits") &&
+        toast.error(t("error.insufficientCredits"));
+      setPricingCardOpen(true);
+      return;
+    }
     setLoading(true);
+
     try {
       const inputImageUrl = uploadInputImage
         ? uploadInputImage?.[0]?.completedUrl
@@ -136,7 +161,12 @@ export default function Playground({ locale }: { locale: string }) {
         setFluxId(res.id);
         queryClient.invalidateQueries({ queryKey: ["queryUserPoints"] });
       } else {
-        toast.error(res.error);
+        let error = res.error;
+        if (res.code === 1000402) {
+          setPricingCardOpen(true);
+          error = t("error.insufficientCredits") ?? res.error;
+        }
+        toast.error(error);
       }
     } catch (error) {
       console.log("error", error);
@@ -154,6 +184,11 @@ export default function Playground({ locale }: { locale: string }) {
       fluxData?.taskStatus === FluxTaskStatus.Processing
     );
   }, [fluxData, queryTask]);
+
+  const copyPrompt = (prompt: string) => {
+    copy(prompt);
+    toast.success(t("action.copySuccess"));
+  };
 
   return (
     <div className="overflow-hidden rounded-[0.5rem] border bg-background shadow">
@@ -249,6 +284,16 @@ export default function Playground({ locale }: { locale: string }) {
                             {ModelName[fluxData?.model]}
                           </div>
                         </div>
+                        <div className="flex flex-row justify-between space-x-2 p-4 pt-0">
+                          <button
+                            className="focus-ring text-content-strong border-stroke-strong hover:border-stroke-stronger data-[state=open]:bg-surface-alpha-light inline-flex h-8 items-center justify-center whitespace-nowrap rounded-lg border bg-transparent px-2.5 text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50"
+                            onClick={() => copyPrompt(fluxData.inputPrompt!)}
+                          >
+                            <Copy className="icon-xs me-1" />
+                            {t("action.copy")}
+                          </button>
+                          <DownloadAction id={fluxData.id} />
+                        </div>
                       </div>
                     ) : fluxData?.taskStatus === FluxTaskStatus.Failed ? (
                       <div className="flex min-h-96 items-center justify-center">
@@ -297,6 +342,11 @@ export default function Playground({ locale }: { locale: string }) {
           </div>
         </div>
       </div>
+      <PricingCardDialog
+        onClose={setPricingCardOpen}
+        isOpen={pricingCardOpen}
+        chargeProduct={chargeProduct}
+      />
     </div>
   );
 }

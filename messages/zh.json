@@ -131,6 +131,16 @@
       "inputImage": "图像",
       "inputImageTooltip": "图像到图像模式的输入图像。您的输出纵横比将与此图像匹配",
       "inputImagePlaceholder": "上传输入图像"
+    },
+    "error": {
+      "insufficientCredits": "积分告急，快来充值吧！"
+    },
+    "action": {
+      "copy": "复制 Prompt",
+      "copySuccess": "Prompt 已复制到剪贴板。",
+      "download": "下载图像",
+      "downloadSuccess": "图像已下载。",
+      "downloadLoading": "正在下载..."
     }
   },
   "GiftCode": {
@@ -154,8 +164,8 @@
       "description": "当前空空如也，快去生成吧～"
     },
     "action": {
-      "copy": "复制 Prompt",
       "generate": "去生成",
+      "copy": "复制 Prompt",
       "copySuccess": "Prompt 已复制到剪贴板。",
       "download": "下载图像",
       "downloadSuccess": "图像已下载。",
@@ -193,6 +203,7 @@
       "customer": "客户",
       "amount": "金额",
       "status": "状态",
+      "credit": "积分",
       "channel": "渠道",
       "createdAt": "创建时间",
       "total": "总计",

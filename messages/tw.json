@@ -131,6 +131,16 @@
       "inputImage": "圖像",
       "inputImageTooltip": "圖像轉圖像模式的輸入圖像。您的輸出縱橫比將與此圖像相符",
       "inputImagePlaceholder": "上傳輸入圖像"
+    },
+    "error": {
+      "insufficientCredits": "積分告急，請速充值！"
+    },
+    "action": {
+      "copy": "複製 Prompt",
+      "copySuccess": "Prompt 已複製至剪貼簿。",
+      "download": "下載圖像",
+      "downloadSuccess": "圖像已下載。",
+      "downloadLoading": "正在下載中..."
     }
   },
   "GiftCode": {
@@ -154,8 +164,8 @@
       "description": "目前空空如也，快去生成吧～"
     },
     "action": {
-      "copy": "複製 Prompt",
       "generate": "去生成",
+      "copy": "複製 Prompt",
       "copySuccess": "Prompt 已複製至剪貼簿。",
       "download": "下載圖像",
       "downloadSuccess": "圖像已下載。",
@@ -193,6 +203,7 @@
       "customer": "客戶",
       "amount": "金額",
       "status": "狀態",
+      "credit": "積分",
       "channel": "渠道",
       "createdAt": "創建時間",
       "total": "總計",
