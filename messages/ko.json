@@ -1,0 +1,274 @@
+{
+  "Error": {
+    "description": "<p>죄송합니다. 오류가 발생했습니다.</p><p>방문하려던 페이지를 <retry>다시 로드</retry>해 보세요.</p>",
+    "title": "문제가 발생했습니다!"
+  },
+  "IndexPage": {
+    "intro": "Flux AI 이미지 생성기 소개",
+    "description": "차세대 고급 텍스트-이미지 오픈 모델을 혁신하는 Flux AI 이미지 생성기. flux.1 pro와 flux.1 schnell 모델을 지원합니다.",
+    "title": "Flux AI 이미지 생성기",
+    "subtitle": "고급 텍스트-이미지 변환",
+    "examples": {
+      "label": "예시",
+      "title": "Flux AI 이미지 예시",
+      "subtitle": "텍스트 프롬프트로 이미지를 생성하세요."
+    },
+    "features": {
+      "title": "기능",
+      "description": "Flux AI 이미지 생성기는 텍스트 프롬프트로 이미지를 생성할 수 있는 강력한 도구입니다. 최첨단 AI 모델을 사용하여 모든 프로젝트에 적합한 놀라운 이미지를 만들어냅니다.",
+      "action": {
+        "visit": "생성하기"
+      },
+      "item1": {
+        "title": "FLUX.1 [pro]",
+        "description": "FLUX.1의 최고 버전으로, 최첨단 성능의 이미지 생성을 제공합니다. 프롬프트 따르기, 시각적 품질, 이미지 세부 사항 및 출력 다양성에서 최고 수준을 자랑합니다."
+      },
+      "item2": {
+        "title": "FLUX.1 [dev]",
+        "description": "FLUX.1 [pro]에서 직접 추출된 FLUX.1 [dev]는 유사한 품질과 프롬프트 준수 능력을 유지하면서도 동일한 크기의 표준 모델보다 더 효율적입니다."
+      },
+      "item3": {
+        "title": "FLUX.1 [schnell]",
+        "description": "로컬 개발 및 개인 사용에 맞춰진 가장 빠른 이미지 생성 모델"
+      },
+      "item4": {
+        "title": "초고속",
+        "description": "Flux AI는 Stable Diffusion 3와 Midjourney보다 훨씬 빠르게 고품질 이미지를 생성합니다. 번개처럼 빠른 이미지 생성 능력으로 신속하고 효율적인 결과를 보장하여 귀중한 시간과 자원을 절약합니다."
+      },
+      "item5": {
+        "title": "맞춤 설정 가능",
+        "description": "고급 Flux.1 모델은 경쟁사보다 더 상세하고 일관된 이미지를 생성합니다. 맞춤 설정 가능한 기능과 사용자 친화적인 인터페이스로, Flux AI 이미지 생성기는 텍스트 프롬프트로 놀라운 이미지를 생성하는 최고의 도구입니다. 초보자든 전문가든 Flux AI가 당신을 위해 준비되어 있습니다. 오늘 AI의 힘을 경험하고 이미지 생성 과정을 혁신하세요!"
+      },
+      "item6": {
+        "title": "사용자 친화적 인터페이스",
+        "description": "ComfyUI보다 사용하기 쉽고, 초보자와 전문가 모두에게 완벽합니다. Flux AI 이미지 생성기는 텍스트 프롬프트로 놀라운 이미지를 생성하는 최고의 도구입니다. 사용자 친화적인 인터페이스와 강력한 AI 모델을 통해 초보자와 전문가 모두가 쉽게 놀라운 시각물을 만들 수 있습니다."
+      }
+    },
+    "powered": {
+      "title": "제공"
+    },
+    "bent": {
+      "first": {
+        "title": "맞춤 설정 가능"
+      }
+    },
+    "action": {
+      "pricing": "크레딧 구매",
+      "login": "로그인",
+      "dashboard": "대시보드",
+      "generate": "생성하기",
+      "github": {
+        "sm": "스타 주기",
+        "normal": "Github"
+      }
+    }
+  },
+  "PricingPage": {
+    "title": "크레딧 구매 플랜 선택",
+    "description": "정기 결제 없음",
+    "worth": "크레딧",
+    "label": "가격",
+    "action": {
+      "signin": "로그인",
+      "buy": "플랜 구매"
+    },
+    "contact": {
+      "title": "문의하기",
+      "description": "궁금한 점이 있으시면 언제든 연락 주세요."
+    },
+    "faq": {
+      "label": "자주 묻는 질문",
+      "title": "자주 묻는 질문",
+      "subtitle": "자주 묻는 질문에 대한 빠른 답변을 찾아보세요. 추가 도움이 필요하시면 언제든 개인적인 도움을 위해 문의해 주세요.",
+      "item1": {
+        "question": "Flux AI는 Stable Diffusion 3와 어떻게 비교되나요?",
+        "answer": "Flux AI는 Stable Diffusion 3에 비해 더 빠른 생성 시간, 높은 이미지 품질, 그리고 더 사용자 친화적인 인터페이스를 제공합니다. Flux.1 모델은 AI 연구의 최신 발전을 통합했습니다."
+      },
+      "item2": {
+        "question": "Flux AI는 GitHub나 Hugging Face에서 사용 가능한가요?",
+        "answer": "네, Flux AI는 오픈 소스이며 GitHub와 Hugging Face 모두에서 사용 가능합니다."
+      },
+      "item3": {
+        "question": "Flux AI가 다른 AI 이미지 생성기와 다른 점은 무엇인가요?",
+        "answer": "Flux AI는 속도, 품질, 사용 편의성을 결합했습니다. Midjourney보다 빠르고, ComfyUI보다 사용하기 쉬우며, 많은 경쟁사보다 높은 품질의 이미지를 생성합니다."
+      },
+      "item4": {
+        "question": "Flux AI는 어떻게 사용하나요?",
+        "answer": "Flux AI를 사용하려면 fluxaipro.art를 방문하여 프롬프트를 입력하기만 하면 됩니다. 몇 초 만에 놀라운 시각물이 생성되는 것을 경험하실 수 있습니다."
+      },
+      "item5": {
+        "question": "Flux AI는 어떤 가격 플랜을 제공하나요?",
+        "answer": "우리 서비스를 이용하기 위해 포인트를 사용합니다. 가격 카드를 클릭하여 포인트를 구매할 수 있습니다(1회 결제만 필요)."
+      },
+      "item6": {
+        "question": "온라인 지원은 어떻게 받을 수 있나요?",
+        "answer": "support@douni.one으로 문의하실 수 있습니다."
+      }
+    },
+    "tip": {
+      "title": "💳 결제 팁: 결제 과정에서 문제가 발생하면 언제든 문의해 주세요! 😉",
+      "subtitle": "궁금한 점이 있으신가요?",
+      "contact": "문의하기"
+    }
+  },
+  "Playground": {
+    "title": "Flux AI 이미지 생성기",
+    "description": "텍스트 프롬프트로 이미지를 생성하는 놀라운 AI 모델.",
+    "empty": {
+      "title": "생성기 오류",
+      "description": "오류 정보: {error}",
+      "errorPlaceholder": "오류가 발생했습니다"
+    },
+    "form": {
+      "input": "입력",
+      "result": "결과",
+      "placeholder": "이미지를 생성할 프롬프트를 입력하세요...",
+      "model": "모델",
+      "modelTooltip": "이미지를 생성할 모델을 선택하세요.",
+      "submit": "생성하기",
+      "aspectRatio": "화면비",
+      "aspectRatioTooltip": "생성된 이미지의 화면비.",
+      "inputImage": "이미지",
+      "inputImageTooltip": "이미지 대 이미지 모드를 위한 입력 이미지. 출력의 화면비는 이 이미지와 일치합니다",
+      "inputImagePlaceholder": "입력 이미지 업로드"
+    }
+  },
+  "GiftCode": {
+    "title": "기프트 코드 교환",
+    "text": "크레딧을 받으려면 기프트 코드를 입력하세요.",
+    "form": {
+      "placeholder": "기프트 코드 입력",
+      "aria_label": "기프트 코드",
+      "button": "교환하기",
+      "required": "이 필드는 필수입니다.",
+      "invalid": "유효하지 않은 기프트 코드입니다.",
+      "success": "{credits} 크레딧을 성공적으로 교환했습니다.",
+      "error": "기프트 코드 교환에 실패했습니다."
+    }
+  },
+  "History": {
+    "title": "이미지 생성 기록",
+    "description": "최근 이미지 생성 기록을 확인하세요.",
+    "empty": {
+      "title": "아직 기록이 없습니다.",
+      "description": "이미지를 생성하면 여기에 표시됩니다."
+    },
+    "action": {
+      "copy": "프롬프트 복사",
+      "generate": "생성하기",
+      "copySuccess": "프롬프트가 클립보드에 복사되었습니다.",
+      "download": "이미지 다운로드",
+      "downloadSuccess": "이미지가 다운로드되었습니다.",
+      "downloadLoading": "다운로드 중..."
+    }
+  },
+  "Billings": {
+    "page": {
+      "title": "앱 - Flux AI 이미지 생성기",
+      "description": "최근 예측 보기"
+    },
+    "title": "최근 예측",
+    "empty": {
+      "title": "기록 없음",
+      "description": "아직 기록이 없습니다."
+    },
+    "table": {
+      "fluxId": "작업 ID",
+      "status": "상태",
+      "amount": "크레딧",
+      "type": "유형",
+      "createdAt": "생성 시간",
+      "total": "총계",
+      "records": "주문"
+    }
+  },
+  "Orders": {
+    "title": "주문",
+    "description": "결제 내역을 확인하세요.",
+    "empty": {
+      "title": "주문 내역 없음",
+      "description": "아직 결제 기록이 없습니다."
+    },
+    "table": {
+      "customer": "고객",
+      "amount": "가격",
+      "status": "상태",
+      "channel": "채널",
+      "createdAt": "생성 시간",
+      "total": "총계",
+      "records": "주문"
+    },
+    "order": {
+      "all": "전체",
+      "paid": "결제 완료",
+      "pending": "대기 중",
+      "failed": "실패",
+      "canceled": "취소됨"
+    }
+  },
+  "NewsLetter": {
+    "title": "뉴스레터 구독하기",
+    "subtitle": "업데이트 소식을 받아보세요!",
+    "form": {
+      "placeholder": "이메일 주소 입력",
+      "aria_label": "이메일",
+      "confirm": "구독 확인 이메일을 확인해 주세요.",
+      "button": "구독하기"
+    }
+  },
+  "LocaleLayout": {
+    "title": "Flux AI 이미지 생성기",
+    "description": "차세대 고급 텍스트-이미지 오픈 모델을 혁신하는 Flux AI 이미지 생성기. flux.1 pro와 flux.1 schnell 모델을 지원합니다."
+  },
+  "LocaleSwitcher": {
+    "label": "언어 변경",
+    "locale": "{locale, select, zh {🇨🇳 简体中文} tw { 繁體中文} en {🇺🇸 English} fr {🇫🇷 Français} ja {🇯🇵 日本語} ko {🇰🇷 한국어} other {알 수 없음}}"
+  },
+  "Manifest": {
+    "name": "플럭스 AI 이미지 생성기"
+  },
+  "AppNavigation": {
+    "Index": "홈",
+    "Generate": "생성",
+    "History": "역사",
+    "GiftCode": "선물 코드",
+    "ChargeOrder": "충전 주문"
+  },
+  "Navigation": {
+    "pricing": "가격",
+    "title": "플럭스 AI 이미지 생성기",
+    "blog": "블로그",
+    "dashboard": "대시보드",
+    "tooltip": {
+      "login": "로그인"
+    }
+  },
+  "NotFoundPage": {
+    "description": "브라우저 주소창을 다시 확인하거나 내비게이션을 사용하여 알려진 페이지로 이동하세요.",
+    "title": "페이지 찾기 실패"
+  },
+  "PageLayout": {
+    "footer": {
+      "title": "플럭스 AI 이미지 생성기",
+      "term": "이용 약관",
+      "privacy": "개인 정보 보호",
+      "contact": "연락처"
+    },
+    "links": {
+      "docs": {
+        "description": "공식 문서에서 next-intl에 대해 자세히 알아보세요.",
+        "href": "https://next-intl-docs.vercel.app/",
+        "title": "문서"
+      },
+      "source": {
+        "description": "GitHub에서 이 예제의 소스 코드를 둘러보세요.",
+        "href": "https://github.com/amannn/next-intl/tree/main/examples/example-app-router",
+        "title": "소스 코드"
+      }
+    }
+  },
+  "BlogPage": {
+    "title": "블로그",
+    "description": "우리의 최신 뉴스와 업데이트"
+  }
+}
