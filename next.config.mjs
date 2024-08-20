@@ -27,11 +27,6 @@ const nextConfig = {
         hostname: "img.douni.one",
         port: "",
       },
-      {
-        protocol: "https",
-        hostname: "randomuser.me",
-        port: "",
-      },
     ],
   },
 
@@ -47,23 +42,8 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: "/tool",
-        destination: "https://douni.one",
-        permanent: true,
-      },
-      {
         source: "/x",
         destination: "https://x.com/koyaguo",
-        permanent: true,
-      },
-      {
-        source: "/youtube",
-        destination: "https://youtube.com/@calicastle",
-        permanent: true,
-      },
-      {
-        source: "/github",
-        destination: "https://github.com/virgoone",
         permanent: true,
       },
     ];
