@@ -18,9 +18,8 @@ export default async function HeroLanding() {
   return (
     <section className="space-y-6 py-12 sm:py-20 lg:py-20">
       <div className="container flex max-w-5xl flex-col items-center gap-5 text-center">
-        {/* Want animations? Check here: https://github.com/mickasmt/next-saas-stripe-starter/blob/76eb9f2b70b29c7a734ff0e5b047796ed2dac28d/app/(marketing)/page.tsx */}
         <Link
-          href="https://twitter.com/miickasmt/status/1719892161095745801"
+          href="https://x.com/koyaguo/status/1825891501639086219"
           target="_blank"
         >
           <AnimatedGradientText>
