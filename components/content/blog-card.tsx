@@ -1,8 +1,7 @@
-import Link from "next/link";
-
 import { Post } from "contentlayer/generated";
 
 import BlurImage from "@/components/shared/blur-image";
+import { Link } from "@/lib/navigation";
 import { cn, formatDate, placeholderBlurhash } from "@/lib/utils";
 
 import Author from "./author";
@@ -75,7 +74,10 @@ export function BlogCard({
           )}
         </div>
       </div>
-      <Link href={data.slug} className="absolute inset-0">
+      <Link
+        href={data.slug?.replace(`/${data.language}`, "")}
+        className="absolute inset-0"
+      >
         <span className="sr-only">View Article</span>
       </Link>
     </article>

@@ -19,6 +19,11 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "no-person-static.douni.one",
+        port: "",
+      },
+      {
+        protocol: "https",
         hostname: "img.douni.one",
         port: "",
       },

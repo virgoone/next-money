@@ -11,9 +11,9 @@ export enum model {
 }
 
 export const Credits = {
-  [model.pro]: 80,
-  [model.schnell]: 10,
-  [model.dev]: 40,
+  [model.pro]: 10,
+  [model.schnell]: 1,
+  [model.dev]: 5,
 };
 
 export const ModelName = {

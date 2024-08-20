@@ -1,20 +1,29 @@
 import { MetadataRoute } from "next";
 
-import { defaultLocale, host, locales, pathnames } from "@/config";
+import { allPosts } from "contentlayer/generated";
+
+import { defaultLocale, locales, pathnames } from "@/config";
+import { env } from "@/env.mjs";
 import { getPathname } from "@/lib/navigation";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const keys = Object.keys(pathnames) as Array<keyof typeof pathnames>;
+  const posts = await Promise.all(
+    allPosts
+      .filter((post) => post.published && post.language === defaultLocale)
+      .sort((a, b) => b.date.localeCompare(a.date))
+      .map((post) => post.slug?.replace(`/${defaultLocale}`, "")),
+  );
 
   function getUrl(
     key: keyof typeof pathnames,
     locale: (typeof locales)[number],
   ) {
     const pathname = getPathname({ locale, href: key });
-    return `${host}/${locale}${pathname === "/" ? "" : pathname}`;
+    return `${env.NEXT_PUBLIC_SITE_URL}/${locale}${pathname === "/" ? "" : pathname}`;
   }
 
-  return keys.map((key) => ({
+  return [...posts, ...keys].map((key) => ({
     url: getUrl(key, defaultLocale),
     alternates: {
       languages: Object.fromEntries(

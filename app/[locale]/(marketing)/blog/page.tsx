@@ -1,8 +1,8 @@
 import { allPosts } from "contentlayer/generated";
+import { getTranslations } from "next-intl/server";
 
 import { BlogPosts } from "@/components/content/blog-posts";
 import { getBlurDataURL } from "@/lib/utils";
-import { getTranslations } from "next-intl/server";
 
 interface PageProps {
   params: { locale: string };
@@ -16,10 +16,10 @@ export async function generateMetadata({ params: { locale } }: PageProps) {
   };
 }
 
-export default async function BlogPage() {
+export default async function BlogPage({ params: { locale } }: PageProps) {
   const posts = await Promise.all(
     allPosts
-      .filter((post) => post.published)
+      .filter((post) => post.published && post.language === locale)
       .sort((a, b) => b.date.localeCompare(a.date))
       .map(async (post) => ({
         ...post,

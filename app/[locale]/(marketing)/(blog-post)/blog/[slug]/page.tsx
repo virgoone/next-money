@@ -9,6 +9,8 @@ import "@/styles/mdx.css";
 import { Metadata } from "next";
 import Link from "next/link";
 
+import { getTranslations } from "next-intl/server";
+
 import Author from "@/components/content/author";
 import BlurImage from "@/components/shared/blur-image";
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
@@ -30,33 +32,32 @@ export async function generateStaticParams() {
   }));
 }
 
+interface PageProps {
+  params: { locale: string; slug: string };
+}
+
 export async function generateMetadata({
   params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata | undefined> {
+}: PageProps): Promise<Metadata | undefined> {
   const post = allPosts.find((post) => post.slugAsParams === params.slug);
   if (!post) {
     return;
   }
+  const t = await getTranslations({ locale: params.locale });
 
   const { title, description, image } = post;
 
   return constructMetadata({
-    title: `${title} – SaaS Starter`,
+    title: `${title} - ${t("LocaleLayout.title")}`,
     description: description,
     image,
   });
 }
 
-export default async function PostPage({
-  params,
-}: {
-  params: {
-    slug: string;
-  };
-}) {
-  const post = allPosts.find((post) => post.slugAsParams === params.slug);
+export default async function PostPage({ params }: PageProps) {
+  const post = allPosts.find(
+    (post) => post.slugAsParams === `${params.locale}/${params.slug}`,
+  );
 
   if (!post) {
     notFound();
@@ -69,7 +70,10 @@ export default async function PostPage({
   const relatedArticles =
     (post.related &&
       post.related.map(
-        (slug) => allPosts.find((post) => post.slugAsParams === slug)!,
+        (slug) =>
+          allPosts.find(
+            (post) => post.slugAsParams === `${params.locale}/${slug}`,
+          )!,
       )) ||
     [];
 

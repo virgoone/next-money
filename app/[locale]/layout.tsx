@@ -2,6 +2,8 @@ import "@/styles/globals.css";
 // import "../clerk.css";
 import "../prism.css";
 
+import Script from "next/script";
+
 import {
   deDE,
   enUS,
@@ -14,6 +16,7 @@ import {
   zhTW,
 } from "@clerk/localizations";
 import { ClerkProvider } from "@clerk/nextjs";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { NextIntlClientProvider } from "next-intl";
 import {
   getMessages,
@@ -24,11 +27,13 @@ import { ThemeProvider } from "next-themes";
 
 import { fontHeading, fontSans, fontUrban } from "@/assets/fonts";
 import { Analytics } from "@/components/analytics";
+import ClaritySnippet from "@/components/ClaritySnippet";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { Toaster } from "@/components/ui/toaster";
 import { locales } from "@/config";
 import { siteConfig } from "@/config/site";
-import { cn, constructMetadata } from "@/lib/utils";
+import { env } from "@/env.mjs";
+import { cn } from "@/lib/utils";
 
 import { QueryProvider } from "../QueryProvider";
 
@@ -117,6 +122,19 @@ export default async function RootLayout({
               <TailwindIndicator />
             </ThemeProvider>
           </NextIntlClientProvider>
+          {env.NEXT_PUBLIC_GA_ID && (
+            <>
+              <GoogleAnalytics gaId={env.NEXT_PUBLIC_GA_ID} />
+              <ClaritySnippet />
+            </>
+          )}
+          {env.NEXT_PUBLIC_UMAMI_DATA_ID && (
+            <Script
+              async
+              src="https://sa.douni.one/st.js"
+              data-website-id={env.NEXT_PUBLIC_UMAMI_DATA_ID}
+            />
+          )}
         </body>
       </html>
     </ClerkProvider>

@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { allPosts } from "contentlayer/generated";
+import { getTranslations } from "next-intl/server";
 
 import { BlogCard } from "@/components/content/blog-card";
 import { BLOG_CATEGORIES } from "@/config/blog";
@@ -12,23 +13,25 @@ export async function generateStaticParams() {
     slug: category.slug,
   }));
 }
+interface PageProps {
+  params: { locale: string; slug: string };
+}
 
 export async function generateMetadata({
   params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata | undefined> {
+}: PageProps): Promise<Metadata | undefined> {
   const category = BLOG_CATEGORIES.find(
     (category) => category.slug === params.slug,
   );
   if (!category) {
     return;
   }
+  const t = await getTranslations({ locale: params.locale });
 
   const { title, description } = category;
 
   return constructMetadata({
-    title: `${title} Posts – Next SaaS Starter`,
+    title: `${title} Posts - ${t("LocaleLayout.title")}`,
     description,
   });
 }

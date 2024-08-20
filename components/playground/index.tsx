@@ -265,15 +265,19 @@ export default function Playground({
                           "bg-muted": !fluxData?.imageUrl || !fluxId,
                         })}
                       >
-                        {fluxData?.imageUrl && fluxId && (
-                          <BlurFade key={fluxData?.imageUrl} inView>
-                            <img
-                              src={fluxData?.imageUrl}
-                              alt="Generated Image"
-                              className={`pointer-events-none w-full rounded-md aspect-[${createRatio(fluxData?.aspectRatio as Ratio)}]`}
-                            />
-                          </BlurFade>
-                        )}
+                        <div
+                          className={`w-full rounded-md aspect-[${createRatio(fluxData?.aspectRatio as Ratio)}]`}
+                        >
+                          {fluxData?.imageUrl && fluxId && (
+                            <BlurFade key={fluxData?.imageUrl} inView>
+                              <img
+                                src={fluxData?.imageUrl}
+                                alt="Generated Image"
+                                className={`pointer-events-none w-full rounded-md aspect-[${createRatio(fluxData?.aspectRatio as Ratio)}]`}
+                              />
+                            </BlurFade>
+                          )}
+                        </div>
                         <div className="text-content-light inline-block px-4 py-2 text-sm">
                           <p className="line-clamp-4 italic md:line-clamp-6 lg:line-clamp-[8]">
                             {fluxData?.inputPrompt}
@@ -284,7 +288,7 @@ export default function Playground({
                             {ModelName[fluxData?.model]}
                           </div>
                         </div>
-                        <div className="flex flex-row justify-between space-x-2 p-4 pt-0">
+                        <div className="flex flex-row justify-between space-x-2 p-4">
                           <button
                             className="focus-ring text-content-strong border-stroke-strong hover:border-stroke-stronger data-[state=open]:bg-surface-alpha-light inline-flex h-8 items-center justify-center whitespace-nowrap rounded-lg border bg-transparent px-2.5 text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50"
                             onClick={() => copyPrompt(fluxData.inputPrompt!)}
@@ -333,7 +337,11 @@ export default function Playground({
                       Loading...
                     </>
                   ) : (
-                    <>{t("form.submit")}</>
+                    <>
+                      {t("form.submit")}
+                      <Icons.PointIcon className="size-[14px]" />
+                      <span>{Credits[selectedModel.id]}</span>
+                    </>
                   )}
                 </Button>
                 <PrivateSwitch isPublic={isPublic} onChange={setIsPublic} />

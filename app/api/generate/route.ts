@@ -99,7 +99,6 @@ export async function POST(req: NextRequest, { params }: Params) {
         locale,
       }),
     }).then((res) => res.json());
-    console.log("res--->", res);
     const fluxData = await prisma.fluxData.findFirst({
       where: {
         replicateId: res.replicate_id,
@@ -108,8 +107,6 @@ export async function POST(req: NextRequest, { params }: Params) {
     if (!fluxData) {
       return NextResponse.json({ error: "Create Task Error" }, { status: 400 });
     }
-
-    console.log("fluxData--->", fluxData);
 
     await prisma.$transaction(async (tx) => {
       const newAccount = await tx.userCredit.update({

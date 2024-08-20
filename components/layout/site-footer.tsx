@@ -37,7 +37,7 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
               {t("footer.privacy")}
             </Link>
             <Link
-              href="mailto:support@douni.one"
+              href="mailto:support@fluxaipro.art"
               className="underline-offset-4 hover:underline"
               prefetch={false}
             >

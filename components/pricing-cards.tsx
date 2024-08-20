@@ -169,7 +169,7 @@ export function PricingCards({
               {t("tip.title")}&nbsp;(
               {t("tip.subtitle")}&nbsp;
               <a
-                href="mailto:support@douni.one"
+                href="mailto:support@fluxaipro.art"
                 className="font-semibold text-blue-700 underline decoration-blue-500 dark:text-white dark:decoration-white"
               >
                 {t("tip.contact")}
@@ -215,9 +215,9 @@ export function PricingCards({
           <br />
           <a
             className="font-medium text-primary hover:underline"
-            href="mailto:support@douni.one"
+            href="mailto:support@fluxaipro.art"
           >
-            support@douni.one
+            support@fluxaipro.art
           </a>{" "}
           {t("contact.description")}
           <br />

@@ -15,18 +15,18 @@ export default async function Author({
 
   return imageOnly ? (
     <BlurImage
-      src={authors[username].image}
-      alt={authors[username].name}
+      src={authors[username]?.image}
+      alt={authors[username]?.name}
       width={32}
       height={32}
       priority
       placeholder="blur"
-      blurDataURL={await getBlurDataURL(authors[username].image!)}
+      blurDataURL={await getBlurDataURL(authors[username]?.image!)}
       className="size-8 rounded-full transition-all group-hover:brightness-90"
     />
   ) : (
     <Link
-      href={`https://twitter.com/${authors[username].twitter}`}
+      href={`https://twitter.com/${authors[username]?.twitter}`}
       className="group flex w-max items-center space-x-2.5"
       target="_blank"
       rel="noopener noreferrer"

@@ -48,6 +48,9 @@ export const env = createEnv({
     NEXT_PUBLIC_STRIPE_BUSINESS_MONTHLY_PLAN_ID: z.string().min(1),
     NEXT_PUBLIC_STRIPE_BUSINESS_YEARLY_PLAN_ID: z.string().min(1),
     NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: z.string().min(1),
+
+    NEXT_PUBLIC_UMAMI_DATA_ID: z.string().optional(),
+    NEXT_PUBLIC_GA_ID: z.string().optional(),
   },
   runtimeEnv: {
     DATABASE_URL: process.env.DATABASE_URL,
@@ -88,5 +91,8 @@ export const env = createEnv({
     FLUX_HEADER_KEY: process.env.FLUX_HEADER_KEY,
     FLUX_CREATE_URL: process.env.FLUX_CREATE_URL,
     APP_ENV: process.env.APP_ENV,
+
+    NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID,
+    NEXT_PUBLIC_UMAMI_DATA_ID: process.env.NEXT_PUBLIC_UMAMI_DATA_ID
   },
 });

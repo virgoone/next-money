@@ -16,14 +16,9 @@ export const BLOG_CATEGORIES: {
 ];
 
 export const BLOG_AUTHORS = {
-  mickasmt: {
+  koyaguo: {
     name: "koyaguo",
-    image: "/_static/avatars/mickasmt.png",
+    image: "https://meme-static.douni.one/avatar.png",
     twitter: "koyaguo",
-  },
-  shadcn: {
-    name: "shadcn",
-    image: "/_static/avatars/shadcn.jpeg",
-    twitter: "shadcn",
-  },
+  }
 };

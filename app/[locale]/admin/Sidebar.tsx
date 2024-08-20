@@ -65,28 +65,6 @@ export const menus = [
       },
     ],
   },
-  {
-    name: "内容管理",
-    icon: ArticleIcon,
-    children: [
-      // {
-      //   name: '分类管理',
-      //   href: '/admin/content/category',
-      // },
-      // {
-      //   name: '标签管理',
-      //   href: '/admin/content/tags',
-      // },
-      // {
-      //   name: '文章管理',
-      //   href: '/admin/content/post',
-      // },
-      {
-        name: "项目列表",
-        href: "/admin/content/project",
-      },
-    ],
-  },
   { name: "订阅", href: "/admin/subscribers", icon: SubscriberIcon },
   { name: "Newsletters", href: "/admin/newsletters", icon: TiltedSendIcon },
 ];

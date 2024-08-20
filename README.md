@@ -24,7 +24,7 @@
 
 ## Introduction
 
-Empower your next project with the stack of Next.js 14, Drizzle, Neon, Clerk Auth, Resend, React Email, Shadcn/ui, and Stripe.
+Empower your next project with the stack of Next.js 14, Prisma, [Supabase](https://supabase.com/), Clerk Auth, Resend, React Email, Shadcn/ui, and Stripe.
 <br/>
 All seamlessly integrated with the SaaS Starter to accelerate your development and saas journey.
 
@@ -67,14 +67,14 @@ pnpm run dev
 
 - [Next.js](https://nextjs.org/) – React framework for building performant apps with the best developer experience
 - [Clerk Auth](https://clerk.com/) – The most comprehensive User Management Platform.
-- [Drizzle](https://orm.drizzle.team/) – Typescript-first ORM for Node.js
+- [Prisma](https://www.prisma.io/) – Typescript-first ORM for Node.js
 - [React Email](https://react.email/) – Versatile email framework for efficient and flexible email development
 
 ### Platforms
 
 - [Vercel](https://vercel.com/) – Easily preview & deploy changes with git
 - [Resend](https://resend.com/) – A powerful email framework for streamlined email development
-- [Neon](https://neon.tech/) – Serverless Postgres with autoscaling, branching, bottomless storage and generous free tier.
+- [Supabase](https://supabase.com/) – Serverless Postgres with autoscaling, branching, bottomless storage and generous free tier.
 
 ### UI
 

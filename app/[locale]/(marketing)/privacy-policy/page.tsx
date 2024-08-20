@@ -803,9 +803,9 @@ export default function IndexPage({ params: { locale } }: Props) {
             By email:{" "}
             <a
               className="font-medium underline underline-offset-4"
-              href="mailto:support@douni.one"
+              href="mailto:support@fluxaipro.art"
             >
-              support@douni.one
+              support@fluxaipro.art
             </a>
           </li>
         </ul>
