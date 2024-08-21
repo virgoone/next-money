@@ -70,7 +70,7 @@
     "label": "定价",
     "action": {
       "signin": "登录",
-      "buy": "购买套餐"
+      "buy": "一次性付款"
     },
     "contact": {
       "title": "联系我们",

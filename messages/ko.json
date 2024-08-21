@@ -70,7 +70,7 @@
     "label": "가격",
     "action": {
       "signin": "로그인",
-      "buy": "플랜 구매"
+      "buy": "일시불 결제"
     },
     "contact": {
       "title": "문의하기",

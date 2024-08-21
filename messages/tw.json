@@ -70,7 +70,7 @@
     "label": "價格方案",
     "action": {
       "signin": "登錄",
-      "buy": "購買方案"
+      "buy": "一次性付款"
     },
     "contact": {
       "title": "聯絡我們",

@@ -70,7 +70,7 @@
     "label": "Precios",
     "action": {
       "signin": "Iniciar Sesión",
-      "buy": "Comprar Plan"
+      "buy": "Pago único"
     },
     "contact": {
       "title": "Contáctanos",

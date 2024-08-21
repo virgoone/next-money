@@ -70,7 +70,7 @@
     "label": "Pricing",
     "action": {
       "signin": "Sign in",
-      "buy": "Buy Plan"
+      "buy": "One Time Payment"
     },
     "contact": {
       "title": "Contact us",

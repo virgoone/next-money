@@ -70,7 +70,7 @@
     "label": "Tarification",
     "action": {
       "signin": "Se connecter",
-      "buy": "Acheter"
+      "buy": "Paiement unique"
     },
     "contact": {
       "title": "Contactez-nous",

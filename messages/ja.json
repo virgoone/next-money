@@ -70,7 +70,7 @@
     "label": "価格",
     "action": {
       "signin": "サインイン",
-      "buy": "プラン購入"
+      "buy": "一括払い"
     },
     "contact": {
       "title": "お問い合わせ",
