@@ -35,6 +35,7 @@
     --radius: 0.5rem;
 
     --surface-alpha-strong: rgba(97,97,97,.1);
+    --stop-color: white;
   }
 
   .dark {
@@ -67,6 +68,7 @@
     --ring: 0 0% 83.1%;
 
     --surface-alpha-strong: hsla(0,0%,100%,.08);
+    --stop-color: black;
   }
 }
 

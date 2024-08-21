@@ -117,8 +117,8 @@ export const Icons = {
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(256) rotate(90) scale(512)"
         >
-          <stop stopColor="white" />
-          <stop offset={1} stopColor="white" stopOpacity={0} />
+          <stop stopColor="var(--stop-color)" />
+          <stop offset={1} stopColor="var(--stop-color)" stopOpacity={0} />
         </radialGradient>
       </defs>
       <rect
@@ -255,8 +255,8 @@ export const Icons = {
           y2={13.2177}
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="white" />
-          <stop offset={1} stopColor="white" stopOpacity={0.6} />
+          <stop stopColor="var(--stop-color)" />
+          <stop offset={1} stopColor="var(--stop-color)" stopOpacity={0.6} />
         </linearGradient>
         <linearGradient
           id="paint1_linear_1992_11"
@@ -277,9 +277,9 @@ export const Icons = {
           y2={12.7543}
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="white" />
-          <stop offset={0.5087} stopColor="white" stopOpacity={0.42} />
-          <stop offset={1} stopColor="white" />
+          <stop stopColor="var(--stop-color)" />
+          <stop offset={0.5087} stopColor="var(--stop-color)" stopOpacity={0.42} />
+          <stop offset={1} stopColor="var(--stop-color)" />
         </linearGradient>
       </defs>
     </svg>
