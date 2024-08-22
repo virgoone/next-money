@@ -1,9 +1,9 @@
 import * as React from "react";
-import Link from "next/link";
 
 import { useTranslations } from "next-intl";
 
 import { ModeToggle } from "@/components/layout/mode-toggle";
+import { Link } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 
 import NewsletterForm from "../forms/newsletter-form";
@@ -21,7 +21,7 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
           <span className="font-medium">Fluxaipro.Art Inc.</span>
         </div>
         <div className="flex flex-col items-center gap-4 md:flex-row">
-          <div className="flex-1 space-x-3 flex items-center">
+          <div className="flex flex-1 items-center space-x-3">
             <Link
               href="/terms-of-use"
               className="underline-offset-4 hover:underline"

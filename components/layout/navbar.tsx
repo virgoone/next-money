@@ -1,7 +1,6 @@
 "use client";
 
 import { useContext } from "react";
-import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
 
 import { useTranslations } from "next-intl";
@@ -14,6 +13,7 @@ import { dashboardConfig } from "@/config/dashboard";
 import { docsConfig } from "@/config/docs";
 import { marketingConfig } from "@/config/marketing";
 import { useScroll } from "@/hooks/use-scroll";
+import { Link } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 
 import { UserInfo } from "../user-info";
@@ -48,7 +48,7 @@ export function NavBar({ scroll = false }: NavBarProps) {
   const scrolled = useScroll(50);
   const t = useTranslations("Navigation");
   const selectedLayout = useSelectedLayoutSegment();
-  const dashBoard = selectedLayout === "dashboard";
+  const dashBoard = selectedLayout === "app";
   const blog = selectedLayout === "(blog)";
   const documentation = selectedLayout === "docs";
   const links = documentation
@@ -59,7 +59,7 @@ export function NavBar({ scroll = false }: NavBarProps) {
 
   return (
     <header
-      className={`sticky top-0 z-40 pr-9 flex w-full justify-center bg-background/60 backdrop-blur-xl transition-all md:pr-0 ${
+      className={`sticky top-0 z-40 flex w-full justify-center bg-background/60 pr-9 backdrop-blur-xl transition-all md:pr-0 ${
         scroll ? (scrolled ? "border-b" : "bg-transparent") : "border-b"
       }`}
     >

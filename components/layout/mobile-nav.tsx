@@ -1,16 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
+
 import { Menu, X } from "lucide-react";
 
+import { Icons } from "@/components/shared/icons";
 import { dashboardConfig } from "@/config/dashboard";
 import { docsConfig } from "@/config/docs";
 import { marketingConfig } from "@/config/marketing";
 import { siteConfig } from "@/config/site";
+import { Link } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
-import { Icons } from "@/components/shared/icons";
 
 import { UserInfo } from "../user-info";
 import { ModeToggle } from "./mode-toggle";

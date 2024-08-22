@@ -1,6 +1,5 @@
 import * as React from "react";
 import NextImage, { ImageProps } from "next/image";
-import Link from "next/link";
 
 import { useMDXComponent } from "next-contentlayer2/hooks";
 
@@ -8,6 +7,7 @@ import { MdxCard } from "@/components/content/mdx-card";
 import BlurImage from "@/components/shared/blur-image";
 import { Callout } from "@/components/shared/callout";
 import { CopyButton } from "@/components/shared/copy-button";
+import { Link } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 
 const components = {

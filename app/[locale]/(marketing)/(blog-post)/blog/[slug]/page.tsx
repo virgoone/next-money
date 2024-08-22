@@ -7,7 +7,6 @@ import { Mdx } from "@/components/content/mdx-components";
 import "@/styles/mdx.css";
 
 import { Metadata } from "next";
-import Link from "next/link";
 
 import { getTranslations } from "next-intl/server";
 
@@ -17,6 +16,7 @@ import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
 import { DashboardTableOfContents } from "@/components/shared/toc";
 import { buttonVariants } from "@/components/ui/button";
 import { BLOG_CATEGORIES } from "@/config/blog";
+import { Link } from "@/lib/navigation";
 import { getTableOfContents } from "@/lib/toc";
 import {
   cn,

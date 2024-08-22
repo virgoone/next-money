@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import { useTranslations } from "next-intl";
 
 import { HeaderSection } from "@/components/shared/header-section";
@@ -7,6 +5,7 @@ import { Icons } from "@/components/shared/icons";
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
 import { Button } from "@/components/ui/button";
 import { features } from "@/config/landing";
+import { Link } from "@/lib/navigation";
 
 export default function Features() {
   const t = useTranslations("IndexPage");
@@ -54,8 +53,11 @@ export default function Features() {
                       size="sm"
                       className="rounded-xl px-4"
                     >
-                      <Link href="/app/generate" className="flex items-center gap-2">
-                        <span>{t('features.action.visit')}</span>
+                      <Link
+                        href="/app/generate"
+                        className="flex items-center gap-2"
+                      >
+                        <span>{t("features.action.visit")}</span>
                         <Icons.arrowUpRight className="size-4" />
                       </Link>
                     </Button>

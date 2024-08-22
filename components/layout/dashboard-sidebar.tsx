@@ -1,7 +1,6 @@
 "use client";
 
 import { Fragment, useEffect, useState } from "react";
-import Link from "next/link";
 
 import { Menu, PanelLeftClose, PanelRightClose } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -19,7 +18,7 @@ import {
 } from "@/components/ui/tooltip";
 import { siteConfig } from "@/config/site";
 import { useMediaQuery } from "@/hooks/use-media-query";
-import { usePathname } from "@/lib/navigation";
+import { Link, usePathname } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 import { NavItem, SidebarNavItem } from "@/types";
 

@@ -1,11 +1,13 @@
 "use client";
 
 import { Fragment, useMemo, useState } from "react";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
+
 import { Breadcrumb, Button, Drawer } from "antd";
 import { motion } from "framer-motion";
 import { PanelLeftIcon, SearchIcon } from "lucide-react";
+
+import { Link } from "@/lib/navigation";
 
 import { menus, RenderMenu, type MenuType } from "./Sidebar";
 
@@ -37,7 +39,7 @@ const findMenu = (menus: MenuType[], path: string) => {
       return []; // 如果找不到菜单项，返回空数组
     }
     if (item.parent && !item.parent.href) {
-      return [{...item.parent},{ ...item, parent: null }];
+      return [{ ...item.parent }, { ...item, parent: null }];
     }
 
     const breadcrumbs = [{ ...item, parent: null }];
