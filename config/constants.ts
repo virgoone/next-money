@@ -29,3 +29,30 @@ export enum Ratio {
   r4 = "3:2",
   r5 = "2:3",
 }
+
+export const ModelDefaultAdVancedSetting = {
+  [model.pro]: {
+    steps: {
+      default: 25,
+      min: 1,
+      max: 50,
+    },
+    guidance: {
+      default: 3,
+      min: 2,
+      max: 5,
+    },
+    interval: {
+      default: 2,
+      min: 1,
+      max: 4,
+    },
+    safety_tolerance: {
+      default: 2,
+      min: 1,
+      max: 5,
+    }
+  },
+  [model.schnell]: "FLUX.1 [schnell]",
+  [model.dev]: "FLUX.1 [dev]",
+}

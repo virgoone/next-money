@@ -53,7 +53,7 @@
       }
     },
     "action": {
-      "pricing": "크레딧 구매",
+      "pricing": "크레딧 구매하기",
       "login": "로그인",
       "dashboard": "대시보드",
       "generate": "생성하기",
