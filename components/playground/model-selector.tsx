@@ -151,7 +151,7 @@ export function ModelSelector({
       {selectedModel.id === model.general && (
         <div className="grid gap-2">
           <Label htmlFor="lora">{t("form.lora")}</Label>
-          <Select id="lora" value={lora} onValueChange={(value) => onLoraChange(value)}>
+          <Select value={lora} onValueChange={(value) => onLoraChange(value)}>
             <SelectTrigger className="w-full">
               <SelectValue placeholder={t("form.loraTooltip")} />
             </SelectTrigger>
