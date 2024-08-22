@@ -25,6 +25,16 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { LoraConfig, loras, model } from "@/config/constants";
 import { useMutationObserver } from "@/hooks/use-mutation-observer";
 import { cn } from "@/lib/utils";
 
@@ -35,6 +45,8 @@ interface ModelSelectorProps extends PopoverProps {
   types: readonly ModelType[];
   models: Model[];
   selectedModel: Model;
+  lora: string
+  onLoraChange: (lora: string) => void;
   onChange: (model: Model) => void;
 }
 
@@ -43,6 +55,8 @@ export function ModelSelector({
   types,
   selectedModel,
   onChange,
+  lora,
+  onLoraChange,
   ...props
 }: ModelSelectorProps) {
   const [open, setOpen] = React.useState(false);
@@ -50,86 +64,110 @@ export function ModelSelector({
   const t = useTranslations("Playground");
 
   return (
-    <div className="grid gap-2">
-      <HoverCard openDelay={500}>
-        <HoverCardTrigger asChild>
-          <Label htmlFor="model">{t("form.model")}</Label>
-        </HoverCardTrigger>
-        <HoverCardContent
-          align="start"
-          className="w-[150px] md:w-[260px] text-sm"
-          side="left"
-        >
-          {t("form.modelTooltip")}
-        </HoverCardContent>
-      </HoverCard>
-      <Popover open={open} onOpenChange={setOpen} {...props}>
-        <PopoverTrigger asChild>
-          <Button
-            variant="outline"
-            role="combobox"
-            aria-expanded={open}
-            aria-label="Select a model"
-            className="w-full justify-between"
+    <div className="flex flex-col gap-2">
+      <div className="grid gap-2">
+        <HoverCard openDelay={500}>
+          <HoverCardTrigger asChild>
+            <Label htmlFor="model">{t("form.model")}</Label>
+          </HoverCardTrigger>
+          <HoverCardContent
+            align="start"
+            className="w-[150px] text-sm md:w-[260px]"
+            side="left"
           >
-            {selectedModel ? selectedModel.name : "Select a model..."}
-
-            <Icons.CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-          </Button>
-        </PopoverTrigger>
-        <PopoverContent align="end" className="w-[250px] p-0">
-          <HoverCard>
-            <HoverCardContent
-              side="left"
-              align="start"
-              forceMount
-              className="min-h-[200px]"
+            {t("form.modelTooltip")}
+          </HoverCardContent>
+        </HoverCard>
+        <Popover open={open} onOpenChange={setOpen} {...props}>
+          <PopoverTrigger asChild>
+            <Button
+              variant="outline"
+              role="combobox"
+              aria-expanded={open}
+              aria-label="Select a model"
+              className="w-full justify-between"
             >
-              <div className="grid gap-2">
-                <h4 className="font-medium leading-none">{peekedModel.name}</h4>
-                <div className="text-sm text-muted-foreground">
-                  {peekedModel.description}
-                </div>
-                {peekedModel.strengths ? (
-                  <div className="mt-4 grid gap-2">
-                    <h5 className="text-sm font-medium leading-none">
-                      Strengths
-                    </h5>
-                    <ul className="text-sm text-muted-foreground">
-                      {peekedModel.strengths}
-                    </ul>
+              {selectedModel ? selectedModel.name : "Select a model..."}
+
+              <Icons.CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent align="end" className="w-[250px] p-0">
+            <HoverCard>
+              <HoverCardContent
+                side="left"
+                align="start"
+                forceMount
+                className="min-h-[120px]"
+              >
+                <div className="grid gap-2">
+                  <h4 className="font-medium leading-none">
+                    {peekedModel.name}
+                  </h4>
+                  <div className="text-sm text-muted-foreground">
+                    {peekedModel.description}
                   </div>
-                ) : null}
-              </div>
-            </HoverCardContent>
-            <Command loop>
-              <CommandList className="h-[var(--cmdk-list-height)] max-h-[400px]">
-                <CommandInput placeholder="Search Models..." />
-                <CommandEmpty>No Models found.</CommandEmpty>
-                <HoverCardTrigger />
-                {types.map((type) => (
-                  <CommandGroup key={type} heading={type}>
-                    {models
-                      .filter((model) => model.type === type)
-                      .map((model) => (
-                        <ModelItem
-                          key={model.id}
-                          model={model}
-                          isSelected={selectedModel?.id === model.id}
-                          onPeek={(model) => setPeekedModel(model)}
-                          onSelect={() => {
-                            onChange(model);
-                            setOpen(false);
-                          }}
-                        />
-                      ))}
-                  </CommandGroup>
+                  {peekedModel.strengths ? (
+                    <div className="mt-4 grid gap-2">
+                      <h5 className="text-sm font-medium leading-none">
+                        Strengths
+                      </h5>
+                      <ul className="text-sm text-muted-foreground">
+                        {peekedModel.strengths}
+                      </ul>
+                    </div>
+                  ) : null}
+                </div>
+              </HoverCardContent>
+              <Command loop>
+                <CommandList className="h-[var(--cmdk-list-height)] max-h-[400px]">
+                  <CommandInput placeholder="Search Models..." />
+                  <CommandEmpty>No Models found.</CommandEmpty>
+                  <HoverCardTrigger />
+                  {types.map((type) => (
+                    <CommandGroup key={type} heading={type}>
+                      {models
+                        .filter((model) => model.type === type)
+                        .map((model) => (
+                          <ModelItem
+                            key={model.id}
+                            model={model}
+                            isSelected={selectedModel?.id === model.id}
+                            onPeek={(model) => setPeekedModel(model)}
+                            onSelect={() => {
+                              onChange(model);
+                              setOpen(false);
+                            }}
+                          />
+                        ))}
+                    </CommandGroup>
+                  ))}
+                </CommandList>
+              </Command>
+            </HoverCard>
+          </PopoverContent>
+        </Popover>
+      </div>
+      {selectedModel.id === model.general && (
+        <div className="grid gap-2">
+          <Label htmlFor="lora">{t("form.lora")}</Label>
+          <Select id="lora" value={lora} onValueChange={(value) => onLoraChange(value)}>
+            <SelectTrigger className="w-full">
+              <SelectValue placeholder={t("form.loraTooltip")} />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectLabel>{t("form.loraLabel")}</SelectLabel>
+                {Object.keys(LoraConfig).map((key) => (
+                  <SelectItem value={key}>
+                    {LoraConfig[key].styleName}
+                  </SelectItem>
                 ))}
-              </CommandList>
-            </Command>
-          </HoverCard>
-        </PopoverContent>
-      </Popover>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+      )}
     </div>
   );
 }

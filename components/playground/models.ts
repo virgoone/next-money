@@ -25,7 +25,8 @@ export const models: Model<ModelType>[] = [
   {
     id: model.schnell,
     name: ModelName[model.schnell],
-    description: "The pro version of FLUX.1, served in partnership with BFL text-to-image",
+    description:
+      "The pro version of FLUX.1, served in partnership with BFL text-to-image",
     type: "Flux AI",
     // strengths:
     //   "Language translation, complex classification, sentiment, summarization",
@@ -33,7 +34,14 @@ export const models: Model<ModelType>[] = [
   {
     id: model.dev,
     name: ModelName[model.dev],
-    description: "FLUX.1, a 12B parameters text-to-image model with outstanding aesthetics. text-to-imageinference",
+    description:
+      "FLUX.1, a 12B parameters text-to-image model with outstanding aesthetics. text-to-imageinference",
     type: "Flux AI",
-  }
+  },
+  {
+    id: model.general,
+    name: ModelName[model.general],
+    description: "For LoRA use. Choose to see LoRAs.",
+    type: "Flux AI",
+  },
 ];

@@ -58,7 +58,7 @@ export async function GET(req: NextRequest) {
         page,
         pageSize,
         data: fluxData.map(
-          ({ id, executeEndTime, executeStartTime, ...rest }) => ({
+          ({ id, executeEndTime, executeStartTime, loraUrl, ...rest }) => ({
             ...rest,
             executeTime:
               executeEndTime && executeStartTime

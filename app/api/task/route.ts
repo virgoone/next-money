@@ -57,7 +57,7 @@ export async function POST(req: NextRequest) {
         status: 404,
       });
     }
-    const { executeEndTime, executeStartTime, ...rest } = fluxData;
+    const { executeEndTime, executeStartTime, loraUrl, ...rest } = fluxData;
     return NextResponse.json({
       data: {
         ...rest,

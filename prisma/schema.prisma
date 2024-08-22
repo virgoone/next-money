@@ -66,6 +66,9 @@ model FluxData {
   createdAt        DateTime @default(now()) @map(name: "created_at") @db.Timestamp(6)
   updatedAt        DateTime @default(now()) @map(name: "updated_at") @db.Timestamp(6)
   errorMsg         String?  @map(name: "error_msg")
+  loraUrl          String?  @map("lora_url") @db.VarChar(255)
+  loraName         String?  @map("lora_name") @db.VarChar(255)
+  loraScale        Float?   @map("lora_scale") @db.DoublePrecision
 
   @@map(name: "flux_data")
 }

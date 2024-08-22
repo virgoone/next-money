@@ -35,11 +35,12 @@ enum Ratio {
 
 type Params = { params: { key: string } };
 const CreateGenerateSchema = z.object({
-  model: z.enum([model.pro, model.schnell, model.dev]),
+  model: z.enum([model.pro, model.schnell, model.dev, model.general]),
   inputPrompt: z.string(),
   aspectRatio: z.enum([Ratio.r1, Ratio.r2, Ratio.r3, Ratio.r4, Ratio.r5]),
   isPrivate: z.number().default(0),
   locale: z.string().default("en"),
+  loraName: z.string().optional(),
   inputImageUrl: z.string().url().optional(),
 });
 
@@ -71,6 +72,7 @@ export async function POST(req: NextRequest, { params }: Params) {
       aspectRatio,
       isPrivate,
       locale,
+      loraName,
       inputImageUrl,
     } = CreateGenerateSchema.parse(data);
     const headers = new Headers();
@@ -96,6 +98,7 @@ export async function POST(req: NextRequest, { params }: Params) {
         aspect_ratio: aspectRatio,
         is_private: isPrivate,
         user_id: userId,
+        lora_name: loraName,
         locale,
       }),
     }).then((res) => res.json());

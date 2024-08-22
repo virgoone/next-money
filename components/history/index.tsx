@@ -17,7 +17,7 @@ import Loading from "@/components/loading";
 import BlurFade from "@/components/magicui/blur-fade";
 import PlaygroundLoading from "@/components/playground/loading";
 import { EmptyPlaceholder } from "@/components/shared/empty-placeholder";
-import { ModelName, Ratio } from "@/config/constants";
+import { LoraConfig, ModelName, Ratio } from "@/config/constants";
 import { FluxSelectDto } from "@/db/type";
 import { cn, createRatio } from "@/lib/utils";
 
@@ -167,10 +167,17 @@ export default function History({ locale }: { locale: string }) {
                       {item.inputPrompt}
                     </p>
                   </div>
-                  <div className="flex flex-row flex-wrap space-x-1 px-4">
-                    <div className="bg-surface-alpha-strong text-content-base inline-flex items-center rounded-md border border-transparent px-1.5 py-0.5 font-mono text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
-                      {ModelName[item.model]}
-                    </div>
+                  <div className="flex flex-row flex-wrap space-x-1 px-2">
+                    {ModelName[item.model] && (
+                      <div className="bg-surface-alpha-strong text-content-base inline-flex items-center rounded-md border border-transparent px-1.5 py-0.5 font-mono text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
+                        {ModelName[item.model]}
+                      </div>
+                    )}
+                    {item.loraName && LoraConfig[item.loraName]?.styleName && (
+                      <div className="bg-surface-alpha-strong text-content-base inline-flex items-center rounded-md border border-transparent px-1.5 py-0.5 font-mono text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
+                        {LoraConfig[item.loraName]?.styleName}
+                      </div>
+                    )}
                   </div>
                   <div className="flex flex-row justify-between space-x-2 p-4 pt-0">
                     <button

@@ -25,7 +25,7 @@ import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 import { Locale } from "@/config";
-import { Credits, model, ModelName, Ratio } from "@/config/constants";
+import { Credits, loras, model, ModelName, Ratio } from "@/config/constants";
 import {
   ChargeProductSelectDto,
   FluxSelectDto,
@@ -95,6 +95,7 @@ export default function Playground({
   const { getToken } = useAuth();
   const queryClient = useQueryClient();
   const [pricingCardOpen, setPricingCardOpen] = useState(false);
+  const [lora, setLora] = React.useState<string>(loras.wukong);
 
   const queryTask = useQuery({
     queryKey: ["queryFluxTask", fluxId],
@@ -148,12 +149,14 @@ export default function Playground({
       const inputImageUrl = uploadInputImage
         ? uploadInputImage?.[0]?.completedUrl
         : undefined;
+      const loraName = selectedModel.id === model.general ? lora : undefined;
       const res = await useCreateTask.mutateAsync({
         model: selectedModel.id,
         inputPrompt,
         aspectRatio: ratio,
         inputImageUrl,
         isPrivate: isPublic ? 0 : 1,
+        loraName,
         locale,
       });
       console.log("res--->", res);
@@ -199,6 +202,8 @@ export default function Playground({
               selectedModel={selectedModel}
               onChange={(model) => setSelectedModel(model)}
               types={types}
+              lora={lora}
+              onLoraChange={setLora}
               models={models}
             />
             <AspectRatioSelector ratio={ratio} onChange={setRatio} />

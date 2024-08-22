@@ -8,18 +8,32 @@ export enum model {
   pro = "black-forest-labs/flux-pro",
   schnell = "black-forest-labs/flux-schnell",
   dev = "black-forest-labs/flux-dev",
+  general = "lucataco/flux-dev-lora",
+}
+
+export enum loras {
+  wukong = 'wukong',
+}
+
+export const LoraConfig = {
+  [loras.wukong]: {
+    name: 'BlackMythWukong Lora',
+    styleName: 'WuKong Style'
+  }
 }
 
 export const Credits = {
   [model.pro]: 10,
   [model.schnell]: 1,
   [model.dev]: 5,
+  [model.general]: 8,
 };
 
 export const ModelName = {
   [model.pro]: "FLUX.1 [pro]",
   [model.schnell]: "FLUX.1 [schnell]",
   [model.dev]: "FLUX.1 [dev]",
+  [model.general]: "FLUX.1 General",
 };
 
 export enum Ratio {
