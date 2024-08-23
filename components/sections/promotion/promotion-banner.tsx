@@ -11,6 +11,7 @@ import { useReward } from "react-rewards";
 import { toast } from "sonner";
 
 import { PricingCardDialog } from "@/components/pricing-cards";
+import SignBox from "@/components/sign-box";
 import { Button } from "@/components/ui/button";
 import { ChargeProductSelectDto } from "@/db/type";
 
@@ -105,7 +106,7 @@ export default function PromotionBanner({
   return (
     <div>
       <div
-        className={`fixed bottom-0 left-0 right-0 z-10 bg-gradient-to-r from-purple-600 to-indigo-600 p-3 text-white shadow-lg transition-opacity duration-300 ease-in-out sm:p-4 ${
+        className={`fixed bottom-0 left-0 right-0 z-10 bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg transition-opacity duration-300 ease-in-out px-1 py-3 md:px-3 md:py-4 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}
       >
@@ -115,16 +116,18 @@ export default function PromotionBanner({
             <p className="text-xs sm:text-sm md:text-base">{t("title")}</p>
           </div>
           <div className="flex w-full space-x-2 sm:space-x-4 md:w-auto">
-            <Button
-              variant="secondary"
-              id="claim-success"
-              disabled={loading}
-              className="flex-1 bg-white px-2 py-1 text-xs text-purple-600 hover:bg-gray-100 sm:px-4 sm:py-2 sm:text-sm"
-              onClick={debounceHandleClaim}
-            >
-              {loading && <Loader2 className="icon-xs mr-1 animate-spin" />}
-              {t("action.claim")}
-            </Button>
+            <SignBox>
+              <Button
+                variant="secondary"
+                id="claim-success"
+                disabled={loading}
+                className="flex-1 bg-white px-2 py-1 text-xs text-purple-600 hover:bg-gray-100 sm:px-4 sm:py-2 sm:text-sm"
+                onClick={debounceHandleClaim}
+              >
+                {loading && <Loader2 className="icon-xs mr-1 animate-spin" />}
+                {t("action.claim")}
+              </Button>
+            </SignBox>
             <Button
               variant="ghost"
               className="flex-1 px-2 py-1 text-xs text-white hover:bg-purple-700 sm:px-4 sm:py-2 sm:text-sm"
