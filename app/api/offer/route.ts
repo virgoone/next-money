@@ -76,7 +76,7 @@ export async function POST(req: NextRequest) {
   }
 
   const { success } = await ratelimit.limit(
-    "gift-code:redeemed" + `_${req.ip ?? ""}`,
+    "get-offer:redeemed" + `_${req.ip ?? ""}`,
   );
   if (!success) {
     return new Response("Too Many Requests", {
