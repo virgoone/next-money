@@ -3,6 +3,20 @@
     "description": "<p>죄송합니다. 오류가 발생했습니다.</p><p>방문하려던 페이지를 <retry>다시 로드</retry>해 보세요.</p>",
     "title": "문제가 발생했습니다!"
   },
+  "Promotion": {
+    "title": "한정 타임 오퍼: 한 달 내 패키지 구매 시 추가 20% 보너스 포인트 제공!",
+    "error": {
+      "common": "이런! 문제가 발생했습니다. 나중에 다시 시도해주세요.",
+      "limit": "이 제안을 받으려면 먼저 구매를 해야 합니다."
+    },
+    "success": {
+      "title": "축하합니다! 구매에 대해 추가 20% 보너스 포인트를 받았습니다."
+    },
+    "action": {
+      "claim": "포인트 활성화",
+      "close": "닫기"
+    }
+  },
   "IndexPage": {
     "intro": "Flux AI 이미지 생성기 소개",
     "description": "차세대 고급 텍스트-이미지 오픈 모델을 혁신하는 Flux AI 이미지 생성기. flux.1 pro와 flux.1 schnell 모델을 지원합니다.",

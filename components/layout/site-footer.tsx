@@ -13,7 +13,7 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
   const t = useTranslations("PageLayout");
   return (
     <footer
-      className={cn("container border-t", "w-full p-6 md:py-12", className)}
+      className={cn("container border-t", "w-full p-6 md:py-12 pb-16", className)}
     >
       <div className="flex max-w-7xl flex-col items-center justify-between gap-4 text-sm md:flex-row">
         <div className="flex items-center gap-2">

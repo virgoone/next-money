@@ -111,6 +111,20 @@
       "contact": "contáctanos"
     }
   },
+  "Promotion": {
+    "title": "Oferta Limitada: ¡Obtén un 20% de Puntos Extra en Compras de Paquetes Dentro de un Mes!",
+    "error": {
+      "common": "¡Ups! Algo salió mal. Por favor, inténtelo de nuevo más tarde.",
+      "limit": "Necesita hacer una compra primero para calificar para esta oferta."
+    },
+    "success": {
+      "title": "¡Felicitaciones! Ha recibido un 20% de puntos extra en su compra."
+    },
+    "action": {
+      "claim": "Activar Sus Puntos",
+      "close": "Cerrar"
+    }
+  },
   "Playground": {
     "title": "Generador de Imágenes Flux AI",
     "description": "Modelos de IA asombrosos para generar imágenes a partir de textos.",

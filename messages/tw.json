@@ -3,6 +3,20 @@
     "description": "<p>很抱歉，我們遇到了壹個錯誤。</p><p>您可以嘗試<retry>重新載入</retry>您正在訪問的頁面。</p>",
     "title": "出現錯誤！"
   },
+  "Promotion": {
+    "title": "限時優惠：一個月內購買套餐，額外贈送 20% 積分！",
+    "error": {
+      "common": "哎呀！出現了一些問題。請稍後再試。",
+      "limit": "您需要先購買才能符合此優惠條件。"
+    },
+    "success": {
+      "title": "恭喜！您已獲得額外 20% 積分獎勵。"
+    },
+    "action": {
+      "claim": "激活積分",
+      "close": "關閉"
+    }
+  },
   "IndexPage": {
     "intro": "介紹 Flux AI 圖像生成工具",
     "description": "領先市場的高階文字轉換圖像開放模型，支援 flux.1 pro 與 flux.1 schnell 模型。",

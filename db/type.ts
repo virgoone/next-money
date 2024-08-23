@@ -18,6 +18,7 @@ export enum PaymentChannelType {
   Stripe = "Stripe",
   GiftCode = "GiftCode",
   InviteCode = "InviteCode",
+  ActivityCredit = "Event Gift",
 }
 
 export enum BillingType {

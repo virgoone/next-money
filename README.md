@@ -33,7 +33,7 @@ All seamlessly integrated with the SaaS Starter to accelerate your development a
 Clone & create this repo locally with the following command:
 
 ```bash
-npx create-next-app my-saas-project --example "https://github.com/virgone/next-money"
+npx create-next-app my-saas-project --example "https://github.com/virgoone/next-money"
 ```
 
 1. Install dependencies using pnpm:

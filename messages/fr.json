@@ -3,6 +3,20 @@
     "description": "<p>Nous avons malheureusement rencontré une erreur.</p><p>Vous pouvez essayer de <retry>recharger la page</retry> que vous visitiez.</p>",
     "title": "Une erreur s'est produite !"
   },
+  "Promotion": {
+    "title": "Offre Limitée: Obtenez 20% de Points Bonus Supplémentaires sur les Achats de Forfaits dans un Mois!",
+    "error": {
+      "common": "Oups! Quelque chose s'est mal passé. Veuillez réessayer plus tard.",
+      "limit": "Vous devez effectuer un achat d'abord pour être éligible à cette offre."
+    },
+    "success": {
+      "title": "Félicitations! Vous avez reçu 20% de points bonus supplémentaires sur votre achat."
+    },
+    "action": {
+      "claim": "Activer Vos Points",
+      "close": "Fermer"
+    }
+  },
   "IndexPage": {
     "intro": "Découvrez Flux AI, le générateur d'images",
     "description": "Révolutionnez la création d'images avec notre modèle avancé de texte vers image, compatible avec flux.1 pro et flux.1 schnell.",

@@ -3,6 +3,20 @@
     "description": "<p>Leider ist ein Fehler aufgetreten.</p><p>Versuchen Sie, die <retry>Seite neu zu laden</retry>, die Sie besucht haben.</p>",
     "title": "Etwas ist schiefgelaufen!"
   },
+  "Promotion": {
+    "title": "Begrenztes Zeitangebot: Erhalten Sie 20% zusätzliche Bonuspunkte bei Paketkäufen innerhalb eines Monats!",
+    "error": {
+      "common": "Hoppla! Etwas ist schief gelaufen. Bitte versuchen Sie es später erneut.",
+      "limit": "Sie müssen zuerst einen Kauf tätigen, um für dieses Angebot zu qualifizieren."
+    },
+    "success": {
+      "title": "Herzlichen Glückwunsch! Sie haben 20% zusätzliche Bonuspunkte auf Ihren Kauf erhalten."
+    },
+    "action": {
+      "claim": "Aktivieren Sie Ihre Punkte",
+      "close": "Schließen"
+    }
+  },
   "IndexPage": {
     "intro": "Einführung des Flux AI Image Generators",
     "description": "Revolutionäres Next-Generation-Advanced-Text-to-Image-Open-Modell, unterstützt flux.1 pro und flux.1 schnell Modelle.",

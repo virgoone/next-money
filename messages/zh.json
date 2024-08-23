@@ -3,6 +3,20 @@
     "description": "<p>很抱歉，我们遇到了一个错误。</p><p>您可以尝试<retry>重新加载</retry>您正在访问的页面。</p>",
     "title": "出错了！"
   },
+  "Promotion": {
+    "title": "限时优惠：一个月内购买套餐，额外赠送 20% 积分！",
+    "error": {
+      "common": "哎呀！出现了一些问题。请稍后再试。",
+      "limit": "您需要先购买才能参与此活动。"
+    },
+    "success": {
+      "title": "恭喜！您已获得额外 20% 积分奖励。"
+    },
+    "action": {
+      "claim": "激活积分",
+      "close": "关闭"
+    }
+  },
   "IndexPage": {
     "intro": "介绍 Flux AI 图像生成器",
     "description": "革新下一代高级文本到图像的开放模型，支持 flux.1 pro和 flux.1 schnell模型。",

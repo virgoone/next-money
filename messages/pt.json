@@ -3,6 +3,20 @@
     "description": "<p>Infelizmente, encontramos um erro.</p><p>Você pode tentar <retry>recarregar a página</retry> que estava visitando.</p>",
     "title": "Algo deu errado!"
   },
+  "Promotion": {
+    "title": "Oferta Limitada: Ganhe 20% de Pontos Extras em Compras de Pacotes Dentro de um Mês!",
+    "error": {
+      "common": "Ops! Algo deu errado. Por favor, tente novamente mais tarde.",
+      "limit": "Você precisa fazer uma compra primeiro para se qualificar para esta oferta."
+    },
+    "success": {
+      "title": "Parabéns! Você recebeu 20% de pontos extras na sua compra."
+    },
+    "action": {
+      "claim": "Ativar Seus Pontos",
+      "close": "Fechar"
+    }
+  },
   "IndexPage": {
     "intro": "Apresentando o Gerador de Imagens Flux AI",
     "description": "Revolutionando o modelo avançado de texto para imagem de próxima geração, suporte para os modelos flux.1 pro e flux.1 schnell.",

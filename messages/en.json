@@ -3,6 +3,20 @@
     "description": "<p>We've unfortunately encountered an error.</p><p>You can try to <retry>reload the page</retry> you were visiting.</p>",
     "title": "Something went wrong!"
   },
+  "Promotion": {
+    "title": "Limited Time Offer: Get an Extra 20% Bonus Points on Package Purchases Within a Month!",
+    "error": {
+      "common": "Oops! Something went wrong. Please try again later.",
+      "limit": "You need to make a purchase first to qualify for this offer."
+    },
+    "success": {
+      "title": "Congratulations! You've received an extra 20% bonus points on your purchase."
+    },
+    "action": {
+      "claim": "Activate Your Points",
+      "close": "Close"
+    }
+  },
   "IndexPage": {
     "intro": "Introducing Flux AI Image Generator",
     "description": "Revolutionizing Next-Generation Advanced Text-to-Image open model, support flux.1 pro and flux.1 schnell models.",

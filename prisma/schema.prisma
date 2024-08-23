@@ -24,6 +24,19 @@ model ChargeOrder {
   @@map(name: "charge_order")
 }
 
+model ClaimedActivityOrder {
+  id            Int      @id @default(autoincrement())
+  chargeOrderId Int      @map(name: "charge_order_id")
+  userId        String   @map(name: "user_id") @db.VarChar(200)
+  credit        Int
+  createdAt     DateTime @default(now()) @map(name: "created_at") @db.Timestamp(6)
+  updatedAt     DateTime @default(now()) @map(name: "updated_at") @db.Timestamp(6)
+  activityCode  String   @map(name: "activity_code") @db.VarChar(200)
+  transactionId Int?     @map(name: "transaction_id")
+
+  @@map(name: "claimed_activity_order")
+}
+
 model ChargeProduct {
   id             Int      @id @default(autoincrement())
   amount         Int

@@ -84,11 +84,13 @@ export async function POST(req: NextRequest) {
 
     const orderId = ChargeOrderHashids.encode(newChargeOrder.id);
     const billingUrl = absoluteUrl(`/pricing?orderId=${orderId}`);
-
+    const nextUrl = url?.includes("?")
+      ? `${url}&orderId=${orderId}`
+      : `${url}?orderId=${orderId}`;
     if (channel === "Stripe") {
       const stripeSession = await stripe.checkout.sessions.create({
-        success_url: url ?? `${billingUrl}&success=true`,
-        cancel_url: url ?? `${billingUrl}&success=false`,
+        success_url: `${nextUrl ?? billingUrl}&success=true`,
+        cancel_url: `${nextUrl ?? billingUrl}&success=false`,
         payment_method_types: ["card"],
         mode: "payment",
         billing_address_collection: "auto",
