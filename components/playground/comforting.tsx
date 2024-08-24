@@ -132,6 +132,15 @@ const ComfortingMessages: React.FC<ComfortingMessagesProps> = ({
       "Ligando os bits para que voltem para casa... Não se percam no cabo!",
       "Desenhando um smiley na tela de carregamento... Pronto, agora sorria!",
     ],
+    ar: [
+      "نظامنا الذكي يقوم بالضغط على الأرض ليصبح أقوى...",
+      "نعلم إنسالتنا كيف تتحرك بطريقة 'مون ووك' أثناء المعالجة...",
+      "نحن نعد إلى اللانهاية، سنعود للتو...",
+      "نحن نقنع الواحدات والأصفار بالتعاون...",
+      "نبحث عن معنى الحياة... ونتائجك!",
+      "نحاول أن نتغلب على النتيجة العالية الخاصة بنا...",
+      "نحن نفك شوكة الكود البرمجي الذي يشبه السباغيتي...",
+    ],
   };
 
   useEffect(() => {

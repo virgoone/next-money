@@ -17,6 +17,60 @@
       "close": "關閉"
     }
   },
+  "PromptGenerator": {
+    "layout": {
+      "title": "免費Flux AI提示生成器：利用AI驅動的提示增強您的創造力",
+      "description": "探索Flux AI提示生成器的強大功能，這是您輕鬆創建定制AI提示的終極工具。無論您是作家、開發者還是創意思考者，我們的直觀平台將您的想法轉化為引人入勝的提示，提高生產力並激發創新。立即開始生成引人注目的內容，並通過Flux AI提升您的項目！",
+      "keywords": "flux ai提示生成器, AI提示生成器, flux提示創建器, AI內容生成, AI寫作工具, 創意寫作提示, flux AI工具, 使用AI生成提示, AI驅動提示生成, 利用AI增強創造力, 提示生成軟件"
+    },
+    "title": "免費Flux AI提示生成器",
+    "subtitle": "將您的想法轉化為強大的AI圖像生成提示，通過我們的全面指南",
+    "form": {
+      "input": {
+        "title": "輸入您的提示想法",
+        "placeholder": "在此輸入您的提示想法..."
+      },
+      "output": {
+        "title": "生成的提示"
+      },
+      "action": {
+        "generate": "生成AI提示",
+        "generating": "生成中...",
+        "copy": "複製提示",
+        "copySuccess": "提示已複製到剪貼板。",
+        "to_generate": "生成"
+      }
+    },
+    "faq": {
+      "label": "問題",
+      "title": "關於Flux AI提示生成器的常見問題",
+      "subtitle": "探索我們的全面FAQ，快速找到常見問題的答案。如果您需要進一步幫助，請隨時聯繫我們獲取個性化幫助。",
+      "item1": {
+        "question": "什麼是Flux AI提示生成器？",
+        "answer": "Flux AI提示生成器是一款創新工具，旨在幫助用戶創建引人入勝且有效的提示，適用於寫作、營銷和內容創作等各種應用。通過利用先進的AI算法，它生成能夠激發創造力和提高生產力的建議。"
+      },
+      "item2": {
+        "question": "Flux AI如何工作？",
+        "answer": "Flux AI利用人工智能和機器學習技術分析用戶輸入並生成相關提示。用戶可以自定義參數以調整輸出，確保生成的提示滿足其特定需求，無論是個人項目還是專業任務。"
+      },
+      "item3": {
+        "question": "誰可以從使用Flux AI中受益？",
+        "answer": "Flux AI非常適合尋求靈感和指導的作家、營銷人員、教育工作者和內容創作者。它可以帮助用户突破写作障碍、制定营销策略或创建教案，是任何需要新鲜创意的人的宝贵工具。"
+      },
+      "item4": {
+        "question": "Flux AI用戶友好嗎？",
+        "answer": "是的，Flux AI設計時考慮了用戶體驗。其直觀的界面允許所有技能水平的用戶輕鬆導航工具。通過簡單的輸入選項和清晰的說明，即使是技術經驗有限的人也可以立即開始生成提示。"
+      },
+      "item5": {
+        "question": "我可以將Flux AI用於多個項目嗎？",
+        "answer": "當然可以！Flux AI提示生成器非常靈活，支持廣泛的項目。無論您是在創作博客文章、社交媒體內容，還是為創意寫作集思廣益，您都可以多次使用該工具為不同需求生成獨特的提示。"
+      },
+      "item6": {
+        "question": "使用Flux AI有成本嗎？",
+        "answer": "Flux AI提供多種定價計劃，包括免費試用供新用戶探索其功能。根據您的使用情況和需求，您可以選擇符合預算的計劃，同時獲得高級功能以增強創意輸出。"
+      }
+    }
+  },
   "IndexPage": {
     "intro": "介紹 Flux AI 圖像生成工具",
     "description": "領先市場的高階文字轉換圖像開放模型，支援 flux.1 pro/dev 與 flux.1 schnell 模型。",
@@ -251,7 +305,7 @@
   },
   "LocaleSwitcher": {
     "label": "更改語言",
-    "locale": "{locale, select, zh {🇨🇳 简体中文} tw {🇭🇰 繁體中文} en {🇺🇸 English} fr {🇫🇷 Français} ja {🇯🇵 日本語} ko {🇰🇷 한국어} es {🇪🇸 Español} de {🇩🇪 Deutsch} pt {🇧🇷 Português} other {未知}}"
+    "locale": "{locale, select, zh {🇨🇳 简体中文} tw {🇭🇰 繁體中文} en {🇺🇸 English} fr {🇫🇷 Français} ja {🇯🇵 日本語} ko {🇰🇷 한국어} es {🇪🇸 Español} de {🇩🇪 Deutsch} pt {🇧🇷 Português} ar {🇦🇪 العربية} other {未知}}"
   },
   "Manifest": {
     "name": "Flux AI 圖像產生器"
@@ -259,6 +313,7 @@
   "Navigation": {
     "pricing": "定價",
     "title": "Flux AI 圖像產生器",
+    "prompt": "Flux AI 提示產生器",
     "blog": "博客",
     "dashboard": "去使用",
     "tooltip": {

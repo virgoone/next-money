@@ -34,6 +34,10 @@ export const env = createEnv({
     APP_ENV: z
       .enum(["development", "production", "staging"])
       .default("development"),
+    OPEN_AI_API_ENDPOINT: z.string().url(),
+    OPEN_AI_API_KEY: z.string().min(1),
+    FLUX_AI_PROMPT: z.string().min(1),
+    OPEN_AI_MODEL: z.string().min(1),
   },
   client: {
     NEXT_PUBLIC_SITE_URL: z.string().min(1),
@@ -93,6 +97,11 @@ export const env = createEnv({
     APP_ENV: process.env.APP_ENV,
 
     NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID,
-    NEXT_PUBLIC_UMAMI_DATA_ID: process.env.NEXT_PUBLIC_UMAMI_DATA_ID
+    NEXT_PUBLIC_UMAMI_DATA_ID: process.env.NEXT_PUBLIC_UMAMI_DATA_ID,
+
+    OPEN_AI_API_ENDPOINT: process.env.OPEN_AI_API_ENDPOINT,
+    OPEN_AI_API_KEY: process.env.OPEN_AI_API_KEY,
+    FLUX_AI_PROMPT: process.env.FLUX_AI_PROMPT,
+    OPEN_AI_MODEL: process.env.OPEN_AI_MODEL,
   },
 });

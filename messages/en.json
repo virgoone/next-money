@@ -17,6 +17,60 @@
       "close": "Close"
     }
   },
+  "PromptGenerator": {
+    "layout": {
+      "title": "Free Flux AI Prompt Generator: Enhance Your Creativity with AI-Powered Prompts",
+      "description": "Discover the power of Flux AI Prompt Generator, your ultimate tool for creating tailored AI prompts effortlessly. Whether you're a writer, developer, or creative thinker, our intuitive platform transforms your ideas into engaging prompts, boosting productivity and inspiring innovation. Start generating compelling content today and elevate your projects with Flux AI!",
+      "keywords": "flux ai prompt generator, AI prompt generator, flux prompt creator, AI content generation, AI writing tools, creative writing prompts, flux AI tools, generate prompts with AI, AI driven prompt generation, enhance creativity with AI, prompt generation software"
+    },
+    "title": "Free Flux AI Prompt Generator",
+    "subtitle": "Transform your ideas into powerful AI image generation prompts with our comprehensive guide",
+    "form": {
+      "input": {
+        "title": "Enter Your Prompt Idea",
+        "placeholder": "Enter your prompt idea here..."
+      },
+      "output": {
+        "title": "Generated Prompt"
+      },
+      "action": {
+        "generate": "Generate AI Prompt",
+        "generating": "Generating...",
+        "copy": "Copy prompt",
+        "copySuccess": "Prompt copied to clipboard.",
+        "to_generate": "To generate"
+      }
+    },
+    "faq": {
+      "label": "Questions",
+      "title": "Frequently Asked Questions about Flux AI Prompt Generator",
+      "subtitle": "Explore our comprehensive FAQ to find quick answers to common inquiries. If you need further assistance, don't hesitate to contact us for personalized help.",
+      "item1": {
+        "question": "What is Flux AI Prompt Generator?",
+        "answer": "Flux AI Prompt Generator is an innovative tool designed to help users create engaging and effective prompts for various applications, including writing, marketing, and content creation. By leveraging advanced AI algorithms, it generates suggestions that stimulate creativity and improve productivity."
+      },
+      "item2": {
+        "question": "How does Flux AI work?",
+        "answer": "Flux AI utilizes artificial intelligence and machine learning techniques to analyze user inputs and generate relevant prompts. Users can customize parameters to tailor the output, ensuring that the generated prompts meet their specific needs, whether for personal projects or professional tasks."
+      },
+      "item3": {
+        "question": "Who can benefit from using Flux AI?",
+        "answer": "Flux AI is ideal for writers, marketers, educators, and content creators looking for inspiration and guidance. It can help users break through writer's block, develop marketing strategies, or create lesson plans, making it a valuable tool for anyone in need of fresh ideas."
+      },
+      "item4": {
+        "question": "Is Flux AI user-friendly?",
+        "answer": "Yes, Flux AI is designed with user experience in mind. Its intuitive interface allows users of all skill levels to navigate the tool easily. With simple input options and clear instructions, even those with minimal tech experience can start generating prompts in no time."
+      },
+      "item5": {
+        "question": "Can I use Flux AI for multiple projects?",
+        "answer": "Absolutely! Flux AI Prompt Generator is versatile and supports a wide range of projects. Whether you're crafting blog posts, social media content, or brainstorming ideas for creative writing, you can utilize the tool multiple times to generate unique prompts for different needs."
+      },
+      "item6": {
+        "question": "Is there a cost to using the Flux AI prompt word generator?",
+        "answer": "The Flux AI prompt word generator is currently free. Users can access the platform at any time, enter prompts and generate relevant suggestions at no cost."
+      }
+    }
+  },
   "IndexPage": {
     "intro": "Introducing Flux AI Image Generator",
     "description": "Revolutionizing Next-Generation Advanced Text-to-Image open model, support flux.1 pro/dev and flux.1 schnell models.",
@@ -251,7 +305,7 @@
   },
   "LocaleSwitcher": {
     "label": "Change language",
-    "locale": "{locale, select, zh {🇨🇳 简体中文} tw {🇭🇰 繁體中文} en {🇺🇸 English} fr {🇫🇷 Français} ja {🇯🇵 日本語} ko {🇰🇷 한국어} es {🇪🇸 Español} de {🇩🇪 Deutsch} pt {🇧🇷 Português} other {Unknown}}"
+    "locale": "{locale, select, zh {🇨🇳 简体中文} tw {🇭🇰 繁體中文} en {🇺🇸 English} fr {🇫🇷 Français} ja {🇯🇵 日本語} ko {🇰🇷 한국어} es {🇪🇸 Español} de {🇩🇪 Deutsch} pt {🇧🇷 Português} ar {🇦🇪 العربية} other {Unknown}}"
   },
   "Manifest": {
     "name": "Flux AI Image Generator"
@@ -267,6 +321,7 @@
     "pricing": "Pricing",
     "title": "Flux AI Image Generator",
     "blog": "Blog",
+    "prompt": "Flux AI Prompt Generator",
     "dashboard": "Dashboard",
     "tooltip": {
       "login": "Login"

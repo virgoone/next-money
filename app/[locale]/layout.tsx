@@ -14,6 +14,7 @@ import {
   ptPT,
   zhCN,
   zhTW,
+  arSA,
 } from "@clerk/localizations";
 import { ClerkProvider } from "@clerk/nextjs";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -62,6 +63,7 @@ export async function generateMetadata({
         de: "/de",
         ko: "/ko",
         pt: "/pt",
+        ar: "/ar"
       },
     },
     openGraph: {
@@ -86,6 +88,7 @@ const localeMap = {
   es: esES,
   de: deDE,
   pt: ptPT,
+  ar: arSA,
 };
 
 export default async function RootLayout({

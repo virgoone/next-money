@@ -20,15 +20,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     locale: (typeof locales)[number],
   ) {
     const pathname = getPathname({ locale, href: key });
-    return `${env.NEXT_PUBLIC_SITE_URL}/${locale}${pathname === "/" ? "" : pathname}`;
+    return `${env.NEXT_PUBLIC_SITE_URL}/${locale === defaultLocale ? "" : locale}${pathname === "/" ? "" : pathname}`;
   }
 
-  return [...posts, ...keys].map((key) => ({
-    url: getUrl(key, defaultLocale),
-    alternates: {
-      languages: Object.fromEntries(
-        locales.map((locale) => [locale, getUrl(key, locale)]),
-      ),
-    },
-  }));
+  // return [...posts, ...keys].map((key) => ({
+  //   url: getUrl(key, defaultLocale),
+  //   priority: 0.7,
+  //   changeFrequency: 'daily',
+  //   alternates: {
+  //     languages: Object.fromEntries(
+  //       locales.map((locale) => [locale, getUrl(key, locale)]),
+  //     ),
+  //   },
+  // }));
+  return [...posts, ...keys].flatMap((key) =>
+    locales.map((locale) => ({
+      url: getUrl(key, locale),
+      priority: 0.7,
+      changeFrequency: "daily",
+    })),
+  );
 }
