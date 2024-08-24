@@ -19,7 +19,7 @@
   },
   "IndexPage": {
     "intro": "Flux AI画像生成ツールのご紹介",
-    "description": "次世代の高度なテキストから画像への変換を革新する先進的なオープンモデルです。flux.1 proとflux.1 schnellモデルをサポートしています。",
+    "description": "次世代の高度なテキストから画像への変換を革新する先進的なオープンモデルです。flux.1 pro/devとflux.1 schnellモデルをサポートしています。",
     "title": "Flux AI画像生成ツール",
     "subtitle": "高度なテキストから画像への変換",
     "examples": {
@@ -245,8 +245,9 @@
     }
   },
   "LocaleLayout": {
-    "title": "Flux AI画像生成ツール",
-    "description": "次世代の高度なテキストから画像への変換を革新する先進的なオープンモデルです。flux.1 proとflux.1 schnellモデルをサポートしています。"
+    "title": "Flux AI オンライン画像生成器 - Flux AI",
+    "description": "Flux.1 AIの高度なツールであなたのビジュアルを変革：Flux Schnellで迅速な作成、Flux Devで詳細なカスタマイズ、そしてFlux Proで無比のプロフェッショナルクオリティ。",
+    "keywords": "Flux AI, AI Flux, Flux 人工知能, AI 技術, 機械学習 Flux, Flux AI ツール, AI アプリケーション, 人工知能ソリューション, Flux データ分析, AI イノベーション, 予測分析 Flux, Flux 機械学習, AI 開発, 次世代 AI"
   },
   "LocaleSwitcher": {
     "label": "言語を変更",

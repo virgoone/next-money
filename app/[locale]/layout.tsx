@@ -68,6 +68,7 @@ export async function generateMetadata({
       images: siteConfig.ogImage,
     },
     description: t("description"),
+    keywords: t("keywords"),
   };
 }
 

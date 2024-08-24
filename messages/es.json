@@ -5,7 +5,7 @@
   },
   "IndexPage": {
     "intro": "Presentamos el Generador de Imágenes Flux AI",
-    "description": "Revolutionando el modelo avanzado de texto a imagen de próxima generación, compatible con los modelos flux.1 pro y flux.1 schnell.",
+    "description": "Revolutionando el modelo avanzado de texto a imagen de próxima generación, compatible con los modelos flux.1 pro/dev y flux.1 schnell.",
     "title": "Generador de Imágenes Flux AI",
     "subtitle": "Texto a Imagen Avanzado",
     "examples": {
@@ -245,8 +245,9 @@
     }
   },
   "LocaleLayout": {
-    "title": "Generador de Imágenes Flux AI",
-    "description": "Revolutionando el modelo avanzado de texto a imagen de próxima generación, compatible con los modelos flux.1 pro y flux.1 schnell."
+    "title": "Generador de Imágenes en Línea Flux AI - Flux AI",
+    "description": "Transforma tus imágenes con las herramientas avanzadas de Flux.1 AI: Flux Schnell para creaciones rápidas, Flux Dev para personalización detallada y Flux Pro para una calidad profesional insuperable.",
+    "keywords": "Flux AI, AI Flux, inteligencia artificial Flux, tecnología AI, aprendizaje automático Flux, herramientas Flux AI, aplicaciones AI, soluciones de inteligencia artificial, análisis de datos Flux, innovación AI, análisis predictivo Flux, aprendizaje automático Flux, desarrollo AI, próxima generación AI"
   },
   "LocaleSwitcher": {
     "label": "Cambiar idioma",

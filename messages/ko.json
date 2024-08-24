@@ -19,7 +19,7 @@
   },
   "IndexPage": {
     "intro": "Flux AI 이미지 생성기 소개",
-    "description": "차세대 고급 텍스트-이미지 오픈 모델을 혁신하는 Flux AI 이미지 생성기. flux.1 pro와 flux.1 schnell 모델을 지원합니다.",
+    "description": "차세대 고급 텍스트-이미지 오픈 모델을 혁신하는 Flux AI 이미지 생성기. flux.1 pro/dev와 flux.1 schnell 모델을 지원합니다.",
     "title": "Flux AI 이미지 생성기",
     "subtitle": "고급 텍스트-이미지 변환",
     "examples": {
@@ -245,8 +245,9 @@
     }
   },
   "LocaleLayout": {
-    "title": "Flux AI 이미지 생성기",
-    "description": "차세대 고급 텍스트-이미지 오픈 모델을 혁신하는 Flux AI 이미지 생성기. flux.1 pro와 flux.1 schnell 모델을 지원합니다."
+    "title": "Flux AI 온라인 이미지 생성기 - Flux AI",
+    "description": "Flux.1 AI의 고급 도구로 이미지를 변환하세요: Flux Schnell은 빠른 제작, Flux Dev는 세밀한 맞춤화, Flux Pro는 뛰어난 전문가 품질을 제공합니다.",
+    "keywords": "Flux AI, AI Flux, Flux 인공지능, AI 기술, 머신러닝 Flux, Flux AI 도구, AI 애플리케이션, 인공지능 솔루션, Flux 데이터 분석, AI 혁신, 예측 분석 Flux, Flux 머신러닝, AI 개발, 차세대 AI"
   },
   "LocaleSwitcher": {
     "label": "언어 변경",

@@ -19,7 +19,7 @@
   },
   "IndexPage": {
     "intro": "介紹 Flux AI 圖像生成工具",
-    "description": "領先市場的高階文字轉換圖像開放模型，支援 flux.1 pro 與 flux.1 schnell 模型。",
+    "description": "領先市場的高階文字轉換圖像開放模型，支援 flux.1 pro/dev 與 flux.1 schnell 模型。",
     "title": "Flux AI 圖像生成工具",
     "subtitle": "高階文字轉圖像技術",
     "powered": {
@@ -245,8 +245,9 @@
     }
   },
   "LocaleLayout": {
-    "title": "Flux AI 圖像產生器",
-    "description": "革新下一代高階文字轉圖像的開放模型，支援 flux.1 專業版和 flux.1 快速版模型。"
+    "title": "Flux AI 線上圖像生成器 - Flux AI",
+    "description": "利用 Flux.1 AI 的高級工具提升您的視覺內容：Flux Schnell 快速創作，Flux Dev 精細定制，以及 Flux Pro 無與倫比的專業品質。",
+    "keywords": "Flux AI, AI Flux, Flux 人工智能, AI 技術, 機器學習 Flux, Flux AI 工具, AI 應用, 人工智能解決方案, Flux 數據分析, AI 創新, 預測分析 Flux, Flux 機器學習, AI 開發, 下一代 AI"
   },
   "LocaleSwitcher": {
     "label": "更改語言",
