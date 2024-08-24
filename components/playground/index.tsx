@@ -124,6 +124,24 @@ export default function Playground({
   });
 
   useEffect(() => {
+    const key = "GENERATOR_PROMPT";
+    const _prompt = window.sessionStorage.getItem(key);
+    if (_prompt) {
+      setInputPrompt(_prompt);
+      window.sessionStorage.removeItem(key);
+    }
+  }, []);
+
+  useEffect(() => {
+    const onBeforeunload = () => {
+      if (inputPrompt) {
+        window.sessionStorage.setItem("GENERATOR_PROMPT", inputPrompt);
+      }
+    };
+    window.addEventListener("beforeunload", onBeforeunload);
+  }, [inputPrompt]);
+
+  useEffect(() => {
     if (!queryTask.data?.data?.id) {
       return;
     }
