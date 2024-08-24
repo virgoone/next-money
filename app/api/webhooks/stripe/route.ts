@@ -204,7 +204,7 @@ export async function POST(req: Request) {
       channel: "payments",
       event: "Successful Payment",
       user_id: userId,
-      description: `用户购买积分：${product.title} - $${price}`,
+      description: `用户购买积分：${product.title} - ${price}`,
       icon: "💰",
       tags: {
         title: product.title,
