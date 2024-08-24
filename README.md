@@ -1,5 +1,5 @@
-<a href="https://next-money.vercel.app">
-  <img alt="SaaS Starter" src="public/og.jpg">
+<a href="https://fluxaipro.art">
+  <img alt="SaaS Starter" src="https://meme-static.douni.one/WechatIMG103.png">
   <h1 align="center">Next Money Stripe Starter</h1>
 </a>
 
@@ -9,7 +9,7 @@
 
 <p align="center">
   <a href="https://twitter.com/koyaguo">
-    <img src="https://img.shields.io/twitter/follow/koyaguo?style=flat&label=koyaguo&logo=twitter&color=0bf&logoColor=fff" alt="Koyaguo Twitter follower count" />
+    <img src="https://img.shields.io/twitter/follow/koyaguo?style=flat" alt="Koyaguo Twitter follower count" />
   </a>
 </p>
 
@@ -18,7 +18,8 @@
   <a href="#installation"><strong>Installation</strong></a> ·
   <a href="#tech-stack--features"><strong>Tech Stack + Features</strong></a> ·
   <a href="#author"><strong>Author</strong></a> ·
-  <a href="#credits"><strong>Credits</strong></a>
+  <a href="#credits"><strong>Credits</strong></a> ·
+  <a href="#buy-me-coffee"><strong>Buy me coffee</strong></a>
 </p>
 <br/>
 
@@ -117,3 +118,11 @@ This project was inspired by shadcn's [Taxonomy](https://github.com/shadcn-ui/ta
 - Steven Tey ([@steventey](https://twitter.com/steventey))
 - Antonio Erdeljac ([@YTCodeAntonio](https://twitter.com/AntonioErdeljac))
 - Next SaaS Stripe Starter([@miickasmt](https://github.com/mickasmt/next-saas-stripe-starter))
+
+## Buy me coffee
+
+<img src="https://meme-static.douni.one/paycode.png" alt="Buy me coffee" width="400">
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=virgoone/next-money&type=Date)](https://star-history.com/#virgoone/next-money&Date)
