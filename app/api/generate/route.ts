@@ -133,6 +133,9 @@ export async function POST(req: NextRequest, { params }: Params) {
         locale,
       }),
     }).then((res) => res.json());
+    if (!res?.replicate_id && res.error) {
+      return NextResponse.json({ error: "Create Generator Error" }, { status: 400 });
+    }
     const fluxData = await prisma.fluxData.findFirst({
       where: {
         replicateId: res.replicate_id,
