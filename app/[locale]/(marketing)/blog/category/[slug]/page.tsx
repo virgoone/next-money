@@ -41,6 +41,7 @@ export default async function BlogCategory({
 }: {
   params: {
     slug: string;
+    locale: string;
   };
 }) {
   const category = BLOG_CATEGORIES.find((ctg) => ctg.slug === params.slug);
@@ -51,7 +52,7 @@ export default async function BlogCategory({
 
   const articles = await Promise.all(
     allPosts
-      .filter((post) => post.categories.includes(category.slug))
+      .filter((post) => post.categories.includes(category.slug) && post.language === params.locale)
       .sort((a, b) => b.date.localeCompare(a.date))
       .map(async (post) => ({
         ...post,

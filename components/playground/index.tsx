@@ -224,7 +224,11 @@ export default function Playground({
               onLoraChange={setLora}
               models={models}
             />
-            <AspectRatioSelector ratio={ratio} onChange={setRatio} />
+            <AspectRatioSelector
+              aspectRatios={aspectRatios}
+              ratio={ratio}
+              onChange={setRatio}
+            />
             {selectedModel.id === model.dev && (
               <div className="flx flex-col gap-4">
                 <HoverCard openDelay={200}>
@@ -241,7 +245,7 @@ export default function Playground({
                 </HoverCard>
                 <Upload
                   maxFiles={1}
-                  maxSize={102400 * 2}
+                  maxSize={204800 * 2}
                   placeholder={t("form.inputImagePlaceholder")}
                   value={uploadInputImage}
                   onChange={setUploadInputImage}
@@ -289,14 +293,14 @@ export default function Playground({
                         })}
                       >
                         <div
-                          className={`w-full rounded-md aspect-[${createRatio(fluxData?.aspectRatio as Ratio)}]`}
+                          className={`w-full rounded-md ${createRatio(fluxData?.aspectRatio as Ratio)}`}
                         >
                           {fluxData?.imageUrl && fluxId && (
                             <BlurFade key={fluxData?.imageUrl} inView>
                               <img
                                 src={fluxData?.imageUrl}
                                 alt="Generated Image"
-                                className={`pointer-events-none w-full rounded-md aspect-[${createRatio(fluxData?.aspectRatio as Ratio)}]`}
+                                className={`pointer-events-none w-full rounded-md ${createRatio(fluxData?.aspectRatio as Ratio)}`}
                               />
                             </BlurFade>
                           )}

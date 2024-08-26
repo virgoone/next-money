@@ -120,6 +120,11 @@
         "description": "比 ComfyUI 更易于使用，适合初学者和专业人士。Flux AI 图像生成器是从文本提示生成惊人图像的终极工具。Flux AI 让初学者和专业人士轻松创建出色视觉效果。"
       }
     },
+    "schnell": {
+      "title": "Flux.1 [Schnell]",
+      "description": "Flux.1 [schnell] 是基础模型的精炼版本，运行速度比原版快10倍。它采用 Apache 2.0 许可，针对速度和效率进行了优化，满足那些需要快速生成图像而不影响质量的用户。这个模型非常适合本地开发和个人使用，在性能和可访问性之间达到了完美平衡。我们每月为用户提供5次免费机会，体验 Flux.1 [schnell] 模型的闪电般快速图像生成，让您亲身感受其令人难以置信的速度。",
+      "action": "立即尝试"
+    },
     "action": {
       "pricing": "购买积分",
       "login": "登录",
@@ -180,6 +185,50 @@
     }
   },
   "Playground": {
+    "layout": {
+      "title": "免费 Flux.1 {model} 图像生成器：几秒钟内创造令人惊叹的图像",
+      "description": "探索免费的 Flux.1 模型图像生成器，这是您轻松创造令人惊叹视觉效果的首选工具。轻松生成高质量图像，无需任何费用即可释放您的创意。非常适合设计师、艺术家以及任何希望用独特图像增强项目的人。",
+      "keywords": "flux.1 图像生成器, flux.1 模型图像生成器, 免费图像生成器, AI 图像生成器, 图像生成工具, AI 创建图像, 在线生成图像, 图像创作软件, 图像设计工具, 图像生成平台"
+    },
+    "page": {
+      "title": "免费 Flux.1 {model} 图像生成器",
+      "subtitle": "令人惊叹的 AI 模型，可从文本提示生成图像。"
+    },
+    "settings": {
+      "display": "显示{mode}",
+      "displayTooltip": "选择是否公开您的内容。如果设为公开，其他用户将能够查看或下载您的内容。私密设置保护您的隐私，而公开设置则有利于分享和协作。",
+      "displayLabel": "免费使用将会公开",
+      "displayAction": "查看价格"
+    },
+    "schnell_faq": {
+      "label": "常见问题",
+      "title": "常见问题解答",
+      "subtitle": "浏览我们全面的常见问题解答，快速找到常见疑问的答案。如果您需要进一步帮助，请随时联系我们获得个性化支持。",
+      "item1": {
+        "question": "什么是 Flux.1 Schnell？",
+        "answer": "Flux.1 Schnell 是专为本地开发和个人使用而设计的最快速图像生成模型。"
+      },
+      "item2": {
+        "question": "在 Flux.1 Schnell 生成图像时，初始输入有多重要？",
+        "answer": "Flux.1 Schnell 中使用的初始输入对图像质量极为重要。提供高质量和详细的输入可以产生更逼真和细致的输出。为获得最佳结果，请确保提出的概念和元素都有明确定义。"
+      },
+      "item3": {
+        "question": "如何提高 Flux.1 Schnell 生成的图像质量？",
+        "answer": "要提高图像质量，请提供清晰详细的提示，尝试不同的艺术风格，并考虑使用专业版来处理更复杂的任务。"
+      },
+      "item4": {
+        "question": "是否有提供改善 Flux.1 Schnell 图像质量技巧的在线社区或论坛？",
+        "answer": "是的，您可以在官方网站 https://fluxaipro.art/flux-schnell 上使用。用户只需在网站上输入提示并生成图像，这可以帮助您提高生成图像的质量。"
+      },
+      "item5": {
+        "question": "如何使用 Flux.1 Schnell，有免费选项吗？",
+        "answer": "Flux.1 Schnell 可在官方网站 https://fluxaipro.art/flux-schnell 上使用。每位用户每月可免费使用 Flux.1 Schnell 模型 5 次，每月初重置。使用时，只需在网站上输入您的提示并生成图像。这个过程可以帮助改善生成图像的质量。"
+      },
+      "item6": {
+        "question": "如何获得在线支持？",
+        "answer": "您可以通过 support@fluxaipro.art 联系我们。"
+      }
+    },
     "title": "Flux AI 图像生成器",
     "description": "令人惊叹的AI模型，可以根据文本提示生成图像。",
     "empty": {
@@ -204,7 +253,8 @@
       "inputImagePlaceholder": "上传输入图像"
     },
     "error": {
-      "insufficientCredits": "积分告急，快来充值吧！"
+      "insufficientCredits": "积分告急，快来充值吧！",
+      "limitInsufficient": "您已达到免费使用的上限。请升级到付费计划以继续使用我们的服务。(免费计划将在下月初刷新)"
     },
     "action": {
       "copy": "复制 Prompt",
@@ -240,7 +290,8 @@
       "copySuccess": "Prompt 已复制到剪贴板。",
       "download": "下载图像",
       "downloadSuccess": "图像已下载。",
-      "downloadLoading": "正在下载..."
+      "downloadLoading": "正在下载...",
+      "upgrade": "通过 Schnell 的每月限量免费试用提升您的艺术创作。点击此处体验无水印的高级模型。"
     }
   },
   "Billings": {
@@ -312,6 +363,7 @@
   },
   "Navigation": {
     "pricing": "定价",
+    "schnell": "Flux Schnell",
     "title": "Flux AI 图像生成器",
     "prompt": "Flux AI 提示词生成器",
     "blog": "博客",

@@ -135,7 +135,7 @@ export default function Generator() {
               {generatedPrompt}
             </div>
           </CardContent>
-          <CardFooter className="flex justify-between">
+          <CardFooter className="flex flex-col gap-2 md:flex-row justify-between">
             <button
               className={cn(
                 buttonVariants({ size: "sm" }),

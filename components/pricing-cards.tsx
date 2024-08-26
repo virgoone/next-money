@@ -11,6 +11,7 @@ import { BillingFormButton } from "@/components/forms/billing-form-button";
 import { HeaderSection } from "@/components/shared/header-section";
 import { Icons } from "@/components/shared/icons";
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
+import SignBox from "@/components/sign-box";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -124,6 +125,61 @@ const PricingCard = ({
     </div>
   );
 };
+
+export function FreeCard() {
+  const t = useTranslations("PricingPage");
+
+  return (
+    <div
+      className={cn(
+        "relative col-span-3 flex flex-col overflow-hidden rounded-3xl border shadow-sm lg:col-span-3",
+      )}
+    >
+      <div className="min-h-[150px] items-start space-y-4 bg-muted/50 p-6">
+        <p className="flex font-urban text-sm font-bold uppercase tracking-wider text-muted-foreground">
+          Free
+        </p>
+
+        <div className="flex flex-row">
+          <div className="flex items-end">
+            <div className="flex text-left text-3xl font-semibold leading-6">
+              {`${formatPrice(0, "$")}`}
+            </div>
+            <div className="-mb-1 ml-2 text-left text-sm font-medium text-muted-foreground">
+              <div>5 {t("worth")}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex h-full flex-col justify-between gap-16 p-6">
+        <ul className="space-y-2 text-left text-sm font-medium leading-normal">
+          {["Limited models", "Max 5/month Flux.1 Schnell Images"]?.map(
+            (feature) => (
+              <li className="flex items-start gap-x-3" key={feature}>
+                <Icons.check className="size-5 shrink-0 text-purple-500" />
+                <p>{feature}</p>
+              </li>
+            ),
+          )}
+
+          {["Private Generations", "Commercial License"].map((feature) => (
+            <li
+              className="flex items-start text-muted-foreground"
+              key={feature}
+            >
+              <Icons.close className="mr-3 size-5 shrink-0" />
+              <p>{feature}</p>
+            </li>
+          ))}
+        </ul>
+        <SignBox>
+          <Button>Try Out</Button>
+        </SignBox>
+      </div>
+    </div>
+  );
+}
 export function PricingCards({
   userId,
   chargeProduct,
@@ -204,7 +260,7 @@ export function PricingCards({
           </ToggleGroup>
         </div> */}
 
-        <div className="grid gap-5 bg-inherit py-5 lg:grid-cols-3">
+        <div className="grid gap-5 bg-inherit py-5 md:grid-cols-3">
           {chargeProduct?.map((offer) => (
             <PricingCard offer={offer} key={offer.id} />
           ))}

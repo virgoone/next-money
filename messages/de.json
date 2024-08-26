@@ -120,6 +120,11 @@
         "title": "Anpassbar"
       }
     },
+    "schnell": {
+      "title": "Flux.1 [Schnell]",
+      "description": "Flux.1 [schnell] ist eine verfeinerte Version des Basismodells, die bis zu 10-mal schneller arbeitet als das Original. Unter Apache 2.0 lizenziert, ist es für Geschwindigkeit und Effizienz optimiert und richtet sich an Nutzer, die eine schnelle Bildgenerierung ohne Qualitätseinbußen benötigen. Dieses Modell ist ideal für lokale Entwicklung und persönlichen Gebrauch, da es die perfekte Balance zwischen Leistung und Zugänglichkeit bietet. Wir bieten Nutzern monatlich 5 kostenlose Gelegenheiten, die blitzschnelle Bildgenerierung des Flux.1 [schnell] Modells zu erleben, sodass Sie seine unglaubliche Geschwindigkeit aus erster Hand erfahren können.",
+      "action": "Jetzt ausprobieren"
+    },
     "action": {
       "pricing": "Guthaben kaufen",
       "login": "Anmelden",
@@ -180,6 +185,50 @@
     }
   },
   "Playground": {
+    "layout": {
+      "title": "Kostenloser Flux.1 {model} Bildgenerator: Erstellen Sie atemberaubende Bilder in Sekunden",
+      "description": "Entdecken Sie den kostenlosen Flux.1 Modell-Bildgenerator, Ihr Werkzeug zur mühelosen Erstellung beeindruckender Visuals. Generieren Sie hochwertige Bilder mit Leichtigkeit und entfesseln Sie Ihre Kreativität ohne Kosten. Perfekt für Designer, Künstler und jeden, der seine Projekte mit einzigartigen Bildern aufwerten möchte.",
+      "keywords": "Flux.1 Bildgenerator, Flux.1 Modell Bildgenerator, kostenloser Bildgenerator, KI-Bildgenerator, Bildgenerierungstool, Bilder mit KI erstellen, Bilder online generieren, Bilderstellungssoftware, Bilddesign-Tool, Bildgenerierungsplattform"
+    },
+    "page": {
+      "title": "Kostenloser Flux.1 {model} Bildgenerator",
+      "subtitle": "Erstaunliche KI-Modelle zur Generierung von Bildern aus Textaufforderungen."
+    },
+    "settings": {
+      "display": "{mode} anzeigen",
+      "displayTooltip": "Wählen Sie, ob Sie Ihre Inhalte öffentlich machen möchten. Bei öffentlicher Einstellung können andere Benutzer Ihre Inhalte sehen oder herunterladen. Private Einstellungen schützen Ihre Privatsphäre, während öffentliche Einstellungen das Teilen und die Zusammenarbeit erleichtern.",
+      "displayLabel": "Kostenlose Nutzung wird öffentlich sein",
+      "displayAction": "Preise anzeigen"
+    },
+    "schnell_faq": {
+      "label": "FAQ",
+      "title": "Häufig gestellte Fragen",
+      "subtitle": "Durchsuchen Sie unsere umfassende FAQ, um schnelle Antworten auf häufige Fragen zu finden. Wenn Sie weitere Hilfe benötigen, zögern Sie nicht, uns für personalisierte Unterstützung zu kontaktieren.",
+      "item1": {
+        "question": "Was ist Flux.1 Schnell?",
+        "answer": "Flux.1 Schnell ist das schnellste Bildgenerierungsmodell, das für lokale Entwicklung und persönlichen Gebrauch optimiert ist."
+      },
+      "item2": {
+        "question": "Wie wichtig ist die anfängliche Eingabe bei der Bildgenerierung mit Flux.1 Schnell?",
+        "answer": "Die anfängliche Eingabe in Flux.1 Schnell ist äußerst wichtig für die Bildqualität. Hochwertige und detaillierte Eingaben können zu realistischeren und detaillierteren Ausgaben führen. Stellen Sie sicher, dass die vorgeschlagenen Konzepte und Elemente für beste Ergebnisse gut definiert sind."
+      },
+      "item3": {
+        "question": "Wie kann ich die Qualität der von Flux.1 Schnell generierten Bilder verbessern?",
+        "answer": "Um die Bildqualität zu verbessern, geben Sie klare und detaillierte Anweisungen, experimentieren Sie mit verschiedenen künstlerischen Stilen und erwägen Sie die Verwendung der Pro-Variante für komplexere Aufgaben."
+      },
+      "item4": {
+        "question": "Gibt es Online-Communities oder Foren, die Tipps zur Verbesserung der Flux.1 Schnell Bildqualität geben?",
+        "answer": "Ja, es kann auf der offiziellen Website unter https://fluxaipro.art/flux-schnell verwendet werden. Benutzer müssen nur ihre Anweisungen auf der Website eingeben und Bilder generieren, was Ihnen helfen kann, die Qualität Ihrer generierten Bilder zu verbessern."
+      },
+      "item5": {
+        "question": "Wie kann ich Flux.1 Schnell nutzen und gibt es kostenlose Optionen?",
+        "answer": "Flux.1 Schnell kann auf der offiziellen Website unter https://fluxaipro.art/flux-schnell genutzt werden. Jeder Benutzer erhält 5 kostenlose Nutzungen des Flux.1 Schnell Modells pro Kalendermonat, die sich zu Beginn jedes Monats zurücksetzen. Zur Nutzung geben Sie einfach Ihre Anweisung auf der Website ein und generieren Bilder. Dieser Prozess kann Ihnen helfen, die Qualität Ihrer generierten Bilder im Laufe der Zeit zu verbessern."
+      },
+      "item6": {
+        "question": "Wie erhalte ich Online-Support?",
+        "answer": "Sie können uns unter support@fluxaipro.art erreichen."
+      }
+    },
     "title": "Flux AI Image Generator",
     "description": "Erstaunliche KI-Modelle zur Generierung von Bildern aus Textprompts.",
     "empty": {
@@ -204,14 +253,16 @@
       "inputImagePlaceholder": "Eingabebild hochladen"
     },
     "error": {
-      "insufficientCredits": "Punkte knapp, bitte aufladen!"
+      "insufficientCredits": "Punkte knapp, bitte aufladen!",
+      "limitInsufficient": "Sie haben das Limit für kostenlosen Zugriff erreicht. Bitte upgraden Sie auf einen kostenpflichtigen Plan, um unsere Dienste weiterhin nutzen zu können."
     },
     "action": {
       "copy": "Prompt kopieren",
       "copySuccess": "Prompt in die Zwischenablage kopiert.",
       "download": "Bild herunterladen",
       "downloadSuccess": "Bild heruntergeladen.",
-      "downloadLoading": "Wird heruntergeladen..."
+      "downloadLoading": "Wird heruntergeladen...",
+      "upgrade": "Verbessern Sie Ihre Kunst mit den begrenzten monatlichen kostenlosen Tests von Schnell. Für markenfreie, premium-Modell-Erlebnisse klicken Sie hier, um zu upgraden."
     }
   },
   "GiftCode": {
@@ -319,6 +370,7 @@
   },
   "Navigation": {
     "pricing": "Preise",
+    "schnell": "Flux Schnell",
     "prompt": "Flux AI Prompt Generator",
     "title": "Flux AI Image Generator",
     "blog": "Blog",

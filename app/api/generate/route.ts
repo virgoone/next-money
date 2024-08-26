@@ -2,9 +2,10 @@ import { NextResponse, type NextRequest } from "next/server";
 
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { Ratelimit } from "@upstash/ratelimit";
+import dayjs from "dayjs";
 import { z } from "zod";
 
-import { Credits, model } from "@/config/constants";
+import { Credits, model, Ratio } from "@/config/constants";
 import { FluxHashids } from "@/db/dto/flux.dto";
 import { prisma } from "@/db/prisma";
 import { getUserCredit } from "@/db/queries/account";
@@ -25,19 +26,25 @@ function getKey(id: string) {
 
 export const maxDuration = 60;
 
-enum Ratio {
-  r1 = "1:1",
-  r2 = "16:9",
-  r3 = "9:16",
-  r4 = "3:2",
-  r5 = "2:3",
-}
-
 type Params = { params: { key: string } };
 const CreateGenerateSchema = z.object({
-  model: z.enum([model.pro, model.schnell, model.dev, model.general]),
+  model: z.enum([
+    model.pro,
+    model.schnell,
+    model.dev,
+    model.general,
+    model.freeSchnell,
+  ]),
   inputPrompt: z.string(),
-  aspectRatio: z.enum([Ratio.r1, Ratio.r2, Ratio.r3, Ratio.r4, Ratio.r5]),
+  aspectRatio: z.enum([
+    Ratio.r1,
+    Ratio.r2,
+    Ratio.r3,
+    Ratio.r4,
+    Ratio.r5,
+    Ratio.r6,
+    Ratio.r7,
+  ]),
   isPrivate: z.number().default(0),
   locale: z.string().default("en"),
   loraName: z.string().optional(),
@@ -67,7 +74,7 @@ export async function POST(req: NextRequest, { params }: Params) {
   try {
     const data = await req.json();
     const {
-      model,
+      model: modelName,
       inputPrompt,
       aspectRatio,
       isPrivate,
@@ -76,9 +83,33 @@ export async function POST(req: NextRequest, { params }: Params) {
       inputImageUrl,
     } = CreateGenerateSchema.parse(data);
     const headers = new Headers();
+    if (modelName === model.freeSchnell) {
+      const thisMonthStart = dayjs().startOf("M");
+      const thisMonthEnd = dayjs().endOf("M");
+      const freeSchnellCount = await prisma.fluxData.count({
+        where: {
+          model: model.freeSchnell,
+          userId,
+          createdAt: {
+            gte: thisMonthStart.toDate(),
+            lte: thisMonthEnd.toDate(),
+          },
+        },
+      });
+      // 5 free schnell generate per month
+      if (freeSchnellCount >= 5 && !user.publicMetadata.siteOwner) {
+        return NextResponse.json(
+          { error: "Insufficient credit", code: 1000403 },
+          { status: 400 },
+        );
+      }
+    }
     const account = await getUserCredit(userId);
-    const needCredit = Credits[model];
-    if (!account.credit || account.credit < needCredit) {
+    const needCredit = Credits[modelName];
+    if (
+      (!account.credit && modelName !== model.freeSchnell) ||
+      account.credit < needCredit
+    ) {
       return NextResponse.json(
         { error: "Insufficient credit", code: 1000402 },
         { status: 400 },
@@ -92,7 +123,7 @@ export async function POST(req: NextRequest, { params }: Params) {
       method: "POST",
       headers,
       body: JSON.stringify({
-        model,
+        model: modelName,
         input_image_url: inputImageUrl,
         input_prompt: inputPrompt,
         aspect_ratio: aspectRatio,
@@ -127,7 +158,7 @@ export async function POST(req: NextRequest, { params }: Params) {
           state: "Done",
           amount: -needCredit,
           type: BillingType.Withdraw,
-          description: `Generate ${model} - ${aspectRatio} Withdraw`,
+          description: `Generate ${modelName} - ${aspectRatio} Withdraw`,
         },
       });
 

@@ -14,12 +14,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface SelectorProps {
   ratio: Ratio;
+  aspectRatios: Ratio[];
+  className?:string
   onChange: (ratio: Ratio) => void;
 }
 
-const aspectRatios = [Ratio.r1, Ratio.r2, Ratio.r3, Ratio.r4, Ratio.r5];
-
-export function AspectRatioSelector({ ratio, onChange }: SelectorProps) {
+export function AspectRatioSelector({ aspectRatios, ratio, onChange }: SelectorProps) {
   const t = useTranslations("Playground");
 
   return (
@@ -27,7 +27,7 @@ export function AspectRatioSelector({ ratio, onChange }: SelectorProps) {
       <div className="grid gap-2">
         <HoverCard openDelay={200}>
           <HoverCardTrigger asChild>
-            <span className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+            <span className="text-left text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
               {t("form.aspectRatio")}
             </span>
           </HoverCardTrigger>

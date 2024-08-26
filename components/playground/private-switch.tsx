@@ -2,6 +2,8 @@
 
 import * as React from "react";
 
+import { useTranslations } from "next-intl";
+
 import {
   HoverCard,
   HoverCardContent,
@@ -12,9 +14,12 @@ import { Switch } from "@/components/ui/switch";
 
 export function PrivateSwitch(props: {
   isPublic: boolean;
+  disabled?: boolean;
   onChange: (isPublic: boolean) => void;
 }) {
-  const { isPublic, onChange } = props;
+  const { isPublic, disabled, onChange } = props;
+  const t = useTranslations("Playground");
+
   return (
     <div className="grid gap-2">
       <HoverCard openDelay={200}>
@@ -24,8 +29,13 @@ export function PrivateSwitch(props: {
               id="isPublic"
               onCheckedChange={onChange}
               checked={isPublic}
+              disabled={disabled}
             />
-            <Label htmlFor="isPublic">{isPublic ? "Public" : "Private"}</Label>
+            <Label htmlFor="isPublic">
+              {t("settings.display", {
+                mode: isPublic ? "Public" : "Private",
+              })}
+            </Label>
           </div>
         </HoverCardTrigger>
         <HoverCardContent
@@ -33,8 +43,7 @@ export function PrivateSwitch(props: {
           className="w-[260px] text-sm"
           side="left"
         >
-          The model which will generate the completion. Some models are suitable
-          for natural language tasks, others specialize in code. Learn more.
+          {t("settings.displayTooltip")}
         </HoverCardContent>
       </HoverCard>
     </div>

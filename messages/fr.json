@@ -120,6 +120,11 @@
         "title": "Personnalisable"
       }
     },
+    "schnell": {
+      "title": "Flux.1 [Schnell]",
+      "description": "Flux.1 [schnell] est une version améliorée du modèle de base, fonctionnant jusqu'à 10 fois plus rapidement que l'original. Sous licence Apache 2.0, il est optimisé pour la vitesse et l'efficacité, répondant aux besoins des utilisateurs qui exigent une génération d'images rapide sans compromettre la qualité. Ce modèle est idéal pour le développement local et l'usage personnel, offrant un équilibre parfait entre performance et accessibilité. Nous offrons aux utilisateurs 5 opportunités gratuites chaque mois pour expérimenter la génération d'images ultra-rapide du modèle Flux.1 [schnell], vous permettant de constater sa vitesse incroyable par vous-même.",
+      "action": "Essayer maintenant"
+    },
     "action": {
       "pricing": "Acheter des Crédits",
       "login": "Connexion",
@@ -180,6 +185,50 @@
     }
   },
   "Playground": {
+    "layout": {
+      "title": "Générateur d'Images Gratuit Flux.1 {model} : Créez des Images Époustouflantes en Quelques Secondes",
+      "description": "Découvrez le générateur d'images gratuit Flux.1, votre outil incontournable pour créer des visuels époustouflants sans effort. Générez des images de haute qualité facilement et libérez votre créativité sans aucun coût. Parfait pour les designers, les artistes et tous ceux qui cherchent à améliorer leurs projets avec des images uniques.",
+      "keywords": "générateur d'images flux.1, générateur d'images modèle flux.1, générateur d'images gratuit, générateur d'images IA, outil de génération d'images, créer des images avec l'IA, générer des images en ligne, logiciel de création d'images, outil de conception d'images, plateforme de génération d'images"
+    },
+    "page": {
+      "title": "Générateur d'Images Gratuit Flux.1 {model}",
+      "subtitle": "Des modèles d'IA incroyables pour générer des images à partir de descriptions textuelles."
+    },
+    "settings": {
+      "display": "Affichage {mode}",
+      "displayTooltip": "Choisissez de rendre votre contenu public ou non. Si défini comme public, d'autres utilisateurs pourront voir ou télécharger votre contenu. Les paramètres privés protègent votre confidentialité, tandis que les paramètres publics facilitent le partage et la collaboration.",
+      "displayLabel": "L'utilisation gratuite sera publique",
+      "displayAction": "Voir les tarifs"
+    },
+    "schnell_faq": {
+      "label": "FAQ",
+      "title": "Questions fréquemment posées",
+      "subtitle": "Explorez notre FAQ complète pour trouver rapidement des réponses aux questions courantes. Si vous avez besoin d'une assistance supplémentaire, n'hésitez pas à nous contacter pour une aide personnalisée.",
+      "item1": {
+        "question": "Qu'est-ce que Flux.1 Schnell ?",
+        "answer": "Flux.1 Schnell est le modèle de génération d'images le plus rapide, conçu pour le développement local et l'usage personnel."
+      },
+      "item2": {
+        "question": "Quelle est l'importance de la saisie initiale lors de la génération d'images avec Flux.1 Schnell ?",
+        "answer": "La saisie initiale dans Flux.1 Schnell est cruciale pour la qualité de l'image. Fournir des entrées détaillées et de haute qualité peut conduire à des résultats plus réalistes et détaillés. Assurez-vous que les concepts et éléments proposés sont bien définis pour obtenir les meilleurs résultats."
+      },
+      "item3": {
+        "question": "Comment puis-je améliorer la qualité des images générées par Flux.1 Schnell ?",
+        "answer": "Pour améliorer la qualité de l'image, fournissez des descriptions claires et détaillées, expérimentez avec différents styles artistiques et envisagez d'utiliser la variante pro pour des tâches plus complexes."
+      },
+      "item4": {
+        "question": "Existe-t-il des communautés en ligne ou des forums qui donnent des conseils pour améliorer la qualité des images Flux.1 Schnell ?",
+        "answer": "Oui, vous pouvez utiliser le site officiel à l'adresse https://fluxaipro.art/flux-schnell. Les utilisateurs n'ont qu'à saisir leurs descriptions sur le site web et générer des images, ce qui peut vous aider à améliorer la qualité de vos images générées."
+      },
+      "item5": {
+        "question": "Comment puis-je utiliser Flux.1 Schnell et y a-t-il des options gratuites ?",
+        "answer": "Flux.1 Schnell peut être utilisé sur le site officiel à l'adresse https://fluxaipro.art/flux-schnell. Chaque utilisateur bénéficie de 5 utilisations gratuites du modèle Flux.1 Schnell par mois calendaire, qui se réinitialisent au début de chaque mois. Pour l'utiliser, il suffit de saisir votre description sur le site web et de générer des images. Ce processus peut vous aider à améliorer la qualité de vos images générées au fil du temps."
+      },
+      "item6": {
+        "question": "Comment puis-je obtenir de l'assistance en ligne ?",
+        "answer": "Vous pouvez nous contacter à l'adresse support@fluxaipro.art."
+      }
+    },
     "title": "Flux AI Générateur d'Images",
     "description": "Des modèles d'IA impressionnants pour générer des images à partir de texte.",
     "empty": {
@@ -204,14 +253,16 @@
       "inputImagePlaceholder": "Télécharger une image d'entrée"
     },
     "error": {
-      "insufficientCredits": "Points en baisse, rechargez s'il vous plaît!"
+      "insufficientCredits": "Points en baisse, rechargez s'il vous plaît!",
+      "limitInsufficient": "Vous avez atteint la limite de consommation gratuite. Veuillez passer à un plan payant pour continuer à utiliser nos services."
     },
     "action": {
       "copy": "Copier la description",
       "copySuccess": "Description copiée dans le presse-papiers.",
       "download": "Télécharger l'image",
       "downloadSuccess": "Image téléchargée.",
-      "downloadLoading": "Téléchargement en cours..."
+      "downloadLoading": "Téléchargement en cours...",
+      "upgrade": "Elevez votre art avec les essais gratuits mensuels limités de Schnell. Pour des expériences de modèle premium sans marque, cliquez ici pour mettre à niveau."
     }
   },
   "GiftCode": {
@@ -319,6 +370,7 @@
   },
   "Navigation": {
     "pricing": "Tarifs",
+    "schnell": "Flux Schnell",
     "title": "Flux AI Générateur d'Images",
     "blog": "Blog",
     "prompt": "Générateur de Prompts Flux AI",

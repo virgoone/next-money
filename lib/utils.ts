@@ -204,6 +204,8 @@ const RatioAspect = {
   [Ratio.r3]: "aspect-[9/16]",
   [Ratio.r4]: "aspect-[3/2]",
   [Ratio.r5]: "aspect-[2/3]",
+  [Ratio.r6]: "aspect-[1/2]",
+  [Ratio.r7]: "aspect-[3/4]",
 };
 
 export function createRatio(ratio: Ratio) {

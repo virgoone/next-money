@@ -9,24 +9,26 @@ export enum model {
   schnell = "black-forest-labs/flux-schnell",
   dev = "black-forest-labs/flux-dev",
   general = "lucataco/flux-dev-lora",
+  freeSchnell = "siliconflow/flux-schnell",
 }
 
 export enum loras {
-  wukong = 'wukong',
+  wukong = "wukong",
 }
 
 export const LoraConfig = {
   [loras.wukong]: {
-    name: 'BlackMythWukong Lora',
-    styleName: 'WuKong Style'
-  }
-}
+    name: "BlackMythWukong Lora",
+    styleName: "WuKong Style",
+  },
+};
 
 export const Credits = {
   [model.pro]: 10,
   [model.schnell]: 1,
   [model.dev]: 5,
   [model.general]: 8,
+  [model.freeSchnell]: 0,
 };
 
 export const ModelName = {
@@ -34,6 +36,7 @@ export const ModelName = {
   [model.schnell]: "FLUX.1 [schnell]",
   [model.dev]: "FLUX.1 [dev]",
   [model.general]: "FLUX.1 General",
+  [model.freeSchnell]: "FLUX.1 [schnell]",
 };
 
 export enum Ratio {
@@ -42,6 +45,8 @@ export enum Ratio {
   r3 = "9:16",
   r4 = "3:2",
   r5 = "2:3",
+  r6 = "1:2",
+  r7 = "3:4",
 }
 
 export const ModelDefaultAdVancedSetting = {
@@ -65,8 +70,8 @@ export const ModelDefaultAdVancedSetting = {
       default: 2,
       min: 1,
       max: 5,
-    }
+    },
   },
   [model.schnell]: "FLUX.1 [schnell]",
   [model.dev]: "FLUX.1 [dev]",
-}
+};
