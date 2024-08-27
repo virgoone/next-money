@@ -55,6 +55,7 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
               title="Tap4 AI Tools Directory"
               className="underline-offset-4 hover:underline"
               prefetch={false}
+              target="_blank"
             >
               Tap4 AI
             </Link>
@@ -63,8 +64,18 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
               title="Discover thousands of AI tools"
               className="underline-offset-4 hover:underline"
               prefetch={false}
+              target="_blank"
             >
               AIWITH.ME
+            </Link>
+            <Link
+              href="https://woy.ai/"
+              className="underline-offset-4 hover:underline"
+              title="Woy AI Tools Directory"
+              prefetch={false}
+              target="_blank"
+            >
+              Woy AI
             </Link>
             <ModeToggle />
           </div>
