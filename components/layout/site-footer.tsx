@@ -15,74 +15,84 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
     <footer
       className={cn(
         "container border-t",
-        "w-full p-6 pb-16 md:py-12",
+        "w-full p-6 pb-4 md:py-12",
         className,
       )}
     >
-      <div className="flex max-w-7xl flex-col items-center justify-between gap-4 text-sm md:flex-row">
+      <div className="flex max-w-7xl flex-col items-center justify-end gap-4 text-sm md:flex-row">
+        <Link
+          href="/terms-of-use"
+          className="underline-offset-4 hover:underline"
+          prefetch={false}
+          title={t("footer.term")}
+        >
+          {t("footer.term")}
+        </Link>
+        <Link
+          href="/privacy-policy"
+          className="underline-offset-4 hover:underline"
+          prefetch={false}
+          title={t("footer.privacy")}
+        >
+          {t("footer.privacy")}
+        </Link>
+        <Link
+          href="mailto:support@fluxaipro.art"
+          className="underline-offset-4 hover:underline"
+          prefetch={false}
+          title={t("footer.contact")}
+        >
+          {t("footer.contact")}
+        </Link>
+        <ModeToggle />
+      </div>
+      <div className="mt-4 flex max-w-7xl flex-col items-center justify-between gap-4 text-sm md:flex-row">
         <div className="flex items-center gap-2">
           <Icons.logo className="h-6 w-6" />
           <span className="font-medium">Fluxaipro.Art Inc.</span>
         </div>
         <div className="flex flex-col items-center gap-4 md:flex-row">
-          <div className="flex flex-1 items-center space-x-3">
-            <Link
-              href="/terms-of-use"
-              className="underline-offset-4 hover:underline"
-              prefetch={false}
-              title={t("footer.term")}
-            >
-              {t("footer.term")}
-            </Link>
-            <Link
-              href="/privacy-policy"
-              className="underline-offset-4 hover:underline"
-              prefetch={false}
-              title={t("footer.privacy")}
-            >
-              {t("footer.privacy")}
-            </Link>
-            <Link
-              href="mailto:support@fluxaipro.art"
-              className="underline-offset-4 hover:underline"
-              prefetch={false}
-              title={t("footer.contact")}
-            >
-              {t("footer.contact")}
-            </Link>
-            <Link
-              href="https://tap4.ai/"
-              title="Tap4 AI Tools Directory"
-              className="underline-offset-4 hover:underline"
-              prefetch={false}
-              target="_blank"
-            >
-              Tap4 AI
-            </Link>
-            <Link
-              href="https://aiwith.me/"
-              title="Discover thousands of AI tools"
-              className="underline-offset-4 hover:underline"
-              prefetch={false}
-              target="_blank"
-            >
-              AIWITH.ME
-            </Link>
-            <Link
-              href="https://woy.ai/"
-              className="underline-offset-4 hover:underline"
-              title="Woy AI Tools Directory"
-              prefetch={false}
-              target="_blank"
-            >
-              Woy AI
-            </Link>
-            <ModeToggle />
-          </div>
-          <p className="text-muted-foreground">
-            &copy; 2024 fluxaipro.Art. All rights reserved.
-          </p>
+          <Link
+            href="https://tap4.ai/"
+            title="Tap4 AI Tools Directory"
+            className="underline-offset-4 hover:underline"
+            prefetch={false}
+            target="_blank"
+          >
+            Tap4 AI
+          </Link>
+          <Link
+            href="https://aiwith.me/"
+            title="Discover thousands of AI tools"
+            className="underline-offset-4 hover:underline"
+            prefetch={false}
+            target="_blank"
+          >
+            AIWITH.ME
+          </Link>
+          <Link
+            href="https://woy.ai/"
+            className="underline-offset-4 hover:underline"
+            title="Woy AI Tools Directory"
+            prefetch={false}
+            target="_blank"
+          >
+            Woy AI
+          </Link>
+          <Link
+            href="https://aipure.ai/"
+            prefetch={false}
+            target="_blank"
+            className="underline-offset-4 hover:underline"
+          >
+            AIPURE AI
+          </Link>
         </div>
+      </div>
+      <div className="mt-4 flex max-w-7xl flex-col items-center justify-center gap-4 text-sm md:flex-row">
+        <p className="text-muted-foreground">
+          &copy; 2024 fluxaipro.Art. All rights reserved.
+        </p>
       </div>
     </footer>
   );
