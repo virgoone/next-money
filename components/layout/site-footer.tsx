@@ -58,9 +58,16 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
             >
               Tap4 AI
             </Link>
+            <Link
+              href="https://aiwith.me/"
+              title="Discover thousands of AI tools"
+              className="underline-offset-4 hover:underline"
+              prefetch={false}
+            >
+              AIWITH.ME
+            </Link>
             <ModeToggle />
           </div>
-
           <p className="text-muted-foreground">
             &copy; 2024 fluxaipro.Art. All rights reserved.
           </p>
