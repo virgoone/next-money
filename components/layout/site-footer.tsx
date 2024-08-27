@@ -13,7 +13,11 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
   const t = useTranslations("PageLayout");
   return (
     <footer
-      className={cn("container border-t", "w-full p-6 md:py-12 pb-16", className)}
+      className={cn(
+        "container border-t",
+        "w-full p-6 pb-16 md:py-12",
+        className,
+      )}
     >
       <div className="flex max-w-7xl flex-col items-center justify-between gap-4 text-sm md:flex-row">
         <div className="flex items-center gap-2">
@@ -26,6 +30,7 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
               href="/terms-of-use"
               className="underline-offset-4 hover:underline"
               prefetch={false}
+              title={t("footer.term")}
             >
               {t("footer.term")}
             </Link>
@@ -33,6 +38,7 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
               href="/privacy-policy"
               className="underline-offset-4 hover:underline"
               prefetch={false}
+              title={t("footer.privacy")}
             >
               {t("footer.privacy")}
             </Link>
@@ -40,8 +46,17 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
               href="mailto:support@fluxaipro.art"
               className="underline-offset-4 hover:underline"
               prefetch={false}
+              title={t("footer.contact")}
             >
               {t("footer.contact")}
+            </Link>
+            <Link
+              href="https://tap4.ai/"
+              title="Tap4 AI Tools Directory"
+              className="underline-offset-4 hover:underline"
+              prefetch={false}
+            >
+              Tap4 AI
             </Link>
             <ModeToggle />
           </div>
