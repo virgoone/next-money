@@ -245,11 +245,11 @@ export default function Playground({
                 </HoverCard>
                 <Upload
                   maxFiles={1}
-                  maxSize={204800 * 2}
+                  maxSize={2 * 1024 * 1024}
                   placeholder={t("form.inputImagePlaceholder")}
                   value={uploadInputImage}
                   onChange={setUploadInputImage}
-                  previewClassName="h-[90px]"
+                  previewClassName="h-[120px]"
                   accept={{
                     "image/*": [],
                   }}

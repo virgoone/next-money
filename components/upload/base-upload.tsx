@@ -66,7 +66,7 @@ const Upload = (props: UploadProps) => {
           )}
         >
           <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-          <p className="text-gray-600 dark:text-gray-400">{'上传中...'}</p>
+          <p className="text-gray-600 dark:text-gray-400">{'Uploading...'}</p>
         </div>
       )}
       <p
