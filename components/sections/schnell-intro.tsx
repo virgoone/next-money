@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 
 import { UserArrowLeftIcon } from "@/assets";
 import { Button, buttonVariants } from "@/components/ui/button";
+import { Link } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 
 export default function SchnellIntro() {
@@ -27,15 +28,16 @@ export default function SchnellIntro() {
             <p className="mt-4 text-gray-600 dark:text-muted-foreground">
               {t("schnell.description")}
             </p>
-            <Button
+            <Link
+              href="/flux-schnell"
               className={cn(
-                buttonVariants({ size: "lg" }),
-                "min-w-34 gap-2 rounded-full",
+                buttonVariants({ size: "lg", variant: "outline" }),
+                "min-w-34 mt-4 gap-2 rounded-full",
               )}
             >
               <UserArrowLeftIcon className="mr-2 size-4" />
               <span>{t("schnell.action")}</span>
-            </Button>
+            </Link>
           </div>
         </div>
       </div>
