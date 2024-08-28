@@ -87,6 +87,14 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
           >
             AIPURE AI
           </Link>
+          <Link
+            href="https://www.toolify.ai/"
+            prefetch={false}
+            target="_blank"
+            className="underline-offset-4 hover:underline"
+          >
+            Toolify AI
+          </Link>
         </div>
       </div>
       <div className="mt-4 flex max-w-7xl flex-col items-center justify-center gap-4 text-sm md:flex-row">
