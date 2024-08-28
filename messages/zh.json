@@ -13,7 +13,7 @@
       "title": "恭喜！您已获得额外 20% 积分奖励。"
     },
     "action": {
-      "claim": "激活积分",
+      "claim": "领取积分奖励",
       "close": "关闭"
     }
   },
@@ -192,12 +192,12 @@
     },
     "page": {
       "title": "免费 Flux.1 {model} 图像生成器",
-      "subtitle": "令人惊叹的 AI 模型，可从文本提示生成图像。"
+      "subtitle": "令人惊叹的 AI 模型，免费体验高级文本到图像的开放模型。"
     },
     "settings": {
       "display": "显示{mode}",
       "displayTooltip": "选择是否公开您的内容。如果设为公开，其他用户将能够查看或下载您的内容。私密设置保护您的隐私，而公开设置则有利于分享和协作。",
-      "displayLabel": "免费使用将会公开",
+      "displayLabel": "当前免费试用生成内容将公开展示",
       "displayAction": "查看价格"
     },
     "schnell_faq": {
@@ -261,7 +261,8 @@
       "copySuccess": "Prompt 已复制到剪贴板。",
       "download": "下载图像",
       "downloadSuccess": "图像已下载。",
-      "downloadLoading": "正在下载..."
+      "downloadLoading": "正在下载...",
+      "upgrade": "通过 Schnell 的每月限量免费试用提升您的艺术创作。点击此处可体验无水印的高级模型。"
     }
   },
   "GiftCode": {
