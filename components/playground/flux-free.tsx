@@ -44,6 +44,7 @@ import { DownloadAction } from "../history/download-action";
 import { PricingCardDialog } from "../pricing-cards";
 import { EmptyPlaceholder } from "../shared/empty-placeholder";
 import { Icons } from "../shared/icons";
+import SignBox from "../sign-box";
 import Upload from "../upload";
 import ComfortingMessages from "./comforting";
 import Loading from "./loading";
@@ -313,28 +314,30 @@ export default function Playground({
                 </div>
               </div>
               <div className="flex flex-col items-center space-x-5 md:flex-row">
-                <Button
-                  className="flex-1"
-                  disabled={
-                    !inputPrompt.length ||
-                    loading ||
-                    (generateLoading && !!fluxId)
-                  }
-                  onClick={debounceHandleSubmit}
-                >
-                  {loading ? (
-                    <>
-                      <Icons.spinner className="mr-2 size-4 animate-spin" />{" "}
-                      Loading...
-                    </>
-                  ) : (
-                    <>
-                      {t("form.submit")}
-                      <Icons.PointIcon className="size-[14px]" />
-                      <span>{0}</span>
-                    </>
-                  )}
-                </Button>
+                <SignBox>
+                  <Button
+                    className="flex-1"
+                    disabled={
+                      !inputPrompt.length ||
+                      loading ||
+                      (generateLoading && !!fluxId)
+                    }
+                    onClick={debounceHandleSubmit}
+                  >
+                    {loading ? (
+                      <>
+                        <Icons.spinner className="mr-2 size-4 animate-spin" />{" "}
+                        Loading...
+                      </>
+                    ) : (
+                      <>
+                        {t("form.submit")}
+                        <Icons.PointIcon className="size-[14px]" />
+                        <span>{0}</span>
+                      </>
+                    )}
+                  </Button>
+                </SignBox>
               </div>
             </div>
           </div>
