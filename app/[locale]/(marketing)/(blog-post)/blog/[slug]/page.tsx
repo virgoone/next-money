@@ -89,6 +89,8 @@ export default async function PostPage({ params }: PageProps) {
     ),
   ]);
 
+  console.log('post--->', post)
+
   return (
     <>
       <MaxWidthWrapper className="pt-6 md:pt-10">

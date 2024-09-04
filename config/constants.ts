@@ -14,12 +14,22 @@ export enum model {
 
 export enum loras {
   wukong = "wukong",
+  alvdansen = "alvdansen",
+  AWPortrait = "AWPortrait",
 }
 
 export const LoraConfig = {
   [loras.wukong]: {
     name: "BlackMythWukong Lora",
     styleName: "WuKong Style",
+  },
+  [loras.alvdansen]: {
+    name: "Koda Lora",
+    styleName: "Koda Style",
+  },
+  [loras.AWPortrait]: {
+    name: "Portrait Lora",
+    styleName: "Portrait Style",
   },
 };
 
