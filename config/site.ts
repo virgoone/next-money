@@ -13,5 +13,5 @@ export const siteConfig: SiteConfig = {
     twitter: "https://x.com/koyaguo",
     github: "https://github.com/virgoone",
   },
-  mailSupport: "support@fluxaipro.art",
+  mailSupport: "hello@vizyai.com",
 };

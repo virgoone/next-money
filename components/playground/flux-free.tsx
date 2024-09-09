@@ -223,12 +223,12 @@ export default function Playground({
 
   const handleShare = (fluxData: FluxSelectDto) => {
     const maxLength = 140;
-    let tweetText = `${fluxData.inputPrompt!} \nhttps://fluxaipro.art\n\n#FluxAI #FluxSchnell via @koyaguo`;
+    let tweetText = `${fluxData.inputPrompt!} \nhttps://vizyai.com\n\n#FluxAI #FluxSchnell via @koyaguo`;
 
     if (tweetText.length > maxLength) {
       const truncatedPrompt =
         fluxData.inputPrompt!.slice(0, maxLength - 100) + "..."; // 70是为其他内容预留的大致字符数
-      tweetText = `${truncatedPrompt} \nhttps://fluxaipro.art\n\n#FluxAI #FluxSchnell via @koyaguo`;
+      tweetText = `${truncatedPrompt} \nhttps://vizyai.com\n\n#FluxAI #FluxSchnell via @koyaguo`;
     }
 
     window.open(

@@ -225,7 +225,7 @@ export function PricingCards({
               {t("tip.title")}&nbsp;(
               {t("tip.subtitle")}&nbsp;
               <a
-                href="mailto:support@fluxaipro.art"
+                href="mailto:hello@vizyai.com"
                 className="font-semibold text-blue-700 underline decoration-blue-500 dark:text-white dark:decoration-white"
               >
                 {t("tip.contact")}
@@ -271,9 +271,9 @@ export function PricingCards({
           <br />
           <a
             className="font-medium text-primary hover:underline"
-            href="mailto:support@fluxaipro.art"
+            href="mailto:hello@vizyai.com"
           >
-            support@fluxaipro.art
+            hello@vizyai.com
           </a>{" "}
           {t("contact.description")}
           <br />

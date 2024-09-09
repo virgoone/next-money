@@ -4,8 +4,6 @@ type Props = {
   params: { locale: string };
 };
 
-
-
 export default function IndexPage({ params: { locale } }: Props) {
   // Enable static rendering
   unstable_setRequestLocale(locale);
@@ -138,9 +136,9 @@ export default function IndexPage({ params: { locale } }: Props) {
               <strong>Website</strong> refers to FluxAIProTeam, accessible from{" "}
               <a
                 className="font-medium underline underline-offset-4"
-                href="https://fluxaipro.art"
+                href="https://vizyai.com"
               >
-                https://fluxaipro.art
+                https://vizyai.com
               </a>
             </p>
           </li>
@@ -531,9 +529,9 @@ export default function IndexPage({ params: { locale } }: Props) {
             By email:{" "}
             <a
               className="font-medium underline underline-offset-4"
-              href="mailto:support@fluxaipro.art"
+              href="mailto:hello@vizyai.com"
             >
-              support@fluxaipro.art
+              hello@vizyai.com
             </a>
           </li>
         </ul>

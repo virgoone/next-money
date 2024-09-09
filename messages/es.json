@@ -4,18 +4,18 @@
     "title": "¡Algo salió mal!"
   },
   "IndexPage": {
-    "intro": "Presentamos el Generador de Imágenes Flux AI",
+    "intro": "Presentamos el Generador de Imágenes Vizy AI",
     "description": "Revolutionando el modelo avanzado de texto a imagen de próxima generación, compatible con los modelos flux.1 pro/dev y flux.1 schnell.",
-    "title": "Generador de Imágenes Flux AI",
+    "title": "Generador de Imágenes Vizy AI",
     "subtitle": "Texto a Imagen Avanzado",
     "examples": {
       "label": "Ejemplo",
-      "title": "Ejemplos de Imágenes Flux AI",
+      "title": "Ejemplos de Imágenes Vizy AI",
       "subtitle": "Generar imágenes a partir de textos."
     },
     "features": {
       "title": "Características",
-      "description": "El Generador de Imágenes Flux AI es una herramienta poderosa que te permite generar imágenes a partir de textos. Utiliza modelos avanzados de IA para crear imágenes impresionantes perfectas para cualquier proyecto.",
+      "description": "El Generador de Imágenes Vizy AI es una herramienta poderosa que te permite generar imágenes a partir de textos. Utiliza modelos avanzados de IA para crear imágenes impresionantes perfectas para cualquier proyecto.",
       "action": {
         "visit": "Generar"
       },
@@ -33,15 +33,15 @@
       },
       "item4": {
         "title": "Rápido como un rayo",
-        "description": "Flux AI genera imágenes de alta calidad en segundos, significativamente más rápido que Stable Diffusion 3 y Midjourney. Con su capacidad de generación de imágenes ultrarrápida, Flux AI asegura resultados rápidos y eficientes, ahorrándote tiempo y recursos valiosos."
+        "description": "Vizy AI genera imágenes de alta calidad en segundos, significativamente más rápido que Stable Diffusion 3 y Midjourney. Con su capacidad de generación de imágenes ultrarrápida, Vizy AI asegura resultados rápidos y eficientes, ahorrándote tiempo y recursos valiosos."
       },
       "item5": {
         "title": "Personalizable",
-        "description": "El modelo avanzado Flux.1 produce imágenes más detalladas y coherentes que los competidores. Con sus características personalizables y una interfaz de usuario amigable, el Generador de Imágenes Flux AI es la herramienta definitiva para generar imágenes impresionantes a partir de textos. Ya seas un principiante o un profesional, Flux AI te tiene cubierto. ¡Experimenta el poder de la IA y revoluciona tu proceso de generación de imágenes hoy!"
+        "description": "El modelo avanzado Flux.1 produce imágenes más detalladas y coherentes que los competidores. Con sus características personalizables y una interfaz de usuario amigable, el Generador de Imágenes Vizy AI es la herramienta definitiva para generar imágenes impresionantes a partir de textos. Ya seas un principiante o un profesional, Vizy AI te tiene cubierto. ¡Experimenta el poder de la IA y revoluciona tu proceso de generación de imágenes hoy!"
       },
       "item6": {
         "title": "Interfaz de Usuario Amigable",
-        "description": "Más fácil de usar que ComfyUI, perfecto para principiantes y profesionales por igual. El Generador de Imágenes Flux AI es la herramienta definitiva para generar imágenes impresionantes a partir de textos. Con su interfaz de usuario amigable y potentes modelos de IA, Flux AI facilita la creación de increíbles visuales tanto para principiantes como para profesionales."
+        "description": "Más fácil de usar que ComfyUI, perfecto para principiantes y profesionales por igual. El Generador de Imágenes Vizy AI es la herramienta definitiva para generar imágenes impresionantes a partir de textos. Con su interfaz de usuario amigable y potentes modelos de IA, Vizy AI facilita la creación de increíbles visuales tanto para principiantes como para profesionales."
       }
     },
     "powered": {
@@ -86,28 +86,28 @@
       "title": "Preguntas Frecuentes",
       "subtitle": "Explora nuestra FAQ completa para encontrar respuestas rápidas a consultas comunes. Si necesitas más ayuda, no dudes en contactarnos para obtener ayuda personalizada.",
       "item1": {
-        "question": "¿Cómo se compara Flux AI con Stable Diffusion 3?",
-        "answer": "Flux AI ofrece tiempos de generación más rápidos, mayor calidad de imagen y una interfaz de usuario más amigable en comparación con Stable Diffusion 3. El modelo Flux.1 incorpora los últimos avances en investigación de IA."
+        "question": "¿Cómo se compara Vizy AI con Stable Diffusion 3?",
+        "answer": "Vizy AI ofrece tiempos de generación más rápidos, mayor calidad de imagen y una interfaz de usuario más amigable en comparación con Stable Diffusion 3. El modelo Flux.1 incorpora los últimos avances en investigación de IA."
       },
       "item2": {
-        "question": "¿Está disponible Flux AI en GitHub o Hugging Face?",
-        "answer": "Sí, Flux AI es de código abierto y está disponible tanto en GitHub como en Hugging Face."
+        "question": "¿Está disponible Vizy AI en GitHub o Hugging Face?",
+        "answer": "Sí, Vizy AI es de código abierto y está disponible tanto en GitHub como en Hugging Face."
       },
       "item3": {
-        "question": "¿Qué hace que Flux AI sea diferente de otros generadores de imágenes por IA?",
-        "answer": "Flux AI combina velocidad, calidad y facilidad de uso. Es más rápido que Midjourney, más fácil de usar que ComfyUI y produce imágenes de mayor calidad que muchos competidores."
+        "question": "¿Qué hace que Vizy AI sea diferente de otros generadores de imágenes por IA?",
+        "answer": "Vizy AI combina velocidad, calidad y facilidad de uso. Es más rápido que Midjourney, más fácil de usar que ComfyUI y produce imágenes de mayor calidad que muchos competidores."
       },
       "item4": {
-        "question": "¿Cómo usar Flux AI?",
-        "answer": "Para usar Flux AI, simplemente visita fluxaipro.art, ingresa tu aviso y presencia la creación de impresionantes visuales en cuestión de segundos."
+        "question": "¿Cómo usar Vizy AI?",
+        "answer": "Para usar Vizy AI, simplemente visita fluxaipro.art, ingresa tu aviso y presencia la creación de impresionantes visuales en cuestión de segundos."
       },
       "item5": {
-        "question": "¿Qué planes de precios ofrece Flux AI?",
+        "question": "¿Qué planes de precios ofrece Vizy AI?",
         "answer": "Utilizamos puntos para usar nuestros servicios, y puedes hacer clic en la tarjeta de precio para comprar puntos (solo se requiere un pago)."
       },
       "item6": {
         "question": "¿Cómo puedo obtener soporte en línea?",
-        "answer": "Puedes contactarnos en support@fluxaipro.art."
+        "answer": "Puedes contactarnos en hello@vizyai.com."
       }
     },
     "tip": {
@@ -132,11 +132,11 @@
   },
   "PromptGenerator": {
     "layout": {
-      "title": "Generador de Prompts de Flux AI Gratis: Mejora tu Creatividad con Prompts impulsados por IA",
-      "description": "Descubre el poder del Generador de Prompts de Flux AI, tu herramienta definitiva para crear prompts de IA personalizados sin esfuerzo. Ya seas escritor, desarrollador o pensador creativo, nuestra plataforma intuitiva transforma tus ideas en prompts atractivos, aumentando la productividad e inspirando innovación. ¡Comienza a generar contenido convincente hoy y eleva tus proyectos con Flux AI!",
-      "keywords": "generador de prompts de flux ai, generador de prompts de IA, creador de prompts de flux, generación de contenido de IA, herramientas de escritura de IA, prompts de escritura creativa, herramientas de flux AI, generar prompts con IA, generación de prompts impulsada por IA, mejorar la creatividad con IA, software de generación de prompts"
+      "title": "Generador de Prompts de Vizy AI Gratis: Mejora tu Creatividad con Prompts impulsados por IA",
+      "description": "Descubre el poder del Generador de Prompts de Vizy AI, tu herramienta definitiva para crear prompts de IA personalizados sin esfuerzo. Ya seas escritor, desarrollador o pensador creativo, nuestra plataforma intuitiva transforma tus ideas en prompts atractivos, aumentando la productividad e inspirando innovación. ¡Comienza a generar contenido convincente hoy y eleva tus proyectos con Vizy AI!",
+      "keywords": "generador de prompts de Vizy AI, generador de prompts de IA, creador de prompts de flux, generación de contenido de IA, herramientas de escritura de IA, prompts de escritura creativa, herramientas de Vizy AI, generar prompts con IA, generación de prompts impulsada por IA, mejorar la creatividad con IA, software de generación de prompts"
     },
-    "title": "Generador de Prompts de Flux AI Gratis",
+    "title": "Generador de Prompts de Vizy AI Gratis",
     "subtitle": "Transforma tus ideas en potentes prompts de generación de imágenes AI con nuestra guía completa",
     "form": {
       "input": {
@@ -156,31 +156,31 @@
     },
     "faq": {
       "label": "Preguntas",
-      "title": "Preguntas Frecuentes sobre el Generador de Prompts de Flux AI",
+      "title": "Preguntas Frecuentes sobre el Generador de Prompts de Vizy AI",
       "subtitle": "Explora nuestras preguntas frecuentes para encontrar respuestas rápidas a las consultas comunes. Si necesitas más ayuda, no dudes en contactarnos para obtener ayuda personalizada.",
       "item1": {
-        "question": "¿Qué es el Generador de Prompts de Flux AI?",
-        "answer": "El Generador de Prompts de Flux AI es una herramienta innovadora diseñada para ayudar a los usuarios a crear prompts atractivos y efectivos para diversas aplicaciones, incluyendo escritura, marketing y creación de contenido. Al aprovechar algoritmos avanzados de IA, genera sugerencias que estimulan la creatividad y mejoran la productividad."
+        "question": "¿Qué es el Generador de Prompts de Vizy AI?",
+        "answer": "El Generador de Prompts de Vizy AI es una herramienta innovadora diseñada para ayudar a los usuarios a crear prompts atractivos y efectivos para diversas aplicaciones, incluyendo escritura, marketing y creación de contenido. Al aprovechar algoritmos avanzados de IA, genera sugerencias que estimulan la creatividad y mejoran la productividad."
       },
       "item2": {
-        "question": "¿Cómo funciona Flux AI?",
-        "answer": "Flux AI utiliza técnicas de inteligencia artificial y aprendizaje automático para analizar las entradas de los usuarios y generar prompts relevantes. Los usuarios pueden personalizar parámetros para adaptar la salida, asegurando que los prompts generados cumplan con sus necesidades específicas, ya sean para proyectos personales o tareas profesionales."
+        "question": "¿Cómo funciona Vizy AI?",
+        "answer": "Vizy AI utiliza técnicas de inteligencia artificial y aprendizaje automático para analizar las entradas de los usuarios y generar prompts relevantes. Los usuarios pueden personalizar parámetros para adaptar la salida, asegurando que los prompts generados cumplan con sus necesidades específicas, ya sean para proyectos personales o tareas profesionales."
       },
       "item3": {
-        "question": "¿Quién puede beneficiarse de usar Flux AI?",
-        "answer": "Flux AI es ideal para escritores, especialistas en marketing, educadores y creadores de contenido que buscan inspiración y orientación. Puede ayudar a los usuarios a superar el bloqueo del escritor, desarrollar estrategias de marketing o crear planes de lecciones, lo que lo convierte en una herramienta valiosa para cualquiera que necesite ideas frescas."
+        "question": "¿Quién puede beneficiarse de usar Vizy AI?",
+        "answer": "Vizy AI es ideal para escritores, especialistas en marketing, educadores y creadores de contenido que buscan inspiración y orientación. Puede ayudar a los usuarios a superar el bloqueo del escritor, desarrollar estrategias de marketing o crear planes de lecciones, lo que lo convierte en una herramienta valiosa para cualquiera que necesite ideas frescas."
       },
       "item4": {
-        "question": "¿Es Flux AI fácil de usar?",
-        "answer": "Sí, Flux AI está diseñado pensando en la experiencia del usuario. Su interfaz intuitiva permite a los usuarios de todos los niveles de habilidad navegar fácilmente por la herramienta. Con opciones de entrada simples y instrucciones claras, incluso aquellos con experiencia técnica mínima pueden comenzar a generar prompts en poco tiempo."
+        "question": "¿Es Vizy AI fácil de usar?",
+        "answer": "Sí, Vizy AI está diseñado pensando en la experiencia del usuario. Su interfaz intuitiva permite a los usuarios de todos los niveles de habilidad navegar fácilmente por la herramienta. Con opciones de entrada simples y instrucciones claras, incluso aquellos con experiencia técnica mínima pueden comenzar a generar prompts en poco tiempo."
       },
       "item5": {
-        "question": "¿Puedo usar Flux AI para múltiples proyectos?",
-        "answer": "¡Absolutamente! El Generador de Prompts de Flux AI es versátil y soporta una amplia gama de proyectos. Ya sea que estés elaborando publicaciones de blog, contenido de redes sociales o ideas para escritura creativa, puedes utilizar la herramienta varias veces para generar prompts únicos para diferentes necesidades."
+        "question": "¿Puedo usar Vizy AI para múltiples proyectos?",
+        "answer": "¡Absolutamente! El Generador de Prompts de Vizy AI es versátil y soporta una amplia gama de proyectos. Ya sea que estés elaborando publicaciones de blog, contenido de redes sociales o ideas para escritura creativa, puedes utilizar la herramienta varias veces para generar prompts únicos para diferentes necesidades."
       },
       "item6": {
-        "question": "¿Hay un costo asociado con el uso del Generador de Prompts de Flux AI?",
-        "answer": "El Generador de Prompts de Flux AI es actualmente gratuito. Los usuarios pueden acceder a la plataforma en cualquier momento, ingresar prompts y generar sugerencias relevantes sin costo alguno."
+        "question": "¿Hay un costo asociado con el uso del Generador de Prompts de Vizy AI?",
+        "answer": "El Generador de Prompts de Vizy AI es actualmente gratuito. Los usuarios pueden acceder a la plataforma en cualquier momento, ingresar prompts y generar sugerencias relevantes sin costo alguno."
       }
     }
   },
@@ -218,18 +218,18 @@
       },
       "item4": {
         "question": "¿Existen comunidades en línea o foros que ofrezcan consejos para mejorar la calidad de las imágenes de Flux.1 Schnell?",
-        "answer": "Sí, se puede usar en el sitio web oficial en https://fluxaipro.art/flux-schnell. Los usuarios solo necesitan ingresar sus indicaciones en el sitio web y generar imágenes, lo que puede ayudarte a mejorar la calidad de tus imágenes generadas."
+        "answer": "Sí, se puede usar en el sitio web oficial en https://vizyai.com/flux-schnell. Los usuarios solo necesitan ingresar sus indicaciones en el sitio web y generar imágenes, lo que puede ayudarte a mejorar la calidad de tus imágenes generadas."
       },
       "item5": {
         "question": "¿Cómo puedo usar Flux.1 Schnell y hay opciones gratuitas?",
-        "answer": "Flux.1 Schnell se puede usar en el sitio web oficial en https://fluxaipro.art/flux-schnell. Cada usuario obtiene 5 usos gratuitos del modelo Flux.1 Schnell por mes calendario, que se reinician al comienzo de cada mes. Para usarlo, simplemente ingresa tu indicación en el sitio web y genera imágenes. Este proceso puede ayudarte a mejorar la calidad de tus imágenes generadas con el tiempo."
+        "answer": "Flux.1 Schnell se puede usar en el sitio web oficial en https://vizyai.com/flux-schnell. Cada usuario obtiene 5 usos gratuitos del modelo Flux.1 Schnell por mes calendario, que se reinician al comienzo de cada mes. Para usarlo, simplemente ingresa tu indicación en el sitio web y genera imágenes. Este proceso puede ayudarte a mejorar la calidad de tus imágenes generadas con el tiempo."
       },
       "item6": {
         "question": "¿Cómo puedo obtener soporte en línea?",
-        "answer": "Puedes contactarnos en support@fluxaipro.art."
+        "answer": "Puedes contactarnos en hello@vizyai.com."
       }
     },
-    "title": "Generador de Imágenes Flux AI",
+    "title": "Generador de Imágenes Vizy AI",
     "description": "Modelos de IA asombrosos para generar imágenes a partir de textos.",
     "empty": {
       "title": "Error del Generador",
@@ -296,7 +296,7 @@
   },
   "Billings": {
     "page": {
-      "title": "App – Generador de Imágenes Flux AI",
+      "title": "App – Generador de Imágenes Vizy AI",
       "description": "Ver tus predicciones recientes"
     },
     "title": "Predicciones Recientes",
@@ -350,16 +350,16 @@
     }
   },
   "LocaleLayout": {
-    "title": "Generador de Imágenes en Línea Flux AI - Flux AI",
+    "title": "Generador de Imágenes en Línea Vizy AI - Vizy AI",
     "description": "Transforma tus imágenes con las herramientas avanzadas de Flux.1 AI: Flux Schnell para creaciones rápidas, Flux Dev para personalización detallada y Flux Pro para una calidad profesional insuperable.",
-    "keywords": "Flux AI, AI Flux, inteligencia artificial Flux, tecnología AI, aprendizaje automático Flux, herramientas Flux AI, aplicaciones AI, soluciones de inteligencia artificial, análisis de datos Flux, innovación AI, análisis predictivo Flux, aprendizaje automático Flux, desarrollo AI, próxima generación AI"
+    "keywords": "Vizy AI, AI Flux, inteligencia artificial Flux, tecnología AI, aprendizaje automático Flux, herramientas Vizy AI, aplicaciones AI, soluciones de inteligencia artificial, análisis de datos Flux, innovación AI, análisis predictivo Flux, aprendizaje automático Flux, desarrollo AI, próxima generación AI"
   },
   "LocaleSwitcher": {
     "label": "Cambiar idioma",
     "locale": "{locale, select, zh {🇨🇳 简体中文} tw {🇭🇰 繁體中文} en {🇺🇸 English} fr {🇫🇷 Français} ja {🇯🇵 日本語} ko {🇰🇷 한국어} de {🇩🇪 Deutsch} es {🇪🇸 Español} pt {🇧🇷 Português} ar {🇦🇪 العربية} other {Unknown}}"
   },
   "Manifest": {
-    "name": "Generador de Imágenes Flux AI"
+    "name": "Generador de Imágenes Vizy AI"
   },
   "AppNavigation": {
     "Index": "Inicio",
@@ -371,9 +371,9 @@
   "Navigation": {
     "pricing": "Precios",
     "schnell": "Flux Schnell",
-    "title": "Generador de Imágenes Flux AI",
+    "title": "Generador de Imágenes Vizy AI",
     "blog": "Blog",
-    "prompt": "Generador de Prompts de Flux AI",
+    "prompt": "Generador de Prompts de Vizy AI",
     "dashboard": "Panel de Control",
     "tooltip": {
       "login": "Iniciar Sesión"
@@ -385,7 +385,7 @@
   },
   "PageLayout": {
     "footer": {
-      "title": "Generador de Imágenes Flux AI",
+      "title": "Generador de Imágenes Vizy AI",
       "term": "Términos",
       "privacy": "Privacidad",
       "contact": "Contacto"

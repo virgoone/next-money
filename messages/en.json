@@ -19,11 +19,11 @@
   },
   "PromptGenerator": {
     "layout": {
-      "title": "Free Flux AI Prompt Generator: Enhance Your Creativity with AI-Powered Prompts",
-      "description": "Discover the power of Flux AI Prompt Generator, your ultimate tool for creating tailored AI prompts effortlessly. Whether you're a writer, developer, or creative thinker, our intuitive platform transforms your ideas into engaging prompts, boosting productivity and inspiring innovation. Start generating compelling content today and elevate your projects with Flux AI!",
-      "keywords": "flux ai prompt generator, AI prompt generator, flux prompt creator, AI content generation, AI writing tools, creative writing prompts, flux AI tools, generate prompts with AI, AI driven prompt generation, enhance creativity with AI, prompt generation software"
+      "title": "Free Vizy AI Prompt Generator: Enhance Your Creativity with AI-Powered Prompts",
+      "description": "Discover the power of Vizy AI Prompt Generator, your ultimate tool for creating tailored AI prompts effortlessly. Whether you're a writer, developer, or creative thinker, our intuitive platform transforms your ideas into engaging prompts, boosting productivity and inspiring innovation. Start generating compelling content today and elevate your projects with Vizy AI!",
+      "keywords": "Vizy AI prompt generator, AI prompt generator, flux prompt creator, AI content generation, AI writing tools, creative writing prompts, Vizy AI tools, generate prompts with AI, AI driven prompt generation, enhance creativity with AI, prompt generation software"
     },
-    "title": "Free Flux AI Prompt Generator",
+    "title": "Free Vizy AI Prompt Generator",
     "subtitle": "Transform your ideas into powerful AI image generation prompts with our comprehensive guide",
     "form": {
       "input": {
@@ -43,47 +43,47 @@
     },
     "faq": {
       "label": "Questions",
-      "title": "Frequently Asked Questions about Flux AI Prompt Generator",
+      "title": "Frequently Asked Questions about Vizy AI Prompt Generator",
       "subtitle": "Explore our comprehensive FAQ to find quick answers to common inquiries. If you need further assistance, don't hesitate to contact us for personalized help.",
       "item1": {
-        "question": "What is Flux AI Prompt Generator?",
-        "answer": "Flux AI Prompt Generator is an innovative tool designed to help users create engaging and effective prompts for various applications, including writing, marketing, and content creation. By leveraging advanced AI algorithms, it generates suggestions that stimulate creativity and improve productivity."
+        "question": "What is Vizy AI Prompt Generator?",
+        "answer": "Vizy AI Prompt Generator is an innovative tool designed to help users create engaging and effective prompts for various applications, including writing, marketing, and content creation. By leveraging advanced AI algorithms, it generates suggestions that stimulate creativity and improve productivity."
       },
       "item2": {
-        "question": "How does Flux AI work?",
-        "answer": "Flux AI utilizes artificial intelligence and machine learning techniques to analyze user inputs and generate relevant prompts. Users can customize parameters to tailor the output, ensuring that the generated prompts meet their specific needs, whether for personal projects or professional tasks."
+        "question": "How does Vizy AI work?",
+        "answer": "Vizy AI utilizes artificial intelligence and machine learning techniques to analyze user inputs and generate relevant prompts. Users can customize parameters to tailor the output, ensuring that the generated prompts meet their specific needs, whether for personal projects or professional tasks."
       },
       "item3": {
-        "question": "Who can benefit from using Flux AI?",
-        "answer": "Flux AI is ideal for writers, marketers, educators, and content creators looking for inspiration and guidance. It can help users break through writer's block, develop marketing strategies, or create lesson plans, making it a valuable tool for anyone in need of fresh ideas."
+        "question": "Who can benefit from using Vizy AI?",
+        "answer": "Vizy AI is ideal for writers, marketers, educators, and content creators looking for inspiration and guidance. It can help users break through writer's block, develop marketing strategies, or create lesson plans, making it a valuable tool for anyone in need of fresh ideas."
       },
       "item4": {
-        "question": "Is Flux AI user-friendly?",
-        "answer": "Yes, Flux AI is designed with user experience in mind. Its intuitive interface allows users of all skill levels to navigate the tool easily. With simple input options and clear instructions, even those with minimal tech experience can start generating prompts in no time."
+        "question": "Is Vizy AI user-friendly?",
+        "answer": "Yes, Vizy AI is designed with user experience in mind. Its intuitive interface allows users of all skill levels to navigate the tool easily. With simple input options and clear instructions, even those with minimal tech experience can start generating prompts in no time."
       },
       "item5": {
-        "question": "Can I use Flux AI for multiple projects?",
-        "answer": "Absolutely! Flux AI Prompt Generator is versatile and supports a wide range of projects. Whether you're crafting blog posts, social media content, or brainstorming ideas for creative writing, you can utilize the tool multiple times to generate unique prompts for different needs."
+        "question": "Can I use Vizy AI for multiple projects?",
+        "answer": "Absolutely! Vizy AI Prompt Generator is versatile and supports a wide range of projects. Whether you're crafting blog posts, social media content, or brainstorming ideas for creative writing, you can utilize the tool multiple times to generate unique prompts for different needs."
       },
       "item6": {
-        "question": "Is there a cost to using the Flux AI prompt word generator?",
-        "answer": "The Flux AI prompt word generator is currently free. Users can access the platform at any time, enter prompts and generate relevant suggestions at no cost."
+        "question": "Is there a cost to using the Vizy AI prompt word generator?",
+        "answer": "The Vizy AI prompt word generator is currently free. Users can access the platform at any time, enter prompts and generate relevant suggestions at no cost."
       }
     }
   },
   "IndexPage": {
-    "intro": "Introducing Flux AI Image Generator",
+    "intro": "Introducing Vizy AI Image Generator",
     "description": "Revolutionizing Next-Generation Advanced Text-to-Image open model, support flux.1 pro/dev and flux.1 schnell models.",
-    "title": "Flux AI Image Generator",
+    "title": "Vizy AI Image Generator",
     "subtitle": "Advanced Text-to-Image",
     "examples": {
       "label": "Example",
-      "title": "Flux AI Image Examples",
+      "title": "Vizy AI Image Examples",
       "subtitle": "Generate images from text prompts."
     },
     "features": {
       "title": "Features",
-      "description": "Flux AI Image Generator is a powerful tool that allows you to generate images from text prompts. It uses advanced AI models to create stunning images that are perfect for any project.",
+      "description": "Vizy AI Image Generator is a powerful tool that allows you to generate images from text prompts. It uses advanced AI models to create stunning images that are perfect for any project.",
       "action": {
         "visit": "Generate"
       },
@@ -101,15 +101,15 @@
       },
       "item4": {
         "title": "Lightning-Fast",
-        "description": "Flux AI generates high-quality images in seconds, significantly faster than Stable Diffusion 3 and Midjourney. With its lightning-fast image generation capabilities, Flux AI ensures quick and efficient results, saving you valuable time and resources."
+        "description": "Vizy AI generates high-quality images in seconds, significantly faster than Stable Diffusion 3 and Midjourney. With its lightning-fast image generation capabilities, Vizy AI ensures quick and efficient results, saving you valuable time and resources."
       },
       "item5": {
         "title": "Customizable",
-        "description": "The advanced Flux.1 model produces more detailed and coherent images than competitors. With its customizable features and user-friendly interface, Flux AI Image Generator is the ultimate tool for generating stunning images from text prompts. Whether you're a beginner or a professional, Flux AI has got you covered. Experience the power of AI and revolutionize your image generation process today!"
+        "description": "The advanced Flux.1 model produces more detailed and coherent images than competitors. With its customizable features and user-friendly interface, Vizy AI Image Generator is the ultimate tool for generating stunning images from text prompts. Whether you're a beginner or a professional, Vizy AI has got you covered. Experience the power of AI and revolutionize your image generation process today!"
       },
       "item6": {
         "title": "User-Friendly Interface",
-        "description": "Easier to use than ComfyUI, perfect for beginners and pros alike. Flux AI Image Generator is the ultimate tool for generating stunning images from text prompts. With its user-friendly interface and powerful AI models, Flux AI makes it easy for both beginners and professionals to create amazing visuals."
+        "description": "Easier to use than ComfyUI, perfect for beginners and pros alike. Vizy AI Image Generator is the ultimate tool for generating stunning images from text prompts. With its user-friendly interface and powerful AI models, Vizy AI makes it easy for both beginners and professionals to create amazing visuals."
       }
     },
     "powered": {
@@ -154,28 +154,28 @@
       "title": "Frequently asked questions",
       "subtitle": "Explore our comprehensive FAQ to find quick answers to common inquiries. If you need further assistance, don't hesitate to contact us for personalized help.",
       "item1": {
-        "question": "How does Flux AI compare to Stable Diffusion 3?",
-        "answer": "Flux AI offers faster generation times, higher image quality, and a more user-friendly interface compared to Stable Diffusion 3. The Flux.1 model incorporates the latest advancements in AI research."
+        "question": "How does Vizy AI compare to Stable Diffusion 3?",
+        "answer": "Vizy AI offers faster generation times, higher image quality, and a more user-friendly interface compared to Stable Diffusion 3. The Flux.1 model incorporates the latest advancements in AI research."
       },
       "item2": {
-        "question": "Is Flux AI available on GitHub or Hugging Face?",
-        "answer": "Yes, Flux AI is open-source and available on both GitHub and Hugging Face."
+        "question": "Is Vizy AI available on GitHub or Hugging Face?",
+        "answer": "Yes, Vizy AI is open-source and available on both GitHub and Hugging Face."
       },
       "item3": {
-        "question": "What makes Flux AI different from other AI image generators?",
-        "answer": "Flux AI combines speed, quality, and ease of use. It's faster than Midjourney, more user-friendly than ComfyUI, and produces higher quality images than many competitors."
+        "question": "What makes Vizy AI different from other AI image generators?",
+        "answer": "Vizy AI combines speed, quality, and ease of use. It's faster than Midjourney, more user-friendly than ComfyUI, and produces higher quality images than many competitors."
       },
       "item4": {
-        "question": "How to use Flux AI?",
-        "answer": "To use Flux AI, simply visit fluxaipro.art, enter your prompt, and witness the creation of breathtaking visuals in a matter of seconds."
+        "question": "How to use Vizy AI?",
+        "answer": "To use Vizy AI, simply visit fluxaipro.art, enter your prompt, and witness the creation of breathtaking visuals in a matter of seconds."
       },
       "item5": {
-        "question": "What pricing plans does Flux AI offer?",
+        "question": "What pricing plans does Vizy AI offer?",
         "answer": "We use points to use our services, and you can click on the price card to buy points (only one payment is required)."
       },
       "item6": {
         "question": "How can I get support for Online?",
-        "answer": "You can reach out to us at support@fluxaipro.art."
+        "answer": "You can reach out to us at hello@vizyai.com."
       }
     },
     "tip": {
@@ -218,18 +218,18 @@
       },
       "item4": {
         "question": "Are there online communities or forums that provide tips for improving Flux.1 Schnell image quality?",
-        "answer": "Yes, can be used on the official website at https://fluxaipro.art/flux-schnell. Users only need to input their prompts on the website and generate images, which can help you improve the quality of your generated images."
+        "answer": "Yes, can be used on the official website at https://vizyai.com/flux-schnell. Users only need to input their prompts on the website and generate images, which can help you improve the quality of your generated images."
       },
       "item5": {
         "question": "How can I use Flux.1 Schnell and are there any free options?",
-        "answer": "Flux.1 Schnell can be used on the official website at https://fluxaipro.art/flux-schnell. Each user gets 5 free uses of the Flux.1 Schnell model per calendar month, which resets at the beginning of each month. To use it, simply input your prompt on the website and generate images. This process can help you improve the quality of your generated images over time."
+        "answer": "Flux.1 Schnell can be used on the official website at https://vizyai.com/flux-schnell. Each user gets 5 free uses of the Flux.1 Schnell model per calendar month, which resets at the beginning of each month. To use it, simply input your prompt on the website and generate images. This process can help you improve the quality of your generated images over time."
       },
       "item6": {
         "question": "How can I get support for Online?",
-        "answer": "You can reach out to us at support@fluxaipro.art."
+        "answer": "You can reach out to us at hello@vizyai.com."
       }
     },
-    "title": "Flux AI Image Generator",
+    "title": "Vizy AI Image Generator",
     "description": "Amazing AI models to generate images from text prompts.",
     "empty": {
       "title": "Generator Error",
@@ -296,7 +296,7 @@
   },
   "Billings": {
     "page": {
-      "title": "App – Flux AI Image Generator",
+      "title": "App – Vizy AI Image Generator",
       "description": "View Your Recent predictions"
     },
     "title": "Recent predictions",
@@ -350,16 +350,16 @@
     }
   },
   "LocaleLayout": {
-    "title": "Flux AI Image Generator Online - Flux AI",
+    "title": "Vizy AI Image Generator Online - Vizy AI",
     "description": "Transform your visuals with Flux.1 AI's advanced tools: Flux Schnell for swift creations, Flux Dev for detailed customization, and Flux Pro for unmatched professional quality.",
-    "keywords": "flux AI, AI flux, flux artificial intelligence, AI technology, machine learning flux, flux AI tools, AI applications, artificial intelligence solutions, flux data analysis, AI innovation, predictive analytics flux, flux machine learning, AI development, next-gen AI"
+    "keywords": "Vizy AI, AI flux, flux artificial intelligence, AI technology, machine learning flux, Vizy AI tools, AI applications, artificial intelligence solutions, flux data analysis, AI innovation, predictive analytics flux, flux machine learning, AI development, next-gen AI"
   },
   "LocaleSwitcher": {
     "label": "Change language",
     "locale": "{locale, select, zh {🇨🇳 简体中文} tw {🇭🇰 繁體中文} en {🇺🇸 English} fr {🇫🇷 Français} ja {🇯🇵 日本語} ko {🇰🇷 한국어} es {🇪🇸 Español} de {🇩🇪 Deutsch} pt {🇧🇷 Português} ar {🇦🇪 العربية} other {Unknown}}"
   },
   "Manifest": {
-    "name": "Flux AI Image Generator"
+    "name": "Vizy AI Image Generator"
   },
   "AppNavigation": {
     "Index": "Home",
@@ -371,9 +371,9 @@
   "Navigation": {
     "pricing": "Pricing",
     "schnell": "Flux Schnell",
-    "title": "Flux AI Image Generator",
+    "title": "Vizy AI Image Generator",
     "blog": "Blog",
-    "prompt": "Flux AI Prompt Generator",
+    "prompt": "Vizy AI Prompt Generator",
     "dashboard": "Dashboard",
     "tooltip": {
       "login": "Login"
@@ -385,7 +385,7 @@
   },
   "PageLayout": {
     "footer": {
-      "title": "Flux AI Image Generator",
+      "title": "Vizy AI Image Generator",
       "term": "Terms",
       "privacy": "Privacy",
       "contact": "Contact"

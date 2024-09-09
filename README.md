@@ -1,4 +1,4 @@
-<a href="https://fluxaipro.art">
+<a href="https://vizyai.com">
   <img alt="SaaS Starter" src="https://meme-static.douni.one/WechatIMG103.png">
   <h1 align="center">Next Money Stripe Starter</h1>
 </a>
@@ -62,7 +62,6 @@ pnpm run dev
 
 > [!WARNING]  
 > You need update `.react-email` folder before use `pnpm run email`. Check the link [here](https://github.com/resend/react-email/issues/868#issuecomment-1828411325) if you have the error : `renderToReadableStream not found`
->
 
 ### Frameworks
 
