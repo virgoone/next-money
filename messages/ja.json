@@ -184,6 +184,23 @@
       "contact": "お問い合わせ"
     }
   },
+  "ExplorePage": {
+    "layout": {
+      "title": "Flux AI画像生成ツールを探索",
+      "description": "Flux AI画像生成ツールの最新機能と更新内容を発見してください。 ",
+      "keywords": "flux AI, AI flux, flux artificial intelligence, AI technology, machine learning flux, flux AI tools, AI applications, artificial intelligence solutions, flux data analysis, AI innovation, predictive analytics flux, flux machine learning, AI development, next-gen AI"
+    },
+    "title": "Flux AI画像生成ツールを探索",
+    "description": "Flux AI画像生成ツールの最新機能と更新内容を発見してください。 ",
+    "flux": {
+      "model": "モデル",
+      "lora": "スタイル",
+      "prompt": "プロンプト",
+      "executePrompt": "マジックプロンプト",
+      "resolution": "解像度",
+      "createdAt": "作成日時"
+    }
+  },
   "Playground": {
     "layout": {
       "title": "無料Flux.1 {model}画像生成ツール：数秒で驚くような画像を作成",
@@ -371,6 +388,7 @@
   "Navigation": {
     "pricing": "価格",
     "schnell": "Flux Schnell",
+    "explore": "探索",
     "prompt": "Flux AI プロンプトジェネレーター",
     "title": "Flux AI画像生成ツール",
     "blog": "ブログ",

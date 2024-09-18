@@ -1,4 +1,7 @@
 import { MetadataRoute } from "next";
+import { prisma } from "@/db/prisma";
+import { FluxTaskStatus } from "@/db/type";
+import { FluxHashids } from "@/db/dto/flux.dto";
 
 import { allPosts } from "contentlayer/generated";
 
@@ -6,6 +9,20 @@ import { defaultLocale, locales, pathnames } from "@/config";
 import { env } from "@/env.mjs";
 import { getPathname } from "@/lib/navigation";
 
+const getFluxUrl = async () => {
+  const fluxs = await prisma.fluxData.findMany({
+    where: {
+      isPrivate: false,
+      taskStatus: {
+        in: [FluxTaskStatus.Succeeded],
+      },
+    },
+    select: {
+      id: true
+    }
+  });
+  return fluxs.map((flux) => `/d/${FluxHashids.encode(flux.id)}`)
+}
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const keys = Object.keys(pathnames) as Array<keyof typeof pathnames>;
   const posts = await Promise.all(
@@ -14,6 +31,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       .sort((a, b) => b.date.localeCompare(a.date))
       .map((post) => post.slug?.replace(`/${defaultLocale}`, "")),
   );
+  const fluxDataCount = await prisma.fluxData.count({
+    where: {
+      isPrivate: false,
+      taskStatus: {
+        in: [FluxTaskStatus.Succeeded],
+      },
+    }
+  });
+  const pageCount = Math.ceil(fluxDataCount / 24);
+  const explorePages = Array.from({ length: pageCount }, (_, i) => i === 0 ? `/explore` : `/explore/${i + 1}`);
 
   function getUrl(
     key: keyof typeof pathnames,
@@ -33,7 +60,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   //     ),
   //   },
   // }));
-  return [...posts, ...keys].flatMap((key) =>
+  const fluxUrls = await getFluxUrl();
+
+  return [...posts, ...keys, ...fluxUrls, ...explorePages].flatMap((key) =>
     locales.map((locale) => ({
       url: getUrl(key, locale),
       priority: 0.7,

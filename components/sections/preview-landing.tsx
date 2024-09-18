@@ -35,7 +35,7 @@ export default async function PreviewLanding() {
               <Link
                 className="absolute right-1 top-1"
                 target="_blank"
-                href={`https://pinterest.com/pin/create/button/?url=https://pinterest.com/pin/create/button/?description=${encodeURIComponent(item.inputPrompt!)}&url=${encodeURIComponent(item.imageUrl!)}`}
+                href={`https://pinterest.com/pin/create/button/?url=https://pinterest.com/pin/create/button/?description=${encodeURIComponent(`${item.inputPrompt!} Generator by fluxaipro.art`)}&url=${encodeURIComponent(item.imageUrl!)}`}
               >
                 <span className="[&>svg]:h-7 [&>svg]:w-7 [&>svg]:fill-[#e60023]">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">

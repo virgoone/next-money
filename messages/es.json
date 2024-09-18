@@ -184,6 +184,23 @@
       }
     }
   },
+  "ExplorePage": {
+    "layout": {
+      "title": "Explorar el Generador de Imágenes de Flux AI",
+      "description": "Descubre las últimas características y actualizaciones del Generador de Imágenes de Flux AI.",
+      "keywords": "flux AI, AI flux, inteligencia artificial flux, tecnología de IA, aprendizaje automático flux, herramientas flux AI, aplicaciones de IA, soluciones de inteligencia artificial, análisis de datos flux, innovación en IA, analítica predictiva flux, aprendizaje automático flux, desarrollo de IA, IA de próxima generación"
+    },
+    "title": "Explorar el Generador de Imágenes de Flux AI",
+    "description": "Descubre las últimas características y actualizaciones del Generador de Imágenes de Flux AI.",
+    "flux": {
+      "model": "Modelo",
+      "lora": "Estilo",
+      "prompt": "Prompt",
+      "executePrompt": "Prompt Mágico",
+      "resolution": "Resolución",
+      "createdAt": "Fecha de creación"
+    }
+  },
   "Playground": {
     "layout": {
       "title": "Generador de Imágenes Gratuito Flux.1 {model}: Crea Imágenes Impresionantes en Segundos",
@@ -371,6 +388,7 @@
   "Navigation": {
     "pricing": "Precios",
     "schnell": "Flux Schnell",
+    "explore": "Explorar",
     "title": "Generador de Imágenes Flux AI",
     "blog": "Blog",
     "prompt": "Generador de Prompts de Flux AI",

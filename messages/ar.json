@@ -184,6 +184,23 @@
       "contact": "اتصل بنا"
     }
   },
+  "ExplorePage": {
+    "layout": {
+      "title": "استكشف مولد صور Flux AI",
+      "description": "اكتشف أحدث الميزات والتحديثات لمولد صور Flux AI.",
+      "keywords": "flux AI، AI flux، الذكاء الاصطناعي flux، تكنولوجيا AI، التعلم الآلي flux، أدوات flux AI، تطبيقات AI، حلول الذكاء الاصطناعي، تحليل بيانات flux، ابتكار AI، تحليلات تنبؤية flux، تعلم آلي flux، تطوير AI، AI من الجيل التالي"
+    },
+    "title": "استكشف مولد صور Flux AI",
+    "description": "اكتشف أحدث الميزات والتحديثات لمولد صور Flux AI.",
+    "flux": {
+      "model": "نموذج",
+      "lora": "النمط",
+      "prompt": "موجه",
+      "executePrompt": "موجه سحري",
+      "resolution": "الدقة",
+      "createdAt": "تاريخ الإنشاء"
+    }
+  },
   "Playground": {
     "layout": {
       "title": "مولد صور Flux.1 {model} المجاني: إنشاء صور مذهلة في ثوانٍ",
@@ -372,6 +389,7 @@
     "pricing": "التسعير",
     "title": "مولد الصور Flux AI",
     "schnell": "Flux Schnell",
+    "explore": "استكشف",
     "prompt": "مولد الإشعارات Flux AI",
     "blog": "المدونة",
     "dashboard": "لوحة التحكم",

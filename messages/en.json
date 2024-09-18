@@ -184,6 +184,23 @@
       "contact": "contact us"
     }
   },
+  "ExplorePage": {
+    "layout": {
+      "title": "Explore Flux AI Image Generator",
+      "description": "Discover the latest features and updates of Flux AI Image Generator. ",
+      "keywords": "flux AI, AI flux, flux artificial intelligence, AI technology, machine learning flux, flux AI tools, AI applications, artificial intelligence solutions, flux data analysis, AI innovation, predictive analytics flux, flux machine learning, AI development, next-gen AI"
+    },
+    "title": "Explore Flux AI Image Generator",
+    "description": "Discover the latest features and updates of Flux AI Image Generator. ",
+    "flux": {
+      "model": "Model",
+      "lora": "Style",
+      "prompt": "Prompt",
+      "executePrompt": "Magic Prompt",
+      "resolution": "Resolution",
+      "createdAt": "Date created"
+    }
+  },
   "Playground": {
     "layout": {
       "title": "Free Flux.1 {model} Image Generator: Create Stunning Images in Seconds",
@@ -371,6 +388,7 @@
   "Navigation": {
     "pricing": "Pricing",
     "schnell": "Flux Schnell",
+    "explore": "Explore",
     "title": "Flux AI Image Generator",
     "blog": "Blog",
     "prompt": "Flux AI Prompt Generator",

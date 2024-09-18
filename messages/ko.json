@@ -184,6 +184,23 @@
       "contact": "문의하기"
     }
   },
+  "ExplorePage": {
+    "layout": {
+      "title": "Flux AI 이미지 생성기 탐색",
+      "description": "Flux AI 이미지 생성기의 최신 기능과 업데이트를 찾아보세요. ",
+      "keywords": "flux AI, AI flux, flux 인공 지능, AI 기술, flux 머신 러닝, flux AI 도구, AI 애플리케이션, 인공 지능 솔루션, flux 데이터 분석, AI 혁신, flux 예측 분석, flux 머신 러닝, AI 개발, 차세대 AI"
+    },
+    "title": "Flux AI 이미지 생성기 탐색",
+    "description": "Flux AI 이미지 생성기의 최신 기능과 업데이트를 찾아보세요. ",
+    "flux": {
+      "model": "모델",
+      "lora": "스타일",
+      "prompt": "프롬프트",
+      "executePrompt": "매직 프롬프트",
+      "resolution": "해상도",
+      "createdAt": "생성 날짜"
+    }
+  },
   "Playground": {
     "layout": {
       "title": "무료 Flux.1 {model} 이미지 생성기: 몇 초 만에 멋진 이미지 만들기",
@@ -371,6 +388,7 @@
   "Navigation": {
     "pricing": "가격",
     "schnell": "Flux Schnell",
+    "explore": "탐색",
     "title": "플럭스 AI 이미지 생성기",
     "prompt": "Flux AI 프롬프트 생성기",
     "blog": "블로그",

@@ -184,6 +184,23 @@
       "contact": "联系我们"
     }
   },
+  "ExplorePage": {
+    "layout": {
+      "title": "探索Flux AI图像生成器",
+      "description": "探索Flux AI图像生成器的最新功能和更新。 ",
+      "keywords": "flux AI, AI flux, flux人工智能, AI技术, flux机器学习, flux AI工具, AI应用, 人工智能解决方案, flux数据分析, AI创新, flux预测分析, flux机器学习, AI开发, 下一代AI"
+    },
+    "title": "探索Flux AI图像生成器",
+    "description": "探索Flux AI图像生成器的最新功能和更新。 ",
+    "flux": {
+      "model": "模型",
+      "lora": "风格",
+      "prompt": "提示",
+      "executePrompt": "魔法提示",
+      "resolution": "分辨率",
+      "createdAt": "创建日期"
+    }
+  },
   "Playground": {
     "layout": {
       "title": "免费 Flux.1 {model} 图像生成器：几秒钟内创造令人惊叹的图像",
@@ -365,6 +382,7 @@
   "Navigation": {
     "pricing": "定价",
     "schnell": "Flux Schnell",
+    "explore": "发现",
     "title": "Flux AI 图像生成器",
     "prompt": "Flux AI 提示词生成器",
     "blog": "博客",

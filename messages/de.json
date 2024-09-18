@@ -184,6 +184,23 @@
       "contact": "kontaktieren Sie uns"
     }
   },
+  "ExplorePage": {
+    "layout": {
+      "title": "Entdecken Sie den Flux AI Bildgenerator",
+      "description": "Entdecken Sie die neuesten Funktionen und Updates des Flux AI Bildgenerators.",
+      "keywords": "flux AI, AI flux, flux künstliche Intelligenz, KI-Technologie, maschinelles Lernen flux, flux AI Werkzeuge, KI-Anwendungen, Lösungen für künstliche Intelligenz, flux Datenanalyse, KI-Innovation, prädiktive Analytik flux, flux maschinelles Lernen, KI-Entwicklung, nächste Generation KI"
+    },
+    "title": "Entdecken Sie den Flux AI Bildgenerator",
+    "description": "Entdecken Sie die neuesten Funktionen und Updates des Flux AI Bildgenerators.",
+    "flux": {
+      "model": "Modell",
+      "lora": "Stil",
+      "prompt": "Prompt",
+      "executePrompt": "Magischer Prompt",
+      "resolution": "Auflösung",
+      "createdAt": "Erstellungsdatum"
+    }
+  },
   "Playground": {
     "layout": {
       "title": "Kostenloser Flux.1 {model} Bildgenerator: Erstellen Sie atemberaubende Bilder in Sekunden",
@@ -371,6 +388,7 @@
   "Navigation": {
     "pricing": "Preise",
     "schnell": "Flux Schnell",
+    "explore": "Erkunden",
     "prompt": "Flux AI Prompt Generator",
     "title": "Flux AI Image Generator",
     "blog": "Blog",
