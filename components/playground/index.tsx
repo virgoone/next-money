@@ -96,6 +96,7 @@ export default function Playground({
   const queryClient = useQueryClient();
   const [pricingCardOpen, setPricingCardOpen] = useState(false);
   const [lora, setLora] = React.useState<string>(loras.wukong);
+  const [response, setResponse] = useState<any>(null);
 
   const queryTask = useQuery({
     queryKey: ["queryFluxTask", fluxId],
@@ -168,6 +169,7 @@ export default function Playground({
         ? uploadInputImage?.[0]?.completedUrl
         : undefined;
       const loraName = selectedModel.id === model.general ? lora : undefined;
+
       const res = await useCreateTask.mutateAsync({
         model: selectedModel.id,
         inputPrompt,
@@ -179,6 +181,7 @@ export default function Playground({
       });
       console.log("res--->", res);
       if (!res.error) {
+        setResponse(res);
         setFluxId(res.id);
         queryClient.invalidateQueries({ queryKey: ["queryUserPoints"] });
       } else {
@@ -210,6 +213,8 @@ export default function Playground({
     copy(prompt);
     toast.success(t("action.copySuccess"));
   };
+
+  console.log("response...", response);
 
   return (
     <div className="overflow-hidden rounded-[0.5rem] border bg-background shadow">
@@ -278,9 +283,62 @@ export default function Playground({
                 <div className="flex flex-1 flex-col space-y-2">
                   <Label htmlFor="Result">{t("form.result")}</Label>
                   <div className="min-h-20 rounded-md border-0 md:min-h-[400px] md:border lg:min-h-[450px]">
-                    {loading || (generateLoading && fluxId) ? (
+                    {loading ? (
                       <div className="flex size-full flex-col items-center justify-center">
                         <Loading />
+                        <div className="text-content-light mt-3 px-4 text-center text-sm">
+                          <ComfortingMessages language={locale as Locale} />
+                        </div>
+                      </div>
+                    ) : (
+                      <div
+                        className={cn("size-full", {
+                          "bg-muted": !response?.imageUrl,
+                        })}
+                      >
+                        <div
+                          className={`w-full rounded-md ${createRatio(fluxData?.aspectRatio as Ratio)}`}
+                        >
+                          {response?.imageUrl && (
+                            <BlurFade key={fluxData?.imageUrl} inView>
+                              <img
+                                src={response?.imageUrl}
+                                alt="Generated Image"
+                                className={`pointer-events-none w-full rounded-md ${createRatio(response?.aspectRatio as Ratio)}`}
+                              />
+                            </BlurFade>
+                          )}
+                        </div>
+                        <div className="text-content-light inline-block px-4 py-2 text-sm">
+                          <p className="line-clamp-4 italic md:line-clamp-6 lg:line-clamp-[8]">
+                            {response?.inputPrompt}
+                          </p>
+                        </div>
+                        <div className="flex flex-row flex-wrap space-x-1 px-4">
+                          <div className="bg-surface-alpha-strong text-content-base inline-flex items-center rounded-md border border-transparent px-1.5 py-0.5 font-mono text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
+                            {ModelName[response?.model]}
+                          </div>
+                        </div>
+                        <div className="flex flex-row justify-between space-x-2 p-4">
+                          {response?.inputPrompt && (
+                            <button
+                              className="focus-ring text-content-strong border-stroke-strong hover:border-stroke-stronger data-[state=open]:bg-surface-alpha-light inline-flex h-8 items-center justify-center whitespace-nowrap rounded-lg border bg-transparent px-2.5 text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50"
+                              onClick={() => copyPrompt(response?.inputPrompt!)}
+                            >
+                              <Copy className="icon-xs me-1" />
+                              {t("action.copy")}
+                            </button>
+                          )}
+
+                          {/* <DownloadAction id={fluxData.id} /> */}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  {/* <div className="min-h-20 rounded-md border-0 md:min-h-[400px] md:border lg:min-h-[450px]">
+                    {loading || (generateLoading && fluxId) ? (
+                      <div className="flex size-full flex-col items-center justify-center">
+                        <Loading />/
                         <div className="text-content-light mt-3 px-4 text-center text-sm">
                           <ComfortingMessages language={locale as Locale} />
                         </div>
@@ -345,7 +403,7 @@ export default function Playground({
                     ) : (
                       <div />
                     )}
-                  </div>
+                  </div> */}
                 </div>
               </div>
               <div className="flex items-center space-x-5">

@@ -132,6 +132,7 @@
     "react-tweet": "^3.2.1",
     "react-wrap-balancer": "^1.1.1",
     "recharts": "^2.12.7",
+    "replicate": "^0.33.0",
     "resend": "^3.5.0",
     "sharp": "^0.33.4",
     "shiki": "^1.13.0",

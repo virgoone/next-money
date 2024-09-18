@@ -8,7 +8,7 @@ import {
 } from "../type";
 
 export async function getChargeProduct(locale?: string) {
-  const data = await prisma.chargeProduct.findMany({
+  const data = await prisma?.chargeProduct?.findMany({
     where: {
       locale,
     },
@@ -42,7 +42,9 @@ export async function getClaimed(userId: string) {
       chargeOrderId: true,
     },
   });
-  const claimedChargeOrderIdIds = claimedOrderIds.map((row) => row.chargeOrderId);
+  const claimedChargeOrderIdIds = claimedOrderIds.map(
+    (row) => row.chargeOrderId,
+  );
   const charOrders = await prisma.chargeOrder.findMany({
     where: {
       phase: OrderPhase.Paid,
