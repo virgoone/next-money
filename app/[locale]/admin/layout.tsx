@@ -20,13 +20,9 @@ export default async function AdminLayout({
   // if (!userId) {
   //   redirect('/')
   // }
-  try {
-    const user = await currentUser();
-    if (!user || !user.publicMetadata.siteOwner) {
-      redirect("/");
-    }
-  } catch (error) {
-    console.log("error-->", error);
+  const user = await currentUser();
+  if (!user || !user.publicMetadata.siteOwner) {
+    redirect("/");
   }
 
   return (
