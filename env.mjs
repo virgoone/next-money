@@ -94,6 +94,7 @@ export const env = createEnv({
     TASK_HEADER_KEY: process.env.TASK_HEADER_KEY,
     FLUX_HEADER_KEY: process.env.FLUX_HEADER_KEY,
     FLUX_CREATE_URL: process.env.FLUX_CREATE_URL,
+    REPLICATE_API_TOKEN: process.env.REPLICATE_API_TOKEN,
     APP_ENV: process.env.APP_ENV,
 
     NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID,

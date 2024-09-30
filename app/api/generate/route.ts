@@ -3,6 +3,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { Ratelimit } from "@upstash/ratelimit";
 import dayjs from "dayjs";
+import Replicate from "replicate";
 import { z } from "zod";
 
 import { Credits, model, Ratio } from "@/config/constants";
@@ -58,9 +59,9 @@ export async function POST(req: NextRequest, { params }: Params) {
   if (!userId || !user) {
     return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
   }
-  if (env.APP_ENV !== "production" && !user.publicMetadata.siteOwner) {
-    return NextResponse.json({ error: "no permission" }, { status: 403 });
-  }
+  // if (env.APP_ENV !== "production" && !user.publicMetadata.siteOwner) {
+  //   return NextResponse.json({ error: "no permission" }, { status: 403 });
+  // }
 
   const { success } = await ratelimit.limit(
     getKey(user.id) + `_${req.ip ?? ""}`,
@@ -119,34 +120,59 @@ export async function POST(req: NextRequest, { params }: Params) {
     headers.append("Content-Type", "application/json");
     headers.append("API-TOKEN", env.FLUX_HEADER_KEY);
 
-    const res = await fetch(`${env.FLUX_CREATE_URL}/flux/create`, {
-      method: "POST",
-      headers,
-      body: JSON.stringify({
-        model: modelName,
-        input_image_url: inputImageUrl,
-        input_prompt: inputPrompt,
-        aspect_ratio: aspectRatio,
-        is_private: isPrivate,
-        user_id: userId,
-        lora_name: loraName,
-        locale,
-      }),
-    }).then((res) => res.json());
-    if (!res?.replicate_id && res.error) {
+    const replicate = new Replicate({
+      auth: env.REPLICATE_API_TOKEN,
+    });
+
+    const input = {
+      steps: 25,
+      prompt: inputPrompt,
+      guidance: 3,
+      interval: 2,
+      aspect_ratio: aspectRatio,
+      output_format: "webp",
+      output_quality: 80,
+      safety_tolerance: 2,
+    };
+
+    const res = await replicate.run(modelName, { input });
+
+    if (!res) {
       return NextResponse.json(
-        { error: res.error || "Create Generator Error" },
+        { error: "Create Generator Error" },
         { status: 400 },
       );
     }
-    const fluxData = await prisma.fluxData.findFirst({
-      where: {
-        replicateId: res.replicate_id,
-      },
-    });
-    if (!fluxData) {
-      return NextResponse.json({ error: "Create Task Error" }, { status: 400 });
-    }
+
+    // const res = await fetch(`${env.FLUX_CREATE_URL}/flux/create`, {
+    //   method: "POST",
+    //   headers,
+    //   body: JSON.stringify({
+    //     model: modelName,
+    //     input_image_url: inputImageUrl,
+    //     input_prompt: inputPrompt,
+    //     aspect_ratio: aspectRatio,
+    //     is_private: isPrivate,
+    //     user_id: userId,
+    //     lora_name: loraName,
+    //     locale,
+    //   }),
+    // }).then((res) => res.json());
+
+    // if (!res?.replicate_id && res.error) {
+    //   return NextResponse.json(
+    //     { error: res.error || "Create Generator Error" },
+    //     { status: 400 },
+    //   );
+    // }
+    // const fluxData = await prisma.fluxData.findFirst({
+    //   where: {
+    //     replicateId: res.replicate_id,
+    //   },
+    // });
+    // if (!fluxData) {
+    //   return NextResponse.json({ error: "Create Task Error" }, { status: 400 });
+    // }
 
     await prisma.$transaction(async (tx) => {
       const newAccount = await tx.userCredit.update({
@@ -160,7 +186,8 @@ export async function POST(req: NextRequest, { params }: Params) {
       const billing = await tx.userBilling.create({
         data: {
           userId,
-          fluxId: fluxData.id,
+          // fluxId: fluxData.id,
+          fluxId: null,
           state: "Done",
           amount: -needCredit,
           type: BillingType.Withdraw,
@@ -178,7 +205,13 @@ export async function POST(req: NextRequest, { params }: Params) {
         },
       });
     });
-    return NextResponse.json({ id: FluxHashids.encode(fluxData.id) });
+    // return NextResponse.json({ id: FluxHashids.encode(fluxData.id) });
+    return NextResponse.json({
+      imageUrl: res,
+      aspectRatio: aspectRatio,
+      inputPrompt: inputPrompt,
+      model: modelName,
+    });
   } catch (error) {
     console.log("error-->", error);
     return NextResponse.json(
