@@ -141,6 +141,11 @@
     "description": "No recurring",
     "worth": "Credit",
     "label": "Pricing",
+    "switch": {
+      "monthly": "Monthly",
+      "top-up": "Top-Up",
+      "annually": "Annually"
+    },
     "action": {
       "signin": "Sign in",
       "buy": "One Time Payment"

@@ -46,8 +46,10 @@ model ChargeProduct {
   locale         String   @db.VarChar
   title          String   @db.VarChar
   tag            Json?    @db.Json
-  message        String?
+  per_image      String?
+  maximum_images String?
   state          String   @db.VarChar
+  type           String?
   createdAt      DateTime @default(now()) @map(name: "created_at") @db.Timestamp(6)
   updatedAt      DateTime @default(now()) @map(name: "updated_at") @db.Timestamp(6)
 
