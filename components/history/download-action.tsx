@@ -6,15 +6,18 @@ import { useAuth } from "@clerk/nextjs";
 import { ArrowDownToLine, Loader2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
+import SignBox from "@/components/sign-box";
 
 import { getErrorMessage } from "@/lib/handle-error";
 
 export function DownloadAction({
   id,
   disabled,
+  showText,
 }: {
   id: string;
   disabled?: boolean;
+  showText?: boolean
 }) {
   const t = useTranslations("History");
   const [isDownloading, startDownloadTransition] = useTransition();
@@ -59,17 +62,20 @@ export function DownloadAction({
   };
 
   return (
-    <button
-      aria-label={t("action.download")}
-      disabled={disabled}
-      className="focus-ring text-content-strong border-stroke-strong hover:border-stroke-stronger data-[state=open]:bg-surface-alpha-light inline-flex h-8 items-center justify-center whitespace-nowrap rounded-lg border bg-transparent px-2.5 text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50"
-      onClick={() => download(id!)}
-    >
-      {isDownloading || isPending ? (
-        <Loader2 className="icon-xs animate-spin" />
-      ) : (
-        <ArrowDownToLine className="icon-xs" />
-      )}
-    </button>
+    <SignBox>
+      <button
+        aria-label={t("action.download")}
+        disabled={disabled}
+        className="focus-ring text-content-strong border-stroke-strong hover:border-stroke-stronger data-[state=open]:bg-surface-alpha-light inline-flex h-8 items-center justify-center whitespace-nowrap rounded-lg border bg-transparent px-2.5 text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50"
+        onClick={() => download(id!)}
+      >
+        {isDownloading || isPending ? (
+          <Loader2 className="icon-xs animate-spin" />
+        ) : (
+          <ArrowDownToLine className="icon-xs" />
+        )}
+        {showText && <span className="ml-2">{t("action.download")}</span>}
+      </button>
+    </SignBox>
   );
 }

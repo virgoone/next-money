@@ -301,7 +301,7 @@ export default function Playground({
                 onClick={() => setPricingCardOpen(true)}
               >
                 <div>
-                  <PrivateSwitch isPublic={isPublic} onChange={setIsPublic} />
+                  <PrivateSwitch disabled isPublic={isPublic} onChange={setIsPublic} />
                 </div>
                 <div className="flex-1 space-y-0.5 text-right">
                   <div className="flex items-center justify-end text-base">
