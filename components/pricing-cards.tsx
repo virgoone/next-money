@@ -28,6 +28,8 @@ import { url } from "@/lib";
 import { usePathname } from "@/lib/navigation";
 import { cn, formatPrice } from "@/lib/utils";
 
+import { ToggleGroup, ToggleGroupItem } from "./ui/toggle-group";
+
 interface PricingCardsProps {
   userId?: string;
   locale?: string;
@@ -84,16 +86,18 @@ const PricingCard = ({
       </div>
 
       <div className="flex h-full flex-col justify-between gap-16 p-6">
-        <ul className="space-y-2 text-left text-sm font-medium leading-normal">
-          {offer.message &&
-            offer.message.split(",")?.map((feature) => (
-              <li className="flex items-start gap-x-3" key={feature}>
-                <Icons.check className="size-5 shrink-0 text-purple-500" />
-                <p>{feature}</p>
-              </li>
-            ))}
+        <div className="flex w-full flex-col gap-6">
+          <ul className="space-y-2 text-left text-sm font-medium leading-normal">
+            <div className="text-base font-semibold">Credits per Image:</div>
+            {offer.per_image &&
+              offer.per_image.split(",")?.map((feature) => (
+                <li className="flex items-start gap-x-3" key={feature}>
+                  <Icons.check className="size-5 shrink-0 text-purple-500" />
+                  <p>{feature}</p>
+                </li>
+              ))}
 
-          {/* {offer.limitations.length > 0 &&
+            {/* {offer.limitations.length > 0 &&
             offer.limitations.map((feature) => (
               <li
                 className="flex items-start text-muted-foreground"
@@ -103,7 +107,30 @@ const PricingCard = ({
                 <p>{feature}</p>
               </li>
             ))} */}
-        </ul>
+          </ul>
+          <ul className="space-y-2 text-left text-sm font-medium leading-normal">
+            <div className="text-base font-semibold">Credits per Image:</div>
+            {offer.maximum_images &&
+              offer.maximum_images.split(",")?.map((feature) => (
+                <li className="flex items-start gap-x-3" key={feature}>
+                  <Icons.check className="size-5 shrink-0 text-purple-500" />
+                  <p>{feature}</p>
+                </li>
+              ))}
+
+            {/* {offer.limitations.length > 0 &&
+            offer.limitations.map((feature) => (
+              <li
+                className="flex items-start text-muted-foreground"
+                key={feature}
+              >
+                <Icons.close className="mr-3 size-5 shrink-0" />
+                <p>{feature}</p>
+              </li>
+            ))} */}
+          </ul>
+        </div>
+
         <SignedIn>
           <BillingFormButton offer={offer} btnText={t("action.buy")} />
         </SignedIn>
@@ -186,12 +213,34 @@ export function PricingCards({
   locale,
 }: PricingCardsProps) {
   const t = useTranslations("PricingPage");
-  const isYearlyDefault = false;
-  const [isYearly, setIsYearly] = useState<boolean>(!!isYearlyDefault);
+  const [activeType, setActiveType] = useState<string>("monthly");
+  const [filteredChargeProduct, setFilteredChargeProduct] = useState<
+    ChargeProductSelectDto[]
+  >([]);
   const searchParams = useSearchParams();
+  const discount = 0.2;
 
-  const toggleBilling = () => {
-    setIsYearly(!isYearly);
+  useMemo(() => {
+    if (activeType === "monthly" || activeType === "yearly") {
+      let filters = chargeProduct?.filter((x) => x.type == "monthly");
+      if (activeType === "yearly") {
+        let updatedPlans = filters?.map((plan) => ({
+          ...plan,
+          amount: plan.amount - plan.amount * discount,
+          originalAmount: plan.originalAmount - plan.originalAmount * discount,
+        }));
+        setFilteredChargeProduct(updatedPlans || []);
+      } else {
+        setFilteredChargeProduct(filters || []);
+      }
+    } else if (activeType === "oneTime") {
+      let filters = chargeProduct?.filter((x) => x.type == "oneTime");
+      setFilteredChargeProduct(filters || []);
+    }
+  }, [activeType]);
+
+  const toggleBilling = (value) => {
+    setActiveType(value);
   };
 
   const { reward } = useReward("order-success", "confetti", {
@@ -234,21 +283,21 @@ export function PricingCards({
             </span>
           </p>
         </div>
-        {/* <div className="mb-4 mt-10 flex items-center gap-5">
+        <div className="mb-4 mt-10 flex items-center gap-5">
           <ToggleGroup
             type="single"
             size="sm"
-            defaultValue={isYearly ? "yearly" : "monthly"}
+            defaultValue={"monthly"}
             onValueChange={toggleBilling}
             aria-label="toggle-year"
             className="h-9 overflow-hidden rounded-full border bg-background p-1 *:h-7 *:text-muted-foreground"
           >
             <ToggleGroupItem
-              value="yearly"
+              value="oneTime"
               className="rounded-full px-5 data-[state=on]:!bg-primary data-[state=on]:!text-primary-foreground"
-              aria-label="Toggle yearly billing"
+              aria-label="Toggle one time billing"
             >
-              Yearly (-20%)
+              One Time
             </ToggleGroupItem>
             <ToggleGroupItem
               value="monthly"
@@ -257,11 +306,18 @@ export function PricingCards({
             >
               Monthly
             </ToggleGroupItem>
+            <ToggleGroupItem
+              value="yearly"
+              className="rounded-full px-5 data-[state=on]:!bg-primary data-[state=on]:!text-primary-foreground"
+              aria-label="Toggle yearly billing"
+            >
+              Yearly (-20%)
+            </ToggleGroupItem>
           </ToggleGroup>
-        </div> */}
+        </div>
 
         <div className="grid gap-5 bg-inherit py-5 md:grid-cols-3">
-          {chargeProduct?.map((offer) => (
+          {filteredChargeProduct?.map((offer) => (
             <PricingCard offer={offer} key={offer.id} />
           ))}
         </div>
