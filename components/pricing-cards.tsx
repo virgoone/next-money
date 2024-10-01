@@ -264,8 +264,6 @@ export function PricingCards({
     }
   }, [searchParams]);
 
-  console.log("filteredChargeProduct...", filteredChargeProduct);
-
   return (
     <MaxWidthWrapper>
       <section className="flex flex-col items-center text-center">
