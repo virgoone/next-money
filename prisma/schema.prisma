@@ -46,6 +46,7 @@ model ChargeProduct {
   locale         String   @db.VarChar
   title          String   @db.VarChar
   tag            Json?    @db.Json
+  message      String?
   per_image      String?
   maximum_images String?
   state          String   @db.VarChar
