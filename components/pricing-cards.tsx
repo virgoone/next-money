@@ -207,6 +207,7 @@ export function FreeCard() {
     </div>
   );
 }
+
 export function PricingCards({
   userId,
   chargeProduct,
@@ -357,6 +358,36 @@ export function PricingCardDialog({
 }) {
   const t = useTranslations("PricingPage");
   const { isSm, isMobile } = useMediaQuery();
+  const [activeType, setActiveType] = useState<string>("monthly");
+  const [filteredChargeProduct, setFilteredChargeProduct] = useState<
+    ChargeProductSelectDto[]
+  >([]);
+  const searchParams = useSearchParams();
+  const discount = 0.2;
+
+  useMemo(() => {
+    if (activeType === "monthly" || activeType === "yearly") {
+      let filters = chargeProduct?.filter((x) => x.type == "monthly");
+      if (activeType === "yearly") {
+        let updatedPlans = filters?.map((plan) => ({
+          ...plan,
+          amount: plan.amount - plan.amount * discount,
+          originalAmount: plan.originalAmount - plan.originalAmount * discount,
+        }));
+        setFilteredChargeProduct(updatedPlans || []);
+      } else {
+        setFilteredChargeProduct(filters || []);
+      }
+    } else if (activeType === "oneTime") {
+      let filters = chargeProduct?.filter((x) => x.type == "oneTime");
+      setFilteredChargeProduct(filters || []);
+    }
+  }, [activeType]);
+
+  const toggleBilling = (value) => {
+    setActiveType(value);
+  };
+
   const product = useMemo(() => {
     if (isSm || isMobile) {
       return ([chargeProduct?.[1]] ?? []) as ChargeProductSelectDto[];
@@ -371,11 +402,44 @@ export function PricingCardDialog({
         onClose(open);
       }}
     >
-      <DialogContent className="w-[96vw] md:w-[960px] md:max-w-[960px]">
+      <DialogContent className="max-h-[90vh] w-[96vw] overflow-y-auto md:w-[960px] md:max-w-[960px]">
         <DialogHeader>
           <DialogTitle>{t("title")}</DialogTitle>
+          <div className="mb-4 flex items-center justify-center gap-5 pt-6">
+            <ToggleGroup
+              type="single"
+              size="sm"
+              defaultValue={"monthly"}
+              onValueChange={toggleBilling}
+              aria-label="toggle-year"
+              className="h-9 overflow-hidden rounded-full border bg-background p-1 *:h-7 *:text-muted-foreground"
+            >
+              <ToggleGroupItem
+                value="oneTime"
+                className="rounded-full px-5 data-[state=on]:!bg-primary data-[state=on]:!text-primary-foreground"
+                aria-label="Toggle one time billing"
+              >
+                One Time
+              </ToggleGroupItem>
+              <ToggleGroupItem
+                value="monthly"
+                className="rounded-full px-5 data-[state=on]:!bg-primary data-[state=on]:!text-primary-foreground"
+                aria-label="Toggle monthly billing"
+              >
+                Monthly
+              </ToggleGroupItem>
+              <ToggleGroupItem
+                value="yearly"
+                className="rounded-full px-5 data-[state=on]:!bg-primary data-[state=on]:!text-primary-foreground"
+                aria-label="Toggle yearly billing"
+              >
+                Yearly (-20%)
+              </ToggleGroupItem>
+            </ToggleGroup>
+          </div>
+
           <div className="grid grid-cols-1 gap-5 bg-inherit py-5 lg:grid-cols-3">
-            {product?.map((offer) => (
+            {filteredChargeProduct?.map((offer) => (
               <PricingCard offer={offer} key={offer.id} />
             ))}
           </div>
