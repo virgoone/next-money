@@ -18,10 +18,7 @@ export default async function HeroLanding() {
   return (
     <section className="space-y-6 py-12 sm:py-20 lg:py-20">
       <div className="container flex max-w-5xl flex-col items-center gap-5 text-center">
-        <Link
-          href="https://x.com/koyaguo/status/1825891501639086219"
-          target="_blank"
-        >
+        <Link href="#" target="_blank">
           <AnimatedGradientText>
             <span className="mr-3">🎉</span>
             <span

@@ -224,7 +224,7 @@ export function downloadImage(url: string) {
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = `fluxaipro.art.${getMime(url)}`;
+      link.download = `vizyai.com.${getMime(url)}`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

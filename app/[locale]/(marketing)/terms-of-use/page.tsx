@@ -111,16 +111,7 @@ export default function IndexPage({ params: { locale } }: Props) {
             <p className="leading-7 [&:not(:first-child)]:mt-6">
               <strong>Terms and Conditions</strong> (also referred as "Terms")
               mean these Terms and Conditions that form the entire agreement
-              between You and the Company regarding the use of the Service. This
-              Terms and Conditions agreement has been created with the help of
-              the{" "}
-              <a
-                className="font-medium underline underline-offset-4"
-                href="https://www.freeprivacypolicy.com/free-terms-and-conditions-generator/"
-              >
-                Free Terms and Conditions Generator
-              </a>
-              .
+              between You and the Company regarding the use of the Service.
             </p>
           </li>
           <li className="mt-2">

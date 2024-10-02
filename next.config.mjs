@@ -39,12 +39,12 @@ const nextConfig = {
     return [
       {
         source: "/twitter",
-        destination: "https://x.com/koyaguo",
+        destination: "#",
         permanent: true,
       },
       {
         source: "/x",
-        destination: "https://x.com/koyaguo",
+        destination: "#",
         permanent: true,
       },
     ];

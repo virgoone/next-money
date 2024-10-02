@@ -38,7 +38,7 @@ export function DownloadAction({
           const url = window.URL.createObjectURL(blob);
           const link = document.createElement("a");
           link.href = url;
-          link.download = `${id}_fluxaipro.art.${blob.type.split("/")?.[1]}`;
+          link.download = `${id}_vizyai.com.${blob.type.split("/")?.[1]}`;
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
