@@ -167,7 +167,7 @@
       },
       "item4": {
         "question": "Vizy AI는 어떻게 사용하나요?",
-        "answer": "Vizy AI를 사용하려면 vizyai.com를 방문하여 프롬프트를 입력하기만 하면 됩니다. 몇 초 만에 놀라운 시각물이 생성되는 것을 경험하실 수 있습니다."
+        "answer": "Vizy AI를 사용하려면 fluxaipro.art를 방문하여 프롬프트를 입력하기만 하면 됩니다. 몇 초 만에 놀라운 시각물이 생성되는 것을 경험하실 수 있습니다."
       },
       "item5": {
         "question": "Vizy AI는 어떤 가격 플랜을 제공하나요?",
@@ -175,13 +175,30 @@
       },
       "item6": {
         "question": "온라인 지원은 어떻게 받을 수 있나요?",
-        "answer": "hello@vizyai.com으로 문의하실 수 있습니다."
+        "answer": "support@fluxaipro.art으로 문의하실 수 있습니다."
       }
     },
     "tip": {
       "title": "💳 결제 팁: 결제 과정에서 문제가 발생하면 언제든 문의해 주세요! 😉",
       "subtitle": "궁금한 점이 있으신가요?",
       "contact": "문의하기"
+    }
+  },
+  "ExplorePage": {
+    "layout": {
+      "title": "Vizy AI 이미지 생성기 탐색",
+      "description": "Vizy AI 이미지 생성기의 최신 기능과 업데이트를 찾아보세요. ",
+      "keywords": "Vizy AI, AI flux, flux 인공 지능, AI 기술, flux 머신 러닝, Vizy AI 도구, AI 애플리케이션, 인공 지능 솔루션, flux 데이터 분석, AI 혁신, flux 예측 분석, flux 머신 러닝, AI 개발, 차세대 AI"
+    },
+    "title": "Vizy AI 이미지 생성기 탐색",
+    "description": "Vizy AI 이미지 생성기의 최신 기능과 업데이트를 찾아보세요. ",
+    "flux": {
+      "model": "모델",
+      "lora": "스타일",
+      "prompt": "프롬프트",
+      "executePrompt": "매직 프롬프트",
+      "resolution": "해상도",
+      "createdAt": "생성 날짜"
     }
   },
   "Playground": {
@@ -218,15 +235,15 @@
       },
       "item4": {
         "question": "Flux.1 Schnell 이미지 품질 향상을 위한 팁을 제공하는 온라인 커뮤니티나 포럼이 있나요?",
-        "answer": "네, 공식 웹사이트 https://vizyai.com/flux-schnell 에서 사용할 수 있습니다. 사용자는 웹사이트에 프롬프트를 입력하고 이미지를 생성하기만 하면 됩니다. 이를 통해 생성된 이미지의 품질을 향상시킬 수 있습니다."
+        "answer": "네, 공식 웹사이트 https://fluxaipro.art/flux-schnell 에서 사용할 수 있습니다. 사용자는 웹사이트에 프롬프트를 입력하고 이미지를 생성하기만 하면 됩니다. 이를 통해 생성된 이미지의 품질을 향상시킬 수 있습니다."
       },
       "item5": {
         "question": "Flux.1 Schnell을 어떻게 사용할 수 있으며 무료 옵션이 있나요?",
-        "answer": "Flux.1 Schnell은 공식 웹사이트 https://vizyai.com/flux-schnell 에서 사용할 수 있습니다. 각 사용자는 매월 Flux.1 Schnell 모델을 5번 무료로 사용할 수 있으며, 이는 매월 초에 리셋됩니다. 사용하려면 웹사이트에 프롬프트를 입력하고 이미지를 생성하면 됩니다. 이 과정을 통해 시간이 지남에 따라 생성된 이미지의 품질을 향상시킬 수 있습니다."
+        "answer": "Flux.1 Schnell은 공식 웹사이트 https://fluxaipro.art/flux-schnell 에서 사용할 수 있습니다. 각 사용자는 매월 Flux.1 Schnell 모델을 5번 무료로 사용할 수 있으며, 이는 매월 초에 리셋됩니다. 사용하려면 웹사이트에 프롬프트를 입력하고 이미지를 생성하면 됩니다. 이 과정을 통해 시간이 지남에 따라 생성된 이미지의 품질을 향상시킬 수 있습니다."
       },
       "item6": {
         "question": "온라인 지원은 어떻게 받을 수 있나요?",
-        "answer": "hello@vizyai.com로 문의하실 수 있습니다."
+        "answer": "support@fluxaipro.art로 문의하실 수 있습니다."
       }
     },
     "title": "Vizy AI 이미지 생성기",
@@ -371,6 +388,7 @@
   "Navigation": {
     "pricing": "가격",
     "schnell": "Flux Schnell",
+    "explore": "탐색",
     "title": "플럭스 AI 이미지 생성기",
     "prompt": "Vizy AI 프롬프트 생성기",
     "blog": "블로그",

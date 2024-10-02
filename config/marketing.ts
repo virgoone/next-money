@@ -11,6 +11,10 @@ export const marketingConfig: MarketingConfig = {
       href: "/flux-prompt-generator",
     },
     {
+      title: "explore",
+      href: "/explore",
+    },
+    {
       title: "pricing",
       href: "/pricing",
     },

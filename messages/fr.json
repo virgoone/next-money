@@ -167,7 +167,7 @@
       },
       "item4": {
         "question": "Comment utiliser Vizy AI ?",
-        "answer": "Pour utiliser Vizy AI, visitez simplement vizyai.com, entrez votre description et assistez à la création d'images époustouflantes en quelques secondes."
+        "answer": "Pour utiliser Vizy AI, visitez simplement fluxaipro.art, entrez votre description et assistez à la création d'images époustouflantes en quelques secondes."
       },
       "item5": {
         "question": "Quels sont les plans tarifaires proposés par Vizy AI ?",
@@ -175,13 +175,30 @@
       },
       "item6": {
         "question": "Comment puis-je obtenir de l'aide en ligne ?",
-        "answer": "Vous pouvez nous contacter à hello@vizyai.com."
+        "answer": "Vous pouvez nous contacter à support@fluxaipro.art."
       }
     },
     "tip": {
       "title": "💳 Conseil de paiement : Si vous rencontrez des problèmes lors du processus de paiement, n'hésitez pas à nous contacter ! 😉",
       "subtitle": "Des questions ?",
       "contact": "contactez-nous"
+    }
+  },
+  "ExplorePage": {
+    "layout": {
+      "title": "Explorateur du Générateur d'Images Vizy AI",
+      "description": "Découvrez les dernières fonctionnalités et mises à jour du Générateur d'Images Vizy AI.",
+      "keywords": "générateur d'images Vizy AI, intelligence artificielle flux, technologie de l'intelligence artificielle, apprentissage automatique flux, outils Vizy AI, applications de l'intelligence artificielle, solutions d'intelligence artificielle, analyse de données flux, innovation en intelligence artificielle, analyse prédictive flux, apprentissage automatique flux, développement de l'intelligence artificielle, intelligence artificielle de nouvelle génération"
+    },
+    "title": "Explorateur du Générateur d'Images Vizy AI",
+    "description": "Découvrez les dernières fonctionnalités et mises à jour du Générateur d'Images Vizy AI.",
+    "flux": {
+      "model": "Modèle",
+      "lora": "Style",
+      "prompt": "Prompt",
+      "executePrompt": "Prompt Magique",
+      "resolution": "Résolution",
+      "createdAt": "Date de création"
     }
   },
   "Playground": {
@@ -218,15 +235,15 @@
       },
       "item4": {
         "question": "Existe-t-il des communautés en ligne ou des forums qui donnent des conseils pour améliorer la qualité des images Flux.1 Schnell ?",
-        "answer": "Oui, vous pouvez utiliser le site officiel à l'adresse https://vizyai.com/flux-schnell. Les utilisateurs n'ont qu'à saisir leurs descriptions sur le site web et générer des images, ce qui peut vous aider à améliorer la qualité de vos images générées."
+        "answer": "Oui, vous pouvez utiliser le site officiel à l'adresse https://fluxaipro.art/flux-schnell. Les utilisateurs n'ont qu'à saisir leurs descriptions sur le site web et générer des images, ce qui peut vous aider à améliorer la qualité de vos images générées."
       },
       "item5": {
         "question": "Comment puis-je utiliser Flux.1 Schnell et y a-t-il des options gratuites ?",
-        "answer": "Flux.1 Schnell peut être utilisé sur le site officiel à l'adresse https://vizyai.com/flux-schnell. Chaque utilisateur bénéficie de 5 utilisations gratuites du modèle Flux.1 Schnell par mois calendaire, qui se réinitialisent au début de chaque mois. Pour l'utiliser, il suffit de saisir votre description sur le site web et de générer des images. Ce processus peut vous aider à améliorer la qualité de vos images générées au fil du temps."
+        "answer": "Flux.1 Schnell peut être utilisé sur le site officiel à l'adresse https://fluxaipro.art/flux-schnell. Chaque utilisateur bénéficie de 5 utilisations gratuites du modèle Flux.1 Schnell par mois calendaire, qui se réinitialisent au début de chaque mois. Pour l'utiliser, il suffit de saisir votre description sur le site web et de générer des images. Ce processus peut vous aider à améliorer la qualité de vos images générées au fil du temps."
       },
       "item6": {
         "question": "Comment puis-je obtenir de l'assistance en ligne ?",
-        "answer": "Vous pouvez nous contacter à l'adresse hello@vizyai.com."
+        "answer": "Vous pouvez nous contacter à l'adresse support@fluxaipro.art."
       }
     },
     "title": "Vizy AI Générateur d'Images",
@@ -371,6 +388,7 @@
   "Navigation": {
     "pricing": "Tarifs",
     "schnell": "Flux Schnell",
+    "explore": "Explorer",
     "title": "Vizy AI Générateur d'Images",
     "blog": "Blog",
     "prompt": "Générateur de Prompts Vizy AI",

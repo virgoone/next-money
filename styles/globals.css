@@ -152,3 +152,12 @@
   background-size: 30px 30px;
   background-position: 0 0, 15px 15px;
 }
+
+.masonry-grid {
+  column-gap: 16px;
+  column-count: 1;
+}
+
+.masonry-grid-item {
+  break-inside: avoid;
+}

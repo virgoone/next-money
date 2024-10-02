@@ -167,7 +167,7 @@
       },
       "item4": {
         "question": "Wie verwende ich Vizy AI?",
-        "answer": "Um Vizy AI zu verwenden, besuchen Sie einfach vizyai.com, geben Sie Ihren Prompt ein und erleben Sie die Erstellung atemberaubender visueller Effekte in wenigen Sekunden."
+        "answer": "Um Vizy AI zu verwenden, besuchen Sie einfach fluxaipro.art, geben Sie Ihren Prompt ein und erleben Sie die Erstellung atemberaubender visueller Effekte in wenigen Sekunden."
       },
       "item5": {
         "question": "Welche Preispläne bietet Vizy AI an?",
@@ -175,13 +175,30 @@
       },
       "item6": {
         "question": "Wie erhalte ich Support für Online?",
-        "answer": "Sie können uns unter hello@vizyai.com erreichen."
+        "answer": "Sie können uns unter support@fluxaipro.art erreichen."
       }
     },
     "tip": {
       "title": "💳 Zahlungstipp: Wenn Sie während des Zahlungsprozesses auf Probleme stoßen, zögern Sie nicht, uns zu kontaktieren! 😉",
       "subtitle": "Fragen?",
       "contact": "kontaktieren Sie uns"
+    }
+  },
+  "ExplorePage": {
+    "layout": {
+      "title": "Entdecken Sie den Vizy AI Bildgenerator",
+      "description": "Entdecken Sie die neuesten Funktionen und Updates des Vizy AI Bildgenerators.",
+      "keywords": "Vizy AI, AI flux, flux künstliche Intelligenz, KI-Technologie, maschinelles Lernen flux, Vizy AI Werkzeuge, KI-Anwendungen, Lösungen für künstliche Intelligenz, flux Datenanalyse, KI-Innovation, prädiktive Analytik flux, flux maschinelles Lernen, KI-Entwicklung, nächste Generation KI"
+    },
+    "title": "Entdecken Sie den Vizy AI Bildgenerator",
+    "description": "Entdecken Sie die neuesten Funktionen und Updates des Vizy AI Bildgenerators.",
+    "flux": {
+      "model": "Modell",
+      "lora": "Stil",
+      "prompt": "Prompt",
+      "executePrompt": "Magischer Prompt",
+      "resolution": "Auflösung",
+      "createdAt": "Erstellungsdatum"
     }
   },
   "Playground": {
@@ -218,15 +235,15 @@
       },
       "item4": {
         "question": "Gibt es Online-Communities oder Foren, die Tipps zur Verbesserung der Flux.1 Schnell Bildqualität geben?",
-        "answer": "Ja, es kann auf der offiziellen Website unter https://vizyai.com/flux-schnell verwendet werden. Benutzer müssen nur ihre Anweisungen auf der Website eingeben und Bilder generieren, was Ihnen helfen kann, die Qualität Ihrer generierten Bilder zu verbessern."
+        "answer": "Ja, es kann auf der offiziellen Website unter https://fluxaipro.art/flux-schnell verwendet werden. Benutzer müssen nur ihre Anweisungen auf der Website eingeben und Bilder generieren, was Ihnen helfen kann, die Qualität Ihrer generierten Bilder zu verbessern."
       },
       "item5": {
         "question": "Wie kann ich Flux.1 Schnell nutzen und gibt es kostenlose Optionen?",
-        "answer": "Flux.1 Schnell kann auf der offiziellen Website unter https://vizyai.com/flux-schnell genutzt werden. Jeder Benutzer erhält 5 kostenlose Nutzungen des Flux.1 Schnell Modells pro Kalendermonat, die sich zu Beginn jedes Monats zurücksetzen. Zur Nutzung geben Sie einfach Ihre Anweisung auf der Website ein und generieren Bilder. Dieser Prozess kann Ihnen helfen, die Qualität Ihrer generierten Bilder im Laufe der Zeit zu verbessern."
+        "answer": "Flux.1 Schnell kann auf der offiziellen Website unter https://fluxaipro.art/flux-schnell genutzt werden. Jeder Benutzer erhält 5 kostenlose Nutzungen des Flux.1 Schnell Modells pro Kalendermonat, die sich zu Beginn jedes Monats zurücksetzen. Zur Nutzung geben Sie einfach Ihre Anweisung auf der Website ein und generieren Bilder. Dieser Prozess kann Ihnen helfen, die Qualität Ihrer generierten Bilder im Laufe der Zeit zu verbessern."
       },
       "item6": {
         "question": "Wie erhalte ich Online-Support?",
-        "answer": "Sie können uns unter hello@vizyai.com erreichen."
+        "answer": "Sie können uns unter support@fluxaipro.art erreichen."
       }
     },
     "title": "Vizy AI Image Generator",
@@ -371,6 +388,7 @@
   "Navigation": {
     "pricing": "Preise",
     "schnell": "Flux Schnell",
+    "explore": "Erkunden",
     "prompt": "Vizy AI Prompt Generator",
     "title": "Vizy AI Image Generator",
     "blog": "Blog",

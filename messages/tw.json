@@ -167,7 +167,7 @@
       },
       "item4": {
         "question": "如何使用 Vizy AI？",
-        "answer": "使用 Vizy AI 很簡單，只需訪問 vizyai.com，輸入您的文字提示，即可在幾秒鐘內看到驚人的圖像產生。"
+        "answer": "使用 Vizy AI 很簡單，只需訪問 fluxaipro.art，輸入您的文字提示，即可在幾秒鐘內看到驚人的圖像產生。"
       },
       "item5": {
         "question": "Vizy AI 提供哪些購買方案？",
@@ -175,13 +175,30 @@
       },
       "item6": {
         "question": "如何獲得線上支援？",
-        "answer": "如有任何問題，請透過電子郵件 hello@vizyai.com 與我們的技術團隊聯絡。"
+        "answer": "如有任何問題，請透過電子郵件 support@fluxaipro.art 與我們的技術團隊聯絡。"
       }
     },
     "tip": {
       "title": "💳 付款提示：如果您在付款過程中有任何問題，歡迎隨時與我們聯絡！😉",
       "subtitle": "有問題？",
       "contact": "聯絡我們"
+    }
+  },
+  "ExplorePage": {
+    "layout": {
+      "title": "探索Vizy AI圖像生成器",
+      "description": "探索Vizy AI圖像生成器的最新功能和更新。 ",
+      "keywords": "Vizy AI, AI flux, flux人工智慧, AI技術, flux機器學習, Vizy AI工具, AI應用, 人工智慧解決方案, flux數據分析, AI創新, flux預測分析, flux機器學習, AI開發, 下一代AI"
+    },
+    "title": "探索Vizy AI圖像生成器",
+    "description": "探索Vizy AI圖像生成器的最新功能和更新。 ",
+    "flux": {
+      "model": "模型",
+      "lora": "風格",
+      "prompt": "提示",
+      "executePrompt": "魔法提示",
+      "resolution": "解析度",
+      "createdAt": "創建日期"
     }
   },
   "Playground": {
@@ -218,15 +235,15 @@
       },
       "item4": {
         "question": "是否有提供改善 Flux.1 Schnell 圖像品質技巧的線上社群或論壇？",
-        "answer": "是的，您可以在官方網站 https://vizyai.com/flux-schnell 上使用。用戶只需在網站上輸入提示並生成圖像，這可以幫助您提高生成圖像的品質。"
+        "answer": "是的，您可以在官方網站 https://fluxaipro.art/flux-schnell 上使用。用戶只需在網站上輸入提示並生成圖像，這可以幫助您提高生成圖像的品質。"
       },
       "item5": {
         "question": "如何使用 Flux.1 Schnell，有免費選項嗎？",
-        "answer": "Flux.1 Schnell 可在官方網站 https://vizyai.com/flux-schnell 上使用。每位用戶每個日曆月可免費使用 Flux.1 Schnell 模型 5 次，每月初重置。使用時，只需在網站上輸入您的提示並生成圖像。這個過程可以幫助您隨時間改善生成圖像的品質。"
+        "answer": "Flux.1 Schnell 可在官方網站 https://fluxaipro.art/flux-schnell 上使用。每位用戶每個日曆月可免費使用 Flux.1 Schnell 模型 5 次，每月初重置。使用時，只需在網站上輸入您的提示並生成圖像。這個過程可以幫助您隨時間改善生成圖像的品質。"
       },
       "item6": {
         "question": "如何獲得線上支援？",
-        "answer": "您可以透過 hello@vizyai.com 聯繫我們。"
+        "answer": "您可以透過 support@fluxaipro.art 聯繫我們。"
       }
     },
     "title": "Vizy AI 圖像產生器",
@@ -364,6 +381,7 @@
   "Navigation": {
     "pricing": "定價",
     "schnell": "Flux Schnell",
+    "explore": "探索",
     "title": "Vizy AI 圖像產生器",
     "prompt": "Vizy AI 提示產生器",
     "blog": "博客",

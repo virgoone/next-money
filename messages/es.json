@@ -99,7 +99,7 @@
       },
       "item4": {
         "question": "¿Cómo usar Vizy AI?",
-        "answer": "Para usar Vizy AI, simplemente visita vizyai.com, ingresa tu aviso y presencia la creación de impresionantes visuales en cuestión de segundos."
+        "answer": "Para usar Vizy AI, simplemente visita fluxaipro.art, ingresa tu aviso y presencia la creación de impresionantes visuales en cuestión de segundos."
       },
       "item5": {
         "question": "¿Qué planes de precios ofrece Vizy AI?",
@@ -107,7 +107,7 @@
       },
       "item6": {
         "question": "¿Cómo puedo obtener soporte en línea?",
-        "answer": "Puedes contactarnos en hello@vizyai.com."
+        "answer": "Puedes contactarnos en support@fluxaipro.art."
       }
     },
     "tip": {
@@ -184,6 +184,23 @@
       }
     }
   },
+  "ExplorePage": {
+    "layout": {
+      "title": "Explorar el Generador de Imágenes de Vizy AI",
+      "description": "Descubre las últimas características y actualizaciones del Generador de Imágenes de Vizy AI.",
+      "keywords": "Vizy AI, AI flux, inteligencia artificial flux, tecnología de IA, aprendizaje automático flux, herramientas Vizy AI, aplicaciones de IA, soluciones de inteligencia artificial, análisis de datos flux, innovación en IA, analítica predictiva flux, aprendizaje automático flux, desarrollo de IA, IA de próxima generación"
+    },
+    "title": "Explorar el Generador de Imágenes de Vizy AI",
+    "description": "Descubre las últimas características y actualizaciones del Generador de Imágenes de Vizy AI.",
+    "flux": {
+      "model": "Modelo",
+      "lora": "Estilo",
+      "prompt": "Prompt",
+      "executePrompt": "Prompt Mágico",
+      "resolution": "Resolución",
+      "createdAt": "Fecha de creación"
+    }
+  },
   "Playground": {
     "layout": {
       "title": "Generador de Imágenes Gratuito Flux.1 {model}: Crea Imágenes Impresionantes en Segundos",
@@ -218,15 +235,15 @@
       },
       "item4": {
         "question": "¿Existen comunidades en línea o foros que ofrezcan consejos para mejorar la calidad de las imágenes de Flux.1 Schnell?",
-        "answer": "Sí, se puede usar en el sitio web oficial en https://vizyai.com/flux-schnell. Los usuarios solo necesitan ingresar sus indicaciones en el sitio web y generar imágenes, lo que puede ayudarte a mejorar la calidad de tus imágenes generadas."
+        "answer": "Sí, se puede usar en el sitio web oficial en https://fluxaipro.art/flux-schnell. Los usuarios solo necesitan ingresar sus indicaciones en el sitio web y generar imágenes, lo que puede ayudarte a mejorar la calidad de tus imágenes generadas."
       },
       "item5": {
         "question": "¿Cómo puedo usar Flux.1 Schnell y hay opciones gratuitas?",
-        "answer": "Flux.1 Schnell se puede usar en el sitio web oficial en https://vizyai.com/flux-schnell. Cada usuario obtiene 5 usos gratuitos del modelo Flux.1 Schnell por mes calendario, que se reinician al comienzo de cada mes. Para usarlo, simplemente ingresa tu indicación en el sitio web y genera imágenes. Este proceso puede ayudarte a mejorar la calidad de tus imágenes generadas con el tiempo."
+        "answer": "Flux.1 Schnell se puede usar en el sitio web oficial en https://fluxaipro.art/flux-schnell. Cada usuario obtiene 5 usos gratuitos del modelo Flux.1 Schnell por mes calendario, que se reinician al comienzo de cada mes. Para usarlo, simplemente ingresa tu indicación en el sitio web y genera imágenes. Este proceso puede ayudarte a mejorar la calidad de tus imágenes generadas con el tiempo."
       },
       "item6": {
         "question": "¿Cómo puedo obtener soporte en línea?",
-        "answer": "Puedes contactarnos en hello@vizyai.com."
+        "answer": "Puedes contactarnos en support@fluxaipro.art."
       }
     },
     "title": "Generador de Imágenes Vizy AI",
@@ -371,6 +388,7 @@
   "Navigation": {
     "pricing": "Precios",
     "schnell": "Flux Schnell",
+    "explore": "Explorar",
     "title": "Generador de Imágenes Vizy AI",
     "blog": "Blog",
     "prompt": "Generador de Prompts de Vizy AI",

@@ -28,14 +28,14 @@ export default async function PreviewLanding() {
                 )}
               </I18nLink>
               <div className="tags absolute bottom-0 left-0 flex w-full">
-                <span className="apple-tag rounded-md px-2 py-1 text-white line-clamp-2 overflow-hidden text-ellipsis">
+                <span className="apple-tag line-clamp-2 overflow-hidden text-ellipsis rounded-md px-2 py-1 text-white">
                   {item.inputPrompt}
                 </span>
               </div>
               <Link
                 className="absolute right-1 top-1"
                 target="_blank"
-                href={`https://pinterest.com/pin/create/button/?url=https://pinterest.com/pin/create/button/?description=${encodeURIComponent(item.inputPrompt!)}&url=${encodeURIComponent(item.imageUrl!)}`}
+                href={`https://pinterest.com/pin/create/button/?url=https://pinterest.com/pin/create/button/?description=${encodeURIComponent(`${item.inputPrompt!} Generator by vizyai.com`)}&url=${encodeURIComponent(item.imageUrl!)}`}
               >
                 <span className="[&>svg]:h-7 [&>svg]:w-7 [&>svg]:fill-[#e60023]">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">

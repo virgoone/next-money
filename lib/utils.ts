@@ -81,8 +81,8 @@ export function constructMetadata({
   };
 }
 
-export function formatDate(input: string | number): string {
-  const date = new Date(input);
+export function formatDate(input: Date | string): string {
+  const date = typeof input === "string" ? new Date(input) : input;
   return date.toLocaleDateString("en-US", {
     month: "long",
     day: "numeric",
@@ -97,9 +97,8 @@ export function absoluteUrl(path: string) {
 // Utils from precedent.dev
 export const timeAgo = (timestamp: Date, timeOnly?: boolean): string => {
   if (!timestamp) return "never";
-  return `${ms(Date.now() - new Date(timestamp).getTime())}${
-    timeOnly ? "" : " ago"
-  }`;
+  return `${ms(Date.now() - new Date(timestamp).getTime())}${timeOnly ? "" : " ago"
+    }`;
 };
 
 export async function fetcher<JSON = any>(
@@ -224,7 +223,7 @@ export function downloadImage(url: string) {
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = `vizyai.com.${getMime(url)}`;
+      link.download = `fluxaipro.art.${getMime(url)}`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

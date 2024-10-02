@@ -167,7 +167,7 @@
       },
       "item4": {
         "question": "Como usar o Vizy AI?",
-        "answer": "Para usar o Vizy AI, simplesmente visite vizyai.com, insira seu prompt e testemunhe a criação de visuais deslumbrantes em questão de segundos."
+        "answer": "Para usar o Vizy AI, simplesmente visite fluxaipro.art, insira seu prompt e testemunhe a criação de visuais deslumbrantes em questão de segundos."
       },
       "item5": {
         "question": "Quais planos de preços o Vizy AI oferece?",
@@ -175,13 +175,30 @@
       },
       "item6": {
         "question": "Como posso obter suporte online?",
-        "answer": "Você pode entrar em contato conosco em hello@vizyai.com."
+        "answer": "Você pode entrar em contato conosco em support@fluxaipro.art."
       }
     },
     "tip": {
       "title": "💳 Dica de Pagamento: Se encontrar algum problema durante o processo de pagamento, sinta-se à vontade para entrar em contato conosco! 😉",
       "subtitle": "Perguntas?",
       "contact": "entre em contato conosco"
+    }
+  },
+  "ExplorePage": {
+    "layout": {
+      "title": "Explore o Gerador de Imagens Vizy AI",
+      "description": "Descubra as últimas características e atualizações do Gerador de Imagens Vizy AI.",
+      "keywords": "gerador de imagens Vizy AI, inteligência artificial flux, tecnologia ai, aprendizado de máquina flux, ferramentas Vizy AI, aplicações ai, soluções de inteligência artificial, análise de dados flux, inovação ai, análise preditiva flux, aprendizado de máquina flux, desenvolvimento ai, próxima geração ai"
+    },
+    "title": "Explore o Gerador de Imagens Vizy AI",
+    "description": "Descubra as últimas características e atualizações do Gerador de Imagens Vizy AI.",
+    "flux": {
+      "model": "Modelo",
+      "lora": "Estilo",
+      "prompt": "Prompt",
+      "executePrompt": "Prompt Mágico",
+      "resolution": "Resolução",
+      "createdAt": "Data criada"
     }
   },
   "Playground": {
@@ -218,15 +235,15 @@
       },
       "item4": {
         "question": "Existem comunidades online ou fóruns que fornecem dicas para melhorar a qualidade das imagens do Flux.1 Schnell?",
-        "answer": "Sim, pode ser usado no site oficial em https://vizyai.com/flux-schnell. Os usuários só precisam inserir suas descrições no site e gerar imagens, o que pode ajudá-lo a melhorar a qualidade das suas imagens geradas."
+        "answer": "Sim, pode ser usado no site oficial em https://fluxaipro.art/flux-schnell. Os usuários só precisam inserir suas descrições no site e gerar imagens, o que pode ajudá-lo a melhorar a qualidade das suas imagens geradas."
       },
       "item5": {
         "question": "Como posso usar o Flux.1 Schnell e existem opções gratuitas?",
-        "answer": "O Flux.1 Schnell pode ser usado no site oficial em https://vizyai.com/flux-schnell. Cada usuário recebe 5 usos gratuitos do modelo Flux.1 Schnell por mês do calendário, que são reiniciados no início de cada mês. Para usá-lo, basta inserir sua descrição no site e gerar imagens. Esse processo pode ajudá-lo a melhorar a qualidade das suas imagens geradas ao longo do tempo."
+        "answer": "O Flux.1 Schnell pode ser usado no site oficial em https://fluxaipro.art/flux-schnell. Cada usuário recebe 5 usos gratuitos do modelo Flux.1 Schnell por mês do calendário, que são reiniciados no início de cada mês. Para usá-lo, basta inserir sua descrição no site e gerar imagens. Esse processo pode ajudá-lo a melhorar a qualidade das suas imagens geradas ao longo do tempo."
       },
       "item6": {
         "question": "Como posso obter suporte online?",
-        "answer": "Você pode entrar em contato conosco em hello@vizyai.com."
+        "answer": "Você pode entrar em contato conosco em support@fluxaipro.art."
       }
     },
     "title": "Gerador de Imagens Vizy AI",
@@ -371,6 +388,7 @@
   "Navigation": {
     "pricing": "Preços",
     "schnell": "Flux Schnell",
+    "explore": "Explorar",
     "prompt": "Gerador de Prompts Vizy AI",
     "title": "Gerador de Imagens Vizy AI",
     "blog": "Blog",

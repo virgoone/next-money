@@ -1,8 +1,15 @@
 import React from "react";
 
-export default function HistoryContainer(props: { children: React.ReactNode }) {
+import { cn } from "@/lib/utils";
+
+export default function HistoryContainer(props: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
-    <section className="h-[calc(100vh_-_76px)] overflow-hidden">
+    <section
+      className={cn("h-[calc(100vh_-_76px)] overflow-hidden", props.className)}
+    >
       {props.children}
     </section>
   );
