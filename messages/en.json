@@ -191,12 +191,12 @@
   },
   "ExplorePage": {
     "layout": {
-      "title": "Explore Flux AI Image Generator",
-      "description": "Discover the latest features and updates of Flux AI Image Generator. ",
+      "title": "Explore VizyAI Image Generator",
+      "description": "Discover the latest features and updates of VizyAI Image Generator. ",
       "keywords": "flux AI, AI flux, flux artificial intelligence, AI technology, machine learning flux, flux AI tools, AI applications, artificial intelligence solutions, flux data analysis, AI innovation, predictive analytics flux, flux machine learning, AI development, next-gen AI"
     },
-    "title": "Explore Flux AI Image Generator",
-    "description": "Discover the latest features and updates of Flux AI Image Generator. ",
+    "title": "Explore VizyAI Image Generator",
+    "description": "Discover the latest features and updates of VizyAI Image Generator. ",
     "flux": {
       "model": "Model",
       "lora": "Style",

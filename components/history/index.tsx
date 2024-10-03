@@ -41,14 +41,18 @@ const useQueryMineFluxMutation = (config?: {
         headers: { Authorization: `Bearer ${await getToken()}` },
       });
 
-      if (!res.ok && res.status >= 500) {
-        throw new Error("Network response error");
+      if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(errorData.message || "Network response error");
       }
 
       return res.json();
     },
     onSuccess: async (result) => {
       config?.onSuccess(result);
+    },
+    onError: (error) => {
+      console.error("Mutation error:", error);
     },
   });
 };
@@ -80,8 +84,15 @@ export default function History({
   const useQueryMineFlux = useQueryMineFluxMutation({
     explore,
     onSuccess(result) {
-      const { page, pageSize, total, data } = result.data ?? {};
-      setDataSource(page === 1 ? data : [...dataSource, ...data]);
+      console.log("result:", result);
+      const {
+        page = 1,
+        pageSize = 12,
+        total = 0,
+        data = [],
+      } = result.data ?? {};
+      const safeData = Array.isArray(data) ? data : [];
+      setDataSource(page === 1 ? safeData : [...dataSource, ...safeData]);
       setPageParams({ page, pageSize });
       setHasMore(page * pageSize < total);
       setInit(true);
