@@ -1,15 +1,23 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { useAuth } from "@clerk/nextjs";
 import { useQuery } from "@tanstack/react-query";
 import { WalletIcon } from "lucide-react";
 
-import NumberTicker from "../magicui/number-ticker";
+import { ChargeProductSelectDto } from "@/db/type";
 
-export default function UserPoints() {
+import NumberTicker from "../magicui/number-ticker";
+import { PricingCardDialog } from "../pricing-cards";
+
+interface PageProps {
+  chargeProduct?: ChargeProductSelectDto[];
+}
+
+export default function UserPoints({ chargeProduct }: PageProps) {
   const { getToken } = useAuth();
+  const [pricingCardOpen, setPricingCardOpen] = useState(false);
 
   const { data } = useQuery({
     queryKey: ["queryUserPoints"],
@@ -20,9 +28,19 @@ export default function UserPoints() {
     },
   });
   return (
-    <div className="flex items-center gap-1 text-sm font-medium text-muted-foreground">
-      <WalletIcon className="h-4 w-4" />
-      <NumberTicker value={data?.credit || 0} />
-    </div>
+    <>
+      <div
+        onClick={() => setPricingCardOpen(true)}
+        className="flex cursor-pointer items-center gap-1 text-sm font-medium text-muted-foreground"
+      >
+        <WalletIcon className="h-4 w-4" />
+        <NumberTicker value={data?.credit || 0} />
+      </div>
+      <PricingCardDialog
+        onClose={setPricingCardOpen}
+        isOpen={pricingCardOpen}
+        chargeProduct={chargeProduct}
+      />
+    </>
   );
 }

@@ -8,6 +8,8 @@ import {
 } from "../type";
 
 export async function getChargeProduct(locale?: string) {
+  await prisma.$connect();
+
   const data = await prisma?.chargeProduct?.findMany({
     where: {
       locale,
@@ -16,6 +18,8 @@ export async function getChargeProduct(locale?: string) {
       credit: "asc",
     },
   });
+
+  await prisma.$disconnect();
 
   return {
     data: (data.map(({ id, ...rest }) => ({
