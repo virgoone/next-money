@@ -148,7 +148,9 @@
     },
     "action": {
       "signin": "Sign in",
-      "buy": "One Time Payment"
+      "buy": "One Time Payment",
+      "monthly": "Pay Monthly Payment",
+      "yearly": "Pay Yearly Payment"
     },
     "contact": {
       "title": "Contact us",

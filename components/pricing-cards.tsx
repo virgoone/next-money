@@ -39,8 +39,10 @@ interface PricingCardsProps {
 const PricingCard = ({
   userId,
   offer,
+  activeType,
 }: {
   userId?: string;
+  activeType?: string;
   offer: ChargeProductSelectDto;
 }) => {
   const pathname = usePathname();
@@ -132,7 +134,16 @@ const PricingCard = ({
         </div>
 
         <SignedIn>
-          <BillingFormButton offer={offer} btnText={t("action.buy")} />
+          <BillingFormButton
+            offer={offer}
+            btnText={
+              activeType === "oneTime"
+                ? t("action.buy")
+                : activeType === "yearly"
+                  ? t("action.yearly")
+                  : t("action.monthly")
+            }
+          />
         </SignedIn>
 
         <SignedOut>
@@ -319,7 +330,7 @@ export function PricingCards({
 
         <div className="grid gap-5 bg-inherit py-5 md:grid-cols-3">
           {filteredChargeProduct?.map((offer) => (
-            <PricingCard offer={offer} key={offer.id} />
+            <PricingCard offer={offer} key={offer.id} activeType={activeType} />
           ))}
         </div>
 

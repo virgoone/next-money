@@ -214,7 +214,9 @@ export default function Playground({
     toast.success(t("action.copySuccess"));
   };
 
-  console.log("response...", response);
+  console.log("fluxData...", fluxData);
+  console.log("queryTask...", queryTask);
+  console.log("fluxId...", fluxId);
 
   return (
     <div className="overflow-hidden rounded-[0.5rem] border bg-background shadow">
@@ -330,7 +332,10 @@ export default function Playground({
                             </button>
                           )}
 
-                          {/* <DownloadAction id={fluxData.id} /> */}
+                          <DownloadAction
+                            disabled={!fluxData?.id}
+                            id={fluxData?.id || ""}
+                          />
                         </div>
                       </div>
                     )}

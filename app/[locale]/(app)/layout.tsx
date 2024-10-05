@@ -12,6 +12,7 @@ import { NavBar, NavbarUserInfo } from "@/components/layout/navbar";
 import { SiteFooter } from "@/components/layout/site-footer";
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
 import { dashboardConfig } from "@/config/dashboard";
+import { getChargeProduct } from "@/db/queries/charge-product";
 
 interface DashboardLayoutProps {
   children?: React.ReactNode;
@@ -37,11 +38,13 @@ interface DashboardLayoutProps {
       <SiteFooter className="border-t" />
     </div> */
 }
-export default function DashboardLayout({
+
+export default async function DashboardLayout({
   children,
   params: { locale },
 }: DashboardLayoutProps) {
   unstable_setRequestLocale(locale);
+  const { data: chargeProduct } = await getChargeProduct(locale);
 
   const filteredLinks = dashboardConfig.sidebarNav.map((section) => ({
     ...section,
@@ -63,7 +66,7 @@ export default function DashboardLayout({
             </div>
 
             {/* <Notifications /> */}
-            <UserPoints />
+            <UserPoints chargeProduct={chargeProduct} />
             <ModeToggle />
             <NavbarUserInfo />
           </header>
