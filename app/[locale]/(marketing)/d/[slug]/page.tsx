@@ -49,7 +49,7 @@ export async function generateMetadata({
     title: t("layout.title"),
     description: flux.inputPrompt,
     openGraph: {
-      title: "VizyAI Image Generator",
+      title: "Flux AI Image Generator",
       description: flux.inputPrompt,
       images: [
         {
