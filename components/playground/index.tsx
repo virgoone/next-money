@@ -216,7 +216,7 @@ export default function Playground({
 
   console.log("fluxData...", fluxData);
   console.log("queryTask...", queryTask);
-  console.log("fluxId...", fluxId);
+  console.log("queryTask...", fluxId);
 
   return (
     <div className="overflow-hidden rounded-[0.5rem] border bg-background shadow">
@@ -295,37 +295,37 @@ export default function Playground({
                     ) : (
                       <div
                         className={cn("size-full", {
-                          "bg-muted": !response?.imageUrl,
+                          "bg-muted": !fluxData?.imageUrl,
                         })}
                       >
                         <div
                           className={`w-full rounded-md ${createRatio(fluxData?.aspectRatio as Ratio)}`}
                         >
-                          {response?.imageUrl && (
+                          {fluxData?.imageUrl && (
                             <BlurFade key={fluxData?.imageUrl} inView>
                               <img
-                                src={response?.imageUrl}
+                                src={fluxData?.imageUrl}
                                 alt="Generated Image"
-                                className={`pointer-events-none w-full rounded-md ${createRatio(response?.aspectRatio as Ratio)}`}
+                                className={`pointer-events-none w-full rounded-md ${createRatio(fluxData?.aspectRatio as Ratio)}`}
                               />
                             </BlurFade>
                           )}
                         </div>
                         <div className="text-content-light inline-block px-4 py-2 text-sm">
                           <p className="line-clamp-4 italic md:line-clamp-6 lg:line-clamp-[8]">
-                            {response?.inputPrompt}
+                            {fluxData?.inputPrompt}
                           </p>
                         </div>
                         <div className="flex flex-row flex-wrap space-x-1 px-4">
                           <div className="bg-surface-alpha-strong text-content-base inline-flex items-center rounded-md border border-transparent px-1.5 py-0.5 font-mono text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
-                            {ModelName[response?.model]}
+                            {ModelName[fluxData?.model || ""]}
                           </div>
                         </div>
                         <div className="flex flex-row justify-between space-x-2 p-4">
-                          {response?.inputPrompt && (
+                          {fluxData?.inputPrompt && (
                             <button
                               className="focus-ring text-content-strong border-stroke-strong hover:border-stroke-stronger data-[state=open]:bg-surface-alpha-light inline-flex h-8 items-center justify-center whitespace-nowrap rounded-lg border bg-transparent px-2.5 text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50"
-                              onClick={() => copyPrompt(response?.inputPrompt!)}
+                              onClick={() => copyPrompt(fluxData?.inputPrompt!)}
                             >
                               <Copy className="icon-xs me-1" />
                               {t("action.copy")}

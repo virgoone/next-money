@@ -4,10 +4,12 @@ import { auth, currentUser } from "@clerk/nextjs/server";
 import { Ratelimit } from "@upstash/ratelimit";
 import dayjs from "dayjs";
 import Replicate from "replicate";
+import { v4 as uuidv4 } from "uuid";
 import { z } from "zod";
 
 import { Credits, model, Ratio } from "@/config/constants";
 import { FluxHashids } from "@/db/dto/flux.dto";
+import { ReplicateHashids } from "@/db/dto/replicate.dto";
 import { prisma } from "@/db/prisma";
 import { getUserCredit } from "@/db/queries/account";
 import { BillingType } from "@/db/type";
@@ -135,9 +137,9 @@ export async function POST(req: NextRequest, { params }: Params) {
       safety_tolerance: 2,
     };
 
-    const res = await replicate.run(modelName, { input });
+    const replicateRes = await replicate.run(modelName, { input });
 
-    if (!res) {
+    if (!replicateRes) {
       return NextResponse.json(
         { error: "Create Generator Error" },
         { status: 400 },
@@ -174,6 +176,28 @@ export async function POST(req: NextRequest, { params }: Params) {
     //   return NextResponse.json({ error: "Create Task Error" }, { status: 400 });
     // }
 
+    let imageUrl = replicateRes as unknown as string;
+    let replicateId = uuidv4();
+
+    const fluxData = await prisma.fluxData.create({
+      data: {
+        userId: userId, // Required field
+        replicateId: replicateId, // Required field
+        inputPrompt: inputPrompt, // Optional
+        inputImageUrl: inputImageUrl, // Optional
+        imageUrl: imageUrl, // Optional
+        model: modelName, // Required field
+        locale: locale, // Optional
+        aspectRatio: aspectRatio, // Required field
+        taskStatus: "succeeded", // Required field
+        loraName: loraName, // Optional
+      },
+    });
+
+    if (!fluxData) {
+      return NextResponse.json({ error: "Create Task Error" }, { status: 400 });
+    }
+
     await prisma.$transaction(async (tx) => {
       const newAccount = await tx.userCredit.update({
         where: { id: account.id },
@@ -186,8 +210,7 @@ export async function POST(req: NextRequest, { params }: Params) {
       const billing = await tx.userBilling.create({
         data: {
           userId,
-          // fluxId: fluxData.id,
-          fluxId: null,
+          fluxId: fluxData.id,
           state: "Done",
           amount: -needCredit,
           type: BillingType.Withdraw,
@@ -205,9 +228,9 @@ export async function POST(req: NextRequest, { params }: Params) {
         },
       });
     });
-    // return NextResponse.json({ id: FluxHashids.encode(fluxData.id) });
+    return NextResponse.json({ id: FluxHashids.encode(fluxData.id) });
     return NextResponse.json({
-      imageUrl: res,
+      imageUrl: imageUrl,
       aspectRatio: aspectRatio,
       inputPrompt: inputPrompt,
       model: modelName,
