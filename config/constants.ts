@@ -13,9 +13,9 @@ export enum model {
 }
 
 export enum loras {
-  wukong = "wukong",
-  alvdansen = "alvdansen",
-  AWPortrait = "AWPortrait",
+  wukong = "https://huggingface.co/wanghaofan/Black-Myth-Wukong-FLUX-LoRA/resolve/main/pytorch_lora_weights.safetensors",
+  alvdansen = "https://huggingface.co/alvdansen/flux-koda/resolve/main/araminta_k_flux_koda.safetensors",
+  AWPortrait = "https://huggingface.co/prithivMLmods/Canopus-LoRA-Flux-FaceRealism/resolve/main/Canopus-LoRA-Flux-FaceRealism.safetensors",
 }
 
 export const LoraConfig = {

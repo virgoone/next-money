@@ -5,6 +5,7 @@ import "../prism.css";
 import Script from "next/script";
 
 import {
+  arSA,
   deDE,
   enUS,
   esES,
@@ -14,7 +15,6 @@ import {
   ptPT,
   zhCN,
   zhTW,
-  arSA,
 } from "@clerk/localizations";
 import { ClerkProvider } from "@clerk/nextjs";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -34,6 +34,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { locales } from "@/config";
 import { siteConfig } from "@/config/site";
 import { env } from "@/env.mjs";
+import { GeneratorProvider } from "@/hooks/use-genrator";
 import { cn } from "@/lib/utils";
 
 import { QueryProvider } from "../QueryProvider";
@@ -63,7 +64,7 @@ export async function generateMetadata({
         de: "/de",
         ko: "/ko",
         pt: "/pt",
-        ar: "/ar"
+        ar: "/ar",
       },
     },
     openGraph: {
@@ -120,7 +121,9 @@ export default async function RootLayout({
               enableSystem
               disableTransitionOnChange
             >
-              <QueryProvider>{children}</QueryProvider>
+              <QueryProvider>
+                <GeneratorProvider>{children}</GeneratorProvider>
+              </QueryProvider>
               <Analytics />
               <Toaster />
               <TailwindIndicator />

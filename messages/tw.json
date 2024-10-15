@@ -263,6 +263,7 @@
       "loraLabel": "Lora 名稱",
       "modelTooltip": "選擇壹個模型來生成圖像。",
       "submit": "生成",
+      "enhance": "增强提示",
       "aspectRatio": "解析度",
       "aspectRatioTooltip": "生成圖像的解析度",
       "inputImage": "圖像",

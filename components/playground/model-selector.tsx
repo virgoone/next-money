@@ -45,7 +45,7 @@ interface ModelSelectorProps extends PopoverProps {
   types: readonly ModelType[];
   models: Model[];
   selectedModel: Model;
-  lora: string
+  lora: string;
   onLoraChange: (lora: string) => void;
   onChange: (model: Model) => void;
 }

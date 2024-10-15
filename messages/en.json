@@ -270,6 +270,7 @@
       "loraLabel": "Lora Name",
       "modelTooltip": "Choose a model to generate images.",
       "submit": "Generate",
+      "enhance": "Enhance Prompt",
       "aspectRatio": "AspectRatio",
       "aspectRatioTooltip": "Aspect ratio for the generated image.",
       "inputImage": "Image",

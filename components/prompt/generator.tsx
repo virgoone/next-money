@@ -1,9 +1,7 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React from "react";
 
-import { useAuth } from "@clerk/nextjs";
-import { useMutation } from "@tanstack/react-query";
 import copy from "copy-to-clipboard";
 import { debounce } from "lodash-es";
 import { Copy, Eraser } from "lucide-react";
@@ -19,75 +17,35 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
+import { useGenerator } from "@/hooks/use-genrator";
 import { Link } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 
 import { Icons } from "../shared/icons";
 import SignBox from "../sign-box";
 
-const useCreatePromptMutation = (config?: {
-  onSuccess: (result: any) => void;
-}) => {
-  const { getToken } = useAuth();
-
-  return useMutation({
-    mutationFn: async (values: any) => {
-      const res = await fetch("/api/prompt", {
-        body: JSON.stringify(values),
-        method: "POST",
-        headers: { Authorization: `Bearer ${await getToken()}` },
-      });
-
-      if (!res.ok && res.status >= 500) {
-        throw new Error("Network response error");
-      }
-
-      return res.json();
-    },
-    onSuccess: async (result) => {
-      config?.onSuccess(result);
-    },
-  });
-};
-
 export default function Generator() {
-  const [userInput, setUserInput] = useState("");
-  const [generatedPrompt, setGeneratedPrompt] = useState("");
-  const t = useTranslations("PromptGenerator");
-  const usePrompt = useCreatePromptMutation();
-  const [loading, setLoading] = useState(false);
+  const {
+    inputPrompt,
+    setInputPrompt,
+    generatedPrompt,
+    loading,
+    handleGenerate,
+  } = useGenerator();
 
-  const handleGenerate = async () => {
-    try {
-      setLoading(true);
-      setGeneratedPrompt("");
-      const res = await usePrompt.mutateAsync({
-        prompt: userInput,
-      });
-      console.log("res--->", res);
-      if (!res.error) {
-        setGeneratedPrompt(res.prompt);
-      } else {
-        toast.error(res.error);
-      }
-    } catch (error) {
-      console.log("error", error);
-      toast.error("An error occurred");
-    } finally {
-      setLoading(false);
-    }
-  };
-  const debounceHandleGenerate = debounce(handleGenerate, 800);
+  const t = useTranslations("PromptGenerator");
 
   const copyPrompt = (prompt: string) => {
     copy(prompt);
     toast.success(t("form.action.copySuccess"));
   };
 
+  const debounceHandleGenerate = debounce(handleGenerate, 800);
+
   const handleNavigate = () => {
     copy(generatedPrompt);
-    window.sessionStorage.setItem('GENERATOR_PROMPT', generatedPrompt)
-  }
+    window.sessionStorage.setItem("GENERATOR_PROMPT", generatedPrompt);
+  };
 
   return (
     <div className="mt-4">
@@ -100,8 +58,8 @@ export default function Generator() {
             <Textarea
               id="userInput"
               placeholder={t("form.input.placeholder")}
-              value={userInput}
-              onChange={(e) => setUserInput(e.target.value)}
+              value={inputPrompt}
+              onChange={(e) => setInputPrompt(e.target.value)}
               className="min-h-[100px]"
             />
           </div>
@@ -110,7 +68,7 @@ export default function Generator() {
           <SignBox>
             <Button
               onClick={debounceHandleGenerate}
-              disabled={loading || !userInput.length}
+              disabled={loading || !inputPrompt.length}
               className="w-full"
             >
               {loading ? (
@@ -135,11 +93,11 @@ export default function Generator() {
               {generatedPrompt}
             </div>
           </CardContent>
-          <CardFooter className="flex flex-col gap-2 md:flex-row justify-between">
+          <CardFooter className="flex flex-col justify-between gap-2 md:flex-row">
             <button
               className={cn(
                 buttonVariants({ size: "sm" }),
-                "focus-ring text-content-strong border-stroke-strong hover:border-stroke-stronger data-[state=open]:bg-surface-alpha-light inline-flex items-center justify-center whitespace-nowrap rounded-lg border bg-transparent px-2.5 text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50 dark:text-white hover:text-white hover:dark:text-slate-900 from-white dark:to-slate-900/10 text-slate-900",
+                "focus-ring text-content-strong border-stroke-strong hover:border-stroke-stronger data-[state=open]:bg-surface-alpha-light inline-flex items-center justify-center whitespace-nowrap rounded-lg border bg-transparent from-white px-2.5 text-sm font-medium text-slate-900 transition-colors hover:text-white disabled:pointer-events-none disabled:opacity-50 dark:to-slate-900/10 dark:text-white hover:dark:text-slate-900",
               )}
               onClick={() => copyPrompt(generatedPrompt!)}
             >

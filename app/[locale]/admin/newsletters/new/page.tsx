@@ -1,28 +1,28 @@
-'use client'
+"use client";
 
-import * as React from 'react'
-import { redirect, useRouter } from 'next/navigation'
+import * as React from "react";
+import { redirect, useRouter } from "next/navigation";
 
-import { Button, Card, Form, Input, Space, type FormListFieldData } from 'antd'
-import { toast } from 'sonner'
+import { Button, Card, Form, Input, Space, type FormListFieldData } from "antd";
+import { toast } from "sonner";
 
-import useForm from '@/hooks/use-form'
-import { getErrorMessage } from '@/lib/handle-error'
+import useForm from "@/hooks/use-form";
+import { getErrorMessage } from "@/lib/handle-error";
 
-import { createAction } from './_lib/actions'
-import { CreateNewsletterSchema, CreateSchema } from './_lib/validations'
+import { createAction } from "./_lib/actions";
+import { CreateNewsletterSchema, CreateSchema } from "./_lib/validations";
 
-const FormItem = Form.Item
+const FormItem = Form.Item;
 
 export default function CreateNewsletterPage() {
-  const [isCreatePending, startCreateTransition] = React.useTransition()
-  const router = useRouter()
+  const [isCreatePending, startCreateTransition] = React.useTransition();
+  const router = useRouter();
   function onSubmit(input: CreateSchema, error: FormListFieldData | null) {
     if (error) {
-      const err = getErrorMessage(error)
-      console.log('error-->', err)
+      const err = getErrorMessage(error);
+      console.log("error-->", err);
 
-      return toast.error(err + '')
+      return toast.error(err + "");
     }
     startCreateTransition(() => {
       toast.promise(
@@ -30,23 +30,23 @@ export default function CreateNewsletterPage() {
           ...input,
         }),
         {
-          loading: 'Creating...',
+          loading: "Creating...",
           success: () => {
-            formField.form.resetFields()
-            redirect('/admin/newsletters')
-            return 'Created'
+            formField.form.resetFields();
+            redirect("/admin/newsletters");
+            return "Created";
           },
           error: (error) => {
-            return getErrorMessage(error)
+            return getErrorMessage(error);
           },
         },
-      )
-    })
+      );
+    });
   }
   const { formField, inputField } = useForm<CreateSchema>({
     schema: CreateNewsletterSchema,
     onSubmit,
-  })
+  });
 
   return (
     <>
@@ -59,14 +59,14 @@ export default function CreateNewsletterPage() {
             <Input.TextArea
               rows={20}
               className="block w-full rounded-md border-0 py-1.5 text-zinc-900 shadow-sm ring-1 ring-inset ring-zinc-300 placeholder:text-zinc-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:bg-slate-800 dark:text-zinc-100 dark:ring-zinc-700 sm:text-sm sm:leading-6"
-              defaultValue={''}
+              defaultValue={""}
             />
           </FormItem>
           <Space className="flex w-full justify-end gap-2 pt-2 sm:space-x-0">
             <Button
               type="default"
               onClick={() => {
-                router.back()
+                router.back();
               }}
             >
               Cancel
@@ -82,5 +82,5 @@ export default function CreateNewsletterPage() {
         </Form>
       </Card>
     </>
-  )
+  );
 }

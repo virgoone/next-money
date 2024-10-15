@@ -4,22 +4,26 @@ import * as React from "react";
 
 import { useTranslations } from "next-intl";
 
-import { Ratio } from "@/config/constants";
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Ratio } from "@/config/constants";
 
 interface SelectorProps {
   ratio: Ratio;
   aspectRatios: Ratio[];
-  className?:string
+  className?: string;
   onChange: (ratio: Ratio) => void;
 }
 
-export function AspectRatioSelector({ aspectRatios, ratio, onChange }: SelectorProps) {
+export function AspectRatioSelector({
+  aspectRatios,
+  ratio,
+  onChange,
+}: SelectorProps) {
   const t = useTranslations("Playground");
 
   return (

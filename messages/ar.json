@@ -263,6 +263,7 @@
       "loraLabel": "اسم لورا",
       "modelTooltip": "اختر نموذجًا لتوليد الصور.",
       "submit": "توليد",
+      "enhance": "تعزيز موجه",
       "aspectRatio": "نسبة الأبعاد",
       "aspectRatioTooltip": "نسبة الأبعاد للصورة المولدة.",
       "inputImage": "الصورة",

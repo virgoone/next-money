@@ -263,6 +263,7 @@
       "loraLabel": "Lora 이름",
       "modelTooltip": "이미지를 생성할 모델을 선택하세요.",
       "submit": "생성하기",
+      "enhance": "프롬프트 향상",
       "aspectRatio": "화면비",
       "aspectRatioTooltip": "생성된 이미지의 화면비.",
       "inputImage": "이미지",

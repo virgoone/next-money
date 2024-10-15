@@ -263,6 +263,7 @@
       "loraLabel": "Lora 名",
       "modelTooltip": "画像生成に使用するモデルを選択してください。",
       "submit": "生成",
+      "enhance": "增强提示",
       "aspectRatio": "アスペクト比",
       "aspectRatioTooltip": "生成される画像のアスペクト比。",
       "inputImage": "画像",

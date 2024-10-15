@@ -31,6 +31,7 @@ import {
   FluxSelectDto,
   UserCreditSelectDto,
 } from "@/db/type";
+import { useGenerator } from "@/hooks/use-genrator";
 import { cn, createRatio } from "@/lib/utils";
 
 import { DownloadAction } from "../history/download-action";
@@ -85,7 +86,6 @@ export default function Playground({
   const [isPublic, setIsPublic] = React.useState(true);
   const [selectedModel, setSelectedModel] = React.useState<Model>(models[0]);
   const [ratio, setRatio] = React.useState<Ratio>(Ratio.r1);
-  const [inputPrompt, setInputPrompt] = React.useState<string>("");
   const [loading, setLoading] = useState(false);
   const [fluxId, setFluxId] = useState("");
   const [fluxData, setFluxData] = useState<FluxSelectDto>();
@@ -97,6 +97,13 @@ export default function Playground({
   const [pricingCardOpen, setPricingCardOpen] = useState(false);
   const [lora, setLora] = React.useState<string>(loras.wukong);
   const [response, setResponse] = useState<any>(null);
+  const {
+    inputPrompt,
+    setInputPrompt,
+    generatedPrompt,
+    handleGenerate,
+    loading: genrateLoading,
+  } = useGenerator();
 
   const queryTask = useQuery({
     queryKey: ["queryFluxTask", fluxId],
@@ -127,11 +134,13 @@ export default function Playground({
   useEffect(() => {
     const key = "GENERATOR_PROMPT";
     const _prompt = window.sessionStorage.getItem(key);
-    if (_prompt) {
-      setInputPrompt(_prompt);
+    if (_prompt || generatedPrompt) {
+      console.log("oooooooooooooooooo");
+
+      setInputPrompt(_prompt || generatedPrompt);
       window.sessionStorage.removeItem(key);
     }
-  }, []);
+  }, [generatedPrompt, setInputPrompt]);
 
   useEffect(() => {
     const onBeforeunload = () => {
@@ -146,6 +155,7 @@ export default function Playground({
     if (!queryTask.data?.data?.id) {
       return;
     }
+
     setFluxData(queryTask?.data?.data);
   }, [queryTask.data]);
 
@@ -199,6 +209,7 @@ export default function Playground({
       setLoading(false);
     }
   };
+
   const debounceHandleSubmit = debounce(handleSubmit, 800);
 
   const generateLoading = useMemo(() => {
@@ -213,10 +224,6 @@ export default function Playground({
     copy(prompt);
     toast.success(t("action.copySuccess"));
   };
-
-  console.log("fluxData...", fluxData);
-  console.log("queryTask...", queryTask);
-  console.log("queryTask...", fluxId);
 
   return (
     <div className="overflow-hidden rounded-[0.5rem] border bg-background shadow">
@@ -317,9 +324,11 @@ export default function Playground({
                           </p>
                         </div>
                         <div className="flex flex-row flex-wrap space-x-1 px-4">
-                          <div className="bg-surface-alpha-strong text-content-base inline-flex items-center rounded-md border border-transparent px-1.5 py-0.5 font-mono text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
-                            {ModelName[fluxData?.model || ""]}
-                          </div>
+                          {fluxData?.model?.split?.(":")?.[0] && (
+                            <div className="bg-surface-alpha-strong text-content-base inline-flex items-center rounded-md border border-transparent px-1.5 py-0.5 font-mono text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
+                              {ModelName[fluxData?.model.split(":")[0]]}
+                            </div>
+                          )}
                         </div>
                         <div className="flex flex-row justify-between space-x-2 p-4">
                           {fluxData?.inputPrompt && (
@@ -332,10 +341,12 @@ export default function Playground({
                             </button>
                           )}
 
-                          <DownloadAction
-                            disabled={!fluxData?.id}
-                            id={fluxData?.id || ""}
-                          />
+                          {fluxData?.imageUrl && (
+                            <DownloadAction
+                              disabled={!fluxData?.id}
+                              id={fluxData?.id || ""}
+                            />
+                          )}
                         </div>
                       </div>
                     )}
@@ -415,6 +426,7 @@ export default function Playground({
                 <Button
                   className="w-40"
                   disabled={
+                    genrateLoading ||
                     !inputPrompt.length ||
                     loading ||
                     (generateLoading && !!fluxId)
@@ -435,6 +447,21 @@ export default function Playground({
                   )}
                 </Button>
                 <PrivateSwitch isPublic={isPublic} onChange={setIsPublic} />
+                {Boolean(inputPrompt.length) && (
+                  <Button
+                    onClick={handleGenerate}
+                    disabled={loading || genrateLoading}
+                  >
+                    {genrateLoading ? (
+                      <>
+                        <Icons.spinner className="mr-2 size-4 animate-spin" />{" "}
+                        Enhancing...
+                      </>
+                    ) : (
+                      <>{t("form.enhance")}</>
+                    )}
+                  </Button>
+                )}
               </div>
             </div>
           </div>

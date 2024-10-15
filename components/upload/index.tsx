@@ -13,6 +13,7 @@ import { cn, getMime } from "@/lib/utils";
 
 import Upload from "./base-upload";
 import { RemoveAction } from "./remove-action";
+
 // import { getMd5Sign } from "./worker";
 
 let md5Worker: any;
@@ -102,8 +103,13 @@ const FormUpload = (props: FormUploadProps) => {
           // md5,
           fileType: file.type,
         });
+        console.log(res, "lllll");
+
         if (res.error || !res?.data.putUrl || !res?.data.url) {
-          toast.error(res.error || "Failed to get upload information. Please try again later.");
+          toast.error(
+            res.error ||
+              "Failed to get upload information. Please try again later.",
+          );
           return;
         }
         const formData = new FormData();
@@ -114,6 +120,7 @@ const FormUpload = (props: FormUploadProps) => {
             method: "PUT",
             headers: {
               "Content-Type": file.type,
+              "x-amz-acl": "public-read",
             },
           }),
         ]);
@@ -151,7 +158,7 @@ const FormUpload = (props: FormUploadProps) => {
             const type = item?.fileType || item?.originFile?.type;
             return (
               <div
-                className="group relative h-full w-full overflow-hidden flex justify-center"
+                className="group relative flex h-full w-full justify-center overflow-hidden"
                 key={item.id}
               >
                 {!disabled && (
@@ -162,7 +169,10 @@ const FormUpload = (props: FormUploadProps) => {
                   />
                 )}
                 {type?.includes("image") ? (
-                  <img src={item.url} className="aspect-auto h-full object-cover" />
+                  <img
+                    src={item.url}
+                    className="aspect-auto h-full object-cover"
+                  />
                 ) : type?.includes("video") ? (
                   <video src={item.url} className="aspect-auto" />
                 ) : (

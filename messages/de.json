@@ -263,6 +263,7 @@
       "loraLabel": "Lora Name",
       "modelTooltip": "Wählen Sie ein Modell zur Bildgenerierung.",
       "submit": "Generieren",
+      "enhance": "Eingabeaufforderung verbessern",
       "aspectRatio": "Seitenverhältnis",
       "aspectRatioTooltip": "Seitenverhältnis für das generierte Bild.",
       "inputImage": "Bild",

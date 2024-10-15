@@ -16,6 +16,7 @@ import { BillingType } from "@/db/type";
 import { env } from "@/env.mjs";
 import { getErrorMessage } from "@/lib/handle-error";
 import { redis } from "@/lib/redis";
+import { S3Service } from "@/lib/s3";
 
 const ratelimit = new Ratelimit({
   redis,
@@ -85,6 +86,8 @@ export async function POST(req: NextRequest, { params }: Params) {
       loraName,
       inputImageUrl,
     } = CreateGenerateSchema.parse(data);
+    const modelId =
+      "091495765fa5ef2725a175a57b276ec30dc9d39c22d30410f2ede68a3eab66b3";
     const headers = new Headers();
     if (modelName === model.freeSchnell) {
       const thisMonthStart = dayjs().startOf("M");
@@ -127,20 +130,21 @@ export async function POST(req: NextRequest, { params }: Params) {
     });
 
     const input = {
-      steps: 25,
       prompt: inputPrompt,
-      guidance: 3,
-      interval: 2,
+      hf_lora: loraName,
+      lora_scale: 0.8,
+      num_outputs: 1,
       aspect_ratio: aspectRatio,
-      is_private: isPrivate,
-      user_id: userId,
-      lora_name: loraName,
       output_format: "webp",
+      guidance_scale: 3,
       output_quality: 80,
-      safety_tolerance: 2,
+      prompt_strength: 0.8,
+      num_inference_steps: 25,
     };
 
-    const replicateRes = await replicate.run(modelName, { input });
+    const replicateRes = await replicate.run(`${modelName}:${modelId}`, {
+      input,
+    });
 
     if (!replicateRes) {
       return NextResponse.json(
@@ -179,8 +183,38 @@ export async function POST(req: NextRequest, { params }: Params) {
     //   return NextResponse.json({ error: "Create Task Error" }, { status: 400 });
     // }
 
-    let imageUrl = replicateRes as unknown as string;
+    let replicateImageUrl = replicateRes[0];
+
+    const response = await fetch(replicateImageUrl);
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch image: ${response.statusText}`);
+    }
+
+    const imageBuffer = Buffer.from(await response.arrayBuffer());
+
     let replicateId = uuidv4();
+
+    const s3Service = new S3Service({
+      endpoint: env.S3_ENDPOINT,
+      region: env.S3_REGION,
+      accessKeyId: env.S3_ACCESS_KEY,
+      secretAccessKey: env.S3_SECRET_KEY,
+      url: env.S3_URL_BASE,
+    });
+
+    const fileName = `${uuidv4()}.webp`;
+
+    const s3Response = await s3Service.putItemInBucket(
+      fileName,
+      imageBuffer,
+      {
+        path: `generated-images`,
+        ContentType: "image/webp",
+        // acl: "public-read-write",
+      },
+      env.S3_BUCKET,
+    );
 
     const fluxData = await prisma.fluxData.create({
       data: {
@@ -188,8 +222,8 @@ export async function POST(req: NextRequest, { params }: Params) {
         replicateId: replicateId, // Required field
         inputPrompt: inputPrompt, // Optional
         inputImageUrl: inputImageUrl, // Optional
-        imageUrl: imageUrl, // Optional
-        model: modelName, // Required field
+        imageUrl: s3Response.completedUrl, // Optional
+        model: `${modelName}:${modelId}`, // Required field
         locale: locale, // Optional
         aspectRatio: aspectRatio, // Required field
         taskStatus: "succeeded", // Required field
@@ -231,9 +265,9 @@ export async function POST(req: NextRequest, { params }: Params) {
         },
       });
     });
-    return NextResponse.json({ id: FluxHashids.encode(fluxData.id) });
     return NextResponse.json({
-      imageUrl: imageUrl,
+      id: FluxHashids.encode(fluxData.id),
+      imageUrl: s3Response.completedUrl,
       aspectRatio: aspectRatio,
       inputPrompt: inputPrompt,
       model: modelName,

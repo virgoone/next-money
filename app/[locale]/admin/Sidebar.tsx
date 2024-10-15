@@ -2,8 +2,11 @@
 
 import React, { useMemo, useState } from "react";
 import Image from "next/image";
-import { Link } from "@/lib/navigation";
 import { usePathname } from "next/navigation";
+
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronUp, Receipt, SearchIcon } from "lucide-react";
+
 import {
   ArticleIcon,
   DashboardIcon,
@@ -12,12 +15,10 @@ import {
   SubscriberIcon,
   TiltedSendIcon,
 } from "@/assets";
-import { AnimatePresence, motion } from "framer-motion";
-import { ChevronUp, Receipt, SearchIcon } from "lucide-react";
-
-import { cn } from "@/lib/utils";
 // import { CommandDialogSearch } from '@/components/CommandSearch'
 import { Button } from "@/components/ui/button";
+import { Link } from "@/lib/navigation";
+import { cn } from "@/lib/utils";
 
 import logo from "../apple-icon.png";
 

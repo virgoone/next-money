@@ -263,6 +263,7 @@
       "loraLabel": "Nombre de la Lora",
       "modelTooltip": "Elige un modelo para generar imágenes.",
       "submit": "Generar",
+      "enhance": "Mejorar Solicitud",
       "aspectRatio": "Relación de Aspecto",
       "aspectRatioTooltip": "Relación de aspecto para la imagen generada.",
       "inputImage": "Imagen",
