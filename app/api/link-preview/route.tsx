@@ -2,6 +2,7 @@ import { ImageResponse } from 'next/og'
 import { type NextRequest, NextResponse } from 'next/server'
 
 import { env } from '@/env.mjs'
+import { getIP } from '@/lib/ip'
 import { ratelimit } from '@/lib/redis'
 
 const width = 1200
@@ -18,7 +19,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.error()
   }
 
-  const { success } = await ratelimit.limit('link-preview_', req)
+  const { success } = await ratelimit.limit('link-preview_' + getIP(req))
   if (!success) {
     return NextResponse.error()
   }
