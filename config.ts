@@ -23,7 +23,7 @@ export const pathnames: Pathnames<typeof locales> = {
   "/flux-prompt-generator": "/flux-prompt-generator",
 };
 
-export const localePrefix: LocalePrefix<typeof locales> = "as-needed";
+export const localePrefix = "as-needed" as any;
 
 export const port = process.env.PORT || 3000;
 export const host = process.env.VERCEL_URL
