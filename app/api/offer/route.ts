@@ -9,6 +9,7 @@ import { prisma } from "@/db/prisma";
 import { getUserCredit } from "@/db/queries/account";
 import { Currency, OrderPhase, PaymentChannelType } from "@/db/type";
 import { getErrorMessage } from "@/lib/handle-error";
+import { getIP } from "@/lib/ip";
 import { redis } from "@/lib/redis";
 
 const ratelimit = new Ratelimit({
@@ -76,7 +77,7 @@ export async function POST(req: NextRequest) {
   }
 
   const { success } = await ratelimit.limit(
-    "get-offer:redeemed" + `_${req.ip ?? ""}`,
+    "get-offer:redeemed" + `_${getIP(req)}`,
   );
   if (!success) {
     return new Response("Too Many Requests", {

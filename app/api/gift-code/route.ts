@@ -10,6 +10,7 @@ import { getUserCredit } from "@/db/queries/account";
 
 import { Currency, OrderPhase } from "@/db/type";
 import { getErrorMessage } from "@/lib/handle-error";
+import { getIP } from "@/lib/ip";
 import { redis } from "@/lib/redis";
 
 const CreateGiftCodeOrderSchema = z.object({
@@ -31,7 +32,7 @@ export async function POST(req: NextRequest) {
   }
 
   const { success } = await ratelimit.limit(
-    "gift-code:redeemed" + `_${req.ip ?? ""}`,
+    "gift-code:redeemed" + `_${getIP(req)}`,
   );
   if (!success) {
     return new Response("Too Many Requests", {

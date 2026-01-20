@@ -7,6 +7,7 @@ import { z } from "zod";
 
 import { env } from "@/env.mjs";
 import { getErrorMessage } from "@/lib/handle-error";
+import { getIP } from "@/lib/ip";
 import { redis } from "@/lib/redis";
 
 const CreatePromptSchema = z.object({
@@ -33,7 +34,7 @@ export async function POST(req: NextRequest) {
   }
 
   const { success } = await ratelimit.limit(
-    "get-prompt:redeemed" + `_${req.ip ?? ""}`,
+    "get-prompt:redeemed" + `_${getIP(req)}`,
   );
   if (!success) {
     return new Response("Too Many Requests", {

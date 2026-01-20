@@ -8,6 +8,7 @@ import { FluxHashids } from "@/db/dto/flux.dto";
 import { prisma } from "@/db/prisma";
 import { FluxTaskStatus } from "@/db/type";
 import { getErrorMessage } from "@/lib/handle-error";
+import { getIP } from "@/lib/ip";
 import { redis } from "@/lib/redis";
 
 const searchParamsSchema = z.object({
@@ -26,7 +27,7 @@ export async function GET(req: NextRequest) {
     analytics: true,
   });
   const { success } = await ratelimit.limit(
-    "download:image" + `_${req.ip ?? ""}`,
+    "download:image" + `_${getIP(req)}`,
   );
   if (!success) {
     return new Response("Too Many Requests", {

@@ -7,6 +7,7 @@ import { z } from "zod";
 import { FluxHashids } from "@/db/dto/flux.dto";
 import { prisma } from "@/db/prisma";
 import { getErrorMessage } from "@/lib/handle-error";
+import { getIP } from "@/lib/ip";
 import { redis } from "@/lib/redis";
 
 const ratelimit = new Ratelimit({
@@ -30,7 +31,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
   }
   const { success } = await ratelimit.limit(
-    getKey(userId) + `_${req.ip ?? ""}`,
+    getKey(userId) + `_${getIP(req)}`,
   );
   if (!success) {
     return new Response("Too Many Requests", {

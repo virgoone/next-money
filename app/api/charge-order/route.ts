@@ -9,6 +9,7 @@ import { ChargeProductHashids } from "@/db/dto/charge-product.dto";
 import { prisma } from "@/db/prisma";
 import { OrderPhase } from "@/db/type";
 import { getErrorMessage } from "@/lib/handle-error";
+import { getIP } from "@/lib/ip";
 import { redis } from "@/lib/redis";
 import { stripe } from "@/lib/stripe";
 import { absoluteUrl } from "@/lib/utils";
@@ -36,7 +37,7 @@ export async function POST(req: NextRequest) {
   }
 
   const { success } = await ratelimit.limit(
-    "charge-order:created" + `_${req.ip ?? ""}`,
+    "charge-order:created" + `_${getIP(req)}`,
   );
   if (!success) {
     return new Response("Too Many Requests", {

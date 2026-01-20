@@ -7,6 +7,7 @@ import { MediaDto, MediaHashids } from "@/db/dto/media.dto";
 import { prisma } from "@/db/prisma";
 import { env } from "@/env.mjs";
 import { getErrorMessage } from "@/lib/handle-error";
+import { getIP } from "@/lib/ip";
 import { redis } from "@/lib/redis";
 import { S3Service } from "@/lib/s3";
 
@@ -35,8 +36,9 @@ type GetSchema = z.infer<typeof getSchema>;
 export async function GET(req: NextRequest) {
   try {
     const start = Date.now();
+    const ip = getIP(req);
     const { success } = await ratelimit.limit(
-      getKey(req.ip!) + `_${req.ip ?? ""}`,
+      getKey(ip) + `_${ip}`,
     );
     if (!success) {
       return new Response("Too Many Requests", {
@@ -90,8 +92,9 @@ export async function GET(req: NextRequest) {
 
 export async function DELETE(req: NextRequest) {
   try {
+    const ip = getIP(req);
     const { success } = await ratelimit.limit(
-      getKey(req.ip!) + `_${req.ip ?? ""}`,
+      getKey(ip) + `_${ip}`,
     );
     if (!success) {
       return new Response("Too Many Requests", {

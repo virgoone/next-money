@@ -18,14 +18,20 @@ function getKey(id: string) {
   return `s3:${id}`;
 }
 
-type Params = { params: { key: string } };
+function getRequestIp(req: NextRequest) {
+  const xForwardedFor = req.headers.get("x-forwarded-for");
+  if (xForwardedFor) return xForwardedFor.split(",")[0]?.trim() ?? "";
+
+  return req.headers.get("x-real-ip") ?? "";
+}
+
 const CreateS3StsSchema = z.object({
   key: z.string(),
   fileType: z.string(),
   prefix: z.string().nullish().optional(),
 });
 
-export async function POST(req: NextRequest, { params }: Params) {
+export async function POST(req: NextRequest) {
   const { userId } = auth();
 
   const user = await currentUser();
@@ -34,7 +40,7 @@ export async function POST(req: NextRequest, { params }: Params) {
   }
 
   const { success } = await ratelimit.limit(
-    getKey("s3-key" + userId) + `_${req.ip ?? ""}`,
+    getKey("s3-key" + userId) + `_${getRequestIp(req)}`,
   );
   if (!success) {
     return new Response("Too Many Requests", {

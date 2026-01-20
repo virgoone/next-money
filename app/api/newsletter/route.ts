@@ -9,6 +9,7 @@ import { prisma } from "@/db/prisma";
 import { env } from "@/env.mjs";
 import { url } from "@/lib";
 import { resend } from "@/lib/email";
+import { getIP } from "@/lib/ip";
 import { redis } from "@/lib/redis";
 
 const newsletterFormSchema = z.object({
@@ -21,7 +22,7 @@ const ratelimit = new Ratelimit({
 });
 
 export async function POST(req: NextRequest) {
-  const { success } = await ratelimit.limit("subscribe_" + (req.ip ?? ""));
+  const { success } = await ratelimit.limit("subscribe_" + getIP(req));
   if (!success) {
     return NextResponse.error();
   }
