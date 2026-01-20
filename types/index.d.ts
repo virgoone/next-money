@@ -17,15 +17,15 @@ export type SidebarNavItem = {
   external?: boolean;
   icon?: keyof typeof Icons;
 } & (
-  | {
+    | {
       href: string;
       items?: never;
     }
-  | {
+    | {
       href?: string;
       items: NavLink[];
     }
-);
+  );
 
 export type SiteConfig = {
   name: string;
@@ -91,3 +91,20 @@ export type InfoLdg = {
   description: string;
   list: InfoList[];
 };
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      "lord-icon": any;
+    }
+  }
+  namespace React {
+    namespace JSX {
+      interface IntrinsicElements {
+        "lord-icon": any;
+      }
+    }
+  }
+}
+
+
