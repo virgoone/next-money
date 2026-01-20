@@ -22,7 +22,7 @@ import { NextIntlClientProvider } from "next-intl";
 import {
   getMessages,
   getTranslations,
-  unstable_setRequestLocale,
+  setRequestLocale,
 } from "next-intl/server";
 import { ThemeProvider } from "next-themes";
 
@@ -31,7 +31,7 @@ import { Analytics } from "@/components/analytics";
 import ClaritySnippet from "@/components/ClaritySnippet";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { Toaster } from "@/components/ui/toaster";
-import { locales } from "@/config";
+import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/config/site";
 import { env } from "@/env.mjs";
 import { cn } from "@/lib/utils";
@@ -75,7 +75,7 @@ export async function generateMetadata(props: Omit<RootLayoutProps, "children">)
 }
 
 export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
+  return routing.locales.map((locale) => ({ locale }));
 }
 
 const localeMap = {
@@ -96,7 +96,7 @@ export default async function RootLayout({
   params,
 }: RootLayoutProps) {
   const { locale } = await params;
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
 
   // Providing all messages to the client
   // side is the easiest way to get started

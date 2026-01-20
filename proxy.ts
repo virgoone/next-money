@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
 import { get } from "@vercel/edge-config";
 import createMiddleware from "next-intl/middleware";
 
@@ -10,41 +10,37 @@ import countries from "@/lib/countries.json";
 import { getIP } from "@/lib/ip";
 import { redis } from "@/lib/redis";
 
-import { defaultLocale, localePrefix, locales } from "./config";
+import { routing } from "./i18n/routing";
 
 export const config = {
   matcher: [
-    "/",
-    "/(zh|en)/:path*",
-    "/((?!static|.*\\..*|_next).*)",
-  ], // Run middleware on API routes],
-};
+    // Skip Next.js internals and all static files, unless found in search params
+    '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
+    // Always run for API routes
+    '/(api|trpc)(.*)',
+  ],
+}
+
 const isProtectedRoute = createRouteMatcher([
   "/:locale/app(.*)",
   "/:locale/admin(.*)",
 ]);
-const isPublicRoute = createRouteMatcher(["/api/webhooks(.*)"]);
 
-const nextIntlMiddleware = createMiddleware({
-  defaultLocale,
-  locales,
-  localePrefix,
-});
+const handleI18nRouting = createMiddleware(routing);
 
 export default clerkMiddleware(async (auth, req) => {
-  const { userId, redirectToSignIn } = auth();
-
-  if (isPublicRoute(req)) {
-    return;
-  }
-  if (isProtectedRoute(req)) {
-    if (!userId) {
-      return redirectToSignIn();
-    }
-    auth().protect();
-  }
-  const { geo, nextUrl } = req;
+  const { nextUrl, geo } = req as any;
   const isApi = nextUrl.pathname.startsWith("/api/");
+  
+  // 调试日志：确认 middleware 被调用
+  console.log("clerkMiddleware running for:", nextUrl.pathname);
+
+  // 对于受保护的路由，强制要求认证
+  if (isProtectedRoute(req)) {
+    await (auth as any).protect();
+  }
+
+  // IP 封禁检查
   if (process.env.EDGE_CONFIG && env.VERCEL_ENV !== "development") {
     const blockedIPs = await get<string[]>("blocked_ips");
     const ip = getIP(req);
@@ -68,6 +64,7 @@ export default clerkMiddleware(async (auth, req) => {
     }
   }
 
+  // 地理位置记录（仅非 API 路由）
   if (geo && !isApi && env.VERCEL_ENV !== "development") {
     console.log("geo-->", geo);
     const country = geo.country;
@@ -79,9 +76,11 @@ export default clerkMiddleware(async (auth, req) => {
       await redis.set(kvKeys.currentVisitor, { country, city, flag });
     }
   }
-  if (isApi) {
-    return;
+
+  // 非 API 路由：应用国际化中间件
+  // API 路由不需要国际化处理，直接让 clerkMiddleware 处理
+  if (!isApi) {
+    return handleI18nRouting(req);
   }
 
-  return nextIntlMiddleware(req);
 });

@@ -1,7 +1,7 @@
 import { type Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { unstable_setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import ReactMarkdown from "react-markdown";
 
 import { Container } from "@/components/layout/container";
@@ -28,7 +28,7 @@ export async function generateMetadata({
 }) {
   const { id, locale } = await params;
   const newsletter = await getNewsletter(id);
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
 
   const imageUrlRegex = /!\[[^\]]*\]\((.*?)\)/;
   const match = newsletter.body?.match(imageUrlRegex);

@@ -1,4 +1,4 @@
-import { unstable_setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -7,7 +7,7 @@ type Props = {
 export default async function IndexPage({ params }: Props) {
   const { locale } = await params;
   // Enable static rendering
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
 
   return (
     <article className="container max-w-6xl py-6 lg:py-12">

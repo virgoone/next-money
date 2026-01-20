@@ -14,7 +14,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Locale, locales } from "@/config";
+import { type Locale, locales } from "@/i18n/routing";
 import { usePathname, useRouter } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 

@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 
-import { unstable_setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 
 import { Container } from "@/components/layout/container";
 import { prisma } from "@/db/prisma";
@@ -17,7 +17,7 @@ export default async function ConfirmPage({
   params: Promise<{ token: string; locale: string }>;
 }) {
   const { locale, token } = await params;
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
 
   const subscriber = await prisma.subscribers.findFirst({
     where: {

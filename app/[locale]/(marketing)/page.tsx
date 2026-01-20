@@ -1,4 +1,4 @@
-import { unstable_setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 
 import Examples from "@/components/sections/examples";
 import Features from "@/components/sections/features";
@@ -15,7 +15,7 @@ type Props = {
 export default async function IndexPage({ params }: Props) {
   const { locale } = await params;
   // Enable static rendering
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
 
   return (
     <>

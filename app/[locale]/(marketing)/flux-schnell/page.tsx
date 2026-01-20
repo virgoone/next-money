@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 
-import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import FluxFreeGenerator from "@/components/playground/flux-free";
 import { PlaygroundFaq } from "@/components/playground/playground-faq";
@@ -25,8 +25,8 @@ export default async function ConfirmPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  unstable_setRequestLocale(locale);
-  const t = await getTranslations({ namespace: "Playground" });
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "Playground" });
   const { data: chargeProduct } = await getChargeProduct(locale);
 
   return (

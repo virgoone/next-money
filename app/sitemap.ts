@@ -5,7 +5,8 @@ import { FluxHashids } from "@/db/dto/flux.dto";
 
 import { allPosts } from "contentlayer/generated";
 
-import { defaultLocale, locales, pathnames } from "@/config";
+import { pathnames } from "@/config";
+import { defaultLocale, locales } from "@/i18n/routing";
 import { env } from "@/env.mjs";
 import { getPathname } from "@/lib/navigation";
 

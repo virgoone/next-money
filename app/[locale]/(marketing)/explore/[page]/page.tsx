@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 
-import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import History from "@/components/history";
 import { getFluxDataByPage } from "@/actions/flux-action";
@@ -44,8 +44,8 @@ export default async function ExplorePage({
   params: Promise<{ locale: string, page: number }>;
 }) {
   const params = await paramsPromise;
-  unstable_setRequestLocale(params.locale);
-  const t = await getTranslations({ namespace: "ExplorePage" });
+  setRequestLocale(params.locale);
+  const t = await getTranslations({ locale: params.locale, namespace: "ExplorePage" });
   const page = Number(params.page) || 2;
   const pageSize = 24;
   const fluxData = await getFluxDataByPage({ page, pageSize });

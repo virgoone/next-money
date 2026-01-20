@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 
-import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import PromptGenerator from "@/components/prompt/generator";
 import { PromptFaq } from "@/components/prompt/prompt-faq";
@@ -24,8 +24,8 @@ export default async function ConfirmPage({
   params: Promise<{ token: string; locale: string }>;
 }) {
   const { locale } = await params;
-  unstable_setRequestLocale(locale);
-  const t = await getTranslations({ namespace: "PromptGenerator" });
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "PromptGenerator" });
 
   return (
     <section className="space-y-6 py-12 sm:py-20 lg:py-20">

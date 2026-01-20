@@ -24,7 +24,7 @@ const ratelimit = new Ratelimit({
 });
 
 export async function POST(req: NextRequest) {
-  const { userId } = auth();
+  const { userId } = await auth();
 
   const user = await currentUser();
   if (!userId || !user || !user.primaryEmailAddress) {

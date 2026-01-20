@@ -1,4 +1,4 @@
-import { isRedirectError } from "next/dist/client/components/redirect";
+import { isRedirectError } from "next/dist/client/components/redirect-error";
 
 import { toast } from "sonner";
 import { z } from "zod";

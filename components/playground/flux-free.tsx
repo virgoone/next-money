@@ -30,7 +30,7 @@ import {
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
-import { Locale } from "@/config";
+import { type Locale } from "@/i18n/routing";
 import { Credits, loras, model, ModelName, Ratio } from "@/config/constants";
 import {
   ChargeProductSelectDto,

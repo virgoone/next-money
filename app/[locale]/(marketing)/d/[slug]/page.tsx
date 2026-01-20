@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 
-import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { getFluxDataByPage, getFluxById } from "@/actions/flux-action";
 import { Link } from "@/lib/navigation";
@@ -19,23 +19,6 @@ import { FluxHashids } from "@/db/dto/flux.dto";
 
 interface RootPageProps {
   params: Promise<{ locale: string, slug: string }>;
-}
-
-export async function generateStaticParams() {
-  const fluxs = await prisma.fluxData.findMany({
-    where: {
-      isPrivate: false,
-      taskStatus: {
-        in: [FluxTaskStatus.Succeeded],
-      },
-    },
-    select: {
-      id: true
-    }
-  });
-  return fluxs.map((flux) => ({
-    slug: FluxHashids.encode(flux.id)
-  }))
 }
 
 export async function generateMetadata(props: Omit<RootPageProps, "children">) {
@@ -71,13 +54,13 @@ export default async function FluxPage({
   params,
 }: RootPageProps) {
   const { locale, slug } = await params;
-  unstable_setRequestLocale(locale);
-  const t = await getTranslations({ namespace: "ExplorePage" });
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "ExplorePage" });
   const flux = await getFluxById(slug);
   if (!flux) {
     return notFound();
   }
-  const { userId } = auth();
+  const { userId } = await auth();
 
   if (env.VERCEL_ENV === 'production') {
     const [fluxId] = FluxHashids.decode(flux.id)

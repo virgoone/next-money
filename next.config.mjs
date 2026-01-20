@@ -5,7 +5,7 @@
 // import { setupDevPlatform } from "@cloudflare/next-on-pages/next-dev";
 import { withSentryConfig } from "@sentry/nextjs";
 import { withContentlayer } from "next-contentlayer2";
-import withNextIntl from "next-intl/plugin";
+import createNextIntlPlugin from "next-intl/plugin";
 
 import("./env.mjs");
 
@@ -87,7 +87,9 @@ const nextConfig = {
 //   await setupDevPlatform();
 // }
 
-export default withSentryConfig(withNextIntl()(withContentlayer(nextConfig)), {
+const withNextIntl = createNextIntlPlugin();
+
+export default withSentryConfig(withNextIntl(withContentlayer(nextConfig)), {
   org: "koya",
   project: "fluxaiproart",
 

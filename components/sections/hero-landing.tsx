@@ -13,7 +13,7 @@ import ShimmerButton from "../forms/shimmer-button";
 import AnimatedGradientText from "../magicui/animated-gradient-text";
 
 export default async function HeroLanding() {
-  const t = await getTranslations({ namespace: "IndexPage" });
+  const t = await getTranslations("IndexPage");
 
   return (
     <section className="space-y-6 py-12 sm:py-20 lg:py-20">

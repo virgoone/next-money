@@ -1,4 +1,4 @@
-import { locales } from "@/config";
+import { locales } from "@/i18n/routing";
 import * as z from "zod";
 
 export const searchParamsSchema = z.object({

@@ -1,4 +1,4 @@
-import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import History from "@/components/history";
 
@@ -22,7 +22,7 @@ export async function generateMetadata({
 
 export default async function PlaygroundPage({ params }: PageProps) {
   const { locale } = await params;
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
 
   return <History locale={locale} />;
 }

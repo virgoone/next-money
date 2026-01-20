@@ -1,25 +1,20 @@
 import { ImageResponse } from "@vercel/og"
 
-import { ogImageSchema } from "@/lib/validations/og"
-
 export const runtime = "edge"
 
-const interRegular = fetch(
-  new URL("../../../assets/fonts/Inter-Regular.ttf", import.meta.url)
-).then((res) => res.arrayBuffer())
-
-const interBold = fetch(
-  new URL("../../../assets/fonts/CalSans-SemiBold.ttf", import.meta.url)
-).then((res) => res.arrayBuffer())
-
+// 简化的验证函数，避免导入 zod
+function parseOgParams(searchParams: URLSearchParams) {
+  const heading = searchParams.get("heading") || ""
+  const type = searchParams.get("type") || ""
+  const mode = (searchParams.get("mode") || "dark") as "light" | "dark"
+  
+  return { heading, type, mode }
+}
 
 export async function GET(req: Request) {
   try {
-    const fontRegular = await interRegular
-    const fontBold = await interBold
-
     const url = new URL(req.url)
-    const values = ogImageSchema.parse(Object.fromEntries(url.searchParams))
+    const values = parseOgParams(url.searchParams)
     const heading =
       values.heading.length > 80
         ? `${values.heading.substring(0, 100)}...`
@@ -47,7 +42,7 @@ export async function GET(req: Request) {
           <div
             tw="text-5xl"
             style={{
-              fontFamily: "Cal Sans",
+              fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
               fontWeight: "normal",
               position: "relative",
               background: "linear-gradient(90deg, #6366f1, #a855f7 80%)",
@@ -62,7 +57,7 @@ export async function GET(req: Request) {
             {/* Type : Blog or Doc */}
             <div
               tw="flex text-xl uppercase font-bold tracking-tight"
-              style={{ fontFamily: "Inter", fontWeight: "normal" }}
+              style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontWeight: "normal" }}
             >
               {values.type}
             </div>
@@ -70,7 +65,7 @@ export async function GET(req: Request) {
             <div
               tw="flex leading-[1.15] text-[80px] font-bold"
               style={{
-                fontFamily: "Cal Sans",
+                fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                 fontWeight: "bold",
                 marginLeft: "-3px",
                 fontSize,
@@ -83,7 +78,7 @@ export async function GET(req: Request) {
           <div tw="flex items-center w-full justify-between">
             <div
               tw="flex items-center text-xl"
-              style={{ fontFamily: "Inter", fontWeight: "normal" }}
+              style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontWeight: "normal" }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -98,7 +93,7 @@ export async function GET(req: Request) {
               <div tw="flex flex-col" style={{ marginLeft: "15px" }}>
                 <div
                   tw="text-[22px]"
-                  style={{ fontFamily: "Cal Sans" }}
+                  style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
                 >
                   {githubName}
                 </div>
@@ -108,7 +103,7 @@ export async function GET(req: Request) {
 
             <div
               tw="flex items-center text-xl"
-              style={{ fontFamily: "Inter", fontWeight: "normal" }}
+              style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontWeight: "normal" }}
             >
               <svg width="32" height="32" viewBox="0 0 48 48" fill="none">
                 <path
@@ -134,20 +129,7 @@ export async function GET(req: Request) {
       {
         width: 1200,
         height: 630,
-        fonts: [
-          {
-            name: "Inter",
-            data: fontRegular,
-            weight: 400,
-            style: "normal",
-          },
-          {
-            name: "Cal Sans",
-            data: fontBold,
-            weight: 700,
-            style: "normal",
-          },
-        ],
+        // 使用系统字体，无需加载自定义字体文件
       }
     )
   } catch (error) {

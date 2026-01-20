@@ -1,4 +1,4 @@
-import { unstable_setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 
 import { NavMobile } from "@/components/layout/mobile-nav";
 import { NavBar } from "@/components/layout/navbar";
@@ -15,7 +15,7 @@ export default async function MarketingLayout({
   params,
 }: MarketingLayoutProps) {
   const { locale } = await params;
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
 
   return (
     <div className="flex min-h-screen flex-col">

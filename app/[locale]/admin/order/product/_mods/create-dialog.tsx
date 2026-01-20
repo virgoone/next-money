@@ -8,7 +8,7 @@ import { PlusIcon } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { toast } from "sonner";
 
-import { Locale, locales } from "@/config";
+import { type Locale, locales } from "@/i18n/routing";
 import { Currency } from "@/db/type";
 import useForm from "@/hooks/use-form";
 import { getErrorMessage } from "@/lib/handle-error";

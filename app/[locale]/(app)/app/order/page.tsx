@@ -1,4 +1,4 @@
-import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { OrderInfo } from "@/components/order-info";
 
@@ -20,7 +20,7 @@ export async function generateMetadata({
 
 export default async function BillingPage({ params }: PageProps) {
   const { locale } = await params;
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
 
   return <OrderInfo />;
 }

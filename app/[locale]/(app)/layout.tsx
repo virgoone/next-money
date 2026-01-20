@@ -1,4 +1,4 @@
-import { unstable_setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 
 import UserPoints from "@/components/dashboard/points";
 import { SearchCommand } from "@/components/dashboard/search-command";
@@ -42,7 +42,7 @@ export default async function DashboardLayout({
   params,
 }: DashboardLayoutProps) {
   const { locale } = await params;
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
 
   const filteredLinks = dashboardConfig.sidebarNav.map((section) => ({
     ...section,

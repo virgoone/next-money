@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { Locale } from "@/config";
+import { type Locale } from "@/i18n/routing";
 
 interface ComfortingMessagesProps {
   language: Locale;

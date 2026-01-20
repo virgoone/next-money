@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
 import { currentUser } from "@clerk/nextjs/server";
-import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { DashboardHeader } from "@/components/dashboard/header";
 import { DashboardShell } from "@/components/dashboard/shell";
@@ -26,14 +26,14 @@ export async function generateMetadata({
 
 export default async function SettingsPage({ params }: PageProps) {
   const { locale } = await params;
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
 
   const user = await currentUser();
 
   if (!user) {
     redirect("/");
   }
-  const t = await getTranslations({ namespace: "GiftCode" });
+  const t = await getTranslations({ locale, namespace: "GiftCode" });
 
   return (
     <DashboardShell>

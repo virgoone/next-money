@@ -1,4 +1,4 @@
-import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { PricingCards } from "@/components/pricing-cards";
 import { PricingFaq } from "@/components/pricing-faq";
@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function PricingPage({ params }: Props) {
   const { locale } = await params;
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
 
   const { data: chargeProduct = [] } = await getChargeProduct(locale);
 

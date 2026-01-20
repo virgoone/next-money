@@ -4,7 +4,7 @@ import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
 import { getTranslations } from "next-intl/server";
 
 export default async function Loading() {
-  const t = await getTranslations({ namespace: "PricingPage" });
+  const t = await getTranslations("PricingPage");
 
   return (
     <div className="flex w-full flex-col gap-16 py-8 md:py-8">

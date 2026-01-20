@@ -7,7 +7,7 @@ import { FormListFieldData } from "antd/lib/form";
 import { useLocale, useTranslations } from "next-intl";
 import { toast } from "sonner";
 
-import { Locale, locales } from "@/config";
+import { type Locale, locales } from "@/i18n/routing";
 import { Currency, type ChargeProductSelectDto } from "@/db/type";
 import useForm from "@/hooks/use-form";
 import { getErrorMessage } from "@/lib/handle-error";

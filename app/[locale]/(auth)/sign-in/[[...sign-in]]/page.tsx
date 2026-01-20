@@ -1,5 +1,5 @@
 import { SignIn } from "@clerk/nextjs";
-import { unstable_setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 
 import { Container } from "@/components/layout/container";
 
@@ -10,7 +10,7 @@ type Props = {
 
 export default async function Page({ params }: Props) {
   const { locale } = await params;
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
 
   return (
     <Container className="mt-24 flex items-center justify-center">
