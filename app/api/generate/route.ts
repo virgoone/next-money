@@ -146,7 +146,7 @@ export async function POST(req: NextRequest, { params }: Params) {
       },
     });
     if (!fluxData) {
-      return NextResponse.json({ error: "Create Task Error" }, { status: 400 });
+      return NextResponse.json({ error: "Create Task Error", message: JSON.stringify(res) }, { status: 400 });
     }
 
     await prisma.$transaction(async (tx) => {

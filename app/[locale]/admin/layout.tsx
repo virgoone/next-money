@@ -1,4 +1,4 @@
-import { ReactNode, Suspense, useEffect } from "react";
+import { ReactNode, Suspense } from "react";
 import { redirect } from "next/navigation";
 
 import { AntdRegistry } from "@ant-design/nextjs-registry";
