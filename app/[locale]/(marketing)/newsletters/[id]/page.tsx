@@ -24,10 +24,11 @@ async function getNewsletter(id: string) {
 export async function generateMetadata({
   params,
 }: {
-  params: { id: string; locale: string };
+  params: Promise<{ id: string; locale: string }>;
 }) {
-  const newsletter = await getNewsletter(params.id);
-  unstable_setRequestLocale(params.locale);
+  const { id, locale } = await params;
+  const newsletter = await getNewsletter(id);
+  unstable_setRequestLocale(locale);
 
   const imageUrlRegex = /!\[[^\]]*\]\((.*?)\)/;
   const match = newsletter.body?.match(imageUrlRegex);
@@ -60,9 +61,10 @@ export async function generateMetadata({
 export default async function NewsletterRenderPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const newsletter = await getNewsletter(params.id);
+  const { id } = await params;
+  const newsletter = await getNewsletter(id);
 
   if (!newsletter.body) {
     return null;

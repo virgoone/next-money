@@ -35,7 +35,7 @@ export async function createAction(input: CreateSchema) {
       subject: data.subject,
       from: emailConfig.from,
       to: env.SITE_NOTIFICATION_EMAIL_TO ?? [],
-      reply_to: emailConfig.from,
+      replyTo: emailConfig.from,
       bcc: Array.from(subscriberEmails!) as string[],
       react: NewslettersTemplate({
         subject: data.subject,

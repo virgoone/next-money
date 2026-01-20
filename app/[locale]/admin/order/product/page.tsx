@@ -9,7 +9,7 @@ import { getColumns } from "./_mods/columns";
 import { TableToolbarActions } from "./_mods/toolbar-action";
 
 export interface IndexPageProps {
-  searchParams: SearchParams;
+  searchParams: Promise<SearchParams>;
 }
 
 
@@ -17,7 +17,7 @@ export interface IndexPageProps {
 export default async function AdminChargeProductPage({
   searchParams,
 }: IndexPageProps) {
-  const search = searchParamsSchema.parse(searchParams);
+  const search = searchParamsSchema.parse(await searchParams);
 
   const searchPromise = getBySearch(search);
 

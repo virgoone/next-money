@@ -14,13 +14,14 @@ export const metadata = {
 export default async function ConfirmPage({
   params,
 }: {
-  params: { token: string; locale: string };
+  params: Promise<{ token: string; locale: string }>;
 }) {
-  unstable_setRequestLocale(params.locale);
+  const { locale, token } = await params;
+  unstable_setRequestLocale(locale);
 
   const subscriber = await prisma.subscribers.findFirst({
     where: {
-      token: params.token,
+      token: token,
     },
   });
 
