@@ -24,9 +24,14 @@ function getKey(id: string) {
   return `generate:${id}`;
 }
 
-export const maxDuration = 60;
+function getRequestIp(req: NextRequest) {
+  const xForwardedFor = req.headers.get("x-forwarded-for");
+  if (xForwardedFor) return xForwardedFor.split(",")[0]?.trim() ?? "";
 
-type Params = { params: { key: string } };
+  return req.headers.get("x-real-ip") ?? "";
+}
+
+export const maxDuration = 60;
 const CreateGenerateSchema = z.object({
   model: z.enum([
     model.pro,
@@ -51,7 +56,7 @@ const CreateGenerateSchema = z.object({
   inputImageUrl: z.string().url().optional(),
 });
 
-export async function POST(req: NextRequest, { params }: Params) {
+export async function POST(req: NextRequest) {
   const { userId } = auth();
 
   const user = await currentUser();
@@ -63,7 +68,7 @@ export async function POST(req: NextRequest, { params }: Params) {
   }
 
   const { success } = await ratelimit.limit(
-    getKey(user.id) + `_${req.ip ?? ""}`,
+    getKey(user.id) + `_${getRequestIp(req)}`,
   );
   if (!success) {
     return new Response("Too Many Requests", {
@@ -139,14 +144,17 @@ export async function POST(req: NextRequest, { params }: Params) {
         { status: 400 },
       );
     }
-    console.log('res?.replicate_id,-->', res?.replicate_id)
+    console.log("res?.replicate_id,-->", res?.replicate_id);
     const fluxData = await prisma.fluxData.findFirst({
       where: {
         replicateId: res.replicate_id,
       },
     });
     if (!fluxData) {
-      return NextResponse.json({ error: "Create Task Error", message: JSON.stringify(res) }, { status: 400 });
+      return NextResponse.json(
+        { error: "Create Task Error", message: JSON.stringify(res) },
+        { status: 400 },
+      );
     }
 
     await prisma.$transaction(async (tx) => {
