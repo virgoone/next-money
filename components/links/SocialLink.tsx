@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/tooltip";
 import { AnimatePresence, motion } from "framer-motion";
 
-type IconType = (props: IconProps) => JSX.Element;
+type IconType = (props: IconProps) => React.ReactNode;
 type Platform =
   | "github"
   | "twitter"

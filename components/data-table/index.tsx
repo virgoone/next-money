@@ -11,7 +11,7 @@ import { PageProps } from "./types";
 interface TableProps<TData = any> {
   searchPromise: ReturnType<() => Promise<PageProps<TData>>>;
   deleteAction?: (ids: string[]) => Promise<void>;
-  toolbarElement?: JSX.Element;
+  toolbarElement?: React.ReactNode;
   getColumns: () => TableColumnsType<TData>;
 }
 const { confirm } = Modal;

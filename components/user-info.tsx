@@ -53,7 +53,7 @@ export function UserInfo() {
       case "from_oauth_github":
         return GitHubBrandIcon as (
           props: React.ComponentProps<"svg">,
-        ) => JSX.Element;
+        ) => React.ReactNode;
       case "from_oauth_google":
         return GoogleBrandIcon;
       default:
