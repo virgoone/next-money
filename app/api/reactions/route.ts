@@ -63,7 +63,7 @@ export async function PATCH(req: NextRequest) {
 
   await redis.set(key, current)
 
-  revalidateTag(key)
+    ; (revalidateTag as any)(key)
 
   return NextResponse.json({
     data: current,
