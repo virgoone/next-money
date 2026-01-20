@@ -4,10 +4,11 @@ import Playground from "@/components/playground";
 import { getChargeProduct } from "@/db/queries/charge-product";
 
 interface PageProps {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
-export async function generateMetadata({ params: { locale } }: PageProps) {
+export async function generateMetadata({ params }: PageProps) {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Playground" });
 
   return {
@@ -17,8 +18,9 @@ export async function generateMetadata({ params: { locale } }: PageProps) {
 }
 
 export default async function PlaygroundPage({
-  params: { locale },
+  params,
 }: PageProps) {
+  const { locale } = await params;
   unstable_setRequestLocale(locale);
   const { data: chargeProduct } = await getChargeProduct(locale);
 

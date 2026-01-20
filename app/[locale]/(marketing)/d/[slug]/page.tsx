@@ -18,7 +18,7 @@ import { auth } from "@clerk/nextjs/server";
 import { FluxHashids } from "@/db/dto/flux.dto";
 
 interface RootPageProps {
-  params: { locale: string, slug: string };
+  params: Promise<{ locale: string, slug: string }>;
 }
 
 export async function generateStaticParams() {
@@ -38,9 +38,8 @@ export async function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata({
-  params: { locale, slug },
-}: Omit<RootPageProps, "children">) {
+export async function generateMetadata(props: Omit<RootPageProps, "children">) {
+  const { locale, slug } = await props.params;
   const t = await getTranslations({ locale, namespace: "ExplorePage" });
   const flux = await getFluxById(slug);
   if (!flux) {
@@ -71,9 +70,10 @@ const breakpointColumnsObj = {
 export default async function FluxPage({
   params,
 }: RootPageProps) {
-  unstable_setRequestLocale(params.locale);
+  const { locale, slug } = await params;
+  unstable_setRequestLocale(locale);
   const t = await getTranslations({ namespace: "ExplorePage" });
-  const flux = await getFluxById(params.slug);
+  const flux = await getFluxById(slug);
   if (!flux) {
     return notFound();
   }

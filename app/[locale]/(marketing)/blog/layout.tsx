@@ -5,13 +5,14 @@ import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
 
 interface BlogLayoutProps {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
 export default async function BlogLayout({
   children,
-  params: { locale },
+  params,
 }: BlogLayoutProps) {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "BlogPage" });
 
   return (

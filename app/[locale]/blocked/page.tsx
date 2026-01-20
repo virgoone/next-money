@@ -1,10 +1,11 @@
 import { unstable_setRequestLocale } from "next-intl/server";
 
 type Props = {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 };
 
-export default function BlockedPage({ params: { locale } }: Props) {
+export default async function BlockedPage({ params }: Props) {
+  const { locale } = await params;
   unstable_setRequestLocale(locale);
 
   return (

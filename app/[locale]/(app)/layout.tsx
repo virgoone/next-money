@@ -15,7 +15,7 @@ import { dashboardConfig } from "@/config/dashboard";
 
 interface DashboardLayoutProps {
   children?: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }
 {
   /* <div className="flex min-h-screen flex-col space-y-6">
@@ -37,10 +37,11 @@ interface DashboardLayoutProps {
       <SiteFooter className="border-t" />
     </div> */
 }
-export default function DashboardLayout({
+export default async function DashboardLayout({
   children,
-  params: { locale },
+  params,
 }: DashboardLayoutProps) {
+  const { locale } = await params;
   unstable_setRequestLocale(locale);
 
   const filteredLinks = dashboardConfig.sidebarNav.map((section) => ({

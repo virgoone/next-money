@@ -6,11 +6,10 @@ import PromptGenerator from "@/components/prompt/generator";
 import { PromptFaq } from "@/components/prompt/prompt-faq";
 
 interface RootLayoutProps {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }
-export async function generateMetadata({
-  params: { locale },
-}: Omit<RootLayoutProps, "children">) {
+export async function generateMetadata(props: Omit<RootLayoutProps, "children">) {
+  const { locale } = await props.params;
   const t = await getTranslations({ locale, namespace: "PromptGenerator" });
 
   return {
@@ -22,9 +21,10 @@ export async function generateMetadata({
 export default async function ConfirmPage({
   params,
 }: {
-  params: { token: string; locale: string };
+  params: Promise<{ token: string; locale: string }>;
 }) {
-  unstable_setRequestLocale(params.locale);
+  const { locale } = await params;
+  unstable_setRequestLocale(locale);
   const t = await getTranslations({ namespace: "PromptGenerator" });
 
   return (

@@ -5,10 +5,11 @@ import { BlogPosts } from "@/components/content/blog-posts";
 import { getBlurDataURL } from "@/lib/utils";
 
 interface PageProps {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
-export async function generateMetadata({ params: { locale } }: PageProps) {
+export async function generateMetadata({ params }: PageProps) {
+  const { locale } = await params;
   const t = await getTranslations({ locale });
   return {
     title: `${t("BlogPage.title")} - ${t("LocaleLayout.title")}`,
@@ -16,7 +17,8 @@ export async function generateMetadata({ params: { locale } }: PageProps) {
   };
 }
 
-export default async function BlogPage({ params: { locale } }: PageProps) {
+export default async function BlogPage({ params }: PageProps) {
+  const { locale } = await params;
   const posts = await Promise.all(
     allPosts
       .filter((post) => post.published && post.language === locale)

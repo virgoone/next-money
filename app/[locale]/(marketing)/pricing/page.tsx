@@ -5,10 +5,11 @@ import { PricingFaq } from "@/components/pricing-faq";
 import { getChargeProduct } from "@/db/queries/charge-product";
 
 type Props = {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 };
 
-export async function generateMetadata({ params: { locale } }: Props) {
+export async function generateMetadata({ params }: Props) {
+  const { locale } = await params;
   const t = await getTranslations({ locale });
   return {
     title: `${t("PricingPage.title")} - ${t("LocaleLayout.title")}`,
@@ -16,7 +17,8 @@ export async function generateMetadata({ params: { locale } }: Props) {
   };
 }
 
-export default async function PricingPage({ params: { locale } }: Props) {
+export default async function PricingPage({ params }: Props) {
+  const { locale } = await params;
   unstable_setRequestLocale(locale);
 
   const { data: chargeProduct = [] } = await getChargeProduct(locale);

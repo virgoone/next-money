@@ -4,11 +4,12 @@ import { unstable_setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/layout/container";
 
 type Props = {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 };
 
 
-export default function Page({ params: { locale } }: Props) {
+export default async function Page({ params }: Props) {
+  const { locale } = await params;
   unstable_setRequestLocale(locale);
 
   return (

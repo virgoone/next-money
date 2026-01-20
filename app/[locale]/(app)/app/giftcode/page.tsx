@@ -8,12 +8,13 @@ import { DashboardShell } from "@/components/dashboard/shell";
 import GiftCodeForm from "@/components/forms/gift-code-form";
 
 interface PageProps {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
 export async function generateMetadata({
-  params: { locale },
+  params,
 }: PageProps) {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "GiftCode" });
 
   return {
@@ -23,7 +24,8 @@ export async function generateMetadata({
 }
 
 
-export default async function SettingsPage({ params: { locale } }: PageProps) {
+export default async function SettingsPage({ params }: PageProps) {
+  const { locale } = await params;
   unstable_setRequestLocale(locale);
 
   const user = await currentUser();

@@ -3,12 +3,13 @@ import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import BillingsInfo from "@/components/billing-info";
 
 interface PageProps {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
 export async function generateMetadata({
-  params: { locale },
+  params,
 }: PageProps) {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Billings" });
 
   return {
@@ -16,7 +17,8 @@ export async function generateMetadata({
     description: t("page.description"),
   };
 }
-export default async function DashboardPage({ params: { locale } }: PageProps) {
+export default async function DashboardPage({ params }: PageProps) {
+  const { locale } = await params;
   unstable_setRequestLocale(locale);
 
   return <BillingsInfo />;

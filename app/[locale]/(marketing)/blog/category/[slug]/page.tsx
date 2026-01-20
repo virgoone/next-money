@@ -14,12 +14,13 @@ export async function generateStaticParams() {
   }));
 }
 interface PageProps {
-  params: { locale: string; slug: string };
+  params: Promise<{ locale: string; slug: string }>;
 }
 
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata | undefined> {
+export async function generateMetadata(
+  props: PageProps,
+): Promise<Metadata | undefined> {
+  const params = await props.params;
   const category = BLOG_CATEGORIES.find(
     (category) => category.slug === params.slug,
   );
@@ -37,13 +38,14 @@ export async function generateMetadata({
 }
 
 export default async function BlogCategory({
-  params,
+  params: paramsPromise,
 }: {
-  params: {
+  params: Promise<{
     slug: string;
     locale: string;
-  };
+  }>;
 }) {
+  const params = await paramsPromise;
   const category = BLOG_CATEGORIES.find((ctg) => ctg.slug === params.slug);
 
   if (!category) {

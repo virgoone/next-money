@@ -40,12 +40,12 @@ import { QueryProvider } from "../QueryProvider";
 
 interface RootLayoutProps {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
-export async function generateMetadata({
-  params: { locale },
-}: Omit<RootLayoutProps, "children">) {
+export async function generateMetadata(props: Omit<RootLayoutProps, "children">) {
+  const params = await props.params;
+  const { locale } = params;
   const t = await getTranslations({ locale, namespace: "LocaleLayout" });
 
   return {
@@ -93,8 +93,9 @@ const localeMap = {
 
 export default async function RootLayout({
   children,
-  params: { locale },
+  params,
 }: RootLayoutProps) {
+  const { locale } = await params;
   unstable_setRequestLocale(locale);
 
   // Providing all messages to the client

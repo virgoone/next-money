@@ -7,11 +7,10 @@ import { PlaygroundFaq } from "@/components/playground/playground-faq";
 import { getChargeProduct } from "@/db/queries/charge-product";
 
 interface RootLayoutProps {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }
-export async function generateMetadata({
-  params: { locale },
-}: Omit<RootLayoutProps, "children">) {
+export async function generateMetadata(props: Omit<RootLayoutProps, "children">) {
+  const { locale } = await props.params;
   const t = await getTranslations({ locale, namespace: "Playground" });
 
   return {
@@ -23,11 +22,12 @@ export async function generateMetadata({
 export default async function ConfirmPage({
   params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
-  unstable_setRequestLocale(params.locale);
+  const { locale } = await params;
+  unstable_setRequestLocale(locale);
   const t = await getTranslations({ namespace: "Playground" });
-  const { data: chargeProduct } = await getChargeProduct(params.locale);
+  const { data: chargeProduct } = await getChargeProduct(locale);
 
   return (
     <section className="space-y-6 py-12 sm:py-20 lg:py-20">
@@ -48,7 +48,7 @@ export default async function ConfirmPage({
           style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}
         >
           <FluxFreeGenerator
-            locale={params.locale}
+            locale={locale}
             chargeProduct={chargeProduct}
           />
         </div>

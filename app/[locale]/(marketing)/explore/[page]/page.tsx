@@ -20,11 +20,10 @@ import {
 } from "@/components/ui/pagination";
 
 interface RootLayoutProps {
-  params: { locale: string, page: number };
+  params: Promise<{ locale: string, page: number }>;
 }
-export async function generateMetadata({
-  params: { locale, page },
-}: Omit<RootLayoutProps, "children">) {
+export async function generateMetadata(props: Omit<RootLayoutProps, "children">) {
+  const { locale, page } = await props.params;
   const t = await getTranslations({ locale, namespace: "ExplorePage" });
 
   return {
@@ -40,10 +39,11 @@ const breakpointColumnsObj = {
   640: 1,
 };
 export default async function ExplorePage({
-  params,
+  params: paramsPromise,
 }: {
-  params: { locale: string, page: number };
+  params: Promise<{ locale: string, page: number }>;
 }) {
+  const params = await paramsPromise;
   unstable_setRequestLocale(params.locale);
   const t = await getTranslations({ namespace: "ExplorePage" });
   const page = Number(params.page) || 2;

@@ -7,14 +7,15 @@ import Promotion from "@/components/sections/promotion";
 
 interface MarketingLayoutProps {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
-export default function MarketingLayout({
+export default async function MarketingLayout({
   children,
   params,
 }: MarketingLayoutProps) {
-  unstable_setRequestLocale(params.locale);
+  const { locale } = await params;
+  unstable_setRequestLocale(locale);
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -22,7 +23,7 @@ export default function MarketingLayout({
       <NavBar scroll={true} />
       <main className="flex-1">{children}</main>
       <SiteFooter />
-      <Promotion locale={params.locale} />
+      <Promotion locale={locale} />
     </div>
   );
 }

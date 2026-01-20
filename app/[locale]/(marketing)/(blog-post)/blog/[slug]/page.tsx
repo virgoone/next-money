@@ -33,12 +33,13 @@ export async function generateStaticParams() {
 }
 
 interface PageProps {
-  params: { locale: string; slug: string };
+  params: Promise<{ locale: string; slug: string }>;
 }
 
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata | undefined> {
+export async function generateMetadata(
+  props: PageProps,
+): Promise<Metadata | undefined> {
+  const params = await props.params;
   const post = allPosts.find((post) => post.slugAsParams === params.slug);
   if (!post) {
     return;
@@ -54,7 +55,8 @@ export async function generateMetadata({
   });
 }
 
-export default async function PostPage({ params }: PageProps) {
+export default async function PostPage({ params: paramsPromise }: PageProps) {
+  const params = await paramsPromise;
   const post = allPosts.find(
     (post) => post.slugAsParams === `${params.locale}/${params.slug}`,
   );
