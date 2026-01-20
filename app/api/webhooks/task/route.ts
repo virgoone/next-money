@@ -24,7 +24,7 @@ export async function POST(req: Request) {
   }
 
   // Get the headers
-  const headerPayload = headers();
+  const headerPayload = await headers();
   const webhookKey = headerPayload.get("next-money-webhook-key");
 
   // If there are no headers, error out

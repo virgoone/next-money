@@ -19,8 +19,9 @@ export async function GET() {
 
 export async function POST(req: Request) {
   const body = await req.text();
-  const signature = (headers().get("Stripe-Signature") ||
-    headers().get("stripe-signature")) as string;
+  const headersList = await headers();
+  const signature = (headersList.get("Stripe-Signature") ||
+    headersList.get("stripe-signature")) as string;
   // const signature = stripe.webhooks.generateTestHeaderString({
   //   payload: body,
   //   secret: env.STRIPE_WEBHOOK_SECRET,
