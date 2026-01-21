@@ -20,6 +20,36 @@ const ratelimit = new Ratelimit({
   analytics: true,
 });
 
+function getRequestId() {
+  const uuid = globalThis.crypto?.randomUUID?.();
+  if (uuid) return uuid;
+
+  return `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+}
+
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function findFluxDataByReplicateIdWithRetry(
+  replicateId: string,
+  options?: { maxAttempts?: number; delayMs?: number },
+) {
+  const maxAttempts = options?.maxAttempts ?? 6; // 6 * 250ms ≈ 1.5s（不含查询耗时）
+  const delayMs = options?.delayMs ?? 250;
+
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    const fluxData = await prisma.fluxData.findFirst({
+      where: { replicateId },
+    });
+    if (fluxData) return { fluxData, attempt };
+
+    if (attempt < maxAttempts) await sleep(delayMs);
+  }
+
+  return { fluxData: null, attempt: maxAttempts };
+}
+
 function getKey(id: string) {
   return `generate:${id}`;
 }
@@ -57,6 +87,7 @@ const CreateGenerateSchema = z.object({
 });
 
 export async function POST(req: NextRequest) {
+  const requestId = getRequestId();
   const { userId } = await auth();
 
   const user = await currentUser();
@@ -138,21 +169,41 @@ export async function POST(req: NextRequest) {
         locale,
       }),
     }).then((res) => res.json());
+
+    console.log("[generate]", {
+      requestId,
+      userId,
+      replicateId: res?.replicate_id,
+      error: res?.error ?? null,
+    });
+
     if (!res?.replicate_id && res.error) {
       return NextResponse.json(
         { error: res.error || "Create Generator Error" },
         { status: 400 },
       );
     }
-    console.log("res?.replicate_id,-->", res?.replicate_id);
-    const fluxData = await prisma.fluxData.findFirst({
-      where: {
-        replicateId: res.replicate_id,
-      },
-    });
+    if (!res?.replicate_id) {
+      return NextResponse.json(
+        { error: "Create Generator Error", requestId, message: JSON.stringify(res) },
+        { status: 400 },
+      );
+    }
+
+    const { fluxData, attempt } = await findFluxDataByReplicateIdWithRetry(
+      res.replicate_id,
+      { maxAttempts: 6, delayMs: 250 },
+    );
+
     if (!fluxData) {
       return NextResponse.json(
-        { error: "Create Task Error", message: JSON.stringify(res) },
+        {
+          error: "Create Task Error",
+          requestId,
+          replicateId: res.replicate_id,
+          waitedAttempts: attempt,
+          message: JSON.stringify(res),
+        },
         { status: 400 },
       );
     }

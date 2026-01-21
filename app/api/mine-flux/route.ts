@@ -47,7 +47,8 @@ export async function GET(req: NextRequest) {
         where: whereConditions,
         take: pageSize,
         skip: offset,
-        orderBy: { createdAt: "desc" },
+        // 外部服务写入时 createdAt 可能不稳定；用自增 id 排序更可靠地代表“最新插入”
+        orderBy: { id: "desc" },
       }),
       prisma.fluxData.count({ where: whereConditions }),
     ]);
